@@ -42,11 +42,12 @@ and open the template in the editor.
 .container-menu-lateral {
   position: fixed;
   top: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
   background: #1b3b60;
   box-shadow: 2px 0 6px;
-  margin-top: 64px; }
+  margin-top: 64px;
+  overflow-y: auto; }
   .container-menu-lateral .container-perfil .img-avatar {
     max-width: 50%;
     display: inherit;
@@ -58,109 +59,26 @@ and open the template in the editor.
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px; }
-  .container-menu-lateral ul.menu li {
-    padding: 20px 5px 20px 0;
-    border-bottom: 1px solid #567394; }
-    .container-menu-lateral ul.menu li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      padding: 20px 0px 20px 5px; }
-      .container-menu-lateral ul.menu li a i {
-        margin-right: 12px; }
-    .container-menu-lateral ul.menu li:hover {
-      transition: 0.3s;
-      background: #092340; }
-    .container-menu-lateral ul.menu li:active {
-      background: #092340;
-      border-right: 5px solid #fff; }
-
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-img,
-small,
-strong,
-b,
-i,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section {
-  display: block; }
-
-body {
-  line-height: 1; }
-
-ol,
-ul {
-  list-style: none; }
-
-blockquote,
-q {
-  quotes: none; }
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-.row .col {
-  padding: 0 0.25rem !important; }
+  .container-menu-lateral .collapsible {
+    border: none;
+    box-shadow: none !important; }
+    .container-menu-lateral .collapsible li {
+      border-bottom: 1px solid #567394;
+      padding-top: 5px;
+      padding-bottom: 5px; }
+      .container-menu-lateral .collapsible li .collapsible-header {
+        background: transparent;
+        font-size: 14px;
+        color: #fff;
+        border: none; }
+      .container-menu-lateral .collapsible li:hover {
+        transition: 0.3s;
+        background: #092340; }
+      .container-menu-lateral .collapsible li .collapsible-body {
+        border: none;
+        box-sizing: border-box;
+        padding: 1rem 2rem; }
+        .container-menu-lateral .collapsible li .collapsible-body ul li:hover {
+          background: #1b3b60; }
+        .container-menu-lateral .collapsible li .collapsible-body ul li:last-of-type {
+          border: none; }

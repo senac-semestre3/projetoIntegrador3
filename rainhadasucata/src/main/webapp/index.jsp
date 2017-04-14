@@ -4,21 +4,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clientes</title>
-        
-        <!-- CSS da pagina -->
-        
-        
+
         <!-- CSS Materialize e Font-Awersome -->
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
-        
+
+        <!-- CSS da pagina -->
+
     </head>
-    
+
     <body>
         <%@include file="comum.jsp" %>
-        <div id="main">
-            
-            <!-- Programar aqui!! -->
-            
+        <div class="row">
+            <div  class="col s10 offset-s2">
+                <div id="container-main">
+
+                    <!-- Programar aqui!! -->
+
+                </div>
+            </div>
         </div>
     </body>
 </html>

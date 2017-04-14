@@ -1,12 +1,13 @@
 .container-menu-lateral{
-    position:fixed;
+    position: fixed;
     top: 0;
-    left: 0;
     bottom: 0;
+    left: 0;    
     background: $azul;
     box-shadow: 2px 0 6px;
     margin-top: 64px;
-    
+    overflow-y: auto;
+
     .container-perfil{
 
         .img-avatar{
@@ -24,28 +25,42 @@
         }
     }
 
-    ul.menu{
 
+    .collapsible{
+        border:none;
+        box-shadow: none !important;
         li{
-            padding: 20px 5px 20px 0;
             border-bottom: 1px solid $cinzaEscuro;
-            a{
-                color:$branco;
-                text-decoration: none;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            .collapsible-header{
+                background: transparent;
                 font-size: 14px;
-                padding: 20px 0px 20px 5px;
-                i{
-                    margin-right: 12px;
-                }
+                color: $branco;
+                border: none;
             }
+
+
             &:hover{
                 transition: 0.3s;
                 background: $azulMouse;
             }
-            &:active{
-                background: $azulMouse;
-                border-right: 5px solid $branco;
+            .collapsible-body {
+                border: none;
+                box-sizing: border-box;
+                padding: 1rem 2rem;
+                ul{
+                    li{
+                        &:hover{
+                            background: $azul;
+                        }
+                    }
+                    li:last-of-type{
+                        border:none;
+                    }
+                }
             }
         }
     }
 }
+
