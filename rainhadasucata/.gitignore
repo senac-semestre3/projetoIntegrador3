@@ -1,0 +1,5 @@
+/rainhadasucata/target/
+/rainhadasucata/node_tmp/
+node_modules/
+bower_components/
+node/

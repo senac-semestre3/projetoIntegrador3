@@ -1,3 +1,9 @@
+<%-- 
+    Document   : cliente
+    Created on : 13/04/2017, 20:13:47
+    Author     : everton
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,7 +12,7 @@
         <title>Clientes</title>
         
         <!-- CSS da pagina -->
-        
+        <link href="dist/css/clientes.css" rel="stylesheet" type="text/css"/>
         
         <!-- CSS Materialize e Font-Awersome -->
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>

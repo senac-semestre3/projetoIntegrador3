@@ -1,0 +1,170 @@
+# Iniciar um repositório, criar um repositório
+git init
+
+# Mostra a situação do repositório
+git status
+
+# Adiciona o arquivo pelo nome
+git add nome_do_arquivo.extensão
+
+# Adiciona todos os arquivos com aquela extensão
+git add *.extensão
+
+# Adiciona todos os arquivos
+git add .
+
+# Tirar os arquivos da stage area, ou seja, confirmar as mudanças
+git commit -m "Mensagem do commit, sempre colocar uma mensagem"
+
+# Para pular a fase de adicionar (git add)
+git commit -a -m "O '-a' ele faz adiciona os arquivos no stage area e depois commita"
+
+# Para ver o que foi alterado no arquivo que está no diretório de trabalho, que ainda não foi para o stage area
+git diff
+
+# Para ver o que foi alterado nos arquivos que estão na Stage Area, ou seja, já foram adicionado porem não estão commitados.
+git diff --staged
+
+# Mostra um log de todos os commits feitos no projeto, desde o começo
+git log
+
+# Mostra detalhes do que foi alterado nos arquivos em cada commit
+git log -p
+
+# Mostra detalhes do que foi alterado nos arquivos do ultimo commit
+git log -p -1
+
+# Para mostrar as alterações, o melhor a se usar é a interface gráfica
+gitk
+
+# Mostra todos os logs, porém apenas a chave e a mensagem dos mesmos
+git log --pretty=oneline
+
+# Editar o commit mais recente que foi feito
+*Primeiro eu adiciono manualmete a alteração que será feita (git add)
+*Depois da o comando abaixo
+git commit --amend -m "Posso alterar a mensagem do commit também"
+
+# Para tirar um arquivo que está na stage area, ou seja que ja foi adicionado (git add)
+git reset HEAD nome_do_arquivo.extensão
+
+# Para reverter um arquivo ao estado que estava, ou seja voltar um commit
+git checkout -- nome_do_arquivo.extensão
+
+# Para remover um arquivo do commit
+git rm nome_do_arquivo.extensão --cached
+
+#### O que é uma tag é uma etiqueta, um ponto de atalho para um determinado status do sistema, geralmente, é usado uma tag para fazer uma marcação de uma determinada versão do sistema.
+Ex: 1.0, 1.1, 5.0, etc.
+
+# Criar uma tag
+git tag -a nome_da_tag -m "utilizando o '-m', pode-se colocar uma mensagem entre as aspas(Não é obrigatório)"
+ex: git tag -a v1.0 -m "Versão 1.0"
+
+-----Obs: o "-a" serve para criar uma tag anotada, ela guarda data e hora, quem criou, etc.
+Se não for utilizado o "-a", a tag criada será apenas um ponteiro para o sistema, e não terá nenhuma informação
+
+
+# Para listar as tags
+git tag
+
+#A tag sempre é criada no commit atual, porém, pode-se criar uma tag com uma versão antiga do sistema, num commit antigo, para isso basta pegar a chave do commit que deseja criar a tag, não precisa ser a chave completa, pode ser apenas parte dela.
+git tag -a nome_da_tag chave -m "mensagem opcional"
+
+ex: git tag -a v0.0 77b83a6ec4fdbb8d6eba33a63985d374000cb798 -m "versão inicial do sistema"
+
+# Para ver detalhes sobre a tag
+git show nome_da_tag
+
+# Para usar uma tag, ou seja, fazer com que meus arquivos voltem a versão daquela tag
+git checkout nome_da_tag
+
+# Para deletar uma tag, primeiro deve-se voltar ao branch master
+git checkout master
+
+# Deletar a tag
+git tag -d nome_da_tag
+
+
+### Trabalhando com branch, ou seja, ramificações##
+
+## Para que serve o Branch?
+Em muitas empresas, os ambientes são divididos em partes (Produção, omologação, teste, etc). Cada ambiente desse pode ser um branch, posso mexer tranquilamente num branch que não irá afetar o código principar, o código master que é criado por padrão com o git.
+
+# Criar um branch
+git branch nome_branch
+
+# Para usar o branch
+git checkout nome_branch
+
+# Para fazer a criação do branch e já usa-lo
+git checkout -b nome_branch
+
+# Para juntar as informações de um branch em outro ou para o master. Basta estar no branch que que deseja trazer as informações para ele, e dar um merge.
+Ex: quero traser meu ambiente de teste para o master, eu preciso estar no master e dar o seguinte comando:
+git merge nome_do_branch
+
+--Nesse caso ficaria assim:
+git merge teste
+
+# Para listar todos os branch
+git branch
+
+# Para deletar um branch
+git branch -d nome_do_branch
+
+## As vezes podem acontecer conflitos, por exemplo alterações em uma determinada linha no branch master e alterações na mesma linha num outro branch, quando for feito o merge, ele irá acusar erros, então deverá ser feito a alteração manualmente no documento e depois fazer o commit novamente.
+
+### Trabalhando com git em um repositório, num servidor, compartilhado para varias pessoas numa rede
+git init --bare
+
+## Para iniciar um projeto onde varias pessoas irão trabalhar em um mesmo repositório, primeiro um integrante faz um clone do repositório para sua máquina, inicia o repositório com tudo que irá precisar e depois sobe o projeto para que todos possão iniciar
+
+# Para clonar o repositório
+git clone file:////nome_do_servidor/caminho_se_existir/repositorio_git nome_que_desejar
+
+obs: O ultimo nome não é obrigatório, se não for colocado nenhum, o clone do projeto vem com o mesmo do repositório
+
+## Depois de ter clonado basta entrar no repositório local (que foi clonado), colocar o projeto inicial(frameworks, base inicial, reademe, etc...), fazer o commit no repostório local e depois subir para o repositorio do servidor, para que todos possam baixar o projeto
+
+## Para subir o projeto ##
+
+# Primeiro precisa ver o nome do repositório remoto
+git remote
+
+Obs: Por padrão o nome do repositório remoto é "origin"
+
+# Enviar o projeto
+git push origin master
+
+ou seja, estou dizendo aqui git envie para o repositório remoto "origin" o meu projeto que está no repositorio local no branch "master"
+
+# Para fazer a atualização do repositório local, trazendo os dados do repositório remoto
+git pull origin master
+
+Aqui eu estou dizendo:
+git traga o projeto do repositório remoto "origin" e coloque no meu repositório local no branch "master"
+
+# Para trazer o projeto remoto, em outro branch que não seja o que vc está trabalhando no momento
+git fetch origin branch nome_branch
+
+
+## Trabalhando com github
+
+# Primeiro deve-se dar acesso a máquina local, para que ela consiga interagir com o gitHub, isso será feito através do ssh
+
+# Gerando um par de chave ssh
+ssh-keygen
+
+# Basta configurar a chave gerada no repositório git,
+depois criar o repositório, copiar o o caminho ssh e dar o seguinte comando
+git clone caminho_ssh nome_se_quiser
+
+
+
+# Colaborando com projetos no gitHub
+
+# Primeiro precisa-se fazer um fork no projeto que deseja colaborar, para isso basta localizar o projeto e clicar em fork, agora esse projeto já estará no meu repositório git
+
+# Depois de feito todo o processo (clone, edição do projeto, subir o projeto para o github novamente), agora precisa ser feito um pull request ou seja enviar o arquivo para o autor no projeto, para que ele faça a aprovação do mesmo
+

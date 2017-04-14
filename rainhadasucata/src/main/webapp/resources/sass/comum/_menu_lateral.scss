@@ -1,0 +1,51 @@
+.container-menu-lateral{
+    position:fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: $azul;
+    box-shadow: 2px 0 6px;
+    margin-top: 64px;
+    
+    .container-perfil{
+
+        .img-avatar{
+            max-width: 50%;
+            display: inherit;
+            margin: 10px auto 10px auto;
+            max-height: 90px;
+            height: 90px;
+        }
+        p{
+            text-align: center;
+            font-size: 14px;
+            color: $branco;
+            margin-bottom: 10px;
+        }
+    }
+
+    ul.menu{
+
+        li{
+            padding: 20px 5px 20px 0;
+            border-bottom: 1px solid $cinzaEscuro;
+            a{
+                color:$branco;
+                text-decoration: none;
+                font-size: 14px;
+                padding: 20px 0px 20px 5px;
+                i{
+                    margin-right: 12px;
+                }
+            }
+            &:hover{
+                transition: 0.3s;
+                background: $azulMouse;
+            }
+            &:active{
+                background: $azulMouse;
+                border-right: 5px solid $branco;
+            }
+        }
+    }
+}
