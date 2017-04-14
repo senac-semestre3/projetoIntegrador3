@@ -26,8 +26,7 @@ rainhadasucata
 |               |__resources
 |               |        |__javascript
 |               |        |__sass
-|               |            |__components
-|               |                    |__comum
+|               |            |__comum
 |               |__index.jsp
 |__bower.json
 |__gulpfile.js
@@ -45,14 +44,21 @@ rainhadasucata
 
 #### Requisitos mínimos:
 
-1. Node Package Manager (http://nodejs.org/)
-2. Bower (http://bower.io) `npm install -g bower`
-3. Gulp CLI (http://gulpjs.com/)`npm install -g gulp-cli`
+1. git (https://git-scm.com/)
+2. Node Package Manager (http://nodejs.org/)
+3. Bower (http://bower.io) `npm install -g bower`
+4. Gulp CLI (http://gulpjs.com/)`npm install -g gulp-cli`
 
-#### Seguir o passo-a-passo:
+#### Seguir o passo-a-passo para configurar o git em sua máquina:
 
+ 1. Baixe o git (https://git-scm.com/) e instale
+ 2. configurar o nome ` git config --global user.name "Seu Nome" `
+ 3. configurar o e-mail `git config --global user.email "seu_email" `.
+ 
+#### Seguir o passo-a-passo para configurar o projeto:
+ 
 1. Clone esse repositório (`git clone https://github.com/senac-semestre3/projetoIntegrador3.git`)
-2. Pelo Prompt ou terminala acesse o projeto que clonou e entre na pasta rainhadasucata(onde contem os arquivos bower.json, gulpfile.js, etc...)
+2. acesse o projeto que clonou e entre na pasta rainhadasucata(onde contem os arquivos bower.json, gulpfile.js, etc...)
 3. Digite `npm install` para instalar os pacotes "Node" exigidos pelo projeto
 4. Digite `bower install` para instalar os pacotes "Bower" exigidos pelo projeto
 5. Inicialize o gulp `gulp`.
