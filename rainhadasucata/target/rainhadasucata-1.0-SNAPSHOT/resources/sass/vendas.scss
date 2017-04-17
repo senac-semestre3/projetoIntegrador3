@@ -3,12 +3,126 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 13/04/2017, 21:01:32
     Author     : everton
 */
 @import "comum/_mixins.scss";
 @import "comum/_main.scss";
 @import "comum/_reset.scss";
+
 /*Programar o css Aqui!!*/
 
+.main{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: $azulMouse;
+    table{
+        font-size: 12px;
+        font-weight: 300;
+        td, th{
+            text-align: center;
+        }
+        tr th{
+            text-transform: uppercase;
+        }
+    }
+    .cabecalho{
+        background: $azulMouse;
+        border-radius: 3px 3px 1px 1px;
+        padding: 15px 10px;
+        font-size: 20px;
+        color: $branco;
+    }
+    .corpo-card{
+        padding: 5px 5px;
+        margin-bottom: 40px;
+
+        table{
+            thead{
+                tr:first-of-type{
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+        .box-pagamento-faturar{
+            padding: 20px 14px;
+            width: 100%;
+
+            .meios-pagamento{
+                display: inline-block;
+                .circulo{
+                    @include mixinCirculo(9px, $azulMouse);
+                    display: inline-flex;
+                    color: $branco;
+                    font-size: 28px;
+                }
+                .pagamento{
+                    display: inline-block;
+                    padding-left: 20px;
+
+                    [type="radio"]:not(:checked) + label, [type="radio"]:checked + label{
+                        margin: 0px 10px;
+                        padding-left: 25px;
+                    }
+                }
+            }
+            .btn-finalizar-compra{
+                display: inline-block;
+                padding-top: 5px;
+                button.btn.cancelar.waves-effect.waves-light{
+                    background: $vermelho;
+                    &:hover{
+                        background: $vermelhoLight;
+                    }
+                }
+            }
+        }
+    }
+    .corpo-card table.tabela-produtos{
+        td{
+
+        }
+        td, th{
+            border-left: solid 1px $cinza;
+            padding-left: 10px;
+        }
+        tr td:first-of-type, tr th:first-of-type{
+            border-left: none;
+        }
+        tr{
+            border-bottom: solid 1px $cinza;
+        }
+        tr:last-of-type{
+            border-bottom: none;
+            td:nth-of-type(2){
+                border-left: none;
+            }
+        }
+
+        button.btn-remover{
+            background: transparent;
+            border: 1px solid $vermelho;
+            color: $vermelho;
+            text-transform: capitalize;
+            padding: 0 1rem;
+            text-align: center;
+            letter-spacing: 2px;
+            &:after{
+                content: 'X';
+                font-size: 20px;
+            }
+            &:hover{
+                color: $branco;
+                background: $vermelho;
+            }
+
+            i{
+                line-height: 0;
+                margin-right: 10px;
+            }
+        }
+    }
+
+}

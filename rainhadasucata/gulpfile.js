@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,27 +31,11 @@ gulp.task('sass', function(){
 // task para watch
 gulp.task( 'watch', function() {
   gulp.watch('src/main/webapp/resources/sass/**/*.scss', ['sass']);
-  
+
 });
 
-// task que verifica a pasta bower_components, pega todo js das lib, minifica e envia para o destino
-gulp.task('lib-js-files', function () {
-    return gulp.src(mainBowerFiles('**/*.js'),{ base: 'bower_components' })
-        .pipe(concatVendor('lib.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('src/main/webapp/dist/js'));
- 
-    vendorJs.pipe(clone())
-        .pipe(gzip())
-        .pipe(gulp.dest('src/main/webapp/dist/js'));
-});
-
-gulp.task('copyFonts', function() {
-    gulp.src(mainBowerFiles('**/dist/fonts/*.{ttf,woff,woff2,eof,svg}'))
-        .pipe(gulp.dest('src/main/webapp/dist/fonts'));
-});
 
 // Default Task
 gulp.task('default', function () {
-    runSequence('lib-js-files', 'copyFonts', 'watch');
+    runSequence('watch');
 });

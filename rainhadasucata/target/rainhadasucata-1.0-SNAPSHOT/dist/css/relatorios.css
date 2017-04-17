@@ -8,6 +8,17 @@ and open the template in the editor.
     Author     : everton
 */
 /* ======== Cores */
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates

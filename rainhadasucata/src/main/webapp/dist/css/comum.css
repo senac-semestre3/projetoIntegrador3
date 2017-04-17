@@ -8,6 +8,17 @@ and open the template in the editor.
     Author     : everton
 */
 /* ======== Cores */
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
 .topo {
   background: #1b3b60;
   padding-left: 10px;
@@ -16,7 +27,7 @@ and open the template in the editor.
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1; }
+  z-index: 2; }
   .topo .logo {
     margin-left: 20px; }
     .topo .logo a {
