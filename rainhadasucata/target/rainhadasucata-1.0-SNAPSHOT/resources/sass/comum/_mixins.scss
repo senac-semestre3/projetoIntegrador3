@@ -5,5 +5,27 @@ $azulMouse: #092340;
 $azulFundo: #ebf1f4;
 $azulEditar: #03a9f4;
 $vermelho: #f44336;
+$vermelhoLight: lighten($vermelho, 5%);
 $branco: #fff;
+$cinza: #9e9e9e;
 $cinzaEscuro: #567394;
+
+@mixin mixinCirculo ($largura, $cor){
+    padding: $largura;
+    background: $cor;
+    border-radius: 50%;
+}
+
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
+
+

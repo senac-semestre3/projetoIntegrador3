@@ -3,11 +3,22 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 13/04/2017, 21:01:32
     Author     : everton
 */
 /* ======== Cores */
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -111,3 +122,79 @@ table {
   padding: 0 0.25rem !important; }
 
 /*Programar o css Aqui!!*/
+.main {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #092340; }
+  .main table {
+    font-size: 12px;
+    font-weight: 300; }
+    .main table td, .main table th {
+      text-align: center; }
+    .main table tr th {
+      text-transform: uppercase; }
+  .main .cabecalho {
+    background: #092340;
+    border-radius: 3px 3px 1px 1px;
+    padding: 15px 10px;
+    font-size: 20px;
+    color: #fff; }
+  .main .corpo-card {
+    padding: 5px 5px;
+    margin-bottom: 40px; }
+    .main .corpo-card table thead tr:first-of-type {
+      padding-top: 20px;
+      padding-bottom: 20px; }
+    .main .corpo-card .box-pagamento-faturar {
+      padding: 20px 14px;
+      width: 100%; }
+      .main .corpo-card .box-pagamento-faturar .meios-pagamento {
+        display: inline-block; }
+        .main .corpo-card .box-pagamento-faturar .meios-pagamento .circulo {
+          padding: 9px;
+          background: #092340;
+          border-radius: 50%;
+          display: inline-flex;
+          color: #fff;
+          font-size: 28px; }
+        .main .corpo-card .box-pagamento-faturar .meios-pagamento .pagamento {
+          display: inline-block;
+          padding-left: 20px; }
+          .main .corpo-card .box-pagamento-faturar .meios-pagamento .pagamento [type="radio"]:not(:checked) + label, .main .corpo-card .box-pagamento-faturar .meios-pagamento .pagamento [type="radio"]:checked + label {
+            margin: 0px 10px;
+            padding-left: 25px; }
+      .main .corpo-card .box-pagamento-faturar .btn-finalizar-compra {
+        display: inline-block;
+        padding-top: 5px; }
+        .main .corpo-card .box-pagamento-faturar .btn-finalizar-compra button.btn.cancelar.waves-effect.waves-light {
+          background: #f44336; }
+          .main .corpo-card .box-pagamento-faturar .btn-finalizar-compra button.btn.cancelar.waves-effect.waves-light:hover {
+            background: #f55a4e; }
+  .main .corpo-card table.tabela-produtos td, .main .corpo-card table.tabela-produtos th {
+    border-left: solid 1px #9e9e9e;
+    padding-left: 10px; }
+  .main .corpo-card table.tabela-produtos tr td:first-of-type, .main .corpo-card table.tabela-produtos tr th:first-of-type {
+    border-left: none; }
+  .main .corpo-card table.tabela-produtos tr {
+    border-bottom: solid 1px #9e9e9e; }
+  .main .corpo-card table.tabela-produtos tr:last-of-type {
+    border-bottom: none; }
+    .main .corpo-card table.tabela-produtos tr:last-of-type td:nth-of-type(2) {
+      border-left: none; }
+  .main .corpo-card table.tabela-produtos button.btn-remover {
+    background: transparent;
+    border: 1px solid #f44336;
+    color: #f44336;
+    text-transform: capitalize;
+    padding: 0 1rem;
+    text-align: center;
+    letter-spacing: 2px; }
+    .main .corpo-card table.tabela-produtos button.btn-remover:after {
+      content: 'X';
+      font-size: 20px; }
+    .main .corpo-card table.tabela-produtos button.btn-remover:hover {
+      color: #fff;
+      background: #f44336; }
+    .main .corpo-card table.tabela-produtos button.btn-remover i {
+      line-height: 0;
+      margin-right: 10px; }
