@@ -1,11 +1,6 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
-    Created on : 13/04/2017, 20:59:43
-    Author     : everton
+    Created on : 19/04/2017, 21:38:39
+    Author     : fabio.jrezequiel
 */
 /* ======== Cores */
 /* DICA:
@@ -121,4 +116,28 @@ table {
 .row .col {
   padding: 0 0.25rem !important; }
 
-/*Programar o css Aqui!!*/
+#container-main .main table th {
+  text-transform: uppercase;
+  font-size: 14px; }
+
+#container-main .main .cabecalho {
+  background: #092340;
+  border-radius: 3px 3px 1px 1px;
+  padding: 15px 10px;
+  font-size: 20px;
+  color: #fff; }
+
+#container-main .main .corpo-card {
+  padding: 5px 5px;
+  margin-bottom: 40px; }
+  #container-main .main .corpo-card button {
+    padding: 0px 10px;
+    background: #f2f2f2;
+    border: 1px solid #092340;
+    color: #092340; }
+  #container-main .main .corpo-card button.btn-ver:hover {
+    background: #00E676; }
+  #container-main .main .corpo-card button.btn-editar:hover {
+    background: #03a9f4; }
+  #container-main .main .corpo-card button.btn-apagar:hover {
+    background: #f44336; }

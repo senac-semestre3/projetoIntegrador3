@@ -9,6 +9,7 @@ $vermelhoLight: lighten($vermelho, 5%);
 $branco: #fff;
 $cinza: #9e9e9e;
 $cinzaEscuro: #567394;
+$verdeVer: #00E676;
 
 @mixin mixinCirculo ($largura, $cor){
     padding: $largura;
