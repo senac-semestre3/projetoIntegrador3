@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 08:31:55
+    Author     : everton
+*/
+
+@mixin button($cor, $corHover){
+    background: $cor;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    &:hover{
+        transition-duration: 0.5;
+        background: $corHover;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 7px 0 rgba(0, 0, 0, 0.12),
+                    0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@mixin buttonInverte($cor, $cor2){
+    @include button($cor, $cor2);
+    background: $cor;
+    color:$cor2;
+    border: solid 1px $cor2;
+    
+    &:hover{
+        background: $cor2;
+        color: $cor;
+ 
+    }
+}
+
+/* Para usdar o mixin no botão basta chamar da seguinte forma
+
+
+btn-teste{
+    @include button($abobora, $aboboraLight); cor opcional
+}
+*/

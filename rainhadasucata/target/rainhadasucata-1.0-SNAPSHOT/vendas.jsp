@@ -37,7 +37,7 @@
                                         <input id="icon_prefix" type="text" class="validate">
                                         <label for="icon_prefix">Cliente</label>
                                     </div>
-                                    <div class="input-field col s5 offset-s1">
+                                    <div class="col s5 offset-s1">
                                         <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
                                             <i class="fa fa-check" aria-hidden="true"></i>  
                                         </button>
@@ -95,7 +95,7 @@
                                             </div>
                                         </div>
                                         <div class="btn-finalizar-compra right">
-                                            <button class="btn cancelar waves-effect waves-light" type="button" name="action">Cancelar
+                                            <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">Cancelar
                                                 <i class="fa fa-ban" aria-hidden="true"></i>
                                             </button>
                                             <button class="btn waves-effect waves-light" type="button" name="action">Faturar

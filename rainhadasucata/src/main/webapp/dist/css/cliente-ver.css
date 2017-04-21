@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : fabio.jrezequiel
 */
 /* ======== Cores */
+/*========== Mixins*/
 /* DICA:
     Para usar esse mixin basta criar um elemento (#id ou .class)
     e chama-lo em seu sass ex:

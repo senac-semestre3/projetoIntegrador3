@@ -1,3 +1,5 @@
+@import "_buttons.scss";
+
 .topo{
     background: $azul;
     padding-left: 10px;
@@ -22,9 +24,7 @@
     }
 
     button.btn-sair{
-        background: transparent;
-        border: 1px solid $vermelho;
-        color: $vermelho;
+        @include buttonInverte(transparent, $vermelho);
         text-transform: capitalize;
         padding: 0 1rem;
         letter-spacing: 2px;
@@ -33,9 +33,7 @@
         }
         &:hover{
             color: $branco;
-            background: $vermelho;
         }
-
         i{
             line-height: 0;
             margin-right: 10px;
