@@ -11,18 +11,4 @@
 @import "comum/_buttons.scss";
 @import "comum/_reset.scss";
 
-.main{
-
-    table.tabela-clientes{
-        .btn-ver{
-            @include buttonInverte($branco, $azulPiscina);
-        }
-        .btn-editar{
-            @include buttonInverte($branco, $verdeAgua);
-        }
-        .btn-deletar{
-            @include buttonInverte($branco, $vermelho);
-        }
-    }
-}
 

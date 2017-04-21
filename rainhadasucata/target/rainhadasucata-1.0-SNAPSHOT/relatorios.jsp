@@ -121,7 +121,7 @@
                                                 <option value="3">Salvador</option>
                                             </select>
                                         </div>
-                                        <button class="btn busca-customizada waves-effect waves-light" type="button" name="procurar">
+                                        <button class="btn busca-customizada waves-effect waves-light col s12" type="button" name="procurar">
                                             <i class="fa fa-search" aria-hidden="true"></i>  
                                         </button>
                                     </div>
@@ -211,7 +211,7 @@
                                                     <td>22/02/2017</td>
                                                     <td>Débito</td>
                                                     <td>
-                                                        <button class="btn-ver-venda waves-effect waves-light">
+                                                        <button class="btn-ver waves-effect waves-light">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>
@@ -223,7 +223,7 @@
                                                     <td>22/02/2017</td>
                                                     <td>Cŕedito</td>
                                                     <td>
-                                                        <button class="btn-ver-venda waves-effect waves-light">
+                                                        <button class="btn-ver waves-effect waves-light">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>
@@ -235,7 +235,7 @@
                                                     <td>22/02/2017</td>
                                                     <td>Dinheiro</td>
                                                     <td>
-                                                        <button class="btn-ver-venda waves-effect waves-light">
+                                                        <button class="btn-ver waves-effect waves-light">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>

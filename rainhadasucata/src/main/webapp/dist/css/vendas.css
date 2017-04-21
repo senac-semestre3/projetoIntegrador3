@@ -104,6 +104,60 @@ btn-teste{
     @include button($abobora, $aboboraLight); cor opcional
 }
 */
+/* Esses botões estão dentro da tabela das telas de chamada,
+    produto
+    clientes
+    permissão
+    usuario
+*/
+.btn-ver {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #1b3b60;
+  border: solid 1px #1b3b60; }
+  .btn-ver:hover {
+    transition-duration: 0.3s;
+    background: #1b3b60;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-ver:hover {
+    background: #1b3b60;
+    color: #fff; }
+  .btn-ver:hover {
+    background: #fff;
+    color: #26a69a; }
+
+.btn-editar {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #03a9f4;
+  border: solid 1px #03a9f4; }
+  .btn-editar:hover {
+    transition-duration: 0.3s;
+    background: #03a9f4;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-editar:hover {
+    background: #03a9f4;
+    color: #fff; }
+
+.btn-deletar {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #f44336;
+  border: solid 1px #f44336; }
+  .btn-deletar:hover {
+    transition-duration: 0.3s;
+    background: #f44336;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-deletar:hover {
+    background: #f44336;
+    color: #fff; }
+
 html,
 body,
 div,
@@ -225,7 +279,7 @@ table {
         border-radius: 2px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
         .main .box-pagamento-faturar .btn-finalizar-compra button.btn.btn-cancelar:hover {
-          transition-duration: 0.5;
+          transition-duration: 0.3s;
           background: #ffa21a;
           box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
 
@@ -241,7 +295,7 @@ table.tabela-produtos button.btn-remover {
   text-align: center;
   letter-spacing: 2px; }
   table.tabela-produtos button.btn-remover:hover {
-    transition-duration: 0.5;
+    transition-duration: 0.3s;
     background: #f44336;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
   table.tabela-produtos button.btn-remover:hover {

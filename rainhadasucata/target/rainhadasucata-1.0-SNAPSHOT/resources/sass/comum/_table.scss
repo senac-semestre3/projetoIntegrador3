@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 table:not(.picker__table){
-    
+
     thead{
         tr:first-of-type{
             padding-top: 20px;
@@ -42,4 +42,5 @@ table:not(.picker__table){
         border-left: solid 1px $cinza;
         padding-left: 10px;
     } 
+
 }

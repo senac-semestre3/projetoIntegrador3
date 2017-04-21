@@ -10,9 +10,10 @@ and open the template in the editor.
 
 @import "comum/_mixins.scss";
 @import "comum/_main.scss";
+@import "comum/_buttons.scss";
 @import "comum/_reset.scss";
 
-/* vc irá programar aqui*/
+
 .main{
     .card{
         .cabecalho{

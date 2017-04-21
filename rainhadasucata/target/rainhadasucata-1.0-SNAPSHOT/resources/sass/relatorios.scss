@@ -53,21 +53,9 @@ and open the template in the editor.
             color: $azul;
         }
     }
-    .btn.busca-customizada{
-        width: 100%;
-        
-    }
-    
     .btn-gerar-pdf{
         @include buttonInverte($branco, $vermelho);
         padding: 10px 10px;
         box-sizing: border-box;
-    }
-    .btn-ver-venda{
-        @include button($branco, $branco);
-        border: 1px solid $azul;
-        &:hover{
-            color: $verdeAgua;
-        }
     }
 }
