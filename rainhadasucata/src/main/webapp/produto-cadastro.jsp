@@ -29,24 +29,26 @@
                 <div id="container-main">
 
                     <!-- Programar aqui!! -->
-                    
-                    <div class="main">     
+
+                    <div class="main">
 
                         <div class="row">
-                           
-                            <button class="btn btn-adicionar waves-effect waves-light right" type="button" name="action">Adicionar
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                            </button>
-                             <button class="btn btn-cancelar waves-effect waves-light right" type="button" name="action">Cancelar
+                               <div class="btn-finalizar-cadastro right">
+                            <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">Cancelar
                                 <i class="fa fa-ban" aria-hidden="true"></i>
                             </button>
+                         
+                                <button class="btn btn-adicionar waves-effect waves-light" type="button" name="action">Adicionar
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="row">
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-barcode left" aria-hidden="true"></i>
-                                    <header>Cadastro de Produto</header>
+                                    <header>Cadastrar Produto</header>
                                 </div>
 
                                 <div id="id-produto" class="input-field col s4">

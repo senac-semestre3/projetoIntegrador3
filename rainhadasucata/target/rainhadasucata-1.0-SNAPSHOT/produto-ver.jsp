@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar Produto</title>
+        <title>Ver Produto</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,21 +35,23 @@
                                 <i class="fa fa-pencil" aria-hidden="true"></i>  
                             </button>   
                         </div><!-- fim -->
+                        
+                        
 
                         <!-- Dados produtos -->
                         <div class="row">
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-barcode left" aria-hidden="true"></i>
-                                    <header>Produto</header>
+                                    <header>Dados do Produto</header>
                                 </div>
                                 <div class="corpo-card">
  
-                                    <div class="row">
-                                    <div class="legenda legenda-produtos">
+                                   
+                                    <div class="legenda">
                                         <i class="fa fa-barcode left" aria-hidden="true"></i>                 
                                         <legend>Produto</legend>
-                                    </div></div>
+                                    </div> 
 
 
                                     <table class="striped">

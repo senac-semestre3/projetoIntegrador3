@@ -27,14 +27,17 @@ and open the template in the editor.
             margin-bottom: 40px;
         }   
     } 
-    .button { 
-        .btn btn-cancelar{
-             background-color: $abobora;
-            color:  $abobora;
-            
+          .btn-finalizar-cadastro{
+            display: inline-block;
+            padding-top: 5px;
+            button.btn.btn-cancelar{
+                @include button($abobora, $aboboraLight);
+             
+            }
+            button{
+                .btn-cancelar{
+                     @include button($abobora, $aboboraLight);
+                }
+            }
         }
-        
-           
-     
-    }
 }
