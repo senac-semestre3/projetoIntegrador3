@@ -10,6 +10,9 @@
 #container-main{
     .main{
         table{
+            td, th{
+                text-align: center;
+            }
             th{
                 text-transform: uppercase;
                 font-size: 14px;
@@ -34,12 +37,15 @@
             }
             button.btn-ver:hover{
                 background: $branco;
+                color: $verdeAgua;
             }
             button.btn-editar:hover{
                 background: $azulEditar;
+                color: $branco;
             }
             button.btn-apagar:hover{
                 background: $vermelho;
+                color: $branco;
             }
         }
     }

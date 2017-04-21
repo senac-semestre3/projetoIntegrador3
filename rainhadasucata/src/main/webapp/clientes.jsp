@@ -31,24 +31,35 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <div class="input-field col s5 offset-s1">
-                                <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
-                                    <i class="fa fa-check" aria-hidden="true"></i>  
-                                </button>
-                            </div>
-
-                            <div class="input-field col s5">
-                                <i class="material-icons prefix right">search</i>
-                                <input id="icon_prefix" type="text" class="validate">
-                                <label for="icon_prefix">Procurar</label>
-                            </div>
-                        </div>
+                            <form class="col s12">
+                                <div> 
+                                    <div class="col s3">
+                                        <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
+                                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                                        </button>
+                                    </div>
+                                    <div class="rigth col s9">
+                                        <div class="input-field col s8 left offset-s2">
+                                            <input id="icon_prefix" type="text" class="validate">
+                                            <label for="icon_prefix">Procurar...</label>
+                                        </div>
+                                        <div class="btn-procurar">
+                                            <button class="btn waves-effect waves-light" type="button" name="action">
+                                                <i class="material-icons">search</i>  
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div><!-- fim da linha -->
 
                         <div class="row">
                             <div class="card">
 
                                 <div class="cabecalho cabecalho-informacoes">
-                                    <i class="fa fa-user-circle" aria-hidden="true"> Clientes</i>                                    
+                                    <i class="fa fa-user-o left" aria-hidden="true"></i>
+                                    <header> Clientes</header>
+
                                 </div>
 
                                 <div class="corpo-card">
@@ -112,5 +123,5 @@
                 </div>
             </div>
         </div>    
-</body>
+    </body>
 </html>
