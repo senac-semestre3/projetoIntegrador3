@@ -30,32 +30,32 @@
 
                     <div class="main">
                         <!-- Programar aqui!! -->
-                        <div class="row">
-                            <form class="col s12">
-                                <div> 
-                                    <div class="col s3">
-                                        <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
-                                            <i class="fa fa-plus" aria-hidden="true"></i> 
-                                        </button>
-                                    </div>
-                                    <div class="rigth col s9">
-                                        <div class="input-field col s8 left offset-s2">
-                                            <input id="icon_prefix" type="text" class="validate">
-                                            <label for="icon_prefix">Procurar...</label>
-                                        </div>
-                                        <div class="btn-procurar">
-                                            <button class="btn waves-effect waves-light" type="button" name="action">
-                                                <i class="material-icons">search</i>  
+
+                        <!-- btn e txt -->
+                        <!-- inicio da linha -->
+                        <div class="row box-topo-tela-chamada">
+                            <div class="col s12">
+                                <div class="col s5 box-btn-adicionar">
+                                    <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
+                                        <i class="fa fa-plus" aria-hidden="true"></i> 
+                                    </button>
+                                </div>
+                                <div class="col s6">
+                                    <form>
+                                        <div class="input-field">
+                                            <input id="txt-cliente-procurar" type="text" class="validate">
+                                            <label for="txt-cliente-procurar">Cliente...</label>
+                                            <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
+                                                <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
                                             </button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
-                        </div><!-- fim da linha -->
+                            </div>
+                        </div>
 
-                        <div class="row">
+                        <div class="row"><!-- inicio da linha -->
                             <div class="card">
-
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-user-o left" aria-hidden="true"></i>
                                     <header> Clientes</header>
@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <table class="striped">
+                                    <table class="striped tabela-clientes">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -83,14 +83,14 @@
                                                 <td>(11)5555-5555</td>
                                                 <td>everton_roliveira@outlook.com</td>
                                                 <td>
-                                                    <button class="btn waves-effect waves-light btn-ver" type="submit" name="action">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                     </button>
-                                                    <button class="btn waves-effect waves-light btn-editar" type="submit" name="action">
-                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
+                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                     </button>
-                                                    <button class="btn waves-effect waves-light btn-apagar" type="submit" name="action">
-                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    <button class="waves-effect waves-light btn-deletar" type="submit" name="btn-deletar">
+                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -101,24 +101,23 @@
                                                 <td>(11)5555-6666</td>
                                                 <td>fabio@live.com</td>
                                                 <td>
-                                                    <button class="btn waves-effect waves-light btn-ver" type="submit" name="action">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                     </button>
-                                                    <button class="btn waves-effect waves-light btn-editar" type="submit" name="action">
-                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
+                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                     </button>
-                                                    <button class="btn waves-effect waves-light btn-apagar" type="submit" name="action">
-                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    <button class="waves-effect waves-light btn-deletar" type="submit" name="btn-deletar">
+                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                     </button>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-
-                            </div><!--Fim .card-body -->
-                        </div>
-                    </div><!-- fim da linha-->
+                            </div><!--Fim .card -->
+                        </div><!-- fim da linha -->
+                    </div><!-- fim do main-->
 
                 </div>
             </div>
