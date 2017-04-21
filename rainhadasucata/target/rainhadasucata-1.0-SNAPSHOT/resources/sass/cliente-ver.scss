@@ -1,3 +1,8 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
 /* 
     Created on : 19/04/2017, 21:38:39
     Author     : fabio.jrezequiel
@@ -10,9 +15,6 @@
 #container-main{
     .main{
         table{
-            td, th{
-                text-align: center;
-            }
             th{
                 text-transform: uppercase;
                 font-size: 14px;
@@ -37,15 +39,9 @@
             }
             button.btn-ver:hover{
                 background: $branco;
-                color: $verdeAgua;
             }
             button.btn-editar:hover{
-                background: $azulEditar;
-                color: $branco;
-            }
-            button.btn-apagar:hover{
-                background: $vermelho;
-                color: $branco;
+                background: $azul;
             }
         }
     }
