@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/04/2017, 20:00:52
+    Author     : DANILO&PAULA
+*/
+/* ======== Cores */
+/*========== Mixins*/
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/04/2017, 11:00:08
+    Author     : everton
+*/
+#container-main {
+  padding: 30px 10px 0px 10px; }
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+img,
+small,
+strong,
+b,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.row .col {
+  padding: 0 0.25rem !important; }
+
+/* vc ir� programar aqui*/
+.main .card .cabecalho {
+  background: #092340;
+  border-radius: 3px 3px 1px 1px;
+  padding: 15px 10px;
+  font-size: 20px;
+  color: #fff; }
+
+.main .card .corpo-card {
+  padding: 5px 5px;
+  margin-bottom: 40px; }
+
+.main .legenda {
+  background: #092340;
+  border-radius: 3px 3px 1px 1px;
+  padding: 15px 10px;
+  font-size: 20px;
+  color: #fff; }
