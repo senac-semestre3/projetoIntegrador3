@@ -56,7 +56,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <table class="striped">
+                                    <table class="striped tabela-detalhes-venda">
                                         <thead>
                                             <tr>
                                                 <th>Id da venda</th>
@@ -72,7 +72,7 @@
                                                 <td>52</td>
                                                 <td>Everton Roberto de Oliveira</td>
                                                 <td>Willian Marques</td>
-                                                <td>Dinheiro</td>
+                                                <td></td>
                                                 <td>14/04/2017</td>
                                             </tr>
                                         </tbody>
@@ -84,13 +84,13 @@
                                                 <i class="fa fa-credit-card " aria-hidden="true"></i>
                                             </div>
                                             <div class="pagamento">
-                                                <input class="with-gap" name="metodo-pagamento" type="radio" id="debito"  />
+                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
                                                 <label for="debito">Débito</label>
 
-                                                <input class="with-gap" name="metodo-pagamento" type="radio" id="credito"  />
+                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
                                                 <label for="credito">Crédito</label>
 
-                                                <input class="with-gap" name="metodo-pagamento" type="radio" id="dinheiro"  />
+                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro"/>
                                                 <label for="dinheiro">Dinheiro</label>
                                             </div>
                                         </div>
@@ -191,5 +191,14 @@
             </div>
         </div>
     </div>
+    
+    
+    <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+        <!-- javascript da pagina -->
+        <script src="dist/js/materialize.js" type="text/javascript"></script>
+        <script src="dist/js/vendas.js" type="text/javascript"></script>
 </body>
 </html>
