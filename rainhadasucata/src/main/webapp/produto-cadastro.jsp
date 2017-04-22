@@ -33,13 +33,16 @@
                     <div class="main">
 
                         <div class="row">
-                               <div class="btn-finalizar-cadastro right">
-                            <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">Cancelar
-                                <i class="fa fa-ban" aria-hidden="true"></i>
-                            </button>
-                         
-                                <button class="btn btn-adicionar waves-effect waves-light" type="button" name="action">Adicionar
-                                    <i class="fa fa-check" aria-hidden="true"></i>
+                            <div class="btn-finalizar-cadastro right">
+                                <a href="produtos.jsp">
+                                    <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">
+                                        Cancelar
+                                        <i class="fa fa-ban" aria-hidden="true"></i>
+                                    </button>
+                                </a>
+
+                                <button class="btn btn-adicionar waves-effect waves-light" type="button" name="action">Salvar
+                                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </div>
@@ -51,61 +54,63 @@
                                     <header>Cadastrar Produto</header>
                                 </div>
 
-                                <div id="id-produto" class="input-field col s4">
-                                    <i class="material-icons prefix fa fa-barcode"></i>
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Código</label>
-                                </div>
+                                <div class="corpo-card">
 
-                                <div id="nome" class="input-field col s8">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Produto</label>
-                                </div>
+                                    <div class="row">
+                                        <div class="input-field col s5 offset-s1">
+                                            <input id="nome-produto" type="text" class="validate">
+                                            <label for="nome-produto">Nome do produto</label>
+                                        </div>
+                                        <div class="input-field col s4 offset-s1">
+                                            <input id="marca" type="text" class="validate">
+                                            <label for="marca">Marca</label>
+                                        </div>
+                                    </div>
 
-                                <div id="marca" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Marca</label>
-                                </div>
+                                    <div class="row">
+                                        <div class="input-field col s10 offset-s1">
+                                            <textarea id="descricao-produto" class="materialize-textarea"></textarea>
+                                            <label for="descricao-produto">Descrição</label>
+                                        </div>
+                                    </div>
 
-                                <div id="descricao" class="input-field col s8">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Descricao</label>
-                                </div>
-
-                                <div id="preco-compra" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Preco de Compra</label>
-                                </div>
-
-                                <div id="preco-venda" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Preco de Venda</label>
-                                </div>
-
-                                <div id="margem-venda" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Margem de Venda</label>
-                                </div>
-
-                                <div id="estoque" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Estoque</label>
-                                </div>
-
-                                <div id="estoque-minimo" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Estoque Minimo</label>
-                                </div>
-
-                                <div id="status" class="input-field col s4">
-                                    <input id="icon_prefix" type="text" class="validate">
-                                    <label for="icon_prefix">Status</label>
+                                    <div class="row">
+                                        <div class="input-field col s3 offset-s1">
+                                            <input id="preco-compra" type="text" class="validate">
+                                            <label for="preco-compra">Peço de compra</label>
+                                        </div>
+                                        <div class="input-field col s2 offset-s1">
+                                            <input id="margem" type="text" class="validate">
+                                            <label for="margem">Margem</label>
+                                        </div>
+                                        <div class="input-field col s3 offset-s1">
+                                            <input id="preco-venda" type="text" class="validate">
+                                            <label for="preco-venda">Valor de venda</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s3 offset-s1">
+                                            <input id="estoque" type="number" class="validate">
+                                            <label for="estoque">Quantidade em estoque</label>
+                                        </div>
+                                        <div class="input-field col s3 offset-s1">
+                                            <input id="estoque-minimo" type="number" class="validate">
+                                            <label for="estoque-minimo">Estoque mínimo</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col offset-s1">
+                                            <input type="checkbox" id="status" />
+                                            <label for="status">Produto Ativo</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>   
-                    </div> 
-                </div>
+                        </div>
+                    </div>   
+                </div> 
             </div>
+        </div>
     </body>
 </html>
 

@@ -157,12 +157,11 @@ table {
   .container-main .box-inputs form {
     padding: 10px 5px;
     position: relative; }
-    .container-main .box-inputs form div.input-field i {
-      position: absolute;
-      right: 0px;
-      bottom: 25px; }
+    .container-main .box-inputs form div.input-field input {
+      height: 40px; }
     .container-main .box-inputs form div.input-field label {
-      color: #fff; }
+      color: #fff;
+      top: -0.1rem; }
   .container-main .box-inputs button {
     width: 100%;
     background: #f44336; }

@@ -54,13 +54,12 @@ and open the template in the editor.
             padding: 10px 5px;
             position: relative;
             div.input-field{
-                i{
-                    position: absolute;
-                    right: 0px;
-                    bottom: 25px;
+                input{
+                    height: 40px;
                 }
                 label{
                     color: $branco;
+                    top: -0.1rem;
                 }
             }
         }

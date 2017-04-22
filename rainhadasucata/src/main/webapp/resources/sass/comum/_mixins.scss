@@ -17,6 +17,7 @@ $aboboraLight: lighten($abobora, 5%);
 /*========== Mixins*/
 
 @mixin mixinCirculo ($largura, $cor){
+    display: inline-block;
     padding: $largura;
     background: $cor;
     border-radius: 50%;

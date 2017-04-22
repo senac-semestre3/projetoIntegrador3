@@ -186,7 +186,7 @@ and open the template in the editor.
     Author     : everton
 */
 .card {
-  margin-bottom: 40px; }
+  margin-bottom: 40px !important; }
   .card .cabecalho {
     background: #092340;
     border-radius: 3px 3px 1px 1px;

@@ -29,22 +29,27 @@
                 <div id="container-main">
                     <div class="main">
                         <!-- Programar aqui!! -->
-                        <div class="row">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <i class="material-icons prefix">account_circle</i>
-                                        <input id="icon_prefix" type="text" class="validate">
-                                        <label for="icon_prefix">Cliente</label>
-                                    </div>
-                                    <div class="col s5 offset-s1">
-                                        <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
-                                            <i class="fa fa-check" aria-hidden="true"></i>  
-                                        </button>
-                                    </div>
+
+                        <div class="row box-topo-tela-chamada">
+                            <div class="col s12">
+                                <div class="col s5">
+                                    <form>
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="cliente">
+                                            <label for="icon_prefix">Cliente</label>
+                                            <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
-                        </div><!-- fim da linha -->
+                                <div class="col s5 box-btn-adicionar">
+                                    <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
+                                        <i class="fa fa-plus" aria-hidden="true"></i> 
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Detalhes da compra -->
                         <div class="row">
@@ -78,35 +83,35 @@
                                         </tbody>
                                     </table>
 
-                                    <div class="box-pagamento-faturar">
-                                        <div class="meios-pagamento">
-                                            <div class="circulo">
-                                                <i class="fa fa-credit-card " aria-hidden="true"></i>
-                                            </div>
-                                            <div class="pagamento">
-                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
-                                                <label for="debito">Débito</label>
-
-                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
-                                                <label for="credito">Crédito</label>
-
-                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro"/>
-                                                <label for="dinheiro">Dinheiro</label>
-                                            </div>
+                                    <div class="meios-pagamento">
+                                        <div class="circulo">
+                                            <i class="fa fa-credit-card " aria-hidden="true"></i>
                                         </div>
-                                        <div class="btn-finalizar-compra right">
-                                            <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">Cancelar
-                                                <i class="fa fa-ban" aria-hidden="true"></i>
-                                            </button>
-                                            <button class="btn waves-effect waves-light" type="button" name="action">Faturar
-                                                <i class="fa fa-usd" aria-hidden="true"></i>
-                                            </button>
+                                        <div class="pagamento">
+                                            <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
+                                            <label for="debito">Débito</label>
+
+                                            <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
+                                            <label for="credito">Crédito</label>
+
+                                            <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro"/>
+                                            <label for="dinheiro">Dinheiro</label>
                                         </div>
                                     </div>
 
                                 </div><!--Fim .card-body -->
                             </div>
                         </div><!-- fim da linha-->
+                        <div class="row">
+                            <div class="right">
+                                <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">Cancelar
+                                    <i class="fa fa-ban" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn btn-faturar waves-effect waves-light" type="button" name="action">Faturar
+                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
 
                         <!-- Carrinho -->
                         <div class="row">
@@ -133,7 +138,7 @@
                                                     <label for="icon_prefix">Quantidade</label>
                                                 </div>
                                                 <div class="input-field col s3 offset-s1">
-                                                    <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
+                                                    <button class="btn btn-adicionar-carrinho waves-effect waves-light" type="button" name="action">Adicionar
                                                         <i class="fa fa-plus" aria-hidden="true"></i> 
                                                     </button>
                                                 </div>
@@ -191,14 +196,14 @@
             </div>
         </div>
     </div>
-    
-    
-    <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
-        <!-- javascript da pagina -->
-        <script src="dist/js/materialize.js" type="text/javascript"></script>
-        <script src="dist/js/vendas.js" type="text/javascript"></script>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!-- javascript da pagina -->
+    <script src="dist/js/materialize.js" type="text/javascript"></script>
+    <script src="dist/js/vendas.js" type="text/javascript"></script>
 </body>
 </html>

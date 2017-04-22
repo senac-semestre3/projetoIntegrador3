@@ -10,35 +10,26 @@ and open the template in the editor.
 
 @import "comum/_mixins.scss";
 @import "comum/_main.scss";
+@import "comum/_card.scss";
+@import "comum/_table.scss";
 @import "comum/_buttons.scss";
 @import "comum/_reset.scss";
 
 
+
 .main{
-    .card{
-        .cabecalho{
-            background: $azulMouse;
-            border-radius: 3px 3px 1px 1px;
-            padding: 15px 10px;
-            font-size: 20px;
-            color: $branco;
+    .cabecalho{
+        margin-bottom: 30px;
+    }
+    label.descricao{
+        font-size: 16px;
+    }
+    .btn{
+        i{
+            margin-left: 10px;
         }
-        .corpo-card{
-            padding: 5px 5px;
-            margin-bottom: 40px;
-        }   
-    } 
-          .btn-finalizar-cadastro{
-            display: inline-block;
-            padding-top: 5px;
-            button.btn.btn-cancelar{
-                @include button($abobora, $aboboraLight);
-             
-            }
-            button{
-                .btn-cancelar{
-                     @include button($abobora, $aboboraLight);
-                }
-            }
-        }
+    }
+    .btn-cancelar{
+        @include button($abobora, $aboboraLight);
+    }
 }
