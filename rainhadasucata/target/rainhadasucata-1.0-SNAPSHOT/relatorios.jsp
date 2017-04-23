@@ -178,7 +178,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Tabela todas as vendas -->
                         <div class="row">
                             <div class="card">
@@ -211,9 +211,11 @@
                                                     <td>22/02/2017</td>
                                                     <td>Débito</td>
                                                     <td>
-                                                        <button class="btn-ver waves-effect waves-light">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button>
+                                                        <a href="#modal-ver-venda">
+                                                            <button class="btn-ver waves-effect waves-light">
+                                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                            </button>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -246,6 +248,19 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- MODAL -->
+                        <!-- Estrutura do modal -->
+                        <div id="modal-ver-venda" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Willian Marques Vieira</h4>
+                                <p>A bunch of text</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -257,6 +272,7 @@
 
         <!-- javascript da pagina -->
         <script src="dist/js/materialize.js" type="text/javascript"></script>
+        <script src="dist/js/relatorio.js" type="text/javascript"></script>
     </body>
 </html>
 

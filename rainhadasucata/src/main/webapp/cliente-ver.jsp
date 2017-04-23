@@ -1,7 +1,7 @@
 <%-- 
     Document   : cliente-ver
-    Created on : 19/04/2017, 20:24:33
-    Author     : fabio.jrezequiel
+    Created on : 23/04/2017, 12:24:36
+    Author     : everton
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,7 +18,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
-        <link href="dist/css/cliente-ver.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/css/tela-ver-dados.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -32,7 +32,7 @@
                         <!-- Programar aqui!! -->
                         <div class="row">
                             <button class="btn btn-editar-cliente waves-effect waves-light right" type="button" name="action">Editar
-                                <i class="material-icons">mode_edit</i> 
+                                <i class="fa fa-pencil"></i> 
                             </button>
                         </div>
 
@@ -91,7 +91,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
+                                            <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
                                             <div class="collapsible-body">
                                                 <table class="tabela-cliente-ver-endereco vertical striped">
                                                     <tr>

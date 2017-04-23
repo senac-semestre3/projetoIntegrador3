@@ -83,9 +83,11 @@
                                             <td>15</td>
                                             <td></td>
                                             <td>
-                                                <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
-                                                    <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                </button>
+                                                <a href="produto-ver.jsp">
+                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                    </button
+                                                </a>
                                                 <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
                                                     <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                 </button>
