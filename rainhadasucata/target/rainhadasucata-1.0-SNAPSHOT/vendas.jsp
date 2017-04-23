@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <table class="striped tabela-detalhes-venda">
+                                    <table class="tabela-detalhes-venda horizontal striped">
                                         <thead>
                                             <tr>
                                                 <th>Id da venda</th>
@@ -144,7 +144,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <table class="tabela-produtos striped">
+                                        <table class="tabela-produtos horizontal striped">
                                             <thead>
                                                 <tr>
                                                     <th>Produto</th>

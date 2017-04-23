@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : 19/04/2017, 21:38:39
-    Author     : fabio.jrezequiel
+    Author     : Everton Roberto
 */
 /* ======== Cores */
 /*========== Mixins*/
@@ -31,6 +31,74 @@ and open the template in the editor.
 */
 #container-main {
   padding: 30px 10px 0px 10px; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 08:13:33
+    Author     : everton
+*/
+.card {
+  margin-bottom: 40px !important; }
+  .card .cabecalho {
+    background: #092340;
+    border-radius: 3px 3px 1px 1px;
+    padding: 15px 10px;
+    font-size: 20px;
+    color: #fff; }
+  .card .corpo-card {
+    padding: 10px 15px; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 12:04:53
+    Author     : everton
+*/
+table:not(picker__table) td, table:not(picker__table) th {
+  padding-left: 10px; }
+
+table:not(picker__table) tr {
+  font-size: 12px;
+  color: #1b3b60; }
+  table:not(picker__table) tr th {
+    text-transform: uppercase;
+    font-weight: 600; }
+  table:not(picker__table) tr td {
+    font-weight: 300; }
+
+.horizontal thead tr:first-of-type {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.horizontal thead tr:last-of-type {
+  border-bottom: none; }
+  .horizontal thead tr:last-of-type td:nth-of-type(2) {
+    border-left: none; }
+
+.horizontal tr {
+  border-bottom: solid 1px #ddd; }
+  .horizontal tr td, .horizontal tr th {
+    text-align: center;
+    border-left: solid 1px #ddd; }
+  .horizontal tr td:first-of-type, .horizontal tr th:first-of-type {
+    border-left: none; }
+
+.vertical tr {
+  font-size: 14px; }
+  .vertical tr th {
+    width: 25%;
+    border-right: 1px solid #ddd;
+    text-align: right;
+    padding-right: 10px; }
+  .vertical tr td {
+    text-align: left; }
 
 html,
 body,
@@ -122,26 +190,10 @@ table {
 .row .col {
   padding: 0 0.25rem !important; }
 
-#container-main .main table th {
-  text-transform: uppercase;
-  font-size: 14px; }
+.main .btn-editar-cliente {
+  line-height: 0; }
+  .main .btn-editar-cliente i {
+    margin-left: 10px; }
 
-#container-main .main .cabecalho {
-  background: #092340;
-  border-radius: 3px 3px 1px 1px;
-  padding: 15px 10px;
-  font-size: 20px;
-  color: #fff; }
-
-#container-main .main .corpo-card {
-  padding: 5px 5px;
-  margin-bottom: 40px; }
-  #container-main .main .corpo-card button {
-    padding: 0px 10px;
-    background: #f2f2f2;
-    border: 1px solid #092340;
-    color: #092340; }
-  #container-main .main .corpo-card button.btn-ver:hover {
-    background: #fff; }
-  #container-main .main .corpo-card button.btn-editar:hover {
-    background: #1b3b60; }
+.main div.collapsible-header i, .main div.collapsible-header span {
+  color: #1b3b60; }

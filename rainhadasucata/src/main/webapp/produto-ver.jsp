@@ -54,7 +54,7 @@
                                     </div> 
 
 
-                                    <table class="striped">
+                                    <table class=" tabela-produto-ver vertical striped">
                                         <thead>
                                         <tbody>
                                             <tr>

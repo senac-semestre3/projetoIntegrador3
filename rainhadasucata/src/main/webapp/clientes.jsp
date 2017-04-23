@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <table class="striped tabela-clientes">
+                                    <table class="tabela-clientes horizontal striped">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -83,9 +83,11 @@
                                                 <td>(11)5555-5555</td>
                                                 <td>everton_roliveira@outlook.com</td>
                                                 <td>
-                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button>
+                                                    <a href="cliente-ver.jsp">
+                                                        <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
+                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                        </button
+                                                    </a>
                                                     <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
                                                         <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                     </button>

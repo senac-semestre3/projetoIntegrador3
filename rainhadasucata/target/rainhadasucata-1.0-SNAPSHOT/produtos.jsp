@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="corpo-card">
-                                <table class="striped tabela-produtos">
+                                <table class="tabela-produtos horizontal striped">
                                     <thead>
                                         <tr>
                                             <th>Id</th>

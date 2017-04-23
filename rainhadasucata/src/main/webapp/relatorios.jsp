@@ -142,7 +142,7 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
-                                        <table class="tabela-valor-total striped">
+                                        <table class="tabela-valor-total horizontal striped">
                                             <thead>
                                                 <tr>
                                                     <th>Data inicial</th>
@@ -191,7 +191,7 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
-                                        <table class="tabela-valor-total striped">
+                                        <table class="tabela-valor-total horizontal striped">
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>

@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="input-field col s2 offset-s1">
                                             <input id="margem" type="text" class="validate">
-                                            <label for="margem">Margem</label>
+                                            <label for="margem">Margem de lucro</label>
                                         </div>
                                         <div class="input-field col s3 offset-s1">
                                             <input id="preco-venda" type="text" class="validate">
