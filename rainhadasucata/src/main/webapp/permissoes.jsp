@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Permissão</title>
+        <title>Permissões</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -58,7 +58,7 @@
                     <div class="row"><!-- inicio da linha -->
                         <div class="card">
                             <div class="cabecalho cabecalho-informacoes">
-                                <i class="fa fa-barcode left" aria-hidden="true"></i>
+                                <i class="fa fa-unlock-alt left" aria-hidden="true"></i>
                                 <header> Permissão</header>
 
                             </div>

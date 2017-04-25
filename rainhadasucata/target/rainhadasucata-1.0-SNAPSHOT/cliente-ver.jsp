@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Clientes</title>
+        <title>Cliente</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,7 +31,7 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <button class="btn btn-editar-cliente waves-effect waves-light right" type="button" name="action">Editar
+                            <button class="btn btn-editar-cliente waves-effect waves-light right" type="button">Editar
                                 <i class="fa fa-pencil"></i> 
                             </button>
                         </div>

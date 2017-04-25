@@ -35,7 +35,7 @@
                         <div class="row">
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
-                                    <i class="fa fa-barcode left" aria-hidden="true"></i>
+                                    <i class="fa fa-lock left" aria-hidden="true"></i>
                                     <header>Cadastrar Permissão</header>
                                 </div>
 
