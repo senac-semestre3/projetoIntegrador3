@@ -34,7 +34,7 @@
                     <div class="row box-topo-tela-chamada">
                         <div class="col s12">
                             <div class="col s5 box-btn-adicionar">
-                                <a href="produto-cadastro.jsp">
+                                <a href="permissao-cadastro.jsp">
                                     <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">
                                         Adicionar
                                         <i class="fa fa-plus" aria-hidden="true"></i> 
