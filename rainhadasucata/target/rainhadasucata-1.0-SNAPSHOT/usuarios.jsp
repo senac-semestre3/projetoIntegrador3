@@ -86,7 +86,7 @@
                                                 <td>(11)5555-5555</td>
                                                 <td>Matriz</td>
                                                 <td>
-                                                <a href="produto-ver.jsp">
+                                                <a href="usuario-ver.jsp">
                                                     <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do usuário" type="submit" name="btn-ver">
                                                         <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                     </button
