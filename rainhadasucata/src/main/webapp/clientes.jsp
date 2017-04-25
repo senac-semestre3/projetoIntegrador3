@@ -18,7 +18,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
-        <link href="dist/css/clientes.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/css/tela-chamada.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
