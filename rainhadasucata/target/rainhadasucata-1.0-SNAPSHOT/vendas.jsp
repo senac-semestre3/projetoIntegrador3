@@ -195,14 +195,11 @@
             </div>
         </div>
     </div>
-
-
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
+    
+    <!-- javascript das libs -->
+    <script src="dist/js/lib.min.js" type="text/javascript"></script>
+    
     <!-- javascript da pagina -->
-    <script src="dist/js/materialize.js" type="text/javascript"></script>
     <script src="dist/js/vendas.js" type="text/javascript"></script>
 </body>
 </html>

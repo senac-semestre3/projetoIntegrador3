@@ -132,5 +132,8 @@
             </div>
         </div>
     </div>
+
+    <!-- javascript das libs -->
+    <script src="dist/js/lib.min.js" type="text/javascript"></script>
 </body>
 </html>

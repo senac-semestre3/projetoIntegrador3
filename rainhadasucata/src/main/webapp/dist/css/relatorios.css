@@ -315,3 +315,5 @@ table {
     .main .btn-gerar-pdf:hover {
       background: #f44336;
       color: #fff; }
+  .main .tabela-detalhes-venda {
+    margin-bottom: 10px; }

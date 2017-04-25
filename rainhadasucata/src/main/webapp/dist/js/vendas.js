@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 window.addEventListener("click", function(){
     var table = document.querySelector('table.tabela-detalhes-venda');
     td = table.querySelector("tbody tr td:nth-child(4)");

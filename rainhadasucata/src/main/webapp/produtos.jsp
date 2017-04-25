@@ -84,14 +84,14 @@
                                             <td></td>
                                             <td>
                                                 <a href="produto-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
+                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
                                                         <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                     </button
                                                 </a>
-                                                <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
+                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar produto" type="submit" name="btn-editar">
                                                     <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                 </button>
-                                                <button class="waves-effect waves-light btn-deletar" type="submit" name="btn-deletar">
+                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar produto" type="submit" name="btn-deletar">
                                                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                 </button>
                                             </td>
@@ -103,13 +103,15 @@
                                             <td>10</td>
                                             <td></td>
                                             <td>
-                                                <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
-                                                    <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                                <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
+                                                <a href="produto-ver.jsp">
+                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                    </button
+                                                </a>
+                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar produto" type="submit" name="btn-editar">
                                                     <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                 </button>
-                                                <button class="waves-effect waves-light btn-deletar" type="submit" name="btn-deletar">
+                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar produto" type="submit" name="btn-deletar">
                                                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                 </button>
                                             </td>
@@ -122,5 +124,8 @@
                 </div><!-- fim do main-->
             </div>
         </div>
+
+        <!-- javascript das libs -->
+        <script src="dist/js/lib.min.js" type="text/javascript"></script>
     </body>
 </html>

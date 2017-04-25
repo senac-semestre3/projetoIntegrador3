@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 14/04/2017, 17:30:52
+    Created on : 24/04/2017, 19:46:41
     Author     : everton
 */
 /* ======== Cores */
@@ -52,54 +52,6 @@ and open the template in the editor.
     color: #fff; }
   .card .corpo-card {
     padding: 10px 15px; }
-
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 21/04/2017, 12:04:53
-    Author     : everton
-*/
-table:not(picker__table) td, table:not(picker__table) th {
-  padding-left: 10px; }
-
-table:not(picker__table) tr {
-  font-size: 12px;
-  color: #1b3b60; }
-  table:not(picker__table) tr th {
-    text-transform: uppercase;
-    font-weight: 600; }
-  table:not(picker__table) tr td {
-    font-weight: 300; }
-
-.horizontal thead tr:first-of-type {
-  padding-top: 20px;
-  padding-bottom: 20px; }
-
-.horizontal thead tr:last-of-type {
-  border-bottom: none; }
-  .horizontal thead tr:last-of-type td:nth-of-type(2) {
-    border-left: none; }
-
-.horizontal tr {
-  border-bottom: solid 1px #ddd; }
-  .horizontal tr td, .horizontal tr th {
-    text-align: center;
-    border-left: solid 1px #ddd; }
-  .horizontal tr td:first-of-type, .horizontal tr th:first-of-type {
-    border-left: none; }
-
-.vertical tr {
-  font-size: 14px; }
-  .vertical tr th {
-    width: 25%;
-    border-right: 1px solid #ddd;
-    text-align: right;
-    padding-right: 10px; }
-  .vertical tr td {
-    text-align: left; }
 
 /*
 To change this license header, choose License Headers in Project Properties.
@@ -261,59 +213,27 @@ table {
 .row .col {
   padding: 0 0.25rem !important; }
 
-/*Programar o css Aqui!!*/
-.main {
-  /* Essa classe é do materialize*/
-  /* Essa classe é do materialize*/ }
-  .main .btn.todas-vendas {
-    width: 100%;
-    height: 105px;
-    padding: 10px 20px;
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    background: #fff;
-    color: #1b3b60;
-    border: solid 1px #1b3b60; }
-    .main .btn.todas-vendas:hover {
-      transition-duration: 0.3s;
-      background: #1b3b60;
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
-    .main .btn.todas-vendas:hover {
-      background: #1b3b60;
-      color: #fff; }
-    .main .btn.todas-vendas i.fa-tags {
-      font-size: 50px; }
-    .main .btn.todas-vendas:after {
-      content: "TODAS AS VENDAS";
-      display: block; }
-  .main .select-wrapper {
-    color: #9e9e9e; }
-    .main .select-wrapper span.caret {
-      color: #1b3b60;
-      font-size: 20px; }
-  .main .box-data {
-    /* Essa classe é do materialize*/ }
-    .main .box-data label {
-      font-size: 14px; }
-    .main .box-data .datepicker {
-      height: 2.5rem;
-      color: #1b3b60; }
-  .main .btn-gerar-pdf {
-    background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-    background: #fff;
-    color: #f44336;
-    border: solid 1px #f44336;
-    padding: 10px 10px;
-    box-sizing: border-box; }
-    .main .btn-gerar-pdf:hover {
-      transition-duration: 0.3s;
-      background: #f44336;
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
-    .main .btn-gerar-pdf:hover {
-      background: #f44336;
-      color: #fff; }
-  .main .tabela-detalhes-venda {
-    margin-bottom: 10px; }
+.main .cabecalho {
+  margin-bottom: 30px; }
+
+.main label.descricao {
+  font-size: 16px; }
+
+.main .btn i {
+  margin-left: 10px; }
+
+.main .btn-cancelar {
+  background: #ff9800;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+  .main .btn-cancelar:hover {
+    transition-duration: 0.3s;
+    background: #ffa21a;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+
+.main .topo-descricao label {
+  font-size: 16px; }
+
+.main .topo-descricao i {
+  margin-top: -8px;
+  color: #092340; }
