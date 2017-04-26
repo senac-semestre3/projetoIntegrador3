@@ -59,9 +59,9 @@
                         <li class="btn-menu"><a class="collapsible-header waves-effect waves-light"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a>
                             <div class="collapsible-body" style="display: none;">
                                 <ul>
-                                    <li><a href="#" class="collapsible-header waves-effect waves-light">Usuário</a>
+                                    <li><a href="usuarios.jsp" class="collapsible-header waves-effect waves-light">Usuário</a>
                                     </li>
-                                    <li><a href="#" class="collapsible-header waves-effect waves-light">Permissão</a>
+                                    <li><a href="permissoes.jsp" class="collapsible-header waves-effect waves-light">Permissão</a>
                                     </li>
                                     <li><a href="#" class="collapsible-header waves-effect waves-light">Loja</a>
                                     </li>
@@ -72,10 +72,5 @@
                 </ul>
             </div>
         </div>
-
-        <!--Import jQuery depois materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
     </body>
 </html>

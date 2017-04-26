@@ -4,31 +4,15 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 20/04/2017, 02:57:22
-    Author     : DANILO&PAULA
+    Created on : 13/04/2017, 20:56:18
+    Author     : everton
 */
-
 @import "comum/_mixins.scss";
 @import "comum/_main.scss";
+@import "comum/_header-tela-chamada.scss";
 @import "comum/_card.scss";
+@import "comum/_table.scss";
 @import "comum/_buttons.scss";
 @import "comum/_reset.scss";
 
-
-
-.main{
-    .cabecalho{
-        margin-bottom: 30px;
-    }
-    label.descricao{
-        font-size: 16px;
-    }
-    .btn{
-        i{
-            margin-left: 10px;
-        }
-    }
-    .btn-cancelar{
-        @include button($abobora, $aboboraLight);
-    }
-}
+/*Programar o css Aqui!!*/

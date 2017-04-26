@@ -1,7 +1,7 @@
 <%-- 
-    Document   : clientes
-    Created on : 19/04/2017, 20:24:33
-    Author     : fabio.jrezequiel
+    Document   : usuarios
+    Created on : 24/04/2017, 21:25:29
+    Author     : everton
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -35,17 +35,20 @@
                         <!-- inicio da linha -->
                         <div class="row box-topo-tela-chamada">
                             <div class="col s12">
+
                                 <div class="col s5 box-btn-adicionar">
-                                    <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
-                                        <i class="fa fa-plus" aria-hidden="true"></i> 
-                                    </button>
+                                    <a href="usuario-cadastro.jsp">
+                                        <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
+                                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                                        </button>
+                                    </a>
                                 </div>
                                 <div class="col s6">
-                                    <form>
+                                    <form method="">
                                         <div class="input-field">
-                                            <input id="txt-cliente-procurar" type="text" class="validate">
-                                            <label for="txt-cliente-procurar">Cliente...</label>
-                                            <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
+                                            <input id="txt-cliente-procurar" type="text" class="validate" name="usuario">
+                                            <label for="txt-cliente-procurar">Usuário...</label>
+                                            <button class="btn-procurar waves-effect waves-light right" type="submit">
                                                 <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
                                             </button>
                                         </div>
@@ -58,7 +61,7 @@
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-user-o left" aria-hidden="true"></i>
-                                    <header> Clientes</header>
+                                    <header> Usuários</header>
 
                                 </div>
 
@@ -68,9 +71,9 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Nome</th>
-                                                <th>Cpf ou Cnpj</th>
+                                                <th>Cpf</th>
                                                 <th>Telefone</th>
-                                                <th>E-mail</th>
+                                                <th>Permissão</th>
                                                 <th>Ação</th>
                                             </tr>
                                         </thead>
@@ -81,40 +84,40 @@
                                                 <td>Everton Roberto de Oliveira</td>
                                                 <td>111.111.111-11</td>
                                                 <td>(11)5555-5555</td>
-                                                <td>everton_roliveira@outlook.com</td>
+                                                <td>Matriz</td>
                                                 <td>
-                                                    <a href="cliente-ver.jsp">
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
-                                                    </a>
-                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
+                                                <a href="usuario-ver.jsp">
+                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do usuário" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                    </button
+                                                </a>
+                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar usuário" type="submit" name="btn-editar">
+                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                </button>
+                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar usuário" type="submit" name="btn-deletar">
+                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
                                                 <td>Fabio Ribeiro</td>
                                                 <td>222.222.222-22</td>
                                                 <td>(11)5555-6666</td>
-                                                <td>fabio@live.com</td>
+                                                <td>Administrador</td>
                                                 <td>
-                                                    <a href="produto-ver.jsp">
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
-                                                    </a>
-                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
+                                                <a href="produto-ver.jsp">
+                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do usuário" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                    </button
+                                                </a>
+                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar usuário" type="submit" name="btn-editar">
+                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                </button>
+                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar usuário" type="submit" name="btn-deletar">
+                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -131,3 +134,4 @@
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
     </body>
 </html>
+

@@ -8,6 +8,7 @@ $vermelho: #f44336;
 $vermelhoLight: lighten($vermelho, 5%);
 $branco: #fff;
 $cinza: #9e9e9e;
+$cinzaBorda: #ddd;
 $cinzaEscuro: #567394;
 $verdeAgua: #26a69a;
 $abobora: #ff9800;
@@ -22,6 +23,7 @@ $aboboraLight: lighten($abobora, 5%);
     background: $cor;
     border-radius: 50%;
 }
+
 
 /* DICA:
     Para usar esse mixin basta criar um elemento (#id ou .class)

@@ -1,0 +1,199 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/04/2017, 12:25:29
+    Author     : everton
+*/
+/* ======== Cores */
+/*========== Mixins*/
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/04/2017, 11:00:08
+    Author     : everton
+*/
+#container-main {
+  padding: 30px 10px 0px 10px; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 08:13:33
+    Author     : everton
+*/
+.card {
+  margin-bottom: 40px !important; }
+  .card .cabecalho {
+    background: #092340;
+    border-radius: 3px 3px 1px 1px;
+    padding: 15px 10px;
+    font-size: 20px;
+    color: #fff; }
+  .card .corpo-card {
+    padding: 10px 15px; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 12:04:53
+    Author     : everton
+*/
+table:not(picker__table) td, table:not(picker__table) th {
+  padding-left: 10px; }
+
+table:not(picker__table) tr {
+  font-size: 12px;
+  color: #1b3b60; }
+  table:not(picker__table) tr th {
+    text-transform: uppercase;
+    font-weight: 600; }
+  table:not(picker__table) tr td {
+    font-weight: 300; }
+
+.horizontal thead tr:first-of-type {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.horizontal thead tr:last-of-type {
+  border-bottom: none; }
+  .horizontal thead tr:last-of-type td:nth-of-type(2) {
+    border-left: none; }
+
+.horizontal tr {
+  border-bottom: solid 1px #ddd; }
+  .horizontal tr td, .horizontal tr th {
+    text-align: center;
+    border-left: solid 1px #ddd; }
+  .horizontal tr td:first-of-type, .horizontal tr th:first-of-type {
+    border-left: none; }
+
+.vertical tr {
+  font-size: 14px; }
+  .vertical tr th {
+    width: 25%;
+    border-right: 1px solid #ddd;
+    text-align: right;
+    padding-right: 10px; }
+  .vertical tr td {
+    text-align: left; }
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+img,
+small,
+strong,
+b,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.row .col {
+  padding: 0 0.25rem !important; }
+
+.main .btn {
+  line-height: 0; }
+  .main .btn i {
+    margin-left: 10px; }
+
+.main div.collapsible-header i, .main div.collapsible-header span {
+  color: #1b3b60; }

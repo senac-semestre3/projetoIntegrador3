@@ -1,7 +1,7 @@
 <%-- 
     Document   : cliente-ver
-    Created on : 19/04/2017, 20:24:33
-    Author     : fabio.jrezequiel
+    Created on : 23/04/2017, 12:24:36
+    Author     : everton
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Clientes</title>
+        <title>Cliente</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
-        <link href="dist/css/cliente-ver.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/css/tela-ver-dados.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -31,87 +31,109 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <div class="input-field col s5 offset-s1">
-                                <button class="btn waves-effect waves-light" type="button" name="action">Adicionar
-                                    <i class="fa fa-check" aria-hidden="true"></i>  
-                                </button>
-                            </div>
-
-                            <div class="input-field col s5">
-                                <i class="material-icons prefix right">search</i>
-                                <input id="icon_prefix" type="text" class="validate">
-                                <label for="icon_prefix">First Name</label>
-                            </div>
+                            <button class="btn btn-editar-cliente waves-effect waves-light right" type="button">Editar
+                                <i class="fa fa-pencil"></i> 
+                            </button>
                         </div>
 
 
-                        <div class="row">
-                            <div class="card">
+                        <div class="row"><!-- INICIO DA LINHA -->
+                            <div class="card"><!-- INICIO DO CARD -->
 
 
                                 <div class="cabecalho cabecalho-informacoes">
-                                    <i class="material-icons left">assignment</i>
-                                    <header>Detalhes da Venda</header>
+                                    <i class="fa fa-user-o left"></i>
+                                    <header>Informações do Cliente</header>
                                 </div>
 
-                                <div class="corpo-card">
-                                    <table class="striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Nome</th>
-                                                <th>Cpf ou Cnpj</th>
-                                                <th>Telefone</th>
-                                                <th>E-mail</th>
-                                                <th>Ação</th>
+                                <div class="corpo-card"><!-- INICIO DO CORPO DO CARD -->
+                                    <ul class="collapsible popout" data-collapsible="accordion">
+                                        <li>
+                                            <div class="collapsible-header"><i class="material-icons">person_pin</i><span>Dados Pessoais</span></div>
+                                            <div class="collapsible-body">
+                                                <table class="tabela-cliente-ver-dados-pessoais vertical striped">
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <td>52</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nome</th>
+                                                        <td>Everton Roberto de Oliveira</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Cpf/Cnpj</th>
+                                                        <td>411.439.358-70</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Sexo</th>
+                                                        <td>Masculino</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header"><i class="material-icons">email</i><span>Dados de Contato</span></div>
+                                            <div class="collapsible-body">
+                                                <table class="tabela-cliente-ver-contato vertical striped">
+                                                    <tr>
+                                                        <th>Telefone</th>
+                                                        <td>(11) 5515-2677</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Celular</th>
+                                                        <td>(11) 95166-9431</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>E-mail</th>
+                                                        <td>everton_roliveira@outlook.com</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
+                                            <div class="collapsible-body">
+                                                <table class="tabela-cliente-ver-endereco vertical striped">
+                                                    <tr>
+                                                        <th>Logradouro</th>
+                                                        <td>Rua Hélio Jacy Gouveia</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Número</th>
+                                                        <td>42</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Bairro</th>
+                                                        <td>Jardim São Francisco</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Cidade</th>
+                                                        <td>São Paulo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Estado</th>
+                                                        <td>SP</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Complemento</th>
+                                                        <td>Casa 4</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div> <!-- FIM DO CORPO DO CARD -->
 
-                                            </tr>
-
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>  
-                                                <td>Everton Roberto de Oliveira</td>
-                                                <td>111.111.111-11</td>
-                                                <td>(11)5555-5555</td>
-                                                <td>everton_roliveira@outlook.com</td>
-                                                <td>
-                                                    <i class="small material-icons">visibility</i>
-                                                    <i class="tyne material-icons">mode_edit</i>
-                                                    <i class="tyne material-icons">delete</i>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Willian Marques</td>
-                                                <td>222.222.222-22</td>
-                                                <td>(11)5555-6666</td>
-                                                <td>willian@gmail.com</td>
-                                                <td>
-
-                                                    <button class="btn waves-effect waves-light btn-ver" type="submit" name="action">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="btn waves-effect waves-light btn-editar" type="submit" name="action">
-                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="btn waves-effect waves-light btn-ver" type="submit" name="action">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div><!--Fim .card-body -->
-                        </div>
-                    </div><!-- fim da linha-->
+                            </div><!--FIM DO CARD -->
+                        </div><!-- FIM DA LINHA -->
+                    </div><!-- FIM DO MAIN-->
 
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- javascript das libs -->
+    <script src="dist/js/lib.min.js" type="text/javascript"></script>
 </body>
 </html>

@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <table class="striped tabela-detalhes-venda">
+                                    <table class="tabela-detalhes-venda horizontal striped">
                                         <thead>
                                             <tr>
                                                 <th>Id da venda</th>
@@ -144,7 +144,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <table class="tabela-produtos striped">
+                                        <table class="tabela-produtos horizontal striped">
                                             <thead>
                                                 <tr>
                                                     <th>Produto</th>
@@ -190,20 +190,16 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div><!-- Limite da programação -->
             </div>
         </div>
     </div>
-
-
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
+    
+    <!-- javascript das libs -->
+    <script src="dist/js/lib.min.js" type="text/javascript"></script>
+    
     <!-- javascript da pagina -->
-    <script src="dist/js/materialize.js" type="text/javascript"></script>
     <script src="dist/js/vendas.js" type="text/javascript"></script>
 </body>
 </html>

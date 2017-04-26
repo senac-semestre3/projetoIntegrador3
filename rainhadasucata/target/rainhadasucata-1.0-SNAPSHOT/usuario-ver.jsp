@@ -1,15 +1,16 @@
 <%-- 
-    Document   : produto-ver
-    Created on : 23/04/2017, 17:52:55
+    Document   : usuario-ver
+    Created on : 24/04/2017, 22:59:04
     Author     : everton
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Produto</title>
+        <title>Usuário</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,7 +32,7 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <button class="btn btn-editar-produto waves-effect waves-light right" type="button" name="action">Editar
+                            <button class="btn btn-editar-cliente waves-effect waves-light right" type="button" name="action">Editar
                                 <i class="fa fa-pencil"></i> 
                             </button>
                         </div>
@@ -42,69 +43,73 @@
 
 
                                 <div class="cabecalho cabecalho-informacoes">
-                                    <i class="fa fa-barcode left"></i>
-                                    <header>Informações do Produto</header>
+                                    <i class="fa fa-user-o left"></i>
+                                    <header>Informações do Usuário</header>
                                 </div>
 
                                 <div class="corpo-card"><!-- INICIO DO CORPO DO CARD -->
                                     <ul class="collapsible popout" data-collapsible="accordion">
                                         <li>
-                                            <div class="collapsible-header"><i class="material-icons">description</i><span>Descrição do Produto</span></div>
+                                            <div class="collapsible-header"><i class="material-icons">person_pin</i><span>Dados Pessoais</span></div>
                                             <div class="collapsible-body">
-                                                <table class="tabela-produto-ver-descricao vertical striped">
+                                                <table class="tabela-cliente-ver-dados-pessoais vertical striped">
                                                     <tr>
                                                         <th>Id</th>
-                                                        <td>35</td>
+                                                        <td>52</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Nome</th>
-                                                        <td>Óleo de câmbio 80w90</td>
+                                                        <td>Everton Roberto de Oliveira</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Marca</th>
-                                                        <td>Lubrax</td>
+                                                        <th>Cpf</th>
+                                                        <td>411.439.358-70</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Descrição</th>
-                                                        <td>Óleo de Câmbio [Transmissão manual] 80w90 mineral </td>
+                                                        <th>Data de Nascimento</th>
+                                                        <td>02/04/1993</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Situação</th>
-                                                        <td>Ativo</td>
+                                                        <th>Sexo</th>
+                                                        <td>Masculino</td>
                                                     </tr>
                                                 </table>
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header"><i class="fa fa-usd" aria-hidden="true"></i><span>Valores</span></div>
+                                            <div class="collapsible-header"><i class="material-icons">call</i><span>Dados de Contato</span></div>
                                             <div class="collapsible-body">
                                                 <table class="tabela-cliente-ver-contato vertical striped">
                                                     <tr>
-                                                        <th>Preço de compra</th>
-                                                        <td>R$ 10,00</td>
+                                                        <th>Telefone</th>
+                                                        <td>(11) 5515-2677</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Margem de lucro</th>
-                                                        <td>100%</td>
+                                                        <th>Celular</th>
+                                                        <td>(11) 95166-9431</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Valor de Venda</th>
-                                                        <td>R$ 20,00</td>
+                                                        <th>E-mail</th>
+                                                        <td>everton_roliveira@outlook.com</td>
                                                     </tr>
                                                 </table>
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="collapsible-header active"><i class="material-icons">done_all</i><span>Estoque</span></div>
+                                            <div class="collapsible-header active"><i class="material-icons">lock</i><span>Dados de Acesso</span></div>
                                             <div class="collapsible-body">
                                                 <table class="tabela-cliente-ver-endereco vertical striped">
                                                     <tr>
-                                                        <th>Quantidade em Estoque</th>
-                                                        <td>15</td>
+                                                        <th>Usuário</th>
+                                                        <td>everton.roliveira2</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Estoque mínimo</th>
-                                                        <td>7</td>
+                                                        <th>Senha</th>
+                                                        <td>*****************</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Permissão</th>
+                                                        <td>Administrador</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
@@ -129,4 +134,3 @@
     <script src="dist/js/lib.min.js" type="text/javascript"></script>
 </body>
 </html>
-

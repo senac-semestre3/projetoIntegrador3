@@ -4,8 +4,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 20/04/2017, 02:57:22
-    Author     : DANILO&PAULA
+    Created on : 24/04/2017, 19:46:41
+    Author     : everton
 */
 
 @import "comum/_mixins.scss";
@@ -31,4 +31,14 @@ and open the template in the editor.
     .btn-cancelar{
         @include button($abobora, $aboboraLight);
     }
+    .topo-descricao{
+        label{
+            font-size: 16px;
+        }
+        i{
+            margin-top: -8px;
+            color: $azulMouse;
+        }
+    }
 }
+

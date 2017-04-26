@@ -1,15 +1,16 @@
 <%-- 
-    Document   : produto
-    Created on : 13/04/2017, 21:04:35
+    Document   : permissao
+    Created on : 25/04/2017, 00:26:07
     Author     : everton
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Produtos</title>
+        <title>Permissões</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,7 +34,7 @@
                     <div class="row box-topo-tela-chamada">
                         <div class="col s12">
                             <div class="col s5 box-btn-adicionar">
-                                <a href="produto-cadastro.jsp">
+                                <a href="permissao-cadastro.jsp">
                                     <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">
                                         Adicionar
                                         <i class="fa fa-plus" aria-hidden="true"></i> 
@@ -44,7 +45,7 @@
                                 <form>
                                     <div class="input-field">
                                         <input id="txt-cliente-procurar" type="text" class="validate">
-                                        <label for="txt-cliente-procurar">Produto...</label>
+                                        <label for="txt-cliente-procurar">Permissão...</label>
                                         <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
                                             <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
                                         </button>
@@ -57,8 +58,8 @@
                     <div class="row"><!-- inicio da linha -->
                         <div class="card">
                             <div class="cabecalho cabecalho-informacoes">
-                                <i class="fa fa-barcode left" aria-hidden="true"></i>
-                                <header> Produtos</header>
+                                <i class="fa fa-unlock-alt left" aria-hidden="true"></i>
+                                <header> Permissão</header>
 
                             </div>
 
@@ -68,8 +69,7 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Nome</th>
-                                            <th>Valor de Venda</th>
-                                            <th>Estoque</th>
+                                            <th>Data Criação</th>
                                             <th>Status</th>
                                             <th>Ação</th>
                                         </tr>
@@ -78,40 +78,44 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>  
-                                            <td>Óleo de Motor</td>
-                                            <td>R$ 19,90</td>
-                                            <td>15</td>
-                                            <td></td>
+                                            <td>Administrador</td>
+                                            <td>15/07/2016</td>
                                             <td>
-                                                <a href="produto-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                </a>
-                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar produto" type="submit" name="btn-editar">
+                                                <div class="switch">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        <span class="lever"></span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar permissão" type="submit" name="btn-editar">
                                                     <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                 </button>
-                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar produto" type="submit" name="btn-deletar">
+                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar permissão" type="submit" name="btn-deletar">
                                                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td>Pneu</td>
-                                            <td>R$ 198,90</td>
-                                            <td>10</td>
-                                            <td></td>
+                                            <td>Produtos</td>
+                                            <td>10/05/2016</td>
                                             <td>
-                                                <a href="produto-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                </a>
-                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar produto" type="submit" name="btn-editar">
+                                                <div class="switch">
+                                                    <label>
+                                                        
+                                                        <input type="checkbox" checked>
+                                                        <span class="lever"></span>
+                                                        
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar permissão" type="submit" name="btn-editar">
                                                     <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                 </button>
-                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar produto" type="submit" name="btn-deletar">
+                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar permissão" type="submit" name="btn-deletar">
                                                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                 </button>
                                             </td>
@@ -129,3 +133,4 @@
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
     </body>
 </html>
+

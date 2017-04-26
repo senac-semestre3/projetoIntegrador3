@@ -142,7 +142,7 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
-                                        <table class="tabela-valor-total striped">
+                                        <table class="tabela-valor-total horizontal striped">
                                             <thead>
                                                 <tr>
                                                     <th>Data inicial</th>
@@ -162,7 +162,7 @@
                                                     <td>R$ 1100,00</td>
                                                     <td>R$ 400,00</td>
                                                     <td rowspan="2">
-                                                        <button class="btn-gerar-pdf waves-effect waves-light">
+                                                        <button class="btn-gerar-pdf waves-effect waves-light tooltipped" data-position="top" data-delay="50" data-tooltip="gerar pdf">
                                                             <i class="fa fa-file-pdf-o fa-4x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>
@@ -178,7 +178,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Tabela todas as vendas -->
                         <div class="row">
                             <div class="card">
@@ -191,7 +191,7 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
-                                        <table class="tabela-valor-total striped">
+                                        <table class="tabela-valor-total horizontal striped">
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
@@ -211,7 +211,7 @@
                                                     <td>22/02/2017</td>
                                                     <td>Débito</td>
                                                     <td>
-                                                        <button class="btn-ver waves-effect waves-light">
+                                                        <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda" >
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>
@@ -223,7 +223,7 @@
                                                     <td>22/02/2017</td>
                                                     <td>Cŕedito</td>
                                                     <td>
-                                                        <button class="btn-ver waves-effect waves-light">
+                                                        <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>
@@ -235,7 +235,7 @@
                                                     <td>22/02/2017</td>
                                                     <td>Dinheiro</td>
                                                     <td>
-                                                        <button class="btn-ver waves-effect waves-light">
+                                                        <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button>
                                                     </td>
@@ -246,17 +246,79 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Modal -->
+                        <div id="modal-ver-venda" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Willian Marques Vieira</h4>
+                                <div class="row">
+                                    <table class="tabela-detalhes-venda horizontal striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Id da venda</th>
+                                                <th>Vendedor</th>
+                                                <th>Método de Pagamento</th>
+                                                <th>Data</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>52</td>
+                                                <td>Everton Roberto de Oliveira</td>
+                                                <td>Débito</td>
+                                                <td>14/04/2017</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                                <th>Total </th>
+                                                <td>69,40</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <table class="tabela-produtos horizontal striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Produto</th>
+                                                <th>Quantidade</th>
+                                                <th>Valor</th>
+                                                <th>Subtotal</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Óleo de Câmbio</td>
+                                                <td> 2 </td>
+                                                <td>19,50</td>
+                                                <td>39,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Óleo de Motor</td>
+                                                <td> 2 </td>
+                                                <td>15,20</td>
+                                                <td>30,40</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <!-- javascript da Lib -->
+        <script src="dist/js/lib.min.js" type="text/javascript"></script>
 
         <!-- javascript da pagina -->
-        <script src="dist/js/materialize.js" type="text/javascript"></script>
+        <script src="dist/js/relatorio.js" type="text/javascript"></script>
     </body>
 </html>
-

@@ -18,7 +18,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
-        <link href="dist/css/clientes.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/css/tela-chamada.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <table class="striped tabela-clientes">
+                                    <table class="tabela-clientes horizontal striped">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -83,13 +83,15 @@
                                                 <td>(11)5555-5555</td>
                                                 <td>everton_roliveira@outlook.com</td>
                                                 <td>
-                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
+                                                    <a href="cliente-ver.jsp">
+                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                        </button
+                                                    </a>
+                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
                                                         <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                     </button>
-                                                    <button class="waves-effect waves-light btn-deletar" type="submit" name="btn-deletar">
+                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
                                                         <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                     </button>
                                                 </td>
@@ -101,13 +103,15 @@
                                                 <td>(11)5555-6666</td>
                                                 <td>fabio@live.com</td>
                                                 <td>
-                                                    <button class="waves-effect waves-teal btn-ver" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-editar" type="submit" name="btn-editar">
+                                                    <a href="produto-ver.jsp">
+                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                        </button
+                                                    </a>
+                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
                                                         <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                                     </button>
-                                                    <button class="waves-effect waves-light btn-deletar" type="submit" name="btn-deletar">
+                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
                                                         <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                     </button>
                                                 </td>
@@ -121,6 +125,9 @@
 
                 </div>
             </div>
-        </div>    
+        </div>
+
+        <!-- javascript das libs -->
+        <script src="dist/js/lib.min.js" type="text/javascript"></script>
     </body>
 </html>
