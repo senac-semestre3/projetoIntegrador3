@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Permissão</title>
+        <title>Cadastro de permissão</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
-        <link href="dist/css/permissao-cadastro.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/css/tela-cadastro.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -41,17 +41,19 @@
 
                                 <div class="corpo-card">
                                     <form method="">
-                                        <div class="row">
-                                            <div class="input-field col s5 offset-s1">
-                                                <input id="nome-produto" type="text" class="validate" name="nome">
-                                                <label for="nome-produto">Nome da permissão</label>
-                                            </div>
-                                            <div class="col offset-s1">
-                                                <input type="checkbox" id="status" name="status"/>
-                                                <label for="status" class="status">Permissão Ativa</label>
+
+                                        <div class="row bloco-dados">
+                                            <div class="row">
+                                                <div class="input-field col s6 offset-s1">
+                                                    <input id="nome-produto" type="text" class="validate" name="nome">
+                                                    <label for="nome-produto">Nome da permissão</label>
+                                                </div>
+                                                <div class="col offset-s1">
+                                                    <input type="checkbox" id="status" name="status"/>
+                                                    <label for="status" class="status">Permissão Ativa</label>
+                                                </div>
                                             </div>
                                         </div>
-
                                         <!-- niveis de permissão -->
                                         <div class="row">
                                             <div class="row">
@@ -61,8 +63,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="row">
+                                        
+                                        <div class="row bloco-dados">
                                             <table class="tabela-produtos horizontal striped">
                                                 <thead>
                                                     <tr>
@@ -107,7 +109,7 @@
                                                             <label for="alterar-status-produto">Alterar status prosuto</label>
                                                         </td>
                                                         <td>
-                                                            
+
                                                         </td>
                                                         <td>
                                                             <input type="checkbox" id="alterar-status-usuario" name="alterar-status-usuario"/>
@@ -136,7 +138,7 @@
                                                             <label for="ver-usuario">Ver usuário</label>
                                                         </td>
                                                         <td>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -149,7 +151,7 @@
                                                             <label for="editar-produto">Editar produto</label>
                                                         </td>
                                                         <td>
-                                                            
+
                                                         </td>
                                                         <td>
                                                             <input type="checkbox" id="editar-usuario" name="editar-usuario"/>
@@ -170,7 +172,7 @@
                                                             <label for="deletar-produto">Deletar produto</label>
                                                         </td>
                                                         <td>
-                                                            
+
                                                         </td>
                                                         <td>
                                                             <input type="checkbox" id="deletar-usuario" name="deletar-usuario"/>

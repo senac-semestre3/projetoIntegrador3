@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Produtos</title>
+        <title>Cadastro de Usuário</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
-        <link href="dist/css/usuario-cadastro.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/css/tela-cadastro.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -40,8 +40,9 @@
 
                                 <div class="corpo-card">
                                     <form method="">
+                                        
                                         <!-- dados pessoais -->
-                                        <div class="row">
+                                        <div class="row bloco-dados">
                                             <div class="row">
                                                 <div class="topo-descricao left">
                                                     <i class="fa fa-user-circle fa-2x left" aria-hidden="true"></i>
@@ -50,33 +51,35 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="input-field col s4 offset-s1">
+                                                <div class="input-field col s9 offset-s1">
                                                     <input id="nome" type="text" class="validate" name="nome">
-                                                    <label for="nome-produto">Nome</label>
+                                                    <label for="nome">Nome</label>
                                                 </div>
-                                                <div class="input-field col s4 offset-s1">
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s9 offset-s1">
                                                     <input id="sobrenome" type="text" class="validate" name="sobrenome">
-                                                    <label for="marca">Sobrenome</label>
+                                                    <label for="sobrenome">Sobrenome</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
                                                     <input id="cpf" type="text" class="validate" name="cpf">
-                                                    <label for="marca">CPF</label>
+                                                    <label for="cpf">CPF</label>
                                                 </div>
                                                 <div class="box-data col s4 offset-s1">
-                                                    <label for="data-inicial" class="active">Data de Nascimento</label>
+                                                    <label for="data-nascimento" class="active">Data de Nascimento</label>
                                                     <input type="date" class="datepicker data-nascimento" name="data-nascimento">
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col offset-s1">
-                                                    <input class="with-gap" name="sexo" type="radio" id="masculino" value="Masculino"/>
+                                                    <input class="with-gap" name="sexo" type="radio" id="masculino" value="M"/>
                                                     <label for="masculino">Masculino</label>
 
-                                                    <input class="with-gap" name="sexo" type="radio" id="feminino" value="Feminino"/>
+                                                    <input class="with-gap" name="sexo" type="radio" id="feminino" value="F"/>
                                                     <label for="feminino">Feminino</label>
                                                 </div>
                                             </div>
@@ -84,7 +87,7 @@
 
 
                                         <!-- contato -->
-                                        <div class="row">
+                                        <div class="row bloco-dados">
                                             <div class="row">
                                                 <div class="topo-descricao left">
                                                     <i class="fa fa-phone-square fa-2x left" aria-hidden="true"></i>
@@ -154,7 +157,7 @@
                                         <!-- botoes -->
                                         <div class="row">
                                             <div class="btn-finalizar-cadastro right">
-                                                <a href="produtos.jsp">
+                                                <a href="usuarios.jsp">
                                                     <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">
                                                         Cancelar
                                                         <i class="fa fa-ban" aria-hidden="true"></i>
