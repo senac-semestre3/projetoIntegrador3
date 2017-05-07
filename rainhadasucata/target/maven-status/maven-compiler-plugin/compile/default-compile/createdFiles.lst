@@ -1,3 +1,5 @@
-br/onevision/rainhadasucata/dao/DaoUsuario.class
-br/onevision/rainhadasucata/model/Usuario.class
-br/onevision/rainhadasucata/dao/DBConnector.class
+br\onevision\rainhadasucata\model\Cliente.class
+br\onevision\rainhadasucata\dao\DaoUsuario.class
+br\onevision\rainhadasucata\dao\DBConnector.class
+br\onevision\rainhadasucata\model\Usuario.class
+br\onevision\rainhadasucata\dao\DaoCliente.class

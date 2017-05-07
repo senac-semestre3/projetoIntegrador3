@@ -1,5 +1,8 @@
-/home/everton/Documentos/desenvolvimento/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/TesteListar.java
-/home/everton/Documentos/desenvolvimento/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/TesteInserir.java
-/home/everton/Documentos/desenvolvimento/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/TesteEditar.java
-/home/everton/Documentos/desenvolvimento/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/TesteObter.java
-/home/everton/Documentos/desenvolvimento/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/TesteExcluir.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteExcluir.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\conexao\TesteConexao.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteEditar.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteListar.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteInserir.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\conexao\TesteListar.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteObter.java
+E:\Senac Campus\3 semestre\Pi3\Projeto\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\cliente\TesteInserir.java

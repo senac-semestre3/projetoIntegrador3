@@ -1,5 +1,8 @@
-br/onevision/rainhadasucata/TesteExcluir.class
-br/onevision/rainhadasucata/TesteObter.class
-br/onevision/rainhadasucata/TesteInserir.class
-br/onevision/rainhadasucata/TesteListar.class
-br/onevision/rainhadasucata/TesteEditar.class
+br\onevision\rainhadasucata\usuario\TesteObter.class
+br\onevision\rainhadasucata\conexao\TesteListar.class
+br\onevision\rainhadasucata\usuario\TesteListar.class
+br\onevision\rainhadasucata\usuario\TesteInserir.class
+br\onevision\rainhadasucata\conexao\TesteConexao.class
+br\onevision\rainhadasucata\usuario\TesteEditar.class
+br\onevision\rainhadasucata\usuario\TesteExcluir.class
+br\onevision\rainhadasucata\cliente\TesteInserir.class
