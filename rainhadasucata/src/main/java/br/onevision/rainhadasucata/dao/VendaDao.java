@@ -38,10 +38,9 @@ public class VendaDao {
                 + "valor_total )"
                 + " VALUES (?, ?, ?, ?, ?, ?);";
 
-        try {
+        try ( // prepared statement para inserção
+                PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-            // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
 
             // criei uma classe que trabalha com data e hora
             DataEHora dataEHora = new DataEHora();
@@ -56,12 +55,9 @@ public class VendaDao {
 
             //Executa SQL Statement
             stmt.execute();
-
             //Fecha stmt
             stmt.close();
 
-            //Fecha conexão
-            FecharConexao();
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -69,6 +65,8 @@ public class VendaDao {
         } finally {
             FecharConexao();
         }
+        //Fecha conexão
+        FecharConexao();
     }
 
     //OBTEM O ID DA ULTIMA VENDA

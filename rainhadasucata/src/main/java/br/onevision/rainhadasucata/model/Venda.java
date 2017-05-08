@@ -49,10 +49,10 @@ public class Venda {
         double total = 0;
         
         for (int i = 0; i < itens.size(); i++) {
-            total = itens.get(i).calculaSubtotal();
+            total += itens.get(i).calculaSubtotal();
         }
         
-        return total;
+        return total - desconto;
     }   
 
     public Cliente getCliente() {

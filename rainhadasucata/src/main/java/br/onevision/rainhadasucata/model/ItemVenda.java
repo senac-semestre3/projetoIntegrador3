@@ -27,7 +27,11 @@ public class ItemVenda {
     }
 
     public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+        if (quantidade > 0) {
+            this.quantidade = quantidade;
+        }else{
+            this.quantidade = 0;
+        }
     }
 
     public double getSubtotal() {
@@ -39,6 +43,10 @@ public class ItemVenda {
     }
     
     public double calculaSubtotal(){
-        return produto.getPrecoVenda() * quantidade;
+        if (quantidade > 0) {
+            return produto.getPrecoVenda() * quantidade;
+        }else{
+            return 0;
+        }
     } 
 }

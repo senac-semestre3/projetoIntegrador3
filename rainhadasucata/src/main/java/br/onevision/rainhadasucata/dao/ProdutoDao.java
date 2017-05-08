@@ -55,8 +55,11 @@ public class ProdutoDao {
             stmt.setInt(7, produto.getEstoque());
             stmt.setInt(8, produto.getEstoqueMinimo());
             stmt.setBoolean(9, produto.isStatus());
+            
             //Executa SQL Statement
             stmt.execute();
+            //Fecha stmt
+            stmt.close();
 
             //Fecha conexão
             FecharConexao();
@@ -162,8 +165,8 @@ public class ProdutoDao {
                 produto.setPrecoCompra(result.getDouble("preco_compra_produtos"));
                 produto.setPrecoVenda(result.getDouble("preco_venda_produtos"));
                 produto.setMargemVenda(result.getDouble("margem_venda_produtos"));
-                produto.setEstoque(result.getInt("Estoque_produtos"));
-                produto.setEstoqueMinimo(result.getInt("Estoque_minimo_produtos"));
+                produto.setEstoque(result.getInt("estoque_produtos"));
+                produto.setEstoqueMinimo(result.getInt("estoque_minimo_produtos"));
                 produto.setStatus(result.getBoolean("status_produtos"));
 
                 return produto;
@@ -312,8 +315,8 @@ public class ProdutoDao {
                 produto.setPrecoCompra(result.getDouble("preco_compra_produtos"));
                 produto.setPrecoVenda(result.getDouble("preco_venda_produtos"));
                 produto.setMargemVenda(result.getDouble("margem_venda_produtos"));
-                produto.setEstoque(result.getInt("Estoque_produtos"));
-                produto.setEstoqueMinimo(result.getInt("Estoque_minimo_produtos"));
+                produto.setEstoque(result.getInt("Eetoque_produtos"));
+                produto.setEstoqueMinimo(result.getInt("estoque_minimo_produtos"));
                 produto.setStatus(result.getBoolean("status_produtos"));
 
                 produtos.add(produto);

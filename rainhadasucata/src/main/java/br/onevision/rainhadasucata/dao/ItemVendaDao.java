@@ -35,25 +35,26 @@ public class ItemVendaDao {
                 + "subtotal_idv ) "
                 + "VALUES (?, ?, ?, ?)";
         
-        try {
+        try ( // prepared statement para inserção
+                PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-            // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
 
             //Seta valores para inserção
             for (int i = 0; i < item.size(); i++) { 
+                System.out.println("Tamanho do Item: " + item.size());
                 stmt.setInt(1, item.get(i).getQuantidade());
                 stmt.setInt(2, idVenda);
                 stmt.setInt(3, item.get(i).getProduto().getId());
+                System.out.println("Id Produto: " + item.get(i).getProduto().getId());
                 stmt.setDouble(4, item.get(i).calculaSubtotal());
-                
-                
+                System.out.println("Subtotal: " + item.get(i).calculaSubtotal());
+
                 //Executa SQL Statement
                 stmt.execute();
             }
             
+            //Fecha stmt
             stmt.close();
-
             //Fecha conexão
             FecharConexao();
 
@@ -63,6 +64,8 @@ public class ItemVendaDao {
         } finally {
             FecharConexao();
         }
+        //Fecha conexão
+        FecharConexao();
         
     }
 }
