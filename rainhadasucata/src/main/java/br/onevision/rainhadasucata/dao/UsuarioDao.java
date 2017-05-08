@@ -48,8 +48,8 @@ public class UsuarioDao {
                 + "nome_login_usuarios, "
                 + "senha_usuarios, "
                 + "status_usuarios, "
-                + "data_cadastro_usuarios,"
-                + "fk_id_permissao,"
+                + "data_cadastro_usuarios, "
+                + "fk_id_permissao, "
                 + "fk_id_loja )"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 

@@ -13,7 +13,6 @@ public class Relatorio extends Venda{
     private double total;
 
     
-    @Override
     public double getTotal() {
         return total;
     }

@@ -17,13 +17,13 @@ public class TesteInserir {
         
         Produto produto = new Produto();
         
-        produto.setNome("Óleo de Motor");
+        produto.setNome("Óleo de Câmbio");
         produto.setMarca("Rainha do Óleo");
         produto.setDescricao("Rainha do Óleo. produto de qualidade");
-        produto.setPrecoCompra(10.00);
-        produto.setPrecoVenda(20.00);
+        produto.setPrecoCompra(20.00);
+        produto.setPrecoVenda(30.00);
         produto.setMargemVenda(50);
-        produto.setEstoque(10);
+        produto.setEstoque(15);
         produto.setEstoqueMinimo(5);
         produto.setStatus(true);
         

@@ -7,7 +7,7 @@ package br.onevision.rainhadasucata.dao;
 
 import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.ItemDeVenda;
+import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
 import br.onevision.rainhadasucata.model.Relatorio;
 import br.onevision.rainhadasucata.model.Usuario;
@@ -61,7 +61,7 @@ public class RelatorioDao {
 
         //cria uma lista de clientes
         List<Relatorio> relatorios = new ArrayList<>();
-        List<ItemDeVenda> itens = new ArrayList<>();
+        List<ItemVenda> itens = new ArrayList<>();
 
         try {
             //Cria um statement para executar as instruções SQL
@@ -76,7 +76,7 @@ public class RelatorioDao {
                 Usuario usuario = new Usuario();
                 Cliente cliente = new Cliente();
                 Produto produto = new Produto();
-                ItemDeVenda itemDeVenda = new ItemDeVenda();
+                ItemVenda itemDeVenda = new ItemVenda();
 
                 relatorio.setIdVenda(result.getInt("id_vendas"));
                 
@@ -97,7 +97,7 @@ public class RelatorioDao {
                     produto.setNome(result.getString("nome_produto"));
                     itemDeVenda.setProduto(produto);
                     itemDeVenda.setQuantidade(result.getInt("quantidade_idv"));
-                    itemDeVenda.setSubtotal();
+                    itemDeVenda.calculaSubtotal();
                     
                     itens.add(itemDeVenda);
                 }

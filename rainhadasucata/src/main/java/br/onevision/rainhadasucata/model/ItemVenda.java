@@ -9,7 +9,7 @@ package br.onevision.rainhadasucata.model;
  *
  * @author everton
  */
-public class ItemDeVenda {
+public class ItemVenda {
     private Produto produto;
     private int quantidade;
     private double subtotal;
@@ -34,11 +34,11 @@ public class ItemDeVenda {
         return subtotal;
     }
 
-    public void setSubtotal() {
-        this.subtotal = produto.getPrecoVenda() * quantidade;
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
     
-    
-    
-    
+    public double calculaSubtotal(){
+        return produto.getPrecoVenda() * quantidade;
+    } 
 }

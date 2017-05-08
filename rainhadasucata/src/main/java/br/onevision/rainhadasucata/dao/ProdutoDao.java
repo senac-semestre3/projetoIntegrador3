@@ -137,7 +137,7 @@ public class ProdutoDao {
         }
     }
 
-    //OBTEM O CLIENTE PELO ID
+    //OBTEM O PRODUTO PELO ID
     public Produto obter(int id)
             throws SQLException, Exception {
 
@@ -192,7 +192,7 @@ public class ProdutoDao {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA DE CLIENTES BUSCADOS PELO NOME
+    //RETORNA UMA LISTA DE PRODUTOS BUSCADOS PELO NOME
     public List<Produto> listaPorNome(String nome)
             throws SQLException, Exception {
 
@@ -203,7 +203,7 @@ public class ProdutoDao {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA DE CLIENTES BUSCADOS PELA MARCA
+    //RETORNA UMA LISTA DE PRODUTOS BUSCADOS PELA MARCA
     public List<Produto> listaPorMarca(String marca)
             throws SQLException, Exception {
 
@@ -214,7 +214,7 @@ public class ProdutoDao {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA DE CLIENTES BUSCADOS POR QUANTIDADE
+    //RETORNA UMA LISTA DE PRODUTOS BUSCADOS POR QUANTIDADE
     public List<Produto> listaPorQuantidade(Integer quantidade)
             throws SQLException, Exception {
 
@@ -225,7 +225,7 @@ public class ProdutoDao {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA DE CLIENTES BUSCADOS PELO STATUS
+    //RETORNA UMA LISTA DE PRODUTOS BUSCADOS PELO STATUS
     public List<Produto> listaPorStatus(Boolean status)
             throws SQLException, Exception {
 

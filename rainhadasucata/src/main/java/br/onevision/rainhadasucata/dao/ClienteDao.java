@@ -28,7 +28,9 @@ public class ClienteDao {
     }
 
     // INSERIR CLIENTE
-    public void inserir(Cliente cliente) throws RuntimeException {
+    public void inserir(Cliente cliente) 
+            throws RuntimeException {
+        
         String sql = "INSERT INTO clientes ("
                 + "nome_clientes, "
                 + "sobrenome_clientes, "
@@ -67,9 +69,12 @@ public class ClienteDao {
             stmt.setString(13, cliente.getEstado());
             stmt.setString(14, cliente.getComplemento());
             stmt.setString(15, cliente.getDataAtual());
+            
             //Executa SQL Statement
             stmt.execute();
-
+            
+            //Fecha stmt
+            stmt.close();
             //Fecha conexão
             FecharConexao();
 
