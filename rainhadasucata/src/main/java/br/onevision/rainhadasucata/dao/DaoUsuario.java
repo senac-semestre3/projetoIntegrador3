@@ -18,16 +18,16 @@ import java.util.List;
  *
  * @author everton
  */
-public class UsuarioDao {
+public class DaoUsuario {
 
     private final Connection connection;
 
-    public UsuarioDao() {
+    public DaoUsuario() {
 
         this.connection = DBConnector.getConexaoDB();
     }
 
-    // INSERIR USU√ÅRIO
+    // INSERIR USU√?RIO
     public void inserir(Usuario usuario) throws RuntimeException {
         String sql = "INSERT INTO usuarios ("
                 + "nome_usuarios, "
@@ -94,7 +94,7 @@ public class UsuarioDao {
 
     }
 
-    //EDITAR USU√ÅRIO
+    //EDITAR USU√?RIO
     public void editarUsuario(Usuario usuario) {
 
         Connection con = DBConnector.getConexaoDB();
@@ -163,7 +163,7 @@ public class UsuarioDao {
         }
     }
 
-    //DELETAR USU√ÅRIO
+    //DELETAR USU√?RIO
     public void excluirUsuario(int id) {
 
         String sql = "UPDATE usuarios SET deletado_usuarios = true WHERE id_usuarios = " + id;
@@ -187,7 +187,7 @@ public class UsuarioDao {
         }
     }
 
-    //OBTEM O USU√ÅRIO PELO ID
+    //OBTEM O USU√?RIO PELO ID
     public Usuario obter(int id)
             throws SQLException, Exception {
 
@@ -243,7 +243,7 @@ public class UsuarioDao {
         return null;
     }
 
-    //RETORNA UMA LISTA DE USU√ÅRIOS BUSCADO POR CPF
+    //RETORNA UMA LISTA DE USU√?RIOS BUSCADO POR CPF
     public List<Usuario> listaPorCpf(String cpf)
             throws SQLException, Exception {
 
@@ -254,7 +254,7 @@ public class UsuarioDao {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA DE USU√ÅRIOS BUSCADOS PELO NOME
+    //RETORNA UMA LISTA DE USU√?RIOS BUSCADOS PELO NOME
     public List<Usuario> listaPorNome(String nome)
             throws SQLException, Exception {
 
@@ -265,7 +265,7 @@ public class UsuarioDao {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA COM TODOS OS USU√ÅRIOS
+    //RETORNA UMA LISTA COM TODOS OS USU√?RIOS
     public List<Usuario> listarTodos() throws
             SQLException, Exception {
 
@@ -276,7 +276,7 @@ public class UsuarioDao {
         return criaLista(sql);
     }
 
-    // CRIA UMA LISTA DE USU√ÅRIOS E RETORNA ESSA LISTA PARA O M√âTODO QUE √Ä CHAMOU
+    // CRIA UMA LISTA DE USU√?RIOS E RETORNA ESSA LISTA PARA O M√âTODO QUE √Ä CHAMOU
     public List<Usuario> criaLista(String sql) {
 
         //cria uma lista de usuarios

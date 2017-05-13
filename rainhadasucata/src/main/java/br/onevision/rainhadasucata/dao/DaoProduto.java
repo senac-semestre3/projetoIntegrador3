@@ -18,11 +18,11 @@ import java.util.List;
  *
  * @author everton
  */
-public class ProdutoDao {
+public class DaoProduto {
 
     private final Connection connection;
 
-    public ProdutoDao() {
+    public DaoProduto() {
 
         this.connection = DBConnector.getConexaoDB();
     }

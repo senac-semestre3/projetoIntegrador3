@@ -6,9 +6,7 @@
 package br.onevision.rainhadasucata.cliente;
 
 import br.onevision.rainhadasucata.dao.ClienteDao;
-import br.onevision.rainhadasucata.dao.UsuarioDao;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
