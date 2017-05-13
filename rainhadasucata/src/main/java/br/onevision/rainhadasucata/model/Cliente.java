@@ -9,6 +9,7 @@ package br.onevision.rainhadasucata.model;
  *
  * @author everton
  */
+
 public class Cliente extends Pessoa{
   
 }

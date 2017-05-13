@@ -29,22 +29,22 @@
                  <div class="logo">
                      <img src="dist/imagens/logo.png" alt=""/>
                  </div>
-                 <form>
+                <form action="login" method="post">
                      <div class="row">
                          <div class="input-field">
                              <i class="small material-icons prefix" aria-hidden="true">perm_identity</i>
-                             <input id="email" type="email" class="validate">
+                             <input id="email" type="email" class="validate" name="nome" value="${nome}">
                              <label for="email">Usuário</label>
                          </div>
                      </div>
                      <div class="row">
                          <div class="input-field">
                              <i class="small material-icons prefix" aria-hidden="true">lock_outline</i>
-                             <input id="password" type="password" class="validate">
+                             <input id="password" type="password" class="validate" name="senha" value="${senha}">
                              <label for="password">Senha</label>
                          </div>
                      </div>
-                     <button class="waves-effect waves-light btn-large">Login</button>
+                    <button type="submit" class="waves-effect waves-light btn-large">Login</button>
                  </form>
                  <div class="row">
                      <p><a href="#">Esqueci minha senha</a></p>

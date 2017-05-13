@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <form method="">
+                                    <form method="post" action="subm">
                                         
                                         <!-- dados pessoais -->
                                         <div class="row bloco-dados">
