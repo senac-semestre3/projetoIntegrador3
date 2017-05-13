@@ -17,12 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-/**
- *
- * @author willian.mvieira
- */
-@WebServlet(name = "ServletLogin1", urlPatterns = {"/login"})
 
+@WebServlet(name = "ServletLogin", urlPatterns = {"/login"})
 public class ServletLogin extends HttpServlet {
 
     /**

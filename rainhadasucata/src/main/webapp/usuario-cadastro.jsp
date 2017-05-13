@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <form method="">
+                                    <form method="post" action="usuario-cadastro">
                                         
                                         <!-- dados pessoais -->
                                         <div class="row bloco-dados">
@@ -56,13 +56,7 @@
                                                     <label for="nome">Nome</label>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="input-field col s9 offset-s1">
-                                                    <input id="sobrenome" type="text" class="validate" name="sobrenome">
-                                                    <label for="sobrenome">Sobrenome</label>
-                                                </div>
-                                            </div>
-
+                                            
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
                                                     <input id="cpf" type="text" class="validate" name="cpf">
@@ -138,9 +132,9 @@
                                                 <div class="input-field col s4 offset-s1">
                                                     <select name="permissao">
                                                         <option value="" disabled selected> </option>
-                                                        <option value="">Matriz</option>
-                                                        <option value="">Produto</option>
-                                                        <option value="">Administrador</option>
+                                                        <option value="1">Matriz</option>
+                                                        <option value="2">Produto</option>
+                                                        <option value="3">Administrador</option>
                                                     </select>
                                                     <label>Nivel de Permissão</label>
                                                 </div>
