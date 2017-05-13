@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.usuario;
 
-import br.onevision.rainhadasucata.dao.UsuarioDao;
+import br.onevision.rainhadasucata.dao.DaoUsuario;
 
 /**
  *
@@ -15,7 +15,7 @@ public class TesteExcluir {
     public static void main(String[] args) {
         
         int id = 3; // id de exclusão
-        UsuarioDao dao = new UsuarioDao();
+        DaoUsuario dao = new DaoUsuario();
         dao.excluirUsuario(id);
     }
 }

@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.relatorio;
 
-import br.onevision.rainhadasucata.dao.RelatorioDao;
+import br.onevision.rainhadasucata.dao.DaoRelatorio;
 import br.onevision.rainhadasucata.model.Relatorio;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class TesteRelatorio {
     public static void main(String[] args) throws Exception {
         
-        RelatorioDao dao = new RelatorioDao();
+        DaoRelatorio dao = new DaoRelatorio();
         
         List<Relatorio> relatorios = dao.listarPorCliente("Maria");
 

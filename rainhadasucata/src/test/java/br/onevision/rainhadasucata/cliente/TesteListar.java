@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.cliente;
 
-import br.onevision.rainhadasucata.dao.ClienteDao;
+import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.model.Cliente;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class TesteListar {
 
     public static void main(String[] args) throws Exception {
 
-        ClienteDao dao = new ClienteDao();
+        DaoCliente dao = new DaoCliente();
 
         List<Cliente> clientes = new ArrayList<>();
         

@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.cliente;
 
-import br.onevision.rainhadasucata.dao.ClienteDao;
+import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.model.Cliente;
 
 /**
@@ -16,7 +16,7 @@ public class TesteObter {
 
     public static void main(String[] args) throws Exception {
         Cliente cliente;
-        ClienteDao dao = new ClienteDao();
+        DaoCliente dao = new DaoCliente();
 
         int id = 3;// id a ser buscado
 

@@ -5,11 +5,8 @@
  */
 package br.onevision.rainhadasucata.cliente;
 
-import br.onevision.rainhadasucata.dao.ClienteDao;
-import br.onevision.rainhadasucata.dao.UsuarioDao;
+import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.Usuario;
-import java.sql.Date;
 
 /**
  *
@@ -36,7 +33,7 @@ public class TesteEditar {
         
         cliente.setId(3);
 
-        ClienteDao dao = new ClienteDao();
+        DaoCliente dao = new DaoCliente();
         dao.editarCliente(cliente);
         
         

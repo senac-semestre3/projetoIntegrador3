@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.produto;
 
-import br.onevision.rainhadasucata.dao.ProdutoDao;
+import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
 
 /**
@@ -27,7 +27,7 @@ public class TesteInserir {
         produto.setEstoqueMinimo(5);
         produto.setStatus(true);
         
-        ProdutoDao dao = new ProdutoDao();
+        DaoProduto dao = new DaoProduto();
         dao.inserir(produto);
     }
 }

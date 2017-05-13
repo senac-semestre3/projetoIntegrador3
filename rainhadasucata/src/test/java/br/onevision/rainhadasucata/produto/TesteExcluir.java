@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.produto;
 
-import br.onevision.rainhadasucata.dao.ProdutoDao;
+import br.onevision.rainhadasucata.dao.DaoProduto;
 
 /**
  *
@@ -13,7 +13,7 @@ import br.onevision.rainhadasucata.dao.ProdutoDao;
  */
 public class TesteExcluir {
     public static void main(String[] args) {
-        ProdutoDao dao = new ProdutoDao();
+        DaoProduto dao = new DaoProduto();
         
         int id = 1; // id para deleção
         dao.excluirProduto(id);

@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.usuario;
 
-import br.onevision.rainhadasucata.dao.UsuarioDao;
+import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Usuario;
 import java.sql.Date;
 
@@ -40,7 +40,7 @@ public class TesteEditar {
         
         usuario.setId(3);
 
-        UsuarioDao dao = new UsuarioDao();
+        DaoUsuario dao = new DaoUsuario();
         dao.editarUsuario(usuario);
         
         

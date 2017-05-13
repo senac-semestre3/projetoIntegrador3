@@ -5,11 +5,11 @@
  */
 package br.onevision.rainhadasucata.venda;
 
-import br.onevision.rainhadasucata.dao.ClienteDao;
-import br.onevision.rainhadasucata.dao.ItemVendaDao;
-import br.onevision.rainhadasucata.dao.ProdutoDao;
-import br.onevision.rainhadasucata.dao.UsuarioDao;
-import br.onevision.rainhadasucata.dao.VendaDao;
+import br.onevision.rainhadasucata.dao.DaoCliente;
+import br.onevision.rainhadasucata.dao.DaoItemVenda;
+import br.onevision.rainhadasucata.dao.DaoProduto;
+import br.onevision.rainhadasucata.dao.DaoUsuario;
+import br.onevision.rainhadasucata.dao.DaoVenda;
 import br.onevision.rainhadasucata.model.Cliente;
 import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
@@ -28,7 +28,7 @@ public class TesteVendaCompleto {
         //----------Passo 1 obtenho o cliente----------
         
         Cliente cliente;
-        ClienteDao clienteDao = new ClienteDao();
+        DaoCliente clienteDao = new DaoCliente();
         
         int idCli = 3;// id a ser buscado
         cliente = clienteDao.obter(idCli);
@@ -37,7 +37,7 @@ public class TesteVendaCompleto {
         //---------Passo 2 obtenho Usuario-------------
         
         Usuario usuario;
-        UsuarioDao usuarioDao = new UsuarioDao();
+        DaoUsuario usuarioDao = new DaoUsuario();
         
         int idUser = 3;
         usuario = usuarioDao.obter(idUser);
@@ -58,7 +58,7 @@ public class TesteVendaCompleto {
         Produto pro1;
         Produto pro2;
         Produto pro3;
-        ProdutoDao produtoDao = new ProdutoDao();
+        DaoProduto produtoDao = new DaoProduto();
         
         int idProduto = 1;// id do produto a ser obtido 
         
@@ -112,14 +112,14 @@ public class TesteVendaCompleto {
         System.out.println("TOTAL: " + venda.calculaTotal());
         System.out.println("**************************");
         
-        VendaDao vendaDao = new VendaDao();
+        DaoVenda vendaDao = new DaoVenda();
 
         vendaDao.inserir(venda);
         
         int ultimaVenda = vendaDao.obterUltimoIdDeVenda();
         System.out.println("Id Ultima Venda: " + ultimaVenda);
         
-        ItemVendaDao itemDao = new ItemVendaDao();
+        DaoItemVenda itemDao = new DaoItemVenda();
         itemDao.inserir(venda.getItens(), ultimaVenda);
   
     }

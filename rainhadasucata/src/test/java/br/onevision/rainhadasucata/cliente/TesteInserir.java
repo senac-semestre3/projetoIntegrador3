@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.cliente;
 
-import br.onevision.rainhadasucata.dao.ClienteDao;
+import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.model.Cliente;
 
 /**
@@ -32,7 +32,7 @@ public class TesteInserir {
         cliente.setEstado("SP");
         cliente.setComplemento("Casa 4");
         
-        ClienteDao dao = new ClienteDao();
+        DaoCliente dao = new DaoCliente();
         dao.inserir(cliente);
     }
 }

@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.produto;
 
-import br.onevision.rainhadasucata.dao.ProdutoDao;
+import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
 
 /**
@@ -16,7 +16,7 @@ public class TesteObter {
 
     public static void main(String[] args) throws Exception {
         Produto produto;
-        ProdutoDao dao = new ProdutoDao();
+        DaoProduto dao = new DaoProduto();
 
         int id = 2;// id a ser buscado
 

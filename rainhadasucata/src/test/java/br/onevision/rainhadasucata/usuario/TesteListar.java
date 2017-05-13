@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.usuario;
 
-import br.onevision.rainhadasucata.dao.UsuarioDao;
+import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class TesteListar {
 
     public static void main(String[] args) throws Exception {
 
-        UsuarioDao dao = new UsuarioDao();
+        DaoUsuario dao = new DaoUsuario();
 
         List<Usuario> usuarios = new ArrayList<>();
         

@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.produto;
 
-import br.onevision.rainhadasucata.dao.ProdutoDao;
+import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class TesteListar {
     public static void main(String[] args) throws Exception {
 
         Produto produto;
-        ProdutoDao dao = new ProdutoDao();
+        DaoProduto dao = new DaoProduto();
 
         List<Produto> produtos = new ArrayList<>();
         

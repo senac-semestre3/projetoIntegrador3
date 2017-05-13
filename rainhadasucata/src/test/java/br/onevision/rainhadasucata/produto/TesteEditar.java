@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.produto;
 
-import br.onevision.rainhadasucata.dao.ProdutoDao;
+import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
 
 /**
@@ -29,7 +29,7 @@ public class TesteEditar {
         
         produto.setId(2);
         
-        ProdutoDao dao = new ProdutoDao();
+        DaoProduto dao = new DaoProduto();
         dao.editarProduto(produto);
     }
 }

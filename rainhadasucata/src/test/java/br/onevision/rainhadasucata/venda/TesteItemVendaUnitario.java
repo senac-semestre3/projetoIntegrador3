@@ -5,8 +5,8 @@
  */
 package br.onevision.rainhadasucata.venda;
 
-import br.onevision.rainhadasucata.dao.ItemVendaDao;
-import br.onevision.rainhadasucata.dao.ProdutoDao;
+import br.onevision.rainhadasucata.dao.DaoItemVenda;
+import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class TesteItemVendaUnitario {
         Produto pro1;
         Produto pro2;
         Produto pro3;
-        ProdutoDao produtoDao = new ProdutoDao();
+        DaoProduto produtoDao = new DaoProduto();
         
         int idProduto = 1;// id do produto a ser obtido 
         
@@ -65,7 +65,7 @@ public class TesteItemVendaUnitario {
         }
         
         int ultimaVenda = 3;
-        ItemVendaDao itemDao = new ItemVendaDao();
+        DaoItemVenda itemDao = new DaoItemVenda();
         itemDao.inserir(itensVenda, ultimaVenda);
   
     }
