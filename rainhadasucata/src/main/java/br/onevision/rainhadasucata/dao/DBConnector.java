@@ -40,6 +40,9 @@ public class DBConnector {
             String username = "rainhadasucata"; //nome de um usuário do db      
             String password = "P@ssw0rd"; //senha de acesso
             
+            
+            //
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             //Conexão com servidor db
             connection = DriverManager.getConnection(url, username, password);
             

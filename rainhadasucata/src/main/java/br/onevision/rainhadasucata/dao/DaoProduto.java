@@ -65,6 +65,7 @@ public class DaoProduto {
             FecharConexao();
 
         } catch (SQLException e) {
+            System.out.println("Não executou");
             throw new RuntimeException(e);
         } finally {
             FecharConexao();
@@ -333,5 +334,9 @@ public class DaoProduto {
             FecharConexao();
         }
         return produtos;
+    }
+
+    public void listaPorNome(Produto p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

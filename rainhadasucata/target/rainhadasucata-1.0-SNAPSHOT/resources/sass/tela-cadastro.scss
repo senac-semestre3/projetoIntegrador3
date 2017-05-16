@@ -1,0 +1,69 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/04/2017, 19:46:41
+    Author     : everton
+*/
+
+@import "comum/_mixins.scss";
+@import "comum/_main.scss";
+@import "comum/_card.scss";
+@import "comum/_table.scss";
+@import "comum/_buttons.scss";
+@import "comum/_reset.scss";
+
+
+
+.main{
+    .cabecalho{
+        margin-bottom: 30px;
+    }
+    label.descricao{
+        font-size: 16px;
+    }
+    .btn{
+        i{
+            margin-left: 10px;
+        }
+    }
+    .btn-cancelar{
+        @include button($abobora, $aboboraLight);
+    }
+    .topo-descricao{
+        label{
+            font-size: 16px;
+        }
+        i{
+            margin-top: -8px;
+            color: $azulMouse;
+        }
+    }
+    
+    
+    .row.bloco-dados{
+        margin-bottom: 50px;
+    }
+    
+    /*para tela de permissão*/
+    .status{
+        margin-top:40px;
+    }
+    .topo-descricao{
+        label{
+            font-size: 16px;
+        }
+        i{
+            margin-top: -8px;
+            color: $azulMouse;
+        }
+    }
+    table{
+        tr td{
+            text-align: left;
+        }
+    }
+}
+

@@ -31,6 +31,7 @@ public class DaoUsuario {
     public void inserir(Usuario usuario) throws RuntimeException {
         String sql = "INSERT INTO usuarios ("
                 + "nome_usuarios, "
+                + "sobrenome_usuarios, "
                 + "cpf_usuarios, "
                 + "data_nascimento_usuarios, "
                 + "sexo_usuarios, "
@@ -50,7 +51,7 @@ public class DaoUsuario {
                 + "data_cadastro_usuarios, "
                 + "fk_id_permissao, "
                 + "fk_id_loja )"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (
                 // prepared statement para inserção
@@ -58,25 +59,26 @@ public class DaoUsuario {
 
             //Seta valores para inserção
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getCpfCnpj());
-            stmt.setString(3, usuario.convertDataParaDB(usuario.getDataNascimento()));
-            stmt.setString(4, usuario.getSexo());
-            stmt.setString(5, usuario.getTelefone());
-            stmt.setString(6, usuario.getCelular());
-            stmt.setString(7, usuario.getEmail());
-            stmt.setString(8, usuario.getCep());
-            stmt.setString(9, usuario.getLogradouro());
-            stmt.setString(10, usuario.getNumero());
-            stmt.setString(11, usuario.getBairro());
-            stmt.setString(12, usuario.getCidade());
-            stmt.setString(13, usuario.getEstado());
-            stmt.setString(14, usuario.getComplemento());
-            stmt.setString(15, usuario.getNomeUsuario());
-            stmt.setString(16, usuario.getSenha());
-            stmt.setBoolean(17, usuario.getStatus());
-            stmt.setString(18, usuario.getDataAtual());
-            stmt.setInt(19, usuario.getIdPermissao());
-            stmt.setInt(20, usuario.getIdLoja());
+            stmt.setString(2, usuario.getSobrenome());
+            stmt.setString(3, usuario.getCpfCnpj());
+            stmt.setString(4, usuario.convertDataParaDB(usuario.getDataNascimento()));
+            stmt.setString(5, usuario.getSexo());
+            stmt.setString(6, usuario.getTelefone());
+            stmt.setString(7, usuario.getCelular());
+            stmt.setString(8, usuario.getEmail());
+            stmt.setString(9, usuario.getCep());
+            stmt.setString(10, usuario.getLogradouro());
+            stmt.setString(11, usuario.getNumero());
+            stmt.setString(12, usuario.getBairro());
+            stmt.setString(13, usuario.getCidade());
+            stmt.setString(14, usuario.getEstado());
+            stmt.setString(15, usuario.getComplemento());
+            stmt.setString(16, usuario.getNomeUsuario());
+            stmt.setString(17, usuario.getSenha());
+            stmt.setBoolean(18, usuario.getStatus());
+            stmt.setString(19, usuario.getDataAtual());
+            stmt.setInt(20, usuario.getIdPermissao());
+            stmt.setInt(21, usuario.getIdLoja());
 
             //Executa SQL Statement
             stmt.execute();
@@ -99,6 +101,7 @@ public class DaoUsuario {
 
         String sql = "UPDATE usuarios SET "
                 + "nome_usuarios = ?, "
+                + "sobrenome_usuarios = ?, "
                 + "cpf_usuarios = ?, "
                 + "data_nascimento_usuarios = ?, "
                 + "sexo_usuarios = ?, "
@@ -125,25 +128,26 @@ public class DaoUsuario {
 
             //Seta valores para Update
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getCpfCnpj());
-            stmt.setString(3, usuario.convertDataParaDB(usuario.getDataNascimento()));
-            stmt.setString(4, usuario.getSexo());
-            stmt.setString(5, usuario.getTelefone());
-            stmt.setString(6, usuario.getCelular());
-            stmt.setString(7, usuario.getEmail());
-            stmt.setString(8, usuario.getCep());
-            stmt.setString(9, usuario.getLogradouro());
-            stmt.setString(10, usuario.getNumero());
-            stmt.setString(11, usuario.getBairro());
-            stmt.setString(12, usuario.getCidade());
-            stmt.setString(13, usuario.getEstado());
-            stmt.setString(14, usuario.getComplemento());
-            stmt.setString(15, usuario.getNomeUsuario());
-            stmt.setString(16, usuario.getSenha());
-            stmt.setBoolean(17, usuario.getStatus());
-            stmt.setInt(18, usuario.getIdPermissao());
-            stmt.setInt(19, usuario.getIdLoja());
-            stmt.setInt(20, usuario.getId());
+            stmt.setString(2, usuario.getSobrenome());
+            stmt.setString(3, usuario.getCpfCnpj());
+            stmt.setString(4, usuario.convertDataParaDB(usuario.getDataNascimento()));
+            stmt.setString(5, usuario.getSexo());
+            stmt.setString(6, usuario.getTelefone());
+            stmt.setString(7, usuario.getCelular());
+            stmt.setString(8, usuario.getEmail());
+            stmt.setString(9, usuario.getCep());
+            stmt.setString(10, usuario.getLogradouro());
+            stmt.setString(11, usuario.getNumero());
+            stmt.setString(12, usuario.getBairro());
+            stmt.setString(13, usuario.getCidade());
+            stmt.setString(14, usuario.getEstado());
+            stmt.setString(15, usuario.getComplemento());
+            stmt.setString(16, usuario.getNomeUsuario());
+            stmt.setString(17, usuario.getSenha());
+            stmt.setBoolean(18, usuario.getStatus());
+            stmt.setInt(19, usuario.getIdPermissao());
+            stmt.setInt(20, usuario.getIdLoja());
+            stmt.setInt(21, usuario.getId());
 
             //Executa SQL Statement
             stmt.executeUpdate();
@@ -203,6 +207,7 @@ public class DaoUsuario {
 
                 usuario.setId(result.getInt("id_usuarios"));
                 usuario.setNome(result.getString("nome_usuarios"));
+                usuario.setSobrenome(result.getString("sobrenome_usuarios"));
                 usuario.setCpfCnpj(result.getString("cpf_usuarios"));
                 usuario.setDataNascimento(result.getDate("data_nascimento_usuarios"));
                 usuario.setSexo(result.getString("sexo_usuarios"));
@@ -290,6 +295,7 @@ public class DaoUsuario {
                 
                 usuario.setId(result.getInt("id_usuarios"));
                 usuario.setNome(result.getString("nome_usuarios"));
+                usuario.setSobrenome(result.getString("sobrenome_usuarios"));
                 usuario.setCpfCnpj(result.getString("cpf_usuarios"));
                 usuario.setDataNascimento(result.getDate("data_nascimento_usuarios"));
                 usuario.setSexo(result.getString("sexo_usuarios"));

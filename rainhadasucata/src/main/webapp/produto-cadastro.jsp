@@ -40,7 +40,9 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <form method="">
+                                    
+<!--                                   INICIO DO FORM-->
+<form action="produto-cadastrar" method="post">
                                         <div class="row bloco-dados">
                                             <div class="row">
                                                 <div class="input-field col s5 offset-s1">

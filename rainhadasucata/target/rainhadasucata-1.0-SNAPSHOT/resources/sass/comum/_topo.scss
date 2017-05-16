@@ -1,0 +1,42 @@
+@import "_buttons.scss";
+
+.topo{
+    background: $azul;
+    padding-left: 10px;
+    padding-right: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+
+
+    .logo{
+        margin-left: 20px;
+        a{
+            font-size: 2em;
+            &:after{
+                content:'Rainha da Sucata';
+            }
+
+        }
+    }
+
+    button.btn-sair{
+        @include buttonInverte(transparent, $vermelho);
+        text-transform: capitalize;
+        padding: 0 1rem;
+        letter-spacing: 2px;
+        &:after{
+            content:'Sair';
+        }
+        &:hover{
+            color: $branco;
+        }
+        i{
+            line-height: 0;
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.container-menu-lateral{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;    
+    background: $azul;
+    box-shadow: 2px 0 6px;
+    margin-top: 64px;
+    overflow-y: auto;
+
+    .container-perfil{
+
+        .img-avatar{
+            max-width: 50%;
+            display: inherit;
+            margin: 10px auto 10px auto;
+            max-height: 90px;
+            height: 90px;
+        }
+        p{
+            text-align: center;
+            font-size: 14px;
+            color: $branco;
+            margin-bottom: 10px;
+        }
+    }
+
+
+    .collapsible{
+        border:none;
+        box-shadow: none !important;
+        li{
+            border-bottom: 1px solid $cinzaEscuro;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            .collapsible-header{
+                background: transparent;
+                font-size: 14px;
+                color: $branco;
+                border: none;
+            }
+
+
+            &:hover{
+                transition: 0.3s;
+                background: $azulMouse;
+            }
+            .collapsible-body {
+                border: none;
+                box-sizing: border-box;
+                padding: 1rem 2rem;
+                ul{
+                    li{
+                        &:hover{
+                            background: $azul;
+                        }
+                    }
+                    li:last-of-type{
+                        border:none;
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <form method="post" action="cliente-cadastro">
+                                    <form method="post" action="cliente-cadastrar">
                                         <!-- dados pessoais -->
                                         <div class="row bloco-dados">
                                             <div class="row">
