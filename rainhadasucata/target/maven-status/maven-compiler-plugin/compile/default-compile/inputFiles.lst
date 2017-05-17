@@ -5,8 +5,8 @@
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/dao/DaoVenda.java
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/dao/DaoUsuario.java
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/dao/DaoItemVenda.java
+/home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/servlet/ServletListarClientes.java
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/dao/DaoCliente.java
-/home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/servlet/AgendaServlet.java
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/servlet/ServletUsuarioCadastrar.java
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/servlet/ServletClienteCadastrar.java
 /home/willianvieira/Faculdade_3º_semestre/subir/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/model/Usuario.java

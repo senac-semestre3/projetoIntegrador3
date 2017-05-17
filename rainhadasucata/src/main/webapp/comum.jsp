@@ -51,7 +51,7 @@
                 <!-- Menu -->
                 <ul class="collapsible">
                     <li class="btn-menu"><a href="#" class="collapsible-header waves-effect waves-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-                    <li class="btn-menu"><a href="agenda.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
+                    <li class="btn-menu"><a href="aciona-servlet-cliente-ver.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
                     <li class="btn-menu"><a href="produtos.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-barcode" aria-hidden="true"></i>Produtos</a></li>
                     <li class="btn-menu"><a href="vendas.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-usd" aria-hidden="true"></i>Vendas</a></li>
                     <li class="btn-menu"><a href="relatorios.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-line-chart" aria-hidden="true"></i>Relatórios</a></li>

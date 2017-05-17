@@ -24,7 +24,6 @@
         <link href="dist/css/tela-chamada.css" rel="stylesheet" type="text/css"/>
 
     </head>
-
     <body >
         <%@include file="comum.jsp" %>
         <div class="row">
@@ -83,20 +82,20 @@
                                         <tbody>
                                             <!--1-->
                                             <c:forEach items="${listaContatos}" var="contato">
-                                                <form action="clientever" method="get">
+                                            <form action="servlet-cliente-ver" method="get">
                                                 <tr>
-                                                <td><input type="text" name="id" value="${contato.id}"></td>
+                                                    <td><input type="text" name="id" value="${contato.id}"></td>
                                                     <td><c:out value="${contato.nome}" /></td>
-                                                <td><input type="text" name="cpf" value="${contato.cpfCnpj}"></td>
+                                                    <td><input type="text" name="cpf" value="${contato.cpfCnpj}"></td>
                                                     <td><c:out value="${contato.telefone}" /></td>
                                                     <td><c:out value="${contato.email}" /></td>
-                                                    
+
                                                     <td>
-                                                        
+
                                                         <input type="submit">
-                                                            <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                            </button
+                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                        </button
                                                         </a>
                                                         <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
                                                             <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
@@ -106,9 +105,9 @@
                                                         </button>
                                                     </td>
                                                 </tr>
-                                                </form>
-                                            </c:forEach> 
-                                            <!--1-->
+                                            </form>
+                                        </c:forEach> 
+                                        <!--1-->
 
                                         </tbody>
                                     </table>
@@ -123,20 +122,6 @@
 
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
-
-        <!--        
-                 <form  id="form" action="agenda" method="get">
-                    <input type="hidden" name="something" value="something" style="display:hidden" />
-                </form>  
-                <script type="text/javascript">
-                    function submitForm()
-                    {
-                        document.forms['form'].submit();
-            return false;        
-            }
-                    window.onload = submitForm;
-                </script>-->
-
 
     </body>
 </html>

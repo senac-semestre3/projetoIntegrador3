@@ -1,5 +1,4 @@
 br/onevision/rainhadasucata/dao/DBConnector.class
-br/onevision/rainhadasucata/servlet/AgendaServlet.class
 br/onevision/rainhadasucata/model/Relatorio.class
 br/onevision/rainhadasucata/model/ItemVenda.class
 br/onevision/rainhadasucata/service/ServiceProdutoCadastrar.class
@@ -16,6 +15,7 @@ br/onevision/rainhadasucata/model/Usuario.class
 br/onevision/rainhadasucata/dao/DaoUsuario.class
 br/onevision/rainhadasucata/model/Cliente.class
 br/onevision/rainhadasucata/dao/DaoProduto.class
+br/onevision/rainhadasucata/servlet/ServletListarClientes.class
 br/onevision/rainhadasucata/model/DataEHora.class
 br/onevision/rainhadasucata/dao/DaoCliente.class
 br/onevision/rainhadasucata/dao/DaoVenda.class

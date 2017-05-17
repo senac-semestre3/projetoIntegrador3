@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fernando.tsuda
  */
-@WebServlet("/clientever")
+@WebServlet("/servlet-cliente-ver")
 public class ServletClienteVer extends HttpServlet {
 
   @Override
@@ -61,9 +61,9 @@ public class ServletClienteVer extends HttpServlet {
     }
           
       } catch (SQLException ex) {
-          Logger.getLogger(AgendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
       } catch (Exception ex) {
-          Logger.getLogger(AgendaServlet.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
       }
    
     // Define um atributo para repassar a lista para o
