@@ -92,7 +92,7 @@
 
                                                     <td>
 
-                                                        <input type="submit">
+<!--                                                        <input type="submit">-->
                                                         <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button

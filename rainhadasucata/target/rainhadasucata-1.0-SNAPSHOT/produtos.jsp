@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,46 +79,33 @@
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>  
-                                            <td>Óleo de Motor</td>
-                                            <td>R$ 19,90</td>
-                                            <td>15</td>
-                                            <td></td>
-                                            <td> 
-                                                <a href="produto-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                </a>
-                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar produto" type="submit" name="btn-editar">
-                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar produto" type="submit" name="btn-deletar">
-                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Pneu</td>
-                                            <td>R$ 198,90</td>
-                                            <td>10</td>
-                                            <td></td>
-                                            <td>
-                                                <a href="produto-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                </a>
-                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar produto" type="submit" name="btn-editar">
-                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar produto" type="submit" name="btn-deletar">
-                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                      <c:forEach items="${listaProdutos}" var="produto">
+                                            <form action="servlet-produto-ver" method="get">
+                                                <tr>
+                                                    <td><input type="text" name="id" value="${produto.id}"></td>
+                                                    <td><c:out value="${produto.nome}" /></td>
+                                                    <td><input type="text" name="cpf" value="${produto.precoVenda}"></td>
+                                                    <td><c:out value="${produto.estoque}" /></td>
+                                                    <td><c:out value="${produto.status}" /></td>
+
+                                                    <td>
+
+<!--                                                        <input type="submit">-->
+                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                        </button
+                                                        </a>
+                                                        <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
+                                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
+                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                        </c:forEach> 
+                                           
                                     </tbody>
                                 </table>
                             </div>

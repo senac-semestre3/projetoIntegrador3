@@ -54,23 +54,23 @@
                                                 <table class="tabela-produto-ver-descricao vertical striped">
                                                     <tr>
                                                         <th>Id</th>
-                                                        <td>35</td>
+                                                        <td>${produto.id}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Nome</th>
-                                                        <td>Óleo de câmbio 80w90</td>
+                                                        <td>${produto.nome}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Marca</th>
-                                                        <td>Lubrax</td>
+                                                        <td>${produto.marca}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Descrição</th>
-                                                        <td>Óleo de Câmbio [Transmissão manual] 80w90 mineral </td>
+                                                        <td>${produto.descricao}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Situação</th>
-                                                        <td>Ativo</td>
+                                                        <td>${produto.status}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -81,15 +81,15 @@
                                                 <table class="tabela-cliente-ver-contato vertical striped">
                                                     <tr>
                                                         <th>Preço de compra</th>
-                                                        <td>R$ 10,00</td>
+                                                        <td>${produto.precoCompra}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Margem de lucro</th>
-                                                        <td>100%</td>
+                                                        <td>${produto.margemVenda}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Valor de Venda</th>
-                                                        <td>R$ 20,00</td>
+                                                        <td>${produto.precoVenda}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -100,15 +100,15 @@
                                                 <table class="tabela-cliente-ver-endereco vertical striped">
                                                     <tr>
                                                         <th>Quantidade em Estoque</th>
-                                                        <td>15</td>
+                                                        <td>${produto.estoque}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Estoque mínimo</th>
-                                                        <td>7</td>
+                                                        <td>${produto.estoqueMinimo}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
-                                                        <td>Ativo</td>
+                                                        <td>${produto.status}</td>
                                                     </tr>
                                                 </table>
                                             </div>

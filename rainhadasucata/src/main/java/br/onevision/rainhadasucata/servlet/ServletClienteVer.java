@@ -41,9 +41,9 @@ public class ServletClienteVer extends HttpServlet {
     //List<Contato> lista = dao.listar();
     
    String id = request.getParameter("id");
-    
-   List<Cliente> lista = new ArrayList<>();
+  
     Cliente cliente = new Cliente();
+    
       try {
    
                  DaoCliente daocliente = new DaoCliente();

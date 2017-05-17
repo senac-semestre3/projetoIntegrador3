@@ -315,7 +315,7 @@ public class DaoProduto {
                 produto.setPrecoCompra(result.getDouble("preco_compra_produtos"));
                 produto.setPrecoVenda(result.getDouble("preco_venda_produtos"));
                 produto.setMargemVenda(result.getDouble("margem_venda_produtos"));
-                produto.setEstoque(result.getInt("Eetoque_produtos"));
+                produto.setEstoque(result.getInt("Estoque_produtos"));
                 produto.setEstoqueMinimo(result.getInt("estoque_minimo_produtos"));
                 produto.setStatus(result.getInt("status_produtos"));
 
