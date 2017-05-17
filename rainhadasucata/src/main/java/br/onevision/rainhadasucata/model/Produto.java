@@ -19,7 +19,7 @@ public class Produto {
     private double margemVenda;
     private int estoque;
     private int estoqueMinimo;
-    private boolean status;
+    private int status;
     private boolean deletado;
     
     public Produto(){
@@ -98,11 +98,11 @@ public class Produto {
         this.estoqueMinimo = estoqueMinimo;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

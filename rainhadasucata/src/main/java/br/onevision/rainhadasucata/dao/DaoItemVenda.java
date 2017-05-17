@@ -17,15 +17,16 @@ import java.util.List;
  * @author everton
  */
 public class DaoItemVenda {
+
     private final Connection connection;
 
-    public DaoItemVenda() {
+    public DaoItemVenda() throws SQLException {
 
         this.connection = DBConnector.getConexaoDB();
     }
 
     // INSERIR VENDA
-    public void inserir(List<ItemVenda> item, int idVenda) 
+    public void inserir(List<ItemVenda> item, int idVenda)
             throws RuntimeException, SQLException {
 
         String sql = "INSERT INTO itens_de_vendas ("
@@ -34,13 +35,12 @@ public class DaoItemVenda {
                 + "fk_id_produto, "
                 + "subtotal_idv ) "
                 + "VALUES (?, ?, ?, ?)";
-        
+
         try ( // prepared statement para inserção
                 PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-
             //Seta valores para inserção
-            for (int i = 0; i < item.size(); i++) { 
+            for (int i = 0; i < item.size(); i++) {
                 System.out.println("Tamanho do Item: " + item.size());
                 stmt.setInt(1, item.get(i).getQuantidade());
                 stmt.setInt(2, idVenda);
@@ -52,7 +52,7 @@ public class DaoItemVenda {
                 //Executa SQL Statement
                 stmt.execute();
             }
-            
+
             //Fecha stmt
             stmt.close();
             //Fecha conexão
@@ -66,6 +66,6 @@ public class DaoItemVenda {
         }
         //Fecha conexão
         FecharConexao();
-        
+
     }
 }

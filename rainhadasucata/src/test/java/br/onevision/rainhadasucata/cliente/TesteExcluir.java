@@ -6,13 +6,14 @@
 package br.onevision.rainhadasucata.cliente;
 
 import br.onevision.rainhadasucata.dao.DaoCliente;
+import java.sql.SQLException;
 
 /**
  *
  * @author everton
  */
 public class TesteExcluir {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
         int id = 1; // id de exclusão
         DaoCliente dao = new DaoCliente();

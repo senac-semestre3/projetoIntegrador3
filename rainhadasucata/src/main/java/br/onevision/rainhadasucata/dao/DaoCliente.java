@@ -22,18 +22,17 @@ public class DaoCliente {
 
     private final Connection connection;
 
-    public DaoCliente() {
+    public DaoCliente() throws SQLException {
 
         this.connection = DBConnector.getConexaoDB();
     }
 
     // INSERIR CLIENTE
-    public void inserir(Cliente cliente) 
+    public void inserir(Cliente cliente)
             throws RuntimeException {
-        
+
         String sql = "INSERT INTO clientes ("
                 + "nome_clientes, "
-                + "sobrenome_clientes, "
                 + "cpf_cnpj_clientes, "
                 + "sexo_clientes, "
                 + "telefone_clientes, "
@@ -47,7 +46,7 @@ public class DaoCliente {
                 + "estado_clientes, "
                 + "complemento_clientes, "
                 + "data_cadastro_clientes )"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try (
                 // prepared statement para inserção
@@ -55,24 +54,23 @@ public class DaoCliente {
 
             //Seta valores para inserção
             stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getSobrenome());
-            stmt.setString(3, cliente.getCpfCnpj());
-            stmt.setString(4, cliente.getSexo());
-            stmt.setString(5, cliente.getTelefone());
-            stmt.setString(6, cliente.getCelular());
-            stmt.setString(7, cliente.getEmail());
-            stmt.setString(8, cliente.getCep());
-            stmt.setString(9, cliente.getLogradouro());
-            stmt.setString(10, cliente.getNumero());
-            stmt.setString(11, cliente.getBairro());
-            stmt.setString(12, cliente.getCidade());
-            stmt.setString(13, cliente.getEstado());
-            stmt.setString(14, cliente.getComplemento());
-            stmt.setString(15, cliente.getDataAtual());
-            
+            stmt.setString(2, cliente.getCpfCnpj());
+            stmt.setString(3, cliente.getSexo());
+            stmt.setString(4, cliente.getTelefone());
+            stmt.setString(5, cliente.getCelular());
+            stmt.setString(6, cliente.getEmail());
+            stmt.setString(7, cliente.getCep());
+            stmt.setString(8, cliente.getLogradouro());
+            stmt.setString(9, cliente.getNumero());
+            stmt.setString(10, cliente.getBairro());
+            stmt.setString(11, cliente.getCidade());
+            stmt.setString(12, cliente.getEstado());
+            stmt.setString(13, cliente.getComplemento());
+            stmt.setString(14, cliente.getDataAtual());
+
             //Executa SQL Statement
             stmt.execute();
-            
+
             //Fecha stmt
             stmt.close();
             //Fecha conexão
@@ -92,7 +90,6 @@ public class DaoCliente {
         // cria a string de parametro do sql
         String sql = "UPDATE clientes SET "
                 + "nome_clientes = ?,"
-                + "sobrenome_clientes = ?,"
                 + "cpf_cnpj_clientes = ?,"
                 + "sexo_clientes = ?,"
                 + "telefone_clientes = ?,"
@@ -113,20 +110,19 @@ public class DaoCliente {
 
             //Seta valores para inserção
             stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getSobrenome());
-            stmt.setString(3, cliente.getCpfCnpj());
-            stmt.setString(4, cliente.getSexo());
-            stmt.setString(5, cliente.getTelefone());
-            stmt.setString(6, cliente.getCelular());
-            stmt.setString(7, cliente.getEmail());
-            stmt.setString(8, cliente.getCep());
-            stmt.setString(9, cliente.getLogradouro());
-            stmt.setString(10, cliente.getNumero());
-            stmt.setString(11, cliente.getBairro());
-            stmt.setString(12, cliente.getCidade());
-            stmt.setString(13, cliente.getEstado());
-            stmt.setString(14, cliente.getComplemento());
-            stmt.setInt(15, cliente.getId());
+            stmt.setString(2, cliente.getCpfCnpj());
+            stmt.setString(3, cliente.getSexo());
+            stmt.setString(4, cliente.getTelefone());
+            stmt.setString(5, cliente.getCelular());
+            stmt.setString(6, cliente.getEmail());
+            stmt.setString(7, cliente.getCep());
+            stmt.setString(8, cliente.getLogradouro());
+            stmt.setString(9, cliente.getNumero());
+            stmt.setString(10, cliente.getBairro());
+            stmt.setString(11, cliente.getCidade());
+            stmt.setString(12, cliente.getEstado());
+            stmt.setString(13, cliente.getComplemento());
+            stmt.setInt(14, cliente.getId());
 
             //Executa SQL Statement
             stmt.executeUpdate();
@@ -185,7 +181,6 @@ public class DaoCliente {
 
                 cliente.setId(result.getInt("id_clientes"));
                 cliente.setNome(result.getString("nome_clientes"));
-                cliente.setSobrenome(result.getString("sobrenome_clientes"));
                 cliente.setCpfCnpj(result.getString("cpf_cnpj_clientes"));
                 cliente.setSexo(result.getString("sexo_clientes"));
                 cliente.setTelefone(result.getString("telefone_clientes"));
@@ -247,7 +242,6 @@ public class DaoCliente {
         //chama o método de criar lista e à retorna
         return criaLista(sql);
     }
-   
 
     // CRIA UMA LISTA DE CLIENTES E RETORNA ESSA LISTA PARA O MÉTODO QUE À CHAMOU
     public List<Cliente> criaLista(String sql) {
@@ -268,7 +262,6 @@ public class DaoCliente {
 
                 cliente.setId(result.getInt("id_clientes"));
                 cliente.setNome(result.getString("nome_clientes"));
-                cliente.setSobrenome(result.getString("sobrenome_clientes"));
                 cliente.setCpfCnpj(result.getString("cpf_cnpj_clientes"));
                 cliente.setSexo(result.getString("sexo_clientes"));
                 cliente.setTelefone(result.getString("telefone_clientes"));

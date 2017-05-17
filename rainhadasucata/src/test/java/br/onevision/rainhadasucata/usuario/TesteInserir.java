@@ -19,9 +19,8 @@ public class TesteInserir {
         Usuario usuario = new Usuario();
         
         usuario.setNome("Maria");
-        usuario.setSobrenome("Sei La");
         usuario.setCpfCnpj("411.439.358.70");
-        usuario.setDataNascimento(Date.valueOf("1993-04-02")); // insere data teste
+        usuario.setDataNascimento("11 May, 2017"); // insere data teste
         usuario.setSexo("M");
         usuario.setTelefone("(11)5515-2677");
         usuario.setCelular("(11)95166-9431");
@@ -35,7 +34,7 @@ public class TesteInserir {
         usuario.setComplemento("Casa 4");
         usuario.setNomeUsuario("maria3");
         usuario.setSenha("P@ssw0rd");
-        usuario.setStatus(false);
+        usuario.setStatus(0);
         usuario.setIdPermissao(1);
         usuario.setIdLoja(1);
         

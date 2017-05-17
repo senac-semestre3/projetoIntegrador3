@@ -9,8 +9,6 @@ import br.onevision.rainhadasucata.model.Produto;
 import br.onevision.rainhadasucata.service.ServiceProdutoCadastrar;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -74,6 +72,15 @@ public class SevletProdutoCadastrar extends HttpServlet {
         p.setEstoque(Integer.parseInt(estoque));
         p.setEstoqueMinimo(Integer.parseInt(estoqueMinimo));
       
+       if (status != null) {
+            p.setStatus(1);
+
+        } else {
+            p.setStatus(0);
+        }
+        
+        
+        
         //Executa a a��o de inserir no banco
         ServiceProdutoCadastrar  serviceProduto = new ServiceProdutoCadastrar();
 

@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,74 +53,79 @@
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons">person_pin</i><span>Dados Pessoais</span></div>
                                             <div class="collapsible-body">
-                                                <table class="tabela-cliente-ver-dados-pessoais vertical striped">
-                                                    <tr>
-                                                        <th>Id</th>
-                                                        <td>52</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Nome</th>
-                                                        <td>Everton Roberto de Oliveira</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Cpf/Cnpj</th>
-                                                        <td>411.439.358-70</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Sexo</th>
-                                                        <td>Masculino</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="collapsible-header"><i class="material-icons">email</i><span>Dados de Contato</span></div>
-                                            <div class="collapsible-body">
-                                                <table class="tabela-cliente-ver-contato vertical striped">
-                                                    <tr>
-                                                        <th>Telefone</th>
-                                                        <td>(11) 5515-2677</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Celular</th>
-                                                        <td>(11) 95166-9431</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>E-mail</th>
-                                                        <td>everton_roliveira@outlook.com</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
-                                            <div class="collapsible-body">
-                                                <table class="tabela-cliente-ver-endereco vertical striped">
-                                                    <tr>
-                                                        <th>Logradouro</th>
-                                                        <td>Rua Hélio Jacy Gouveia</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Número</th>
-                                                        <td>42</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Bairro</th>
-                                                        <td>Jardim São Francisco</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Cidade</th>
-                                                        <td>São Paulo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Estado</th>
-                                                        <td>SP</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Complemento</th>
-                                                        <td>Casa 4</td>
-                                                    </tr>
-                                                </table>
+                                                    <table class="tabela-cliente-ver-dados-pessoais vertical striped">
+                                                        <tr>
+
+
+
+                                                            <th>Id</th>
+                                                            <td>${cliente.id}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nome</th>
+                                                            <td>${cliente.nome}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Cpf/Cnpj</th>
+                                                            <td>${cliente.cpfCnpj}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Sexo</th>
+                                                            <td>${cliente.sexo}</td>
+                                                        </tr>
+
+
+                                                    </table>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">email</i><span>Dados de Contato</span></div>
+                                                <div class="collapsible-body">
+                                                    <table class="tabela-cliente-ver-contato vertical striped">
+                                                        <tr>
+                                                            <th>Telefone</th>
+                                                            <td>${cliente.telefone}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Celular</th>
+                                                            <td>${cliente.celular}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>E-mail</th>
+                                                            <td>${cliente.email}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
+                                                <div class="collapsible-body">
+                                                    <table class="tabela-cliente-ver-endereco vertical striped">
+                                                        <tr>
+                                                            <th>Logradouro</th>
+                                                            <td>${cliente.logradouro}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Número</th>
+                                                            <td>${cliente.numero}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Bairro</th>
+                                                            <td>${cliente.bairro}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Cidade</th>
+                                                            <td>${cliente.cidade}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Estado</th>
+                                                            <td>${cliente.estado}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Complemento</th>
+                                                            <td>${cliente.complemento}</td>
+                                                        </tr>
+                                                    </table>
                                             </div>
                                         </li>
                                     </ul>

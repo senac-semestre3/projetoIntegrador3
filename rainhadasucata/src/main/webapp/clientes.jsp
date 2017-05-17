@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +25,7 @@
 
     </head>
 
-    <body>
+    <body >
         <%@include file="comum.jsp" %>
         <div class="row">
             <div  class="col s10 offset-s2">
@@ -78,46 +81,35 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>  
-                                                <td>Everton Roberto de Oliveira</td>
-                                                <td>111.111.111-11</td>
-                                                <td>(11)5555-5555</td>
-                                                <td>everton_roliveira@outlook.com</td>
-                                                <td>
-                                                    <a href="cliente-ver.jsp">
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
-                                                    </a>
-                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Fabio Ribeiro</td>
-                                                <td>222.222.222-22</td>
-                                                <td>(11)5555-6666</td>
-                                                <td>fabio@live.com</td>
-                                                <td>
-                                                    <a href="produto-ver.jsp">
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
-                                                    </a>
-                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                            <!--1-->
+                                            <c:forEach items="${listaContatos}" var="contato">
+                                                <form action="clientever" method="get">
+                                                <tr>
+                                                <td><input type="text" name="id" value="${contato.id}"></td>
+                                                    <td><c:out value="${contato.nome}" /></td>
+                                                <td><input type="text" name="cpf" value="${contato.cpfCnpj}"></td>
+                                                    <td><c:out value="${contato.telefone}" /></td>
+                                                    <td><c:out value="${contato.email}" /></td>
+                                                    
+                                                    <td>
+                                                        
+                                                        <input type="submit">
+                                                            <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                            </button
+                                                        </a>
+                                                        <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
+                                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
+                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </form>
+                                            </c:forEach> 
+                                            <!--1-->
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -131,5 +123,20 @@
 
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
+
+        <!--        
+                 <form  id="form" action="agenda" method="get">
+                    <input type="hidden" name="something" value="something" style="display:hidden" />
+                </form>  
+                <script type="text/javascript">
+                    function submitForm()
+                    {
+                        document.forms['form'].submit();
+            return false;        
+            }
+                    window.onload = submitForm;
+                </script>-->
+
+
     </body>
 </html>

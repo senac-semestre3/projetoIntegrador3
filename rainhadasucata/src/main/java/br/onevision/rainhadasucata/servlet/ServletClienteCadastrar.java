@@ -54,7 +54,6 @@ public class ServletClienteCadastrar extends HttpServlet {
         // tem que ser igual ao valor configurado no 
         // atributo "name" da tag <input>
         String nome = request.getParameter("nome");
-        String sobrenome = request.getParameter("sobrenome");
         String cpf = request.getParameter("cpf-cnpj");
         String sexo = request.getParameter("sexo");
         String telefone = request.getParameter("telefone");
@@ -70,7 +69,6 @@ public class ServletClienteCadastrar extends HttpServlet {
         Cliente cliente = new Cliente();
         
         cliente.setNome(nome);
-        cliente.setSobrenome(sobrenome);
         cliente.setCpfCnpj(cpf);
         cliente.setSexo(sexo);
         cliente.setTelefone(telefone);
@@ -90,7 +88,12 @@ public class ServletClienteCadastrar extends HttpServlet {
         //Executa a a��o de inserir no banco
         ServiceProdutoCadastrar serviceProduto = new ServiceProdutoCadastrar();
 
-        DaoCliente daoCliente = new DaoCliente();
+        DaoCliente daoCliente = null;
+        try {
+            daoCliente = new DaoCliente();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletClienteCadastrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
         daoCliente.inserir(cliente);
 
         HttpSession sessao = request.getSession();

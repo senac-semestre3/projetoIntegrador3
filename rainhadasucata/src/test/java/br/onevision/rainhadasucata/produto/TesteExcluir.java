@@ -6,13 +6,14 @@
 package br.onevision.rainhadasucata.produto;
 
 import br.onevision.rainhadasucata.dao.DaoProduto;
+import java.sql.SQLException;
 
 /**
  *
  * @author everton
  */
 public class TesteExcluir {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         DaoProduto dao = new DaoProduto();
         
         int id = 1; // id para deleção

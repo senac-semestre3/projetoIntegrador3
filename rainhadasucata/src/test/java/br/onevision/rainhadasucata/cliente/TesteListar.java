@@ -38,7 +38,6 @@ public class TesteListar {
         for (Cliente cli : clientes) {
             System.out.println("ID Cliente: " + cli.getId());
             System.out.println("Nome: " + cli.getNome());
-            System.out.println("Sobrenome: " + cli.getSobrenome());
             System.out.println("CPF: " + cli.getCpfCnpj());
             System.out.println("Sexo: " + cli.getSexo());
             System.out.println("Telefone: " + cli.getTelefone());

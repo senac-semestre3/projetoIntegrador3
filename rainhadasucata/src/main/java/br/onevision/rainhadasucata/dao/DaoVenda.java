@@ -21,7 +21,7 @@ public class DaoVenda {
 
     private final Connection connection;
 
-    public DaoVenda() {
+    public DaoVenda() throws SQLException {
 
         this.connection = DBConnector.getConexaoDB();
     }
@@ -41,7 +41,6 @@ public class DaoVenda {
         try ( // prepared statement para inserção
                 PreparedStatement stmt = connection.prepareStatement(sql)) {
 
-
             // criei uma classe que trabalha com data e hora
             DataEHora dataEHora = new DataEHora();
 
@@ -52,12 +51,17 @@ public class DaoVenda {
             stmt.setInt(4, venda.getCliente().getId());
             stmt.setInt(5, venda.getUsuario().getId());
             stmt.setDouble(6, venda.calculaTotal());
+            
+            
 
             //Executa SQL Statement
             stmt.execute();
+            
+            
+
+            
             //Fecha stmt
             stmt.close();
-
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -68,6 +72,7 @@ public class DaoVenda {
         //Fecha conexão
         FecharConexao();
     }
+
 
     //OBTEM O ID DA ULTIMA VENDA
     public Integer obterUltimoIdDeVenda()

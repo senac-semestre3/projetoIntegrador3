@@ -25,10 +25,7 @@ public class ItemVenda {
     public int getQuantidade() {
         return quantidade;
     }
-    /**
-     * 
-     * @param quantidade int
-     */
+
     public void setQuantidade(int quantidade) {
         if (quantidade > 0) {
             this.quantidade = quantidade;
@@ -36,9 +33,6 @@ public class ItemVenda {
             this.quantidade = 0;
         }
     }
-    
-    
-    
 
     public double getSubtotal() {
         return subtotal;

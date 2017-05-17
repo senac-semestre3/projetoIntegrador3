@@ -36,7 +36,6 @@ public class TesteListar {
         for (Usuario user : usuarios) {
             System.out.println("ID Usuário: " + user.getId());
             System.out.println("Nome: " + user.getNome());
-            System.out.println("Sobrenome: " + user.getSobrenome());
             System.out.println("CPF: " + user.getCpfCnpj());
             System.out.println("Data Nascimento: " + user.getDataNascimento());
             System.out.println("Sexo: " + user.getSexo());

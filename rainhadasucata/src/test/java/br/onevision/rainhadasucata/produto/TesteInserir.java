@@ -25,7 +25,7 @@ public class TesteInserir {
         produto.setMargemVenda(50);
         produto.setEstoque(15);
         produto.setEstoqueMinimo(5);
-        produto.setStatus(true);
+        produto.setStatus(1);
         
         DaoProduto dao = new DaoProduto();
         dao.inserir(produto);

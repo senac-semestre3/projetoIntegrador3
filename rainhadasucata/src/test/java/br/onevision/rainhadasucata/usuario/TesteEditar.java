@@ -8,19 +8,21 @@ package br.onevision.rainhadasucata.usuario;
 import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Usuario;
 import java.sql.Date;
+import java.sql.SQLException;
 
 /**
  *
  * @author everton
  */
+
+
 public class TesteEditar {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Usuario usuario = new Usuario();
         
         usuario.setNome("Ricardo");
-        usuario.setSobrenome("Agnaldo");
         usuario.setCpfCnpj("391.123.258-60");
-        usuario.setDataNascimento(Date.valueOf("1992-04-01")); // insere data teste
+        usuario.setDataNascimento("11 May, 2017"); // insere data teste
         usuario.setSexo("M");
         usuario.setTelefone("(11)5515-0010");
         usuario.setCelular("(11)95166-0011");
@@ -34,7 +36,7 @@ public class TesteEditar {
         usuario.setComplemento("Casa 25");
         usuario.setNomeUsuario("bah.amaralhhhh");
         usuario.setSenha("BahAmaralhhh");
-        usuario.setStatus(true);
+        usuario.setStatus(1);
         usuario.setIdPermissao(1);
         usuario.setIdLoja(1);
         

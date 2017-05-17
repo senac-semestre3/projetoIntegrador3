@@ -22,7 +22,7 @@ public class DaoProduto {
 
     private final Connection connection;
 
-    public DaoProduto() {
+    public DaoProduto() throws SQLException {
 
         this.connection = DBConnector.getConexaoDB();
     }
@@ -54,7 +54,7 @@ public class DaoProduto {
             stmt.setDouble(6, produto.getMargemVenda());
             stmt.setInt(7, produto.getEstoque());
             stmt.setInt(8, produto.getEstoqueMinimo());
-            stmt.setBoolean(9, produto.isStatus());
+            stmt.setInt(9, produto.getStatus());
             
             //Executa SQL Statement
             stmt.execute();
@@ -65,7 +65,6 @@ public class DaoProduto {
             FecharConexao();
 
         } catch (SQLException e) {
-            System.out.println("Não executou");
             throw new RuntimeException(e);
         } finally {
             FecharConexao();
@@ -101,7 +100,7 @@ public class DaoProduto {
             stmt.setDouble(6, produto.getMargemVenda());
             stmt.setInt(7, produto.getEstoque());
             stmt.setInt(8, produto.getEstoqueMinimo());
-            stmt.setBoolean(9, produto.isStatus());
+            stmt.setInt(9, produto.getStatus());
             stmt.setInt(10, produto.getId());
 
             //Executa SQL Statement
@@ -168,7 +167,7 @@ public class DaoProduto {
                 produto.setMargemVenda(result.getDouble("margem_venda_produtos"));
                 produto.setEstoque(result.getInt("estoque_produtos"));
                 produto.setEstoqueMinimo(result.getInt("estoque_minimo_produtos"));
-                produto.setStatus(result.getBoolean("status_produtos"));
+                produto.setStatus(result.getInt("status_produtos"));
 
                 return produto;
 
@@ -318,7 +317,7 @@ public class DaoProduto {
                 produto.setMargemVenda(result.getDouble("margem_venda_produtos"));
                 produto.setEstoque(result.getInt("Eetoque_produtos"));
                 produto.setEstoqueMinimo(result.getInt("estoque_minimo_produtos"));
-                produto.setStatus(result.getBoolean("status_produtos"));
+                produto.setStatus(result.getInt("status_produtos"));
 
                 produtos.add(produto);
 
@@ -334,9 +333,5 @@ public class DaoProduto {
             FecharConexao();
         }
         return produtos;
-    }
-
-    public void listaPorNome(Produto p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

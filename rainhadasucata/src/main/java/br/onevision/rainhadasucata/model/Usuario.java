@@ -12,21 +12,13 @@ import java.sql.Date;
  * @author everton
  */
 public class Usuario extends Pessoa{
-    private Date dataNascimento;
     private int idLoja;
     private String nomeUsuario;
     private String senha;
-    private boolean status;
+    private int status;
     private int idPermissao;
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
+    
+    
     public int getIdLoja() {
         return idLoja;
     }
@@ -51,11 +43,11 @@ public class Usuario extends Pessoa{
         this.senha = senha;
     }
 
-    public boolean getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

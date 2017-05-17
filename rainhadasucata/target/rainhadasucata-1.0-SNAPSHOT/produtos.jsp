@@ -82,7 +82,7 @@
                                             <td>R$ 19,90</td>
                                             <td>15</td>
                                             <td></td>
-                                            <td>
+                                            <td> 
                                                 <a href="produto-ver.jsp">
                                                     <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do produto" type="submit" name="btn-ver">
                                                         <i class="fa fa-eye fa-2x" aria-hidden="true"></i>

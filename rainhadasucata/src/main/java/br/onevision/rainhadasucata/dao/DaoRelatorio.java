@@ -7,6 +7,7 @@ package br.onevision.rainhadasucata.dao;
 
 import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
 import br.onevision.rainhadasucata.model.Cliente;
+import br.onevision.rainhadasucata.model.DataEHora;
 import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
 import br.onevision.rainhadasucata.model.Relatorio;
@@ -26,42 +27,82 @@ public class DaoRelatorio {
 
     private final Connection connection;
 
-    public DaoRelatorio() {
+    public DaoRelatorio() throws SQLException {
 
         this.connection = DBConnector.getConexaoDB();
+    }
+
+    public List<Relatorio> listarPorData(String dataI, String dataF) throws
+            SQLException, Exception {
+
+        String sql = "SELECT * FROM relatorio WHERE data_hora BETWEEN "
+                + dataI + " 23:59:59 AND " + dataF + " GROUP BY id_venda";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
+    }
+
+    public List<Relatorio> listarPorDataInicial(String dataI) throws
+            SQLException, Exception {
+
+        String sql = "SELECT * FROM relatorio WHERE data_hora BETWEEN "
+                + dataI + " 23:59:59 AND NOW() GROUP BY id_venda";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
+    }
+
+    public List<Relatorio> listarPorDataFinal(String dataF) throws
+            SQLException, Exception {
+
+        String sql = "SELECT * FROM relatorio WHERE data_hora <= "
+                + dataF + " 23:59:59 GROUP BY id_venda";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
+    }
+
+    public List<Relatorio> listarPorVendedor(int id) throws
+            SQLException, Exception {
+
+        String sql = "SELECT * FROM relatorio WHERE id_usuario = " + id + " GROUP BY id_venda";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
+    }
+
+    public List<Relatorio> listarPorLoja(int id) throws
+            SQLException, Exception {
+
+        String sql = "SELECT * FROM relatorio WHERE id_loja = " + id + " GROUP BY id_venda";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
+    }
+
+    public List<Relatorio> listarPorCliente(String nome) throws
+            SQLException, Exception {
+
+            String sql = "SELECT * FROM relatorio WHERE nome_cliente LIKE '%" + nome + "%'";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
     }
 
     public List<Relatorio> listarTodos() throws
             SQLException, Exception {
 
-        // cria a query de busca
-        String sql = "SELECT "
-                + "  `vendas`.`id_vendas`, "
-                + "  `usuarios`.`nome_usuarios`, "
-                + "  `vendas`.`metodo_pagamento`, "
-                + "  `vendas`.`data_hora_vendas`, "
-                + "  `vendas`.`valor_total`, "
-                + "  `produtos`.`nome_produto`, "
-                + "  `itens_de_vendas`.`quantidade_idv`, "
-                + "  `produtos`.`preco_venda_produto` "
-                + "FROM "
-                + "  `produtos` "
-                + "LEFT JOIN "
-                + "  `itens_de_vendas` ON `itens_de_vendas`.`fk_id_produto` = `produtos`.`id_produtos` "
-                + "LEFT JOIN "
-                + "  `vendas` ON `itens_de_vendas`.`fk_id_venda` = `vendas`.`id_vendas` "
-                + "LEFT JOIN "
-                + "  `usuarios` ON `vendas`.`id_vendas` = `usuarios`.`id_usuarios`";
+        String sql = "SELECT * FROM relatorio GROUP BY id_venda";
 
-        //chama o método de criar lista e à retorna
+        //chama o metodo de criar lista
         return geraRelatorio(sql);
     }
 
-    public List<Relatorio> geraRelatorio(String sql) {
+    // CRIA UMA LISTA DE PRODUTOS E RETORNA ESSA LISTA PARA O MÉTODO QUE À CHAMOU
+    private List<Relatorio> geraRelatorio(String sql) {
 
         //cria uma lista de clientes
         List<Relatorio> relatorios = new ArrayList<>();
-        List<ItemVenda> itens = new ArrayList<>();
 
         try {
             //Cria um statement para executar as instruções SQL
@@ -71,41 +112,41 @@ public class DaoRelatorio {
 
             //Percorre o resultado da query criando e adicionando os clientes 
             //encotrados na lista de clientes inicialmente declarada.
-            while (result.next()) {
-                Relatorio relatorio = new Relatorio();
-                Usuario usuario = new Usuario();
-                Cliente cliente = new Cliente();
-                Produto produto = new Produto();
-                ItemVenda itemDeVenda = new ItemVenda();
+            DataEHora data = new DataEHora();
+            
 
-                relatorio.setIdVenda(result.getInt("id_vendas"));
-                
-                //Seta o nome do cliente no relatório
-                cliente.setNome(result.getString("nome_clientes"));
-                relatorio.setCliente(cliente);
-                
-                //Seta o nome do vendedor no relatório
-                usuario.setNome(result.getString("nome_usuarios"));
-                relatorio.setUsuario(usuario);
-                
+            while (result.next()) {
+
+                Relatorio relatorio = new Relatorio();
+                Cliente cliente = new Cliente();
+                Usuario usuario = new Usuario();
+                Produto produto = new Produto();
+                ItemVenda item = new ItemVenda();
+                List<ItemVenda> itens = new ArrayList<>();
+
+                relatorio.setIdVenda(result.getInt("id_venda"));
+                cliente.setNome(result.getString("nome_cliente"));
+                usuario.setId(result.getInt("id_usuario"));
+                usuario.setNome(result.getString("nome_usuario"));
                 relatorio.setMetodoPagamento(result.getString("metodo_pagamento"));
-                relatorio.setDataHora(result.getString("data_hora_vendas"));
-                relatorio.setTotal(result.getDouble("valor_total"));
-                
-                while(result.next()){
+                relatorio.setTotal(result.getDouble("valor_total_venda"));
+
+                for (int i = 0; i < itens.size(); i++) {
 
                     produto.setNome(result.getString("nome_produto"));
-                    itemDeVenda.setProduto(produto);
-                    itemDeVenda.setQuantidade(result.getInt("quantidade_idv"));
-                    itemDeVenda.calculaSubtotal();
+                    item.setProduto(produto);
+                    item.setQuantidade(result.getInt("quantidade_produto"));
+                    item.setSubtotal(result.getDouble("subtotal_produto"));
                     
-                    itens.add(itemDeVenda);
+                    itens.add(item);
                 }
                 
-                // Seta a lista de itens no relatório
-                relatorio.setItens(itens); 
-                
+                relatorio.setCliente(cliente);
+                relatorio.setUsuario(usuario);
+                relatorio.setItens(itens);
+
                 relatorios.add(relatorio);
+                
 
             }
 

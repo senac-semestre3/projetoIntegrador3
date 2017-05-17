@@ -10,17 +10,17 @@ import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Cliente;
 import br.onevision.rainhadasucata.model.Usuario;
 import java.sql.Date;
+import java.sql.SQLException;
 
 /**
  *
  * @author everton
  */
 public class TesteEditar {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Cliente cliente = new Cliente();
         
         cliente.setNome("Maria");
-        cliente.setSobrenome("Ricardo");
         cliente.setCpfCnpj("411.439.000-55");
         cliente.setSexo("F");
         cliente.setTelefone("(11)5515-0000");

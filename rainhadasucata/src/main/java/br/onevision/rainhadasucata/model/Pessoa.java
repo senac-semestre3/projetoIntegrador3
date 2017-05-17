@@ -5,8 +5,6 @@
  */
 package br.onevision.rainhadasucata.model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -18,8 +16,8 @@ public class Pessoa {
 
     private int id;
     private String nome;
-    private String sobrenome;
     private String cpfCnpj;
+    private String dataNascimento;
     private String sexo;
     private String telefone;
     private String celular;
@@ -54,20 +52,20 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
     public String getCpfCnpj() {
         return cpfCnpj;
     }
 
     public void setCpfCnpj(String cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getSexo() {
@@ -172,20 +170,6 @@ public class Pessoa {
 
     public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
-    }
-
-    public String convertDataParaDB(Date data) {
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        return dateFormat.format(data);
-
-    }
-    
-    public String convertDataDeDB(Date data) {
-
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return dateFormat.format(data);
-
     }
 
     // pega a data e hora atual 

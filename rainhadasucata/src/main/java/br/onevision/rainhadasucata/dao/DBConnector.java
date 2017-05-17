@@ -18,7 +18,8 @@ public class DBConnector {
     public static String status = "Não conectou...";
 
     //Método de Conexão
-    public static java.sql.Connection getConexaoDB() {
+    public static java.sql.Connection getConexaoDB() throws SQLException {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
         Connection connection = null;  //atributo do tipo Connection
 
@@ -40,9 +41,6 @@ public class DBConnector {
             String username = "rainhadasucata"; //nome de um usuário do db      
             String password = "P@ssw0rd"; //senha de acesso
             
-            
-            //
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             //Conexão com servidor db
             connection = DriverManager.getConnection(url, username, password);
             
@@ -83,7 +81,7 @@ public class DBConnector {
     }
 
     //Método que reinicia a conexão
-    public static java.sql.Connection ReiniciarConexao() {
+    public static java.sql.Connection ReiniciarConexao() throws SQLException {
         FecharConexao();
         return DBConnector.getConexaoDB();
     }

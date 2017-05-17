@@ -50,7 +50,7 @@ public class TesteListar {
         System.out.println("Margem: " + pro.getMargemVenda());
         System.out.println("Estoque: " + pro.getEstoque());
         System.out.println("Estoque Mínimo: " + pro.getEstoqueMinimo());
-        System.out.println("Status: " + pro.isStatus());
+        System.out.println("Status: " + pro.getStatus());
 
         System.out.println("**************************************");
             System.out.println("");

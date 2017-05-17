@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    <form method="post" action="subm">
+                                    <form method="post" action="usuario-cadastrar">
                                         
                                         <!-- dados pessoais -->
                                         <div class="row bloco-dados">
@@ -56,13 +56,7 @@
                                                     <label for="nome">Nome</label>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="input-field col s9 offset-s1">
-                                                    <input id="sobrenome" type="text" class="validate" name="sobrenome">
-                                                    <label for="sobrenome">Sobrenome</label>
-                                                </div>
-                                            </div>
-
+                                           
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
                                                     <input id="cpf" type="text" class="validate" name="cpf">
@@ -125,11 +119,11 @@
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="usuario" type="text" class="validate" name="usuario">
+                                                    <input id="usuario" type="text" class="validate" name="usuario-nome">
                                                     <label for="usuario">Usuário</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="senha" type="password" class="validate" name="senha">
+                                                    <input id="senha" type="password" class="validate" name="usuario-senha">
                                                     <label for="senha">Senha</label>
                                                 </div>
                                             </div>
@@ -138,16 +132,27 @@
                                                 <div class="input-field col s4 offset-s1">
                                                     <select name="permissao">
                                                         <option value="" disabled selected> </option>
-                                                        <option value="">Matriz</option>
-                                                        <option value="">Produto</option>
-                                                        <option value="">Administrador</option>
+                                                        <option value="1">Matriz</option>
+                                                        <option value="2">Produto</option>
+                                                        <option value="3">Administrador</option>
                                                     </select>
                                                     <label>Nivel de Permissão</label>
                                                 </div>
+                                                
+                                                   <div class="input-field col s4 offset-s1">
+                                                    <select name="lojas">
+                                                        <option value="" disabled selected> </option>
+                                                        <option value="1">Matriz</option>
+                                                        <option value="2">Produto</option>
+                                                        <option value="3">Administrador</option>
+                                                    </select>
+                                                    <label>Loja</label>
+                                                </div>
+                                                
                                             </div>
                                             <div class="row">
                                                 <div class="col offset-s1">
-                                                    <input type="checkbox" id="status" name="status"/>
+                                                    <input type="checkbox"  id="status" name="status"/>
                                                     <label for="status">Usuário Ativo</label>
                                                 </div>
                                             </div>

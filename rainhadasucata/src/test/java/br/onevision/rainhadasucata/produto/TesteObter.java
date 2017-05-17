@@ -31,7 +31,7 @@ public class TesteObter {
         System.out.println("Margem: " + produto.getMargemVenda());
         System.out.println("Estoque: " + produto.getEstoque());
         System.out.println("Estoque Mínimo: " + produto.getEstoqueMinimo());
-        System.out.println("Status: " + produto.isStatus());
+        System.out.println("Status: " + produto.getStatus());
 
         System.out.println("**************************************");
 

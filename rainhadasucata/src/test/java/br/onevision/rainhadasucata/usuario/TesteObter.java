@@ -24,7 +24,6 @@ public class TesteObter {
 
         System.out.println("ID Usuário: " + usuario.getId());
             System.out.println("Nome: " + usuario.getNome());
-            System.out.println("Sobrenome: " + usuario.getSobrenome());
             System.out.println("CPF: " + usuario.getCpfCnpj());
             System.out.println("Data Nascimento: " + usuario.getDataNascimento());
             System.out.println("Sexo: " + usuario.getSexo());

@@ -7,13 +7,14 @@ package br.onevision.rainhadasucata.produto;
 
 import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
+import java.sql.SQLException;
 
 /**
  *
  * @author everton
  */
 public class TesteEditar {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
     Produto produto = new Produto();
         
@@ -25,7 +26,7 @@ public class TesteEditar {
         produto.setMargemVenda(100);
         produto.setEstoque(11);
         produto.setEstoqueMinimo(6);
-        produto.setStatus(false);
+        produto.setStatus(0);
         
         produto.setId(2);
         
