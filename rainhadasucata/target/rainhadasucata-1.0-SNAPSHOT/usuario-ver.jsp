@@ -6,6 +6,9 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,23 +58,23 @@
                                                 <table class="tabela-cliente-ver-dados-pessoais vertical striped">
                                                     <tr>
                                                         <th>Id</th>
-                                                        <td>52</td>
+                                                        <td>${usuario.id}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Nome</th>
-                                                        <td>Everton Roberto de Oliveira</td>
+                                                        <td>${usuario.nome}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Cpf</th>
-                                                        <td>411.439.358-70</td>
+                                                        <td>${usuario.cpfCnpj}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Data de Nascimento</th>
-                                                        <td>02/04/1993</td>
+                                                        <td>${usuario.dataNascimento}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Sexo</th>
-                                                        <td>Masculino</td>
+                                                        <td>${usuario.sexo}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -82,15 +85,15 @@
                                                 <table class="tabela-cliente-ver-contato vertical striped">
                                                     <tr>
                                                         <th>Telefone</th>
-                                                        <td>(11) 5515-2677</td>
+                                                        <td>(${usuario.telefone}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Celular</th>
-                                                        <td>(11) 95166-9431</td>
+                                                        <td>${usuario.celular}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>E-mail</th>
-                                                        <td>everton_roliveira@outlook.com</td>
+                                                        <td>${usuario.email}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -101,19 +104,19 @@
                                                 <table class="tabela-cliente-ver-endereco vertical striped">
                                                     <tr>
                                                         <th>Usuário</th>
-                                                        <td>everton.roliveira2</td>
+                                                        <td>${usuario.nomeUsuario}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Senha</th>
-                                                        <td>*****************</td>
+                                                        <td>${usuario.senha}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Permissão</th>
-                                                        <td>Administrador</td>
+                                                        <td>${usuario.permissao}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
-                                                        <td>Ativo</td>
+                                                        <td>${usuario.status}</td>
                                                     </tr>
                                                 </table>
                                             </div>

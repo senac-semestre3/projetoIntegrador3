@@ -59,7 +59,7 @@
                         <li class="btn-menu"><a class="collapsible-header waves-effect waves-light"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a>
                             <div class="collapsible-body" style="display: none;">
                                 <ul>
-                                    <li><a href="usuarios.jsp" class="collapsible-header waves-effect waves-light">Usuário</a>
+                                    <li><a href="aciona-servlet-listar-usuario.jsp" class="collapsible-header waves-effect waves-light">Usuário</a>
                                     </li>
                                     <li><a href="permissoes.jsp" class="collapsible-header waves-effect waves-light">Permissão</a>
                                     </li>

@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -79,47 +82,33 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>  
-                                                <td>Everton Roberto de Oliveira</td>
-                                                <td>111.111.111-11</td>
-                                                <td>(11)5555-5555</td>
-                                                <td>Matriz</td>
-                                                <td>
-                                                <a href="usuario-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do usuário" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                </a>
-                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar usuário" type="submit" name="btn-editar">
-                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar usuário" type="submit" name="btn-deletar">
-                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                            </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Fabio Ribeiro</td>
-                                                <td>222.222.222-22</td>
-                                                <td>(11)5555-6666</td>
-                                                <td>Administrador</td>
-                                                <td>
-                                                <a href="produto-ver.jsp">
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do usuário" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                </a>
-                                                <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar usuário" type="submit" name="btn-editar">
-                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                                <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar usuário" type="submit" name="btn-deletar">
-                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                            </td>
-                                            </tr>
-                                        </tbody>
+                                        <c:forEach items="${listaUsuario}" var="usuario">
+                                            <form action="servlet-usuario-ver" method="get">
+                                                <tr>
+                                                    <td><input type="text" name="id" value="${usuario.id}"></td>
+                                                    <td><c:out value="${usuario.nome}" /></td>
+                                                    <td><input type="text" name="cpf" value="${usuario.cpfCnpj}"></td>
+                                                    <td><c:out value="${usuario.telefone}" /></td>
+<!--                                                    <td><c:out value="${usuario.idPermissao}" /></td>-->
+
+                                                    <td>
+
+<!--                                                        <input type="submit">-->
+                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                        </button
+                                                        </a>
+                                                        <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
+                                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
+                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                        </c:forEach> 
+                                          </tbody>
                                     </table>
                                 </div>
                             </div><!--Fim .card -->
