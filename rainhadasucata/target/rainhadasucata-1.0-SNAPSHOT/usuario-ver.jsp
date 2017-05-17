@@ -112,7 +112,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Permissão</th>
-                                                        <td>${usuario.permissao}</td>
+                                                        <td>${usuario.idPermissao}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
