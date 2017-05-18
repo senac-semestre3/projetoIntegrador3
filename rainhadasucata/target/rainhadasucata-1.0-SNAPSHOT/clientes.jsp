@@ -75,35 +75,39 @@
                                                 <th>Cpf ou Cnpj</th>
                                                 <th>Telefone</th>
                                                 <th>E-mail</th>
+                                                <th>ClienteOk</th>
                                                 <th>Ação</th>
+
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <!--1-->
-                                            <c:forEach items="${listaContatos}" var="contato">
-                                            <form action="servlet-cliente-ver" method="get">
-                                                <tr>
-                                                    <td><input type="text" name="id" value="${contato.id}"></td>
-                                                    <td><c:out value="${contato.nome}" /></td>
-                                                    <td><input type="text" name="cpf" value="${contato.cpfCnpj}"></td>
-                                                    <td><c:out value="${contato.telefone}" /></td>
-                                                    <td><c:out value="${contato.email}" /></td>
-
-                                                    <td>
-
-<!--                                                        <input type="submit">-->
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
-                                                        </a>
-                                                        <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                        <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
+                                        <h2><c:out value="${sessionScope.clienteok}" /></h2>
+                                        
+                                         <c:remove scope="session" var="clienteok" />
+                                        <c:forEach items="${listaContatos}" var="contato">
+                                            <form  action="servlet-cliente-ver" method="get">
+                                                <tr><input type="hidden" name="id" value="${contato.id}"> 
+                                                <td><c:out value="${contato.id}" /></td>
+                                                <td><c:out value="${contato.nome}" /></td>
+                                                <td><input type="text" name="cpf" value="${contato.cpfCnpj}"></td>
+                                                <td><c:out value="${contato.telefone}" /></td>
+                                                <td><c:out value="${contato.email}" /></td>
+                                                <td> </td>
+                                                <td>
+                                                    <!--                                                        <input type="submit">-->
+                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                    </button
+                                                    </a>
+                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
+                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                    </button>
+                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
+                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                    </button>
+                                                </td>
                                                 </tr>
                                             </form>
                                         </c:forEach> 

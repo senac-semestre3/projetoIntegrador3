@@ -32,9 +32,7 @@ public class ServletClienteCadastrar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("entrada.jsp");
-        dispatcher.forward(request, response);
+
     }
 
     /**
@@ -67,7 +65,7 @@ public class ServletClienteCadastrar extends HttpServlet {
         String complemento = request.getParameter("complemento");
         String estado = request.getParameter("estado");
         Cliente cliente = new Cliente();
-        
+
         cliente.setNome(nome);
         cliente.setCpfCnpj(cpf);
         cliente.setSexo(sexo);
@@ -81,10 +79,7 @@ public class ServletClienteCadastrar extends HttpServlet {
         cliente.setCidade(cidade);
         cliente.setComplemento(complemento);
         cliente.setEstado(estado);
-        
-        
-     
-              
+
         //Executa a a��o de inserir no banco
         ServiceProdutoCadastrar serviceProduto = new ServiceProdutoCadastrar();
 
@@ -94,12 +89,23 @@ public class ServletClienteCadastrar extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(ServletClienteCadastrar.class.getName()).log(Level.SEVERE, null, ex);
         }
-        daoCliente.inserir(cliente);
+        
+        try {
+                    daoCliente.inserir(cliente);
 
         HttpSession sessao = request.getSession();
-        sessao.setAttribute("novoCliente", cliente);
-        sessao.setAttribute("url", "http://localhost:8080/rainhadasucata/produto-cadastro.jsp");
-        response.sendRedirect(request.getContextPath() + "/resposta_cliente.jsp");
+        sessao.setAttribute("clienteok", "1");
+        
+        response.sendRedirect("aciona-servlet-listar-cliente.jsp");
+        } catch (Exception e) {
+            
+              HttpSession sessao = request.getSession();
+        sessao.setAttribute("clienteok", "0");
+        
+        response.sendRedirect("aciona-servlet-listar-cliente.jsp");
+            
+            
+        }
 
     }
     //  String senha = request.getParameter("senha");
