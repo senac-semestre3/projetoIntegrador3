@@ -46,8 +46,8 @@
                                         <div class="row bloco-dados">
                                             <div class="row">
                                                 <div class="input-field col s5 offset-s1">
-                                                    <input id="nome" type="text" class="validate" name="nome">
-                                                    <label for="nome">Nome do produto</label>
+                                                    <input id="nome" type="text" class="validate" name="nome" required="required">
+                                                    <label for="nome">* Nome do produto</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
                                                     <input id="marca" type="text" class="validate" name="marca">
@@ -72,14 +72,14 @@
                                                     <label for="margem">Margem de lucro</label>
                                                 </div>
                                                 <div class="input-field col s3 offset-s1">
-                                                    <input id="valor-venda" type="text" class="validate" name="valor-venda">
-                                                    <label for="valor-venda">Valor de venda</label>
+                                                    <input id="valor-venda" type="text" class="validate" name="valor-venda" required="required">
+                                                    <label for="valor-venda">* Valor de venda</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s3 offset-s1">
-                                                    <input id="estoque" type="number" class="validate" name="estoque">
-                                                    <label for="estoque">Quantidade em estoque</label>
+                                                    <input id="estoque" type="number" class="validate" name="estoque" required="required">
+                                                    <label for="estoque">* Quantidade em estoque</label>
                                                 </div>
                                                 <div class="input-field col s3 offset-s1">
                                                     <input id="estoque-minimo" type="number" class="validate" name="estoque-minimo">
@@ -120,6 +120,11 @@
 
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
+        <script src="dist/js/mascaras.js" type="text/javascript"></script>
+        
+        <!-- javascript da página -->
+        <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
+        <script src="dist/js/SetMascara.js" type="text/javascript"></script>
     </body>
 </html>
 

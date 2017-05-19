@@ -82,15 +82,15 @@
                                       <c:forEach items="${listaProdutos}" var="produto">
                                             <form action="servlet-produto-ver" method="get">
                                                 <tr>
-                                                    <td><input type="text" name="id" value="${produto.id}"></td>
+                                                <input type="hidden" name="id" value="${produto.id}" />
+                                                    <td><c:out value="${produto.id}" /></td>
                                                     <td><c:out value="${produto.nome}" /></td>
-                                                    <td><input type="text" name="cpf" value="${produto.precoVenda}"></td>
+                                                    <td><c:out value="${produto.precoVenda}" /></td>
                                                     <td><c:out value="${produto.estoque}" /></td>
                                                     <td><c:out value="${produto.status}" /></td>
 
                                                     <td>
-
-<!--                                                        <input type="submit">-->
+                                                        <!--<input type="submit">-->
                                                         <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button

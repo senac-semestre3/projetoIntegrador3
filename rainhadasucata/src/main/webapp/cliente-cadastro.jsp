@@ -51,21 +51,15 @@
 
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input id="nome" type="text" class="validate" name="nome">
-                                                    <label for="nome">Nome</label>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col s9 offset-s1">
-                                                    <input id="sobrenome" type="text" class="validate" name="sobrenome">
-                                                    <label for="sobrenome">Sobrenome</label>
+                                                    <input id="nome" type="text" class="validate" name="nome" required="required">
+                                                    <label for="nome">* Nome</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="cpf-cnpj" type="text" class="validate" name="cpf-cnpj">
-                                                    <label for="cpf-cnpj">CPF/CNPJ</label>
+                                                    <input id="cpf-cnpj" type="text" class="validate" name="cpf-cnpj" required="required">
+                                                    <label for="cpf-cnpj">* CPF</label>
                                                 </div>
                                                 <div class="box-data col s4 offset-s1">
                                                     <label for="data-nascimento" class="active">Data de Nascimento</label>
@@ -96,8 +90,8 @@
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="telefone" type="text" class="validate" name="telefone">
-                                                    <label for="telefone">Telefone</label>
+                                                    <input id="telefone" type="text" class="validate" name="telefone" required="required">
+                                                    <label for="telefone">* Telefone</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
                                                     <input id="celular" type="text" class="validate" name="celular">
@@ -107,8 +101,8 @@
 
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input id="email" type="email" class="validate" name="email">
-                                                    <label for="email">E-mail</label>
+                                                    <input id="email" type="email" class="validate" name="email" required="required">
+                                                    <label for="email">* E-mail</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,15 +118,15 @@
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="cep" type="text" class="validate" name="cep">
-                                                    <label for="cep">CEP</label>
+                                                    <input id="cep" type="text" class="validate" name="cep" required="required">
+                                                    <label for="cep">* CEP</label>
                                                 </div>                          
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input id="logradouro" type="text" class="validate" name="logradouro">
-                                                    <label for="logradouro">Logradouro</label>
+                                                    <input id="logradouro" type="text" class="validate" name="logradouro" required="required">
+                                                    <label for="logradouro">* Logradouro</label>
                                                 </div>
                                             </div>
 
@@ -142,23 +136,23 @@
                                                     <label for="numero">Número</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="bairro" type="text" class="validate" name="bairro">
-                                                    <label for="bairro">Bairro</label>
+                                                    <input id="bairro" type="text" class="validate" name="bairro" required="required">
+                                                    <label for="bairro">* Bairro</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="cidade" type="text" class="validate" name="cidade">
-                                                    <label for="cidade">Cidade</label>
+                                                    <input id="cidade" type="text" class="validate" name="cidade" required="required">
+                                                    <label for="cidade">* Cidade</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <select name="estado">
+                                                    <select name="estado" required="required">
                                                         <option value="" disabled selected> </option>
                                                         <option value="">São Paulo</option>
                                                         <option value="">Rio de Janeiro</option>
                                                         <option value="">Salvador</option>
                                                     </select>
-                                                    <label>Estado</label>
+                                                    <label>* Estado</label>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -194,8 +188,10 @@
 
         <!-- Javascript da lib -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
-
+        <script src="dist/js/mascaras.js" type="text/javascript"></script>
+        
         <!-- Javascript da página -->
-        <script src="dist/js/usuario.js" type="text/javascript"></script>
+        <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
+        <script src="dist/js/SetMascara.js" type="text/javascript"></script>
     </body>
 </html>

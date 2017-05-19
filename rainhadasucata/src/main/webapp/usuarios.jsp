@@ -85,15 +85,16 @@
                                         <c:forEach items="${listaUsuario}" var="usuario">
                                             <form action="servlet-usuario-ver" method="get">
                                                 <tr>
-                                                    <td><input type="text" name="id" value="${usuario.id}"></td>
+                                                    <input type="hidden" name="id" value="${usuario.id}" />
+                                                    <td><c:out value="${usuario.id}" /></td>
                                                     <td><c:out value="${usuario.nome}" /></td>
-                                                    <td><input type="text" name="cpf" value="${usuario.cpfCnpj}"></td>
+                                                    <td><c:out value="${usuario.cpfCnpj}" /></td>
                                                     <td><c:out value="${usuario.telefone}" /></td>
-<!--                                                    <td><c:out value="${usuario.idPermissao}" /></td>-->
+                                                    <td><c:out value="${usuario.idPermissao}" /></td>
 
                                                     <td>
 
-<!--                                                        <input type="submit">-->
+                                                        <!-- <input type="submit">-->
                                                         <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
                                                         </button
