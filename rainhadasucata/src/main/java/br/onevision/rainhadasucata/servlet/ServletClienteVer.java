@@ -27,49 +27,54 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/servlet-cliente-ver")
 public class ServletClienteVer extends HttpServlet {
 
-  @Override
-  public void doGet(HttpServletRequest request,
-	  HttpServletResponse response)
-	  throws ServletException {
-    
-    String papel = request.getParameter("papel");
-    request.setAttribute("papelUsuario", papel);
+    @Override
+    public void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException {
 
-    // Efetua o processamento (neste caso, recuperar
-    // a lista de contatos do banco
-    //ContatoDAO dao = new ContatoDAO();
-    //List<Contato> lista = dao.listar();
-    
-   String id = request.getParameter("id");
-  
-    Cliente cliente = new Cliente();
-    
-      try {
-   
-                 DaoCliente daocliente = new DaoCliente();
-          cliente = daocliente.obter(Integer.parseInt(id));
-              request.setAttribute("cliente", cliente);
-    
-    // Lógica para encaminhar a requisição para continuar
-    // o processamento no JSP.
-    RequestDispatcher dispatcher = 
-	    request.getRequestDispatcher("cliente-ver.jsp");
-    try {
-      dispatcher.forward(request, response);
-    } catch (IOException ex) {
+        String papel = request.getParameter("papel");
+        request.setAttribute("papelUsuario", papel);
 
+        // Efetua o processamento (neste caso, recuperar
+        // a lista de contatos do banco
+        //ContatoDAO dao = new ContatoDAO();
+        //List<Contato> lista = dao.listar();
+        String id = request.getParameter("id");
+
+        Cliente cliente = new Cliente();
+
+        try {
+
+            DaoCliente daocliente = new DaoCliente();
+            cliente = daocliente.obter(Integer.parseInt(id));
+            
+            //O banco me manda um "M" o "F"
+            if (cliente.getSexo().equalsIgnoreCase("m")) {
+                cliente.setSexo("Masculino");
+            }else{
+                cliente.setSexo("Feminino");
+            }
+            
+            request.setAttribute("cliente", cliente);
+
+            // Lógica para encaminhar a requisição para continuar
+            // o processamento no JSP.
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("cliente-ver.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (IOException ex) {
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // Define um atributo para repassar a lista para o
+        // JSP
     }
-          
-      } catch (SQLException ex) {
-          Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (Exception ex) {
-          Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
-      }
-   
-    // Define um atributo para repassar a lista para o
-    // JSP
-
-
-  }
 
 }

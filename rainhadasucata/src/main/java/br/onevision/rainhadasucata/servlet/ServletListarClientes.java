@@ -10,8 +10,6 @@ import br.onevision.rainhadasucata.model.Cliente;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,49 +27,46 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/servlet-listar-clientes")
 public class ServletListarClientes extends HttpServlet {
 
-  @Override
-  public void doPost(HttpServletRequest request,
-	  HttpServletResponse response)
-	  throws ServletException {
-    
-    String papel = request.getParameter("papel");
-    request.setAttribute("papelUsuario", papel);
+    @Override
+    public void doPost(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException {
 
-    // Efetua o processamento (neste caso, recuperar
-    // a lista de contatos do banco
-    //ContatoDAO dao = new ContatoDAO();
-    //List<Contato> lista = dao.listar();
-   List<Cliente> lista = new ArrayList<>();
-    
-      try {
-   
-                 DaoCliente daocliente = new DaoCliente();
-          lista = daocliente.listarTodos();
-          
-              request.setAttribute("listaContatos", lista);
-    
-    // Lógica para encaminhar a requisição para continuar
-    // o processamento no JSP.
-    RequestDispatcher dispatcher =   request.getRequestDispatcher("clientes.jsp");
-    try {
-      dispatcher.forward(request, response);
-    } catch (IOException ex) {
+        String papel = request.getParameter("papel");
+        request.setAttribute("papelUsuario", papel);
 
+        // Efetua o processamento (neste caso, recuperar
+        // a lista de contatos do banco
+        //ContatoDAO dao = new ContatoDAO();
+        //List<Contato> lista = dao.listar();
+        List<Cliente> lista = new ArrayList<>();
+
+        try {
+
+            DaoCliente daocliente = new DaoCliente();
+            lista = daocliente.listarTodos();
+
+            request.setAttribute("listaContatos", lista);
+
+            // Lógica para encaminhar a requisição para continuar
+            // o processamento no JSP.
+            RequestDispatcher dispatcher = request.getRequestDispatcher("clientes.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (IOException ex) {
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // Define um atributo para repassar a lista para o
+        // JSP
+        // Define um atributo para repassar a lista para o
+        // JSP
     }
-          
-      } catch (SQLException ex) {
-          Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
-      } catch (Exception ex) {
-          Logger.getLogger(ServletListarClientes.class.getName()).log(Level.SEVERE, null, ex);
-      }
-   
-    // Define um atributo para repassar a lista para o
-    // JSP
-   
-    // Define um atributo para repassar a lista para o
-    // JSP
-
-
-  }
 
 }

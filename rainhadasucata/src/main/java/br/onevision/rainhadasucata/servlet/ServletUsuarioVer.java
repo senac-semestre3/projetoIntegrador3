@@ -43,6 +43,13 @@ public class ServletUsuarioVer extends HttpServlet {
             DaoUsuario daoUsuario = new DaoUsuario();
             usuario = daoUsuario.obter(Integer.parseInt(id));
             
+            //O banco me manda um "M" o "F"
+            if (usuario.getSexo().equalsIgnoreCase("m")) {
+                usuario.setSexo("Masculino");
+            }else{
+                usuario.setSexo("Feminino");
+            }
+
             request.setAttribute("usuario", usuario);
 
             // Lógica para encaminhar a requisição para continuar

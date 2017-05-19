@@ -6,7 +6,7 @@
 package br.onevision.rainhadasucata.servlet;
 
 import br.onevision.rainhadasucata.model.Produto;
-import br.onevision.rainhadasucata.service.ServiceProdutoCadastrar;
+import br.onevision.rainhadasucata.service.ServiceProduto;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -58,8 +58,6 @@ public class SevletProdutoCadastrar extends HttpServlet {
         String estoque = request.getParameter("estoque");
         String estoqueMinimo = request.getParameter("estoque-minimo");
         String status = request.getParameter("status");
-        
-        
 
         Produto p = new Produto();
 
@@ -67,39 +65,41 @@ public class SevletProdutoCadastrar extends HttpServlet {
         p.setMarca(marca);
         p.setDescricao(descricao);
         p.setPrecoCompra(Double.parseDouble(valorCompra));
-        p.setMargemVenda(Double.parseDouble(margemLucro));
+        
+        try {
+            p.setMargemVenda(Double.parseDouble(margemLucro));
+        } catch (Exception e) {
+            p.setMargemVenda(0);
+        }
+        
         p.setPrecoVenda(Double.parseDouble(valorVenda));
         p.setEstoque(Integer.parseInt(estoque));
         p.setEstoqueMinimo(Integer.parseInt(estoqueMinimo));
-      
-       if (status != null) {
+
+        if (status != null) {
             p.setStatus(1);
 
         } else {
             p.setStatus(0);
         }
-        
-        
-        
-        //Executa a a��o de inserir no banco
-        ServiceProdutoCadastrar  serviceProduto = new ServiceProdutoCadastrar();
+
+        ServiceProduto serviceProduto = new ServiceProduto();
 
         try {
             if (serviceProduto.inserirProduto(p)) {
-                
                 HttpSession sessao = request.getSession();
-                sessao.setAttribute("novoContato", nome);
+                sessao.setAttribute("novoProduto", nome);
                 sessao.setAttribute("url", "http://localhost:8080/rainhadasucata/produto-cadastro.jsp");
-                response.sendRedirect(request.getContextPath()+"/resposta_produto.jsp");
-                
+                response.sendRedirect(request.getContextPath() + "/aciona-servlet-listar-produto.jsp");
+
             } else {
-                 HttpSession sessao = request.getSession();
-                sessao.setAttribute("novoContato", nome);
+                HttpSession sessao = request.getSession();
+                sessao.setAttribute("novoProduto", nome);
                 sessao.setAttribute("url", "http://localhost:8080/rainhadasucata/produto-cadastro.jsp");
-                
+
             }
         } catch (RuntimeException | SQLException ex) {
-          
+
         }
         //  String senha = request.getParameter("senha");
 //        request.setAttribute("nome", senha);
@@ -115,10 +115,8 @@ public class SevletProdutoCadastrar extends HttpServlet {
         // redirect (t�cnica POST-REDIRECT-GET),
         // usado para evitar dupla submiss�o dos
         // dados
-        
 
-      //  String senha = request.getParameter("senha");
-
+        //  String senha = request.getParameter("senha");
 //        request.setAttribute("nome", senha);
 //        request.setAttribute("senha", nome);
 //        DaoCliente daoCliente = new DaoCliente();

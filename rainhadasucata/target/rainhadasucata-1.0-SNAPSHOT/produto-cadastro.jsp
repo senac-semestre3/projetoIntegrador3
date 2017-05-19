@@ -40,9 +40,9 @@
                                 </div>
 
                                 <div class="corpo-card">
-                                    
-<!--                                   INICIO DO FORM-->
-<form action="produto-cadastrar" method="post">
+
+                                    <!-- INICIO DO FORM-->
+                                    <form action="produto-cadastrar" method="post">
                                         <div class="row bloco-dados">
                                             <div class="row">
                                                 <div class="input-field col s5 offset-s1">
@@ -121,7 +121,7 @@
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
         <script src="dist/js/mascaras.js" type="text/javascript"></script>
-        
+
         <!-- javascript da página -->
         <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>

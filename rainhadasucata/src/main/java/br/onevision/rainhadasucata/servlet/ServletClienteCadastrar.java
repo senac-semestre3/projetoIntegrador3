@@ -7,13 +7,10 @@ package br.onevision.rainhadasucata.servlet;
 
 import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.Produto;
-import br.onevision.rainhadasucata.service.ServiceProdutoCadastrar;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -80,31 +77,27 @@ public class ServletClienteCadastrar extends HttpServlet {
         cliente.setComplemento(complemento);
         cliente.setEstado(estado);
 
-        //Executa a a��o de inserir no banco
-        ServiceProdutoCadastrar serviceProduto = new ServiceProdutoCadastrar();
-
         DaoCliente daoCliente = null;
         try {
             daoCliente = new DaoCliente();
         } catch (SQLException ex) {
             Logger.getLogger(ServletClienteCadastrar.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        try {
-                    daoCliente.inserir(cliente);
 
-        HttpSession sessao = request.getSession();
-        sessao.setAttribute("clienteok", "1");
-        
-        response.sendRedirect("aciona-servlet-listar-cliente.jsp");
+        try {
+            daoCliente.inserir(cliente);
+
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("clienteok", "1");
+
+            response.sendRedirect("aciona-servlet-listar-cliente.jsp");
         } catch (Exception e) {
-            
-              HttpSession sessao = request.getSession();
-        sessao.setAttribute("clienteok", "0");
-        
-        response.sendRedirect("aciona-servlet-listar-cliente.jsp");
-            
-            
+
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("clienteok", "0");
+
+            response.sendRedirect("aciona-servlet-listar-cliente.jsp");
+
         }
 
     }
