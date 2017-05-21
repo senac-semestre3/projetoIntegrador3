@@ -20,7 +20,7 @@ public class TesteObter {
         
         int id = 1;// id a ser buscado
         
-        usuario = dao.obter(id);
+        usuario = dao.obterNomeSenha("Willian","123456");
 
         System.out.println("ID Usuário: " + usuario.getId());
             System.out.println("Nome: " + usuario.getNome());

@@ -5,13 +5,13 @@
     <head>
         <title>Rainha da Sucata</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        
+
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="dist/css/plugins.css"/>
-        
+
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="dist/css/comum.css">
 
@@ -20,7 +20,14 @@
     </head>
 
     <body>
-
+        <%
+           try {
+//valida se a session foi criada no ServletLogin se sim exibe a página inicial se não volta para o login
+       if (session.getAttribute("sessionusuario") == null || session.getAttribute("sessionusuario").equals(""))
+ {response.sendRedirect("login.jsp");
+ 
+ } else {
+        %>
         <!-- Topo -->
         <div class="row">
             <div class="col s12">
@@ -30,7 +37,11 @@
                             <a href="#!"></a>
                         </div>
                         <div class="right">
-                            <button class="btn btn-sair waves-effect waves-light"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+                            <!--Botão sair chama aciona-sair.jsp para encerrar a sessão "sessionusuario"-->
+                            <form action="aciona-sair.jsp">
+                                <i class="fa fa-power-off" aria-hidden="true"></i></button>
+                                <button type="submit"  class="btn btn-sair waves-effect waves-light">
+                            </form>
                         </div>
 
                     </div>
@@ -45,6 +56,10 @@
                 <div class="container-perfil">
                     <img src="dist/imagens/avatar.png" alt="" class="circle img-avatar">
                     <p><span>Nome do Perfil</span></p>
+                    <!--Pega o nome do usuário na sessão criada em ServletLogin-->
+                    <p><span>Olá ${sessionScope.sessionusuario.nome}</span></p>
+              
+
                 </div>
                 <div class="divider"></div>
 
@@ -72,5 +87,12 @@
                 </ul>
             </div>
         </div>
+
+        <%
+                  }
+            } catch (Exception e) {
+
+            }
+        %>
     </body>
 </html>

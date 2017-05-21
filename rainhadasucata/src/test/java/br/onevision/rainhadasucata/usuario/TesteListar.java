@@ -57,6 +57,11 @@ public class TesteListar {
             System.out.println("ID Loja: " + user.getIdLoja());
             System.out.println("**************************************");
             System.out.println("");
+            
+            System.out.println("**************************");
+            
+             
+            
         }
     }
 }

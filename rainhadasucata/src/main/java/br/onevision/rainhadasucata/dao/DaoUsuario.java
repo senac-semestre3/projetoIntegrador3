@@ -24,8 +24,8 @@ public class DaoUsuario {
     private final Connection connection;
 
     public DaoUsuario() throws SQLException {
-        
-       // DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+
+        // DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         this.connection = DBConnector.getConexaoDB();
     }
 
@@ -210,21 +210,21 @@ public class DaoUsuario {
                 usuario.setSexo(result.getString("sexo_usuarios"));
                 usuario.setTelefone(result.getString("telefone_usuarios"));
                 usuario.setCelular(result.getString("celular_usuarios"));
-                usuario.setEmail(result.getString("email_usuarios"));                
-                usuario.setCep(result.getString("cep_usuarios"));                
-                usuario.setLogradouro(result.getString("logradouro_usuarios"));                
-                usuario.setNumero(result.getString("numero_usuarios"));                
-                usuario.setBairro(result.getString("bairro_usuarios"));                
-                usuario.setCidade(result.getString("cidade_usuarios"));                
-                usuario.setEstado(result.getString("estado_usuarios"));                
-                usuario.setComplemento(result.getString("complemento_usuarios"));                
+                usuario.setEmail(result.getString("email_usuarios"));
+                usuario.setCep(result.getString("cep_usuarios"));
+                usuario.setLogradouro(result.getString("logradouro_usuarios"));
+                usuario.setNumero(result.getString("numero_usuarios"));
+                usuario.setBairro(result.getString("bairro_usuarios"));
+                usuario.setCidade(result.getString("cidade_usuarios"));
+                usuario.setEstado(result.getString("estado_usuarios"));
+                usuario.setComplemento(result.getString("complemento_usuarios"));
                 usuario.setNomeUsuario(result.getString("nome_login_usuarios"));
                 usuario.setSenha(result.getString("senha_usuarios"));
                 usuario.setStatus(result.getInt("status_usuarios"));
                 usuario.setDataCadastro(result.getString("data_cadastro_usuarios"));
                 usuario.setIdPermissao(result.getInt("fk_id_permissao"));
                 usuario.setIdLoja(result.getInt("fk_id_loja"));
-                
+
                 return usuario;
 
             }
@@ -289,7 +289,7 @@ public class DaoUsuario {
             //encotrados na lista de usuarios inicialmente declarada.
             while (result.next()) {
                 Usuario usuario = new Usuario();
-                
+
                 usuario.setId(result.getInt("id_usuarios"));
                 usuario.setNome(result.getString("nome_usuarios"));
                 usuario.setCpfCnpj(result.getString("cpf_usuarios"));
@@ -297,14 +297,14 @@ public class DaoUsuario {
                 usuario.setSexo(result.getString("sexo_usuarios"));
                 usuario.setTelefone(result.getString("telefone_usuarios"));
                 usuario.setCelular(result.getString("celular_usuarios"));
-                usuario.setEmail(result.getString("email_usuarios"));                
-                usuario.setCep(result.getString("cep_usuarios"));                
-                usuario.setLogradouro(result.getString("logradouro_usuarios"));                
-                usuario.setNumero(result.getString("numero_usuarios"));                
-                usuario.setBairro(result.getString("bairro_usuarios"));                
-                usuario.setCidade(result.getString("cidade_usuarios"));                
-                usuario.setEstado(result.getString("estado_usuarios"));                
-                usuario.setComplemento(result.getString("complemento_usuarios"));                
+                usuario.setEmail(result.getString("email_usuarios"));
+                usuario.setCep(result.getString("cep_usuarios"));
+                usuario.setLogradouro(result.getString("logradouro_usuarios"));
+                usuario.setNumero(result.getString("numero_usuarios"));
+                usuario.setBairro(result.getString("bairro_usuarios"));
+                usuario.setCidade(result.getString("cidade_usuarios"));
+                usuario.setEstado(result.getString("estado_usuarios"));
+                usuario.setComplemento(result.getString("complemento_usuarios"));
                 usuario.setNomeUsuario(result.getString("nome_login_usuarios"));
                 usuario.setSenha(result.getString("senha_usuarios"));
                 usuario.setStatus(result.getInt("status_usuarios"));
@@ -326,6 +326,52 @@ public class DaoUsuario {
             FecharConexao();
         }
         return usuarios;
+    }
+//SELECT usuarios.nome_usuarios, usuarios.senha_usuarios FROM `usuarios` WHERE usuarios.nome_usuarios = "Willian" AND usuarios.senha_usuarios = 1234565
+
+    public Usuario obterNomeSenha(String nome, String senha)
+            throws SQLException, Exception {
+
+        String sql ="SELECT usuarios.nome_usuarios, usuarios.senha_usuarios FROM `usuarios`"
+                + " WHERE usuarios.nome_usuarios = \""+nome+"\" AND usuarios.senha_usuarios = "+senha+";";
+//        String sql = "SELECT usuarios.nome_usuarios, usuarios.senha_usuarios FROM `usuarios` "
+//                + "WHERE usuarios.nome_usuarios = \"Willian\" AND usuarios.senha_usuarios = 1234565";
+
+        try (
+                //Cria um statement para executar as instruções SQL
+                PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+            //Cria o objeto que recebe o resultado da  query executada
+            ResultSet result = stmt.executeQuery();
+
+            //Percorre o resultado da query criando e adicionando os usuarios 
+            //encotrados na lista de usuarios inicialmente declarada.
+            while (result.next()) {
+                Usuario usuario = new Usuario();
+
+             
+                usuario.setNome(result.getString("nome_usuarios"));
+             
+               
+
+                usuario.setSenha(result.getString("senha_usuarios"));
+               
+//                FecharConexao();
+
+                return usuario;
+
+            }
+
+            result.close();
+            FecharConexao();
+
+        } catch (Exception e) {
+            throw new SQLException(e);
+        } finally {
+            FecharConexao();
+        }
+        FecharConexao();
+        return null;
     }
 
 }

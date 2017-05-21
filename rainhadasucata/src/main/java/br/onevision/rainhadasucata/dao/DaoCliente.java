@@ -77,6 +77,8 @@ public class DaoCliente {
             FecharConexao();
 
         } catch (SQLException e) {
+            FecharConexao();
+
             throw new RuntimeException(e);
         } finally {
             FecharConexao();
@@ -132,6 +134,7 @@ public class DaoCliente {
 
         } catch (SQLException e) {
             System.out.println(e);
+            FecharConexao();
 
         } finally {
             FecharConexao();
@@ -155,6 +158,7 @@ public class DaoCliente {
 
         } catch (SQLException e) {
             System.out.println(e);
+            FecharConexao();
 
         } finally {
             FecharConexao();
@@ -195,6 +199,7 @@ public class DaoCliente {
                 cliente.setComplemento(result.getString("complemento_clientes"));
                 cliente.setDataCadastro(result.getString("data_cadastro_clientes"));
 
+                
                 return cliente;
 
             }
@@ -202,7 +207,10 @@ public class DaoCliente {
             result.close();
 
         } catch (Exception e) {
+                        FecharConexao();
+
             throw new SQLException(e);
+            
         } finally {
             FecharConexao();
         }
