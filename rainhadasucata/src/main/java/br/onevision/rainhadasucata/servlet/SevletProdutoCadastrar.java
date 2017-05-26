@@ -28,9 +28,7 @@ public class SevletProdutoCadastrar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("entrada.jsp");
-        dispatcher.forward(request, response);
+        
     }
 
     /**
@@ -59,34 +57,40 @@ public class SevletProdutoCadastrar extends HttpServlet {
         String estoqueMinimo = request.getParameter("estoque-minimo");
         String status = request.getParameter("status");
 
-        Produto p = new Produto();
+        Produto produto = new Produto();
 
-        p.setNome(nome);
-        p.setMarca(marca);
-        p.setDescricao(descricao);
-        p.setPrecoCompra(Double.parseDouble(valorCompra));
+        produto.setNome(nome);
+        produto.setMarca(marca);
+        produto.setDescricao(descricao);
+        produto.setPrecoCompra(Double.parseDouble(valorCompra));
+        produto.setMargemVenda(Double.parseDouble(margemLucro));
+        produto.setPrecoVenda(Double.parseDouble(valorVenda));
+        produto.setEstoque(Integer.parseInt(estoque));
+        produto.setEstoqueMinimo(Integer.parseInt(estoqueMinimo));
+        produto.getStatus();
+         
         
         try {
-            p.setMargemVenda(Double.parseDouble(margemLucro));
+            produto.setMargemVenda(Double.parseDouble(margemLucro));
         } catch (Exception e) {
-            p.setMargemVenda(0);
+            produto.setMargemVenda(0);
         }
         
-        p.setPrecoVenda(Double.parseDouble(valorVenda));
-        p.setEstoque(Integer.parseInt(estoque));
-        p.setEstoqueMinimo(Integer.parseInt(estoqueMinimo));
+        produto.setPrecoVenda(Double.parseDouble(valorVenda));
+        produto.setEstoque(Integer.parseInt(estoque));
+        produto.setEstoqueMinimo(Integer.parseInt(estoqueMinimo));
 
         if (status != null) {
-            p.setStatus(1);
+            produto.setStatus(1);
 
         } else {
-            p.setStatus(0);
+            produto.setStatus(0);
         }
 
         ServiceProduto serviceProduto = new ServiceProduto();
 
         try {
-            if (serviceProduto.inserirProduto(p)) {
+            if (serviceProduto.inserirProduto(produto)) {
                 HttpSession sessao = request.getSession();
                 sessao.setAttribute("novoProduto", nome);
                 sessao.setAttribute("url", "http://localhost:8080/rainhadasucata/produto-cadastro.jsp");
