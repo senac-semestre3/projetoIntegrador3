@@ -8,6 +8,7 @@ package br.onevision.rainhadasucata.service;
 import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -56,103 +57,40 @@ public class ServiceProduto {
 
     }
 
-    public boolean buscarProduto(Produto produto) throws RuntimeException, SQLException, Exception {
+    public List<Produto> listarTodos() throws RuntimeException, SQLException, Exception {
 
         try {
-            DaoProduto daoProduto = new DaoProduto();
+            DaoProduto dao = new DaoProduto();
 
-            daoProduto.obter(hashCode());
-
-            return true;
+            return dao.listarTodos();
 
         } catch (RuntimeException | SQLException e) {
-            return false;
+            return null;
+        }
+    }
+
+    public Produto obter(int id) throws SQLException, Exception {
+        try {
+            DaoProduto dao = new DaoProduto();
+
+            return dao.obter(id);
+
+        } catch (RuntimeException | SQLException e) {
+            return null;
+        }
+    }
+
+    public List<Produto> listarPoNome(String nome) throws SQLException, Exception {
+        try {
+            DaoProduto dao = new DaoProduto();
+
+            return dao.listaPorNome(nome);
+            
+        } catch (RuntimeException | SQLException e) {
+            return null;
         }
 
     }
 
-    public boolean listarAll(Produto produto) throws SQLException, Exception {
-        try {
-            DaoProduto daoProduto = new DaoProduto();
-
-            daoProduto.listarTodos();
-
-            return true;
-
-        } catch (RuntimeException | SQLException e) {
-            return false;
-        }
-
-    }
-
-    public boolean listaNome(Produto produto, String nome) throws SQLException, Exception {
-        try {
-            DaoProduto daoProduto = new DaoProduto();
-
-            daoProduto.listaPorNome(nome);
-
-            return true;
-
-        } catch (RuntimeException | SQLException e) {
-            return false;
-        }
-
-    }
-
-    public boolean listaProduto(Produto produto, String marca) throws SQLException, Exception {
-        try {
-            DaoProduto daoProduto = new DaoProduto();
-
-            daoProduto.listaPorMarca(marca);
-
-            return true;
-
-        } catch (RuntimeException | SQLException e) {
-            return false;
-        }
-
-    }
-
-    public boolean listaQuantidade(Produto produto) throws SQLException, Exception {
-        try {
-            DaoProduto daoProduto = new DaoProduto();
-
-            daoProduto.listaPorQuantidade(Integer.MIN_VALUE);
-
-            return true;
-
-        } catch (RuntimeException | SQLException e) {
-            return false;
-        }
-
-    }
-
-    public boolean listaStatus(Produto produto) throws SQLException, Exception {
-        try {
-            DaoProduto daoProduto = new DaoProduto();
-
-            daoProduto.listaPorStatus(Boolean.TRUE);
-
-            return true;
-
-        } catch (RuntimeException | SQLException e) {
-            return false;
-        }
-
-    }
-
-    public boolean listaCustom(Produto produto, String nome, String marca) throws SQLException, Exception {
-        try {
-            DaoProduto daoProduto = new DaoProduto();
-
-            daoProduto.listaCustomizada(nome, marca, Integer.MIN_VALUE, Boolean.TRUE);
-
-            return true;
-
-        } catch (RuntimeException | SQLException e) {
-            return false;
-        }
-
-    }
 }
 //}
