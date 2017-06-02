@@ -1,0 +1,246 @@
+@charset "UTF-8";
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/04/2017, 15:28:48
+    Author     : everton
+*/
+/* ======== Cores */
+/*========== Mixins*/
+/* DICA:
+    Para usar esse mixin basta criar um elemento (#id ou .class)
+    e chama-lo em seu sass ex:
+    estou trabalhando na tela de `vendas.jsp` crio um elemento com class="circulo", 
+    no arquivo `vendas.scss` eu vou chamar esse elemento circulo e aplicar o mixin
+
+    .circulo{
+        @include mixinCirculo(10px, #fff);
+        posso acrescentar o que mais eu quiser aqui;
+    }
+*/
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 08:31:55
+    Author     : everton
+*/
+/* Para usdar o mixin no botão basta chamar da seguinte forma
+
+
+btn-teste{
+    @include button($abobora, $aboboraLight); cor opcional
+}
+*/
+/* Esses botões estão dentro da tabela das telas de chamada,
+    produto
+    clientes
+    permissão
+    usuario
+*/
+.btn-ver {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #1b3b60;
+  border: solid 1px #1b3b60; }
+  .btn-ver:hover {
+    transition-duration: 0.3s;
+    background: #1b3b60;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-ver:hover {
+    background: #1b3b60;
+    color: #fff; }
+  .btn-ver:hover {
+    background: #fff;
+    color: #26a69a; }
+
+.btn-editar {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #03a9f4;
+  border: solid 1px #03a9f4; }
+  .btn-editar:hover {
+    transition-duration: 0.3s;
+    background: #03a9f4;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-editar:hover {
+    background: #03a9f4;
+    color: #fff; }
+
+.btn-deletar {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #f44336;
+  border: solid 1px #f44336; }
+  .btn-deletar:hover {
+    transition-duration: 0.3s;
+    background: #f44336;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-deletar:hover {
+    background: #f44336;
+    color: #fff; }
+
+.topo {
+  background: #1b3b60;
+  padding-left: 10px;
+  padding-right: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2; }
+  .topo .logo {
+    margin-left: 20px; }
+    .topo .logo a {
+      font-size: 2em; }
+      .topo .logo a:after {
+        content: 'Rainha da Sucata'; }
+  .topo button.btn-sair {
+    background: transparent;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    color: #f44336;
+    border: solid 1px #f44336;
+    text-transform: capitalize;
+    padding: 0 1rem;
+    letter-spacing: 2px; }
+    .topo button.btn-sair:hover {
+      transition-duration: 0.3s;
+      background: #f44336;
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+    .topo button.btn-sair:hover {
+      background: #f44336;
+      color: transparent; }
+    .topo button.btn-sair:after {
+      content: 'Sair'; }
+    .topo button.btn-sair:hover {
+      color: #fff; }
+    .topo button.btn-sair i {
+      line-height: 0;
+      margin-right: 10px; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 08:31:55
+    Author     : everton
+*/
+/* Para usdar o mixin no botão basta chamar da seguinte forma
+
+
+btn-teste{
+    @include button($abobora, $aboboraLight); cor opcional
+}
+*/
+/* Esses botões estão dentro da tabela das telas de chamada,
+    produto
+    clientes
+    permissão
+    usuario
+*/
+.btn-ver {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #1b3b60;
+  border: solid 1px #1b3b60; }
+  .btn-ver:hover {
+    transition-duration: 0.3s;
+    background: #1b3b60;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-ver:hover {
+    background: #1b3b60;
+    color: #fff; }
+  .btn-ver:hover {
+    background: #fff;
+    color: #26a69a; }
+
+.btn-editar {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #03a9f4;
+  border: solid 1px #03a9f4; }
+  .btn-editar:hover {
+    transition-duration: 0.3s;
+    background: #03a9f4;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-editar:hover {
+    background: #03a9f4;
+    color: #fff; }
+
+.btn-deletar {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #f44336;
+  border: solid 1px #f44336; }
+  .btn-deletar:hover {
+    transition-duration: 0.3s;
+    background: #f44336;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+  .btn-deletar:hover {
+    background: #f44336;
+    color: #fff; }
+
+.container-menu-lateral {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #1b3b60;
+  box-shadow: 2px 0 6px;
+  margin-top: 64px;
+  overflow-y: auto; }
+  .container-menu-lateral .container-perfil .img-avatar {
+    max-width: 50%;
+    display: inherit;
+    margin: 10px auto 10px auto;
+    max-height: 90px;
+    height: 90px; }
+  .container-menu-lateral .container-perfil p {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px; }
+  .container-menu-lateral .collapsible {
+    border: none;
+    box-shadow: none !important; }
+    .container-menu-lateral .collapsible li {
+      border-bottom: 1px solid #567394;
+      padding-top: 5px;
+      padding-bottom: 5px; }
+      .container-menu-lateral .collapsible li .collapsible-header {
+        background: transparent;
+        font-size: 14px;
+        color: #fff;
+        border: none; }
+      .container-menu-lateral .collapsible li:hover {
+        transition: 0.3s;
+        background: #092340; }
+      .container-menu-lateral .collapsible li .collapsible-body {
+        border: none;
+        box-sizing: border-box;
+        padding: 1rem 2rem; }
+        .container-menu-lateral .collapsible li .collapsible-body ul li:hover {
+          background: #1b3b60; }
+        .container-menu-lateral .collapsible li .collapsible-body ul li:last-of-type {
+          border: none; }

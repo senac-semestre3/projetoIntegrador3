@@ -273,7 +273,7 @@
                                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                                 </button>
 
-                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="button">Salvar
+                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="submit">Salvar
                                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 </button>
                                             </div>

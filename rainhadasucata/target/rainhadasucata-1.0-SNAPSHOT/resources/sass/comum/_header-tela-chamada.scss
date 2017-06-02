@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/04/2017, 17:36:27
+    Author     : everton
+*/
+
+.box-topo-tela-chamada{
+
+    .box-btn-adicionar{
+        margin-top: 25px;
+        i{
+            margin-left: 10px;
+        }
+    }
+    form{
+        input{
+            margin: 0;
+        }
+        button.btn-procurar{
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: $cinza;
+
+            &:hover{
+                color: $verdeAgua;
+
+            }
+        }
+    }
+}

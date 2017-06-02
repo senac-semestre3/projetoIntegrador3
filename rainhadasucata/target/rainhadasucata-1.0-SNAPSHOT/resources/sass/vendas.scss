@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 13/04/2017, 21:01:32
+    Author     : everton
+*/
+@import "comum/_mixins.scss";
+@import "comum/_main.scss";
+@import "comum/_header-tela-chamada.scss";
+@import "comum/_card.scss";
+@import "comum/_table.scss";
+@import "comum/_buttons.scss";
+@import "comum/_reset.scss";
+
+/*Programar o css Aqui!!*/
+
+.main{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: $azulMouse;
+
+    .tabela-detalhes-venda{
+        margin-bottom: 10px;
+    }
+    .meios-pagamento{
+        display: inline-block;
+        .circulo{
+            @include mixinCirculo(9px, $azulMouse);
+            display: inline-flex;
+            color: $branco;
+            font-size: 28px;
+        }
+        .pagamento{
+            display: inline-block;
+            padding-left: 20px;
+
+            [type="radio"]:not(:checked) + label, [type="radio"]:checked + label{
+                margin: 0px 10px;
+                padding-left: 25px;
+            }
+        }
+
+    }
+    button.btn.btn-cancelar{
+        @include button($abobora, $aboboraLight);
+
+    }
+    .btn.btn-adicionar-cliente,
+    .btn.btn-cancelar,
+    .btn.btn-faturar, 
+    .btn-adicionar-carrinho{
+        i{
+            margin-left: 10px;
+        }
+    }
+    button.btn-remover{
+        @include buttonInverte($branco, $vermelho);
+        text-transform: capitalize;
+        padding: 0 1rem;
+        text-align: center;
+        letter-spacing: 2px;
+        &:after{
+            content: 'X';
+            font-size: 20px;
+        }
+        i{
+            line-height: 0;
+            margin-right: 10px;
+        }
+    }
+}
