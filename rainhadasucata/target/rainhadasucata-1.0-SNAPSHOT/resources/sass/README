@@ -1,9 +1,0 @@
-## Nessa pasta "sass", além da pasta components,
-aqui contém um sass para cada página.
-
-## ex: dashboard, clientes, produtos, etc ...
-
-## Importante: esses aquivos não contém css nem sass,
-contem apenas os imports que estão na pasta:
-    *components/
-    *components/comum
