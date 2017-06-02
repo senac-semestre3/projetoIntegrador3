@@ -1,8 +1,3 @@
-<%-- 
-    Document   : clientes
-    Created on : 19/04/2017, 20:24:33
-    Author     : fabio.jrezequiel
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -38,18 +33,21 @@
                         <div class="row box-topo-tela-chamada">
                             <div class="col s12">
                                 <div class="col s5 box-btn-adicionar">
-                                    <a href="cliente-cadastro.jsp">
-                                        <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
+                                    <a href="cliente-adicionar.jsp">
+                                        <button class="btn waves-effect waves-light" type="button">Adicionar
                                             <i class="fa fa-plus" aria-hidden="true"></i> 
                                         </button>
                                     </a>
                                 </div>
                                 <div class="col s6">
-                                    <form>
+                                    <form action="ClienteController">
+                                        <!-- passar a acao para o controller listar-->
+                                        <input type="hidden" name="acao" value="ClienteListar" />
                                         <div class="input-field">
-                                            <input id="txt-cliente-procurar" type="text" class="validate">
-                                            <label for="txt-cliente-procurar">Cliente...</label>
-                                            <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
+                                            <input id="txtBuscaCliente" type="text" class="validate" name="busca">
+                                            <label for="txtBuscaCliente">Cliente...</label>
+
+                                            <button class="btn-procurar waves-effect waves-light right" type="submit">
                                                 <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
                                             </button>
                                         </div>
@@ -63,9 +61,7 @@
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-user-o left" aria-hidden="true"></i>
                                     <header> Clientes</header>
-
                                 </div>
-
                                 <div class="corpo-card">
                                     <table class="tabela-clientes horizontal striped">
                                         <thead>
@@ -75,72 +71,57 @@
                                                 <th>Cpf ou Cnpj</th>
                                                 <th>Telefone</th>
                                                 <th>E-mail</th>
-                                                <th>ClienteOk</th>
                                                 <th>Ação</th>
 
                                             </tr>
                                         </thead>
-
                                         <tbody>
-                                            <!--1-->
-                                        <input type="hidden" id="clienteok" name="clienteok" value="${sessionScope.clienteok}">
-
-                                        <h2><c:out value="${sessionScope.clienteok}" /></h2> 
-                                        <c:remove scope="session" var="clienteok" />
-
-                                        <c:forEach items="${listaContatos}" var="contato">
-                                            <form action="servlet-cliente-ver" method="get">
+                                            <c:forEach items="${clientes}" var="cliente">
                                                 <tr>
-                                                    <!-- Esse input serve para o botão pegar o id-->
-                                                <input type="hidden" name="id" value="${contato.id}">
-                                                <td><c:out value="${contato.id}" /></td>
-                                                <td><c:out value="${contato.nome}" /></td>
-                                                <td><c:out value="${contato.cpfCnpj}" /></td>
-                                                <td><c:out value="${contato.telefone}" /></td>
-                                                <td><c:out value="${contato.email}" /></td>
-                                                <td>
-                                                    <!--                                                        <input type="submit">-->
-                                                    <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                    </button
-                                                    </a>
-                                                    <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                    <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                    </button>
-                                                </td>
-                                                </tr>
-                                            </form>
-                                        </c:forEach> 
-                                        <!--1-->
+                                                    <form method="post" name="form">
 
+                                                        <td><c:out value="${cliente.id}" /></td>
+                                                        <td><c:out value="${cliente.nome}" /></td>
+                                                        <td><c:out value="${cliente.cpf}" /></td>
+                                                        <td><c:out value="${cliente.telefone}" /></td>
+                                                        <td><c:out value="${cliente.email}" /></td>
+
+                                                        <!-- Ver, Editar e Deletar cliente-->
+                                                        <td id="btnAcao">
+                                                            <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-ver"
+                                                                class="waves-effect waves-teal btn-ver tooltipped" data-position="left" 
+                                                                data-delay="50" data-tooltip="detalhes do cliente" type="submit">
+                                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                            </a>
+
+                                                            <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-editar" 
+                                                                class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" 
+                                                                data-delay="50" data-tooltip="editar cliente" type="submit">
+                                                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                            </a>
+                                                            <a  href="ClienteController?id=${cliente.id}&acao=ClienteDeletar" 
+                                                                class="waves-effect waves-light btn-deletar tooltipped" data-position="top" 
+                                                                data-delay="50" data-tooltip="deletar cliente" type="submit">
+                                                                <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                            </a>
+                                                        </td>
+
+                                                    </form>
+                                                </tr>
+                                            </c:forEach> 
                                         </tbody>
                                     </table>
                                 </div>
                             </div><!--Fim .card -->
                         </div><!-- fim da linha -->
                     </div><!-- fim do main-->
-
                 </div>
             </div>
         </div>
 
+        
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            function submitForm()
-            {
-
-                var a = document.getElementById("clienteok").value;
-                if (a == "1") {
-                    alert(a);
-                } else if (a == "0") {
-                    alert("Erro");
-                }
-            }
-            window.onload = submitForm;
-        </script>
+        <script src="dist/js/Cliente.js" type="text/javascript"></script>
     </body>
 </html>

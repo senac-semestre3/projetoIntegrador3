@@ -1,8 +1,3 @@
-<%-- 
-    Document   : produto
-    Created on : 13/04/2017, 21:04:35
-    Author     : everton
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,6 +18,21 @@
         <!-- CSS da pagina -->
         <link href="dist/css/tela-chamada.css" rel="stylesheet" type="text/css"/>
 
+        <style>
+            .input-normal{
+                margin: 0 !important;
+                height: 2rem !important;
+            }
+            select.input-normal{
+                display: block;
+                padding: 0 20px !important;
+            }
+            .td-numero{
+                width: 100px;
+            }
+
+        </style>
+
     </head>
 
     <body>
@@ -36,23 +46,12 @@
                     <div class="row box-topo-tela-chamada">
                         <div class="col s12">
                             <div class="col s5 box-btn-adicionar">
-                                <a href="produto-cadastro.jsp">
+                                <a href="produto-adicionar.jsp">
                                     <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">
                                         Adicionar
                                         <i class="fa fa-plus" aria-hidden="true"></i> 
                                     </button>
                                 </a>
-                            </div>
-                            <div class="col s6">
-                                <form>
-                                    <div class="input-field">
-                                        <input id="txt-cliente-procurar" type="text" class="validate">
-                                        <label for="txt-cliente-procurar">Produto...</label>
-                                        <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
-                                            <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
-                                        </button>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -79,33 +78,74 @@
                                     </thead>
 
                                     <tbody>
-                                      <c:forEach items="${listaProdutos}" var="produto">
-                                            <form action="servlet-produto-ver" method="get">
-                                                <tr>
-                                                <input type="hidden" name="id" value="${produto.id}" />
-                                                    <td><c:out value="${produto.id}" /></td>
-                                                    <td><c:out value="${produto.nome}" /></td>
-                                                    <td><c:out value="${produto.precoVenda}" /></td>
-                                                    <td><c:out value="${produto.estoque}" /></td>
-                                                    <td><c:out value="${produto.status}" /></td>
+                                    <form action="ProdutoController">
+                                        <input type="hidden" name="acao" value="ProdutoListar">
+                                        <td class="td-numero">
+                                            <input class="input-normal" type="number" name="buscaId">
+                                        </td>
+                                        <td> 
+                                            <input class="input-normal" type="text" name="buscaNome">
+                                        </td>
+                                        <td>
+                                            <input class="input-normal" type="text" name="buscaPrecoVenda">
+                                        </td>
+                                        <td class="td-numero">
+                                            <input class="input-normal" type="number" name="buscaEstoque">
+                                        </td>
+                                        <td>
+                                            <select name="buscaStatus" class="input-normal">
+                                                <option value=""></option>
+                                                <option value="on">Ativo</option>
+                                                <option value="off">Inativo</option>
+                                            </select>
 
-                                                    <td>
-                                                        <!--<input type="submit">-->
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
-                                                        </a>
-                                                        <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
-                                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                        <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
-                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </form>
-                                        </c:forEach> 
-                                           
+                                        </td>
+                                        <td>  
+                                            <button class="btn-procurar waves-effect waves-teal btn-ver" type="submit">
+                                                <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
+                                            </button>
+                                        </td>
+                                    </form>
+                                    <c:forEach items="${produtos}" var="produto">
+                                        <tr>
+                                        <form method="post" name="form" action="ProdutoControler">
+                                            <td><c:out value="${produto.id}" /></td>
+                                            <td><c:out value="${produto.nome}" /></td>
+                                            <td><c:out value="${produto.precoVenda}" /></td>
+                                            <td><c:out value="${produto.estoque}" /></td>
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${produto.status == 1}">
+                                                        Ativo
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Inativo
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+
+                                            <!-- Ver, Editar e Deletar produto-->
+                                            <td id="btnAcao">
+                                                <a  href="ProdutoController?id=${produto.id}&acao=ProdutoObter&pagina=produto-ver"
+                                                    class="waves-effect waves-teal btn-ver tooltipped" data-position="left" 
+                                                    data-delay="50" data-tooltip="detalhes da produto" type="submit">
+                                                    <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                </a>
+
+                                                <a  href="ProdutoController?id=${produto.id}&acao=ProdutoObter&pagina=produto-editar" 
+                                                    class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" 
+                                                    data-delay="50" data-tooltip="editar produto" type="submit">
+                                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                </a>
+                                                <a  href="ProdutoController?id=${produto.id}&acao=ProdutoDeletar" 
+                                                    class="waves-effect waves-light btn-deletar tooltipped" data-position="top" 
+                                                    data-delay="50" data-tooltip="deletar produto" type="submit">
+                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                        </form>
+                                        </tr>
+                                    </c:forEach> 
                                     </tbody>
                                 </table>
                             </div>

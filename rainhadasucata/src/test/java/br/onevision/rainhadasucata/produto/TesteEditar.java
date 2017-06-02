@@ -31,6 +31,6 @@ public class TesteEditar {
         produto.setId(2);
         
         DaoProduto dao = new DaoProduto();
-        dao.editarProduto(produto);
+        dao.editar(produto);
     }
 }

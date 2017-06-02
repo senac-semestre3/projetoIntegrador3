@@ -37,7 +37,7 @@ public class DBConnector {
             // Configurando a conexão com um banco de dados online
             String serverName = "cloud.kwcraft.com.br"; // caminho do servidor do db
             String mydatabase = "rainhadasucata"; //nome do db
-            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;// Montagem da URL
+            String url = "jdbc:mysql://" + serverName + "/" + mydatabase + "?zeroDateTimeBehavior=convertToNull";// Montagem da URL
             String username = "rainhadasucata"; //nome de um usuário do db      
             String password = "P@ssw0rd"; //senha de acesso
             

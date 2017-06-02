@@ -17,6 +17,6 @@ public class TesteExcluir {
         DaoProduto dao = new DaoProduto();
         
         int id = 1; // id para deleção
-        dao.excluirProduto(id);
+        dao.excluir(id);
     }
 }

@@ -24,7 +24,7 @@ public class TesteObter {
 
         System.out.println("ID Cliente: " + cliente.getId());
         System.out.println("Nome: " + cliente.getNome());
-        System.out.println("CPF: " + cliente.getCpfCnpj());
+        System.out.println("CPF: " + cliente.getCpf());
         System.out.println("Sexo: " + cliente.getSexo());
         System.out.println("Telefone: " + cliente.getTelefone());
         System.out.println("Celular: " + cliente.getCelular());

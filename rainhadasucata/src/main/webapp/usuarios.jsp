@@ -1,8 +1,3 @@
-<%-- 
-    Document   : usuarios
-    Created on : 24/04/2017, 21:25:29
-    Author     : everton
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -12,7 +7,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Clientes</title>
+        <title>Usuários</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -40,17 +35,19 @@
                             <div class="col s12">
 
                                 <div class="col s5 box-btn-adicionar">
-                                    <a href="usuario-cadastro.jsp">
-                                        <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
+                                    <a href="usuario-adicionar.jsp">
+                                        <button class="btn waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
                                             <i class="fa fa-plus" aria-hidden="true"></i> 
                                         </button>
                                     </a>
                                 </div>
                                 <div class="col s6">
-                                    <form method="">
+                                    <form method="get" action="UsuarioController">
+                                        <!-- passar a acao para o controller listar-->
+                                        <input type="hidden" name="acao" value="UsuarioListar" />
                                         <div class="input-field">
-                                            <input id="txt-cliente-procurar" type="text" class="validate" name="usuario">
-                                            <label for="txt-cliente-procurar">Usuário...</label>
+                                            <input id="txtBuscaUsuario" type="text" class="validate" name="busca">
+                                            <label for="txtBuscaUsuario">Usuário...</label>
                                             <button class="btn-procurar waves-effect waves-light right" type="submit">
                                                 <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
                                             </button>
@@ -82,34 +79,37 @@
                                         </thead>
 
                                         <tbody>
-                                        <c:forEach items="${listaUsuario}" var="usuario">
-                                            <form action="servlet-usuario-ver" method="get">
-                                                <tr>
-                                                    <input type="hidden" name="id" value="${usuario.id}" />
+                                            <c:forEach items="${usuarios}" var="usuario">
+                                            <tr>
+                                                <form method="post" name="form">
                                                     <td><c:out value="${usuario.id}" /></td>
                                                     <td><c:out value="${usuario.nome}" /></td>
-                                                    <td><c:out value="${usuario.cpfCnpj}" /></td>
+                                                    <td><c:out value="${usuario.cpf}" /></td>
                                                     <td><c:out value="${usuario.telefone}" /></td>
                                                     <td><c:out value="${usuario.idPermissao}" /></td>
 
-                                                    <td>
-
-                                                        <!-- <input type="submit">-->
-                                                        <button class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes do cliente" type="submit" name="btn-ver">
+                                                    <!-- Ver, Editar e Deletar cliente-->
+                                                    <td id="btnAcao">
+                                                        <a href="UsuarioController?id=${usuario.id}&acao=UsuarioObter&pagina=usuario-ver"
+                                                           class="waves-effect waves-teal btn-ver tooltipped" data-position="left" data-delay="50" 
+                                                                data-tooltip="detalhes do cliente" type="submit">
                                                             <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button
                                                         </a>
-                                                        <button class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" data-tooltip="editar cliente" type="submit" name="btn-editar">
+                                                        <a href="UsuarioController?id=${usuario.id}&acao=UsuarioObter&pagina=usuario-editar"
+                                                            class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" data-delay="50" 
+                                                            data-tooltip="editar cliente" type="submit">
                                                             <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                        <button class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" data-tooltip="deletar cliente" type="submit" name="btn-deletar">
+                                                        </a>
+                                                        <a href="UsuarioController?id=${usuario.id}&acao=UsuarioDeletar"
+                                                           class="waves-effect waves-light btn-deletar tooltipped" data-position="top" data-delay="50" 
+                                                           data-tooltip="deletar cliente" type="submit">
                                                             <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </form>
+                                                        </a>
+                                                    </td>                                                
+                                                </form>
+                                            </tr>
                                         </c:forEach> 
-                                          </tbody>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div><!--Fim .card -->

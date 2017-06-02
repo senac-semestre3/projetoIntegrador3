@@ -26,7 +26,7 @@ public class TesteListar {
         //listar por nome
         String nome = "";
         //listar por marca
-        String marca = "";
+        String preco = "";
         //listar por status
         Boolean status = null;
         //lista por quantidade
@@ -34,11 +34,11 @@ public class TesteListar {
         
 
         //produtos = dao.listaPorNome(nome);// Chamada da dao listarPorNome
-        //produtos = dao.listaPorMarca(marca);// Chamada da dao listarPorNome
+        //produtos = dao.listaPor(preco);// Chamada da dao listarPorNome
         //produtos = dao.listaPorQuantidade(quantidade);// Chamada da dao listarPorQuantidade
         //produtos = dao.listaPorStatus(status);// Chamada da dao listarPorStatus
-        //produtos = dao.listarTodos();// Chamada da dao listarTodos
-        produtos = dao.listaCustomizada(nome, marca, quantidade, status);
+        produtos = dao.listarTodos();// Chamada da dao listarTodos
+        //produtos = dao.listaCustomizada(nome, preco, quantidade, status);
 
         for (Produto pro : produtos) {
         System.out.println("ID Produto: " + pro.getId());

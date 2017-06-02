@@ -5,13 +5,13 @@
     <head>
         <title>Rainha da Sucata</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        
+
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="dist/css/plugins.css"/>
-        
+
         <!-- CSS -->
         <link type="text/css" rel="stylesheet" href="dist/css/comum.css">
 
@@ -30,7 +30,9 @@
                             <a href="#!"></a>
                         </div>
                         <div class="right">
-                            <button class="btn btn-sair waves-effect waves-light"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+                            <a href="servletSair">
+                                <button class="btn btn-sair waves-effect waves-light"><i class="fa fa-power-off" aria-hidden="true"></i></button>
+                            </a>
                         </div>
 
                     </div>
@@ -51,19 +53,19 @@
                 <!-- Menu -->
                 <ul class="collapsible">
                     <li class="btn-menu"><a href="#" class="collapsible-header waves-effect waves-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-                    <li class="btn-menu"><a href="aciona-servlet-listar-cliente.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
-                    <li class="btn-menu"><a href="aciona-servlet-listar-produto.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-barcode" aria-hidden="true"></i>Produtos</a></li>
+                    <li class="btn-menu"><a href="ClienteController?&acao=ClienteListar&busca=" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
+                    <li class="btn-menu"><a href="ProdutoController?&acao=ProdutoListar" class="collapsible-header waves-effect waves-light"><i class="fa fa-barcode" aria-hidden="true"></i>Produtos</a></li>
                     <li class="btn-menu"><a href="vendas.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-usd" aria-hidden="true"></i>Vendas</a></li>
                     <li class="btn-menu"><a href="relatorios.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-line-chart" aria-hidden="true"></i>Relatórios</a></li>
                     <ul class="collapsible">
                         <li class="btn-menu"><a class="collapsible-header waves-effect waves-light"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a>
                             <div class="collapsible-body" style="display: none;">
                                 <ul>
-                                    <li><a href="aciona-servlet-listar-usuario.jsp" class="collapsible-header waves-effect waves-light">Usuário</a>
+                                    <li><a href="UsuarioController?&acao=UsuarioListar&busca=" class="collapsible-header waves-effect waves-light">Usuário</a>
                                     </li>
                                     <li><a href="permissoes.jsp" class="collapsible-header waves-effect waves-light">Permissão</a>
                                     </li>
-                                    <li><a href="#" class="collapsible-header waves-effect waves-light">Loja</a>
+                                    <li><a href="LojaController?&acao=LojaListar&busca=" class="collapsible-header waves-effect waves-light">Loja</a>
                                     </li>
                                 </ul>
                             </div>

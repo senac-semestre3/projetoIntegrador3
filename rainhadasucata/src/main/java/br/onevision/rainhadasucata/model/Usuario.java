@@ -5,8 +5,6 @@
  */
 package br.onevision.rainhadasucata.model;
 
-import java.sql.Date;
-
 /**
  *
  * @author everton

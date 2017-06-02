@@ -7,7 +7,6 @@ package br.onevision.rainhadasucata.usuario;
 
 import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Usuario;
-import java.sql.Date;
 import java.sql.SQLException;
 
 /**
@@ -21,7 +20,7 @@ public class TesteEditar {
         Usuario usuario = new Usuario();
         
         usuario.setNome("Ricardo");
-        usuario.setCpfCnpj("391.123.258-60");
+        usuario.setCpf("391.123.258-60");
         usuario.setDataNascimento("11 May, 2017"); // insere data teste
         usuario.setSexo("M");
         usuario.setTelefone("(11)5515-0010");
@@ -43,7 +42,7 @@ public class TesteEditar {
         usuario.setId(3);
 
         DaoUsuario dao = new DaoUsuario();
-        dao.editarUsuario(usuario);
+        dao.editar(usuario);
         
         
     }

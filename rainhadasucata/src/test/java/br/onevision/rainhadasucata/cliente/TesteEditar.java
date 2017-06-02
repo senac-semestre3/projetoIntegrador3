@@ -6,10 +6,7 @@
 package br.onevision.rainhadasucata.cliente;
 
 import br.onevision.rainhadasucata.dao.DaoCliente;
-import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.Usuario;
-import java.sql.Date;
 import java.sql.SQLException;
 
 /**
@@ -21,7 +18,7 @@ public class TesteEditar {
         Cliente cliente = new Cliente();
         
         cliente.setNome("Maria");
-        cliente.setCpfCnpj("411.439.000-55");
+        cliente.setCpf("411.439.000-55");
         cliente.setSexo("F");
         cliente.setTelefone("(11)5515-0000");
         cliente.setCelular("(11)95166-0000");

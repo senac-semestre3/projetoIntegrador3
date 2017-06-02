@@ -11,8 +11,9 @@ package br.onevision.rainhadasucata.model;
  */
 public class Conversao {
 
-    private String[] quebraData(String data) {
-        
+    // Data que vem do front
+    private String[] quebraDataFront(String data) {
+
         String dia;
         String mes;
         String ano;
@@ -26,51 +27,49 @@ public class Conversao {
         int posicaoVirgula = data.indexOf(",");
         mes = data.substring(posicaoEspaco, posicaoVirgula).trim();
         ano = data.substring(posicaoVirgula).replaceAll(",", "").trim();
-        
-        
+
         String[] novaData = {dia, mes, ano};
         return novaData;
-        
-        
+
     }
 
-    private String coverteMes(String mes) {
+    private String coverteMesNumero(String mes) {
 
         switch (mes) {
-            case "January":
+            case "Janeiro":
                 return "01";
 
-            case "February":
+            case "Fevereiro":
                 return "02";
 
-            case "March":
+            case "Março":
                 return "03";
 
-            case "April":
+            case "Abril":
                 return "04";
 
-            case "May":
+            case "Maio":
                 return "05";
 
-            case "June":
+            case "Junho":
                 return "06";
 
-            case "July":
+            case "Julio":
                 return "07";
 
-            case "August":
+            case "Agosto":
                 return "08";
 
-            case "September":
+            case "Setembro":
                 return "09";
 
-            case "October":
+            case "Outubro":
                 return "10";
 
-            case "November":
+            case "Novembro":
                 return "11";
 
-            case "December":
+            case "Dezembro":
                 return "12";
 
             default:
@@ -80,16 +79,88 @@ public class Conversao {
 
     }
 
-    public String dataDb(String data){
-        
-        String[] vetor = quebraData(data);
-        return vetor[2] + "-" +coverteMes(vetor[1]) + "-" + vetor[0];
+    public String converteParaDb(String data) {
+        System.out.println("data " + data);
+        if (data.equals("") || data == null) {
+            return "0000-00-00";
+        }
+        String[] vetor = new String[3];
+        vetor = quebraDataFront(data);
+        System.out.println(vetor[0]);
+        System.out.println(vetor[1]);
+        System.out.println(vetor[2]);
+        return vetor[2] + "-" + coverteMesNumero(vetor[1]) + "-" + vetor[0];
     }
 
-    public String dataNormal(String data){
-        
-        String[] vetor = quebraData(data);
-        return vetor[0] + "/" + coverteMes(vetor[1]) + "/" + vetor[2];
+    
+    // Data que vem do banco
+    private String[] quebraDataDb(String data) {
+        String dia;
+        String mes;
+        String ano;
+
+        ano = data.substring(0, 4);
+        mes = data.substring(5, 7);
+        dia = data.substring(8);
+
+        String[] novaData = {dia, mes, ano};
+        return novaData;
+
     }
 
+    public String converteDataNormal(String data) {
+        String[] vetor = new String[3];
+
+        vetor = quebraDataDb(data);
+        System.out.println(vetor[0]);
+        System.out.println(vetor[1]);
+        System.out.println(vetor[2]);
+        return vetor[0] + " " + coverteMesCaracter(vetor[1]) + ", " + vetor[2];
+    }
+
+    private String coverteMesCaracter(String mes) {
+
+        switch (mes) {
+            case "01":
+                return "Janeiro";
+
+            case "02":
+                return "Fevereiro";
+
+            case "03":
+                return "Março";
+
+            case "04":
+                return "Abril";
+
+            case "05":
+                return "Maio";
+
+            case "06":
+                return "Junho";
+
+            case "07":
+                return "Julio";
+
+            case "08":
+                return "Agosto";
+
+            case "09":
+                return "Setembro";
+
+            case "10":
+                return "Outubro";
+
+            case "11":
+                return "Novembro";
+
+            case "12":
+                return "Dezembro";
+
+            default:
+                return null;
+
+        }
+
+    }
 }

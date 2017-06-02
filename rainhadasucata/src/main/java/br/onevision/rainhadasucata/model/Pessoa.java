@@ -16,7 +16,7 @@ public class Pessoa {
 
     private int id;
     private String nome;
-    private String cpfCnpj;
+    private String cpf;
     private String dataNascimento;
     private String sexo;
     private String telefone;
@@ -52,12 +52,12 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getCpfCnpj() {
-        return cpfCnpj;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getDataNascimento() {

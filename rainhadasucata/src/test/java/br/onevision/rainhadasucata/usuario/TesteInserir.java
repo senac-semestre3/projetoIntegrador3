@@ -7,7 +7,6 @@ package br.onevision.rainhadasucata.usuario;
 
 import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Usuario;
-import java.sql.Date;
 
 /**
  *
@@ -19,7 +18,7 @@ public class TesteInserir {
         Usuario usuario = new Usuario();
         
         usuario.setNome("Maria");
-        usuario.setCpfCnpj("411.439.358.70");
+        usuario.setCpf("411.439.358.70");
         usuario.setDataNascimento("11 May, 2017"); // insere data teste
         usuario.setSexo("M");
         usuario.setTelefone("(11)5515-2677");

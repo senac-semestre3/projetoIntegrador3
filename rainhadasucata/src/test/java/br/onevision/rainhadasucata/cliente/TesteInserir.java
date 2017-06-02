@@ -18,7 +18,7 @@ public class TesteInserir {
         Cliente cliente = new Cliente();
         
         cliente.setNome("João");
-        cliente.setCpfCnpj("411.439.000-88");
+        cliente.setCpf("411.439.000-88");
         cliente.setSexo("M");
         cliente.setTelefone("(11)5515-2677");
         cliente.setCelular("(11)95166-9431");

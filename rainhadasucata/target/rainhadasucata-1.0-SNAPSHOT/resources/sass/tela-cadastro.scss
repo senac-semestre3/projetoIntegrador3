@@ -41,12 +41,12 @@ and open the template in the editor.
             color: $azulMouse;
         }
     }
-    
-    
+
+
     .row.bloco-dados{
         margin-bottom: 50px;
     }
-    
+
     /*para tela de permissão*/
     .status{
         margin-top:40px;
@@ -64,6 +64,11 @@ and open the template in the editor.
         tr td{
             text-align: left;
         }
+    }
+
+    .input-normal{
+        margin: 0;
+        height: 2rem;
     }
 }
 

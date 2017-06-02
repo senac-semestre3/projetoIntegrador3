@@ -6,9 +6,7 @@
 package br.onevision.rainhadasucata.cliente;
 
 import br.onevision.rainhadasucata.dao.DaoCliente;
-import br.onevision.rainhadasucata.dao.DaoUsuario;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +36,7 @@ public class TesteListar {
         for (Cliente cli : clientes) {
             System.out.println("ID Cliente: " + cli.getId());
             System.out.println("Nome: " + cli.getNome());
-            System.out.println("CPF: " + cli.getCpfCnpj());
+            System.out.println("CPF: " + cli.getCpf());
             System.out.println("Sexo: " + cli.getSexo());
             System.out.println("Telefone: " + cli.getTelefone());
             System.out.println("Celular: " + cli.getCelular());

@@ -5,10 +5,8 @@
  */
 package br.onevision.rainhadasucata.dao;
 
-import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
 import br.onevision.rainhadasucata.model.Usuario;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,16 +19,8 @@ import java.util.List;
  */
 public class DaoUsuario {
 
-    private final Connection connection;
-
-    public DaoUsuario() throws SQLException {
-        
-       // DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        this.connection = DBConnector.getConexaoDB();
-    }
-
     // INSERIR USUARIO
-    public void inserir(Usuario usuario) throws RuntimeException {
+    public void inserir(Usuario usuario) throws RuntimeException, SQLException {
         String sql = "INSERT INTO usuarios ("
                 + "nome_usuarios, "
                 + "cpf_usuarios, "
@@ -54,13 +44,14 @@ public class DaoUsuario {
                 + "fk_id_loja )"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
 
-            //Seta valores para inserção
+        try {
+
+            //Seta valores para insersao
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getCpfCnpj());
+            stmt.setString(2, usuario.getCpf());
             stmt.setString(3, usuario.getDataNascimento());
             stmt.setString(4, usuario.getSexo());
             stmt.setString(5, usuario.getTelefone());
@@ -83,21 +74,23 @@ public class DaoUsuario {
             //Executa SQL Statement
             stmt.execute();
 
-            //Fecha conexão
-            FecharConexao();
-
         } catch (SQLException e) {
+
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             throw new RuntimeException(e);
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-
     }
 
-    //EDITAR USU�?RIO
-    public void editarUsuario(Usuario usuario) throws SQLException {
-
-        Connection con = DBConnector.getConexaoDB();
+    //EDITAR USUARIO
+    public void editar(Usuario usuario) throws SQLException {
 
         String sql = "UPDATE usuarios SET "
                 + "nome_usuarios = ?, "
@@ -121,13 +114,14 @@ public class DaoUsuario {
                 + "fk_id_loja = ? "
                 + "WHERE id_usuarios = ?";
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = con.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
 
             //Seta valores para Update
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getCpfCnpj());
+            stmt.setString(2, usuario.getCpf());
             stmt.setString(3, usuario.getDataNascimento());
             stmt.setString(4, usuario.getSexo());
             stmt.setString(5, usuario.getTelefone());
@@ -148,55 +142,68 @@ public class DaoUsuario {
             stmt.setInt(20, usuario.getId());
 
             //Executa SQL Statement
-            stmt.executeUpdate();
-
-            //Fecha conexão
-            FecharConexao();
+            stmt.execute();
 
         } catch (SQLException e) {
-            System.out.println(e);
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
 
+            System.out.println(e);
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
     }
 
-    //DELETAR USU�?RIO
-    public void excluirUsuario(int id) {
+    //DELETAR USUARIO
+    public void excluir(int id) throws SQLException {
 
         String sql = "UPDATE usuarios SET deletado_usuarios = true WHERE id_usuarios = " + id;
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
 
-            //Seta valores para inserção
+        try {
+
             //Executa SQL Statement
-            stmt.executeUpdate();
+            stmt.execute();
 
-            //Fecha conexão
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
 
         } catch (SQLException e) {
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             System.out.println(e);
 
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
     }
 
-    //OBTEM O USU�?RIO PELO ID
+    //OBTEM O USUARIO PELO ID
     public Usuario obter(int id)
             throws SQLException, Exception {
 
         String sql = "SELECT * FROM usuarios WHERE id_usuarios = " + id + " AND deletado_usuarios = false";
 
-        try (
-                //Cria um statement para executar as instruções SQL
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
 
-            //Cria o objeto que recebe o resultado da  query executada
-            ResultSet result = stmt.executeQuery();
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
+        try {
 
             //Percorre o resultado da query criando e adicionando os usuarios 
             //encotrados na lista de usuarios inicialmente declarada.
@@ -205,53 +212,109 @@ public class DaoUsuario {
 
                 usuario.setId(result.getInt("id_usuarios"));
                 usuario.setNome(result.getString("nome_usuarios"));
-                usuario.setCpfCnpj(result.getString("cpf_usuarios"));
+                usuario.setCpf(result.getString("cpf_usuarios"));
                 usuario.setDataNascimento(result.getString("data_nascimento_usuarios"));
                 usuario.setSexo(result.getString("sexo_usuarios"));
                 usuario.setTelefone(result.getString("telefone_usuarios"));
                 usuario.setCelular(result.getString("celular_usuarios"));
-                usuario.setEmail(result.getString("email_usuarios"));                
-                usuario.setCep(result.getString("cep_usuarios"));                
-                usuario.setLogradouro(result.getString("logradouro_usuarios"));                
-                usuario.setNumero(result.getString("numero_usuarios"));                
-                usuario.setBairro(result.getString("bairro_usuarios"));                
-                usuario.setCidade(result.getString("cidade_usuarios"));                
-                usuario.setEstado(result.getString("estado_usuarios"));                
-                usuario.setComplemento(result.getString("complemento_usuarios"));                
+                usuario.setEmail(result.getString("email_usuarios"));
+                usuario.setCep(result.getString("cep_usuarios"));
+                usuario.setLogradouro(result.getString("logradouro_usuarios"));
+                usuario.setNumero(result.getString("numero_usuarios"));
+                usuario.setBairro(result.getString("bairro_usuarios"));
+                usuario.setCidade(result.getString("cidade_usuarios"));
+                usuario.setEstado(result.getString("estado_usuarios"));
+                usuario.setComplemento(result.getString("complemento_usuarios"));
                 usuario.setNomeUsuario(result.getString("nome_login_usuarios"));
                 usuario.setSenha(result.getString("senha_usuarios"));
                 usuario.setStatus(result.getInt("status_usuarios"));
                 usuario.setDataCadastro(result.getString("data_cadastro_usuarios"));
                 usuario.setIdPermissao(result.getInt("fk_id_permissao"));
                 usuario.setIdLoja(result.getInt("fk_id_loja"));
-                
+
+                result.close();
+                //Fecha stmt
+                stmt.close();
+                // Fecha a conexao
+                connection.close();
                 return usuario;
-
             }
-
-            result.close();
-
         } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             throw new SQLException(e);
+
         } finally {
-            FecharConexao();
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-        FecharConexao();
         return null;
     }
 
-    //RETORNA UMA LISTA DE USU�?RIOS BUSCADO POR CPF
+    public Usuario obterNomeSenha(String nome, String senha)
+            throws SQLException, Exception {
+
+        String sql = "SELECT usuarios.nome_login_usuarios, usuarios.senha_usuarios FROM `usuarios`"
+                + " WHERE usuarios.nome_login_usuarios = \"" + nome + "\" AND usuarios.senha_usuarios = " + senha + ";";
+
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
+        try {
+
+            //Percorre o resultado da query criando e adicionando os usuarios 
+            //encotrados na lista de usuarios inicialmente declarada.
+            while (result.next()) {
+                Usuario usuario = new Usuario();
+
+                usuario.setNome(result.getString("nome_login_usuarios"));
+                usuario.setSenha(result.getString("senha_usuarios"));
+
+                result.close();
+                //Fecha stmt
+                stmt.close();
+                // Fecha a conexao
+                connection.close();
+                return usuario;
+            }
+        } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
+            throw new SQLException(e);
+
+        } finally {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
+        }
+        return null;
+    }
+
+    //RETORNA UMA LISTA DE USUARIOS BUSCADO POR CPF
     public List<Usuario> listaPorCpf(String cpf)
             throws SQLException, Exception {
 
         // cria a query de busca
         String sql = "SELECT * FROM usuarios WHERE cpf_usuarios LIKE '%" + cpf + "%' AND deletado_usuarios = false";
 
-        //chama o método de criar lista e à retorna
+        //chama o metodo de criar lista e a retorna
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA DE USU�?RIOS BUSCADOS PELO NOME
+    //RETORNA UMA LISTA DE USUARIOS BUSCADOS PELO NOME
     public List<Usuario> listaPorNome(String nome)
             throws SQLException, Exception {
 
@@ -262,49 +325,50 @@ public class DaoUsuario {
         return criaLista(sql);
     }
 
-    //RETORNA UMA LISTA COM TODOS OS USU�?RIOS
+    //RETORNA UMA LISTA COM TODOS OS USUARIOS
     public List<Usuario> listarTodos() throws
             SQLException, Exception {
 
         // cria a query de busca
         String sql = "SELECT * FROM usuarios WHERE deletado_usuarios = false";
 
-        //chama o método de criar lista e à retorna
+        //chama o metodo de criar lista e à retorna
         return criaLista(sql);
     }
 
-    // CRIA UMA LISTA DE USU�?RIOS E RETORNA ESSA LISTA PARA O MÉTODO QUE À CHAMOU
-    public List<Usuario> criaLista(String sql) {
+    // CRIA UMA LISTA DE USUARIOS E RETORNA ESSA LISTA PARA O METODO QUE À CHAMOU
+    private List<Usuario> criaLista(String sql) throws SQLException {
 
         //cria uma lista de usuarios
         List<Usuario> usuarios = new ArrayList<>();
 
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
+
         try {
-            //Cria um statement para executar as instruções SQL
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            //Cria o objeto que recebe o resultado da  query executada
-            ResultSet result = stmt.executeQuery();
 
             //Percorre o resultado da query criando e adicionando os usuarios 
             //encotrados na lista de usuarios inicialmente declarada.
             while (result.next()) {
                 Usuario usuario = new Usuario();
-                
+
                 usuario.setId(result.getInt("id_usuarios"));
                 usuario.setNome(result.getString("nome_usuarios"));
-                usuario.setCpfCnpj(result.getString("cpf_usuarios"));
+                usuario.setCpf(result.getString("cpf_usuarios"));
                 usuario.setDataNascimento(result.getString("data_nascimento_usuarios"));
                 usuario.setSexo(result.getString("sexo_usuarios"));
                 usuario.setTelefone(result.getString("telefone_usuarios"));
                 usuario.setCelular(result.getString("celular_usuarios"));
-                usuario.setEmail(result.getString("email_usuarios"));                
-                usuario.setCep(result.getString("cep_usuarios"));                
-                usuario.setLogradouro(result.getString("logradouro_usuarios"));                
-                usuario.setNumero(result.getString("numero_usuarios"));                
-                usuario.setBairro(result.getString("bairro_usuarios"));                
-                usuario.setCidade(result.getString("cidade_usuarios"));                
-                usuario.setEstado(result.getString("estado_usuarios"));                
-                usuario.setComplemento(result.getString("complemento_usuarios"));                
+                usuario.setEmail(result.getString("email_usuarios"));
+                usuario.setCep(result.getString("cep_usuarios"));
+                usuario.setLogradouro(result.getString("logradouro_usuarios"));
+                usuario.setNumero(result.getString("numero_usuarios"));
+                usuario.setBairro(result.getString("bairro_usuarios"));
+                usuario.setCidade(result.getString("cidade_usuarios"));
+                usuario.setEstado(result.getString("estado_usuarios"));
+                usuario.setComplemento(result.getString("complemento_usuarios"));
                 usuario.setNomeUsuario(result.getString("nome_login_usuarios"));
                 usuario.setSenha(result.getString("senha_usuarios"));
                 usuario.setStatus(result.getInt("status_usuarios"));
@@ -315,15 +379,27 @@ public class DaoUsuario {
                 usuarios.add(usuario);
 
             }
-
             result.close();
+            //Fecha stmt
             stmt.close();
-            FecharConexao();
+            // Fecha a conexao
+            connection.close();
+
+            return usuarios;
 
         } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             System.out.println(e.getMessage());
         } finally {
-            FecharConexao();
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
         return usuarios;
     }

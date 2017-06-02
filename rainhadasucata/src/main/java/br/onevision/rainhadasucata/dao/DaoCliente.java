@@ -5,8 +5,8 @@
  */
 package br.onevision.rainhadasucata.dao;
 
-import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
 import br.onevision.rainhadasucata.model.Cliente;
+import br.onevision.rainhadasucata.model.DataEHora;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,20 +20,14 @@ import java.util.List;
  */
 public class DaoCliente {
 
-    private final Connection connection;
-
-    public DaoCliente() throws SQLException {
-
-        this.connection = DBConnector.getConexaoDB();
-    }
-
     // INSERIR CLIENTE
     public void inserir(Cliente cliente)
-            throws RuntimeException {
+            throws RuntimeException, SQLException {
 
         String sql = "INSERT INTO clientes ("
                 + "nome_clientes, "
-                + "cpf_cnpj_clientes, "
+                + "cpf_clientes, "
+                + "data_nascimento_clientes, "
                 + "sexo_clientes, "
                 + "telefone_clientes, "
                 + "celular_clientes, "
@@ -46,51 +40,57 @@ public class DaoCliente {
                 + "estado_clientes, "
                 + "complemento_clientes, "
                 + "data_cadastro_clientes )"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
 
+        try {
+            DataEHora data = new DataEHora();
             //Seta valores para inserção
             stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getCpfCnpj());
-            stmt.setString(3, cliente.getSexo());
-            stmt.setString(4, cliente.getTelefone());
-            stmt.setString(5, cliente.getCelular());
-            stmt.setString(6, cliente.getEmail());
-            stmt.setString(7, cliente.getCep());
-            stmt.setString(8, cliente.getLogradouro());
-            stmt.setString(9, cliente.getNumero());
-            stmt.setString(10, cliente.getBairro());
-            stmt.setString(11, cliente.getCidade());
-            stmt.setString(12, cliente.getEstado());
-            stmt.setString(13, cliente.getComplemento());
-            stmt.setString(14, cliente.getDataAtual());
+            stmt.setString(2, cliente.getCpf());
+            stmt.setString(3, cliente.getDataNascimento());
+            stmt.setString(4, cliente.getSexo());
+            stmt.setString(5, cliente.getTelefone());
+            stmt.setString(6, cliente.getCelular());
+            stmt.setString(7, cliente.getEmail());
+            stmt.setString(8, cliente.getCep());
+            stmt.setString(9, cliente.getLogradouro());
+            stmt.setString(10, cliente.getNumero());
+            stmt.setString(11, cliente.getBairro());
+            stmt.setString(12, cliente.getCidade());
+            stmt.setString(13, cliente.getEstado());
+            stmt.setString(14, cliente.getComplemento());
+            stmt.setString(15, data.getDataEHoraAtual());
+            System.out.println("agora " + data.getDataEHoraAtual());
 
             //Executa SQL Statement
             stmt.execute();
 
+        } catch (SQLException e) {
+
             //Fecha stmt
             stmt.close();
-            //Fecha conexão
-            FecharConexao();
-
-        } catch (SQLException e) {
+            // Fecha a conexao
+            connection.close();
             throw new RuntimeException(e);
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-
     }
 
     //EDITAR CLIENTE
-    public void editarCliente(Cliente cliente) {
+    public void editarCliente(Cliente cliente) throws SQLException {
 
         // cria a string de parametro do sql
         String sql = "UPDATE clientes SET "
                 + "nome_clientes = ?,"
-                + "cpf_cnpj_clientes = ?,"
+                + "cpf_clientes = ?,"
+                + "data_nascimento_clientes = ?,"
                 + "sexo_clientes = ?,"
                 + "telefone_clientes = ?,"
                 + "celular_clientes = ?,"
@@ -104,60 +104,76 @@ public class DaoCliente {
                 + "complemento_clientes = ? "
                 + "WHERE id_clientes = ?";
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
 
             //Seta valores para inserção
             stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getCpfCnpj());
-            stmt.setString(3, cliente.getSexo());
-            stmt.setString(4, cliente.getTelefone());
-            stmt.setString(5, cliente.getCelular());
-            stmt.setString(6, cliente.getEmail());
-            stmt.setString(7, cliente.getCep());
-            stmt.setString(8, cliente.getLogradouro());
-            stmt.setString(9, cliente.getNumero());
-            stmt.setString(10, cliente.getBairro());
-            stmt.setString(11, cliente.getCidade());
-            stmt.setString(12, cliente.getEstado());
-            stmt.setString(13, cliente.getComplemento());
-            stmt.setInt(14, cliente.getId());
+            stmt.setString(2, cliente.getCpf());
+            stmt.setString(3, cliente.getDataNascimento());
+            stmt.setString(4, cliente.getSexo());
+            stmt.setString(5, cliente.getTelefone());
+            stmt.setString(6, cliente.getCelular());
+            stmt.setString(7, cliente.getEmail());
+            stmt.setString(8, cliente.getCep());
+            stmt.setString(9, cliente.getLogradouro());
+            stmt.setString(10, cliente.getNumero());
+            stmt.setString(11, cliente.getBairro());
+            stmt.setString(12, cliente.getCidade());
+            stmt.setString(13, cliente.getEstado());
+            stmt.setString(14, cliente.getComplemento());
+            stmt.setInt(15, cliente.getId());
 
             //Executa SQL Statement
-            stmt.executeUpdate();
-
-            //Fecha conexão
-            FecharConexao();
+            stmt.execute();
 
         } catch (SQLException e) {
-            System.out.println(e);
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
 
+            System.out.println(e);
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
     }
 
     //DELETAR CLIENTE
-    public void excluirCliente(int id) {
+    public void excluirCliente(int id) throws SQLException {
 
         String sql = "UPDATE clientes SET deletado_clientes = true WHERE id_clientes = " + id;
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
 
             //Executa SQL Statement
-            stmt.executeUpdate();
+            stmt.execute();
 
-            //Fecha conexão
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
 
         } catch (SQLException e) {
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             System.out.println(e);
 
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
     }
 
@@ -167,21 +183,22 @@ public class DaoCliente {
 
         String sql = "SELECT * FROM clientes WHERE id_clientes = " + id + " AND deletado_clientes = false";
 
-        try (
-                //Cria um statement para executar as instruções SQL
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
 
-            //Cria o objeto que recebe o resultado da  query executada
-            ResultSet result = stmt.executeQuery();
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
 
-            //Percorre o resultado da query criando e adicionando os clientes 
-            //encotrados na lista de clientes inicialmente declarada.
+        try {
+
             while (result.next()) {
+
                 Cliente cliente = new Cliente();
 
                 cliente.setId(result.getInt("id_clientes"));
                 cliente.setNome(result.getString("nome_clientes"));
-                cliente.setCpfCnpj(result.getString("cpf_cnpj_clientes"));
+                cliente.setCpf(result.getString("cpf_clientes"));
+                cliente.setDataNascimento(result.getString("data_nascimento_clientes"));
                 cliente.setSexo(result.getString("sexo_clientes"));
                 cliente.setTelefone(result.getString("telefone_clientes"));
                 cliente.setCelular(result.getString("celular_clientes"));
@@ -195,18 +212,28 @@ public class DaoCliente {
                 cliente.setComplemento(result.getString("complemento_clientes"));
                 cliente.setDataCadastro(result.getString("data_cadastro_clientes"));
 
+                result.close();
+                //Fecha stmt
+                stmt.close();
+                // Fecha a conexao
+                connection.close();
                 return cliente;
-
             }
-
-            result.close();
-
         } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             throw new SQLException(e);
+
         } finally {
-            FecharConexao();
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-        FecharConexao();
         return null;
     }
 
@@ -215,7 +242,7 @@ public class DaoCliente {
             throws SQLException, Exception {
 
         // cria a query de busca
-        String sql = "SELECT * FROM clientes WHERE cpf_cnpj_clientes LIKE '%" + cpf_cnpj + "%' AND deletado_clientes = false";
+        String sql = "SELECT * FROM clientes WHERE cpf_clientes LIKE '%" + cpf_cnpj + "%' AND deletado_clientes = false";
 
         //chama o método de criar lista e à retorna
         return criaLista(sql);
@@ -228,7 +255,7 @@ public class DaoCliente {
         // cria a query de busca
         String sql = "SELECT * FROM clientes WHERE nome_clientes LIKE '%" + nome + "%' AND deletado_clientes = false";
 
-        //chama o método de criar lista e à retorna
+        //chama o metodo de criar lista e a retorna
         return criaLista(sql);
     }
 
@@ -239,21 +266,22 @@ public class DaoCliente {
         // cria a query de busca
         String sql = "SELECT * FROM clientes WHERE deletado_clientes = false";
 
-        //chama o método de criar lista e à retorna
+        //chama o método de criar lista e a retorna
         return criaLista(sql);
     }
 
-    // CRIA UMA LISTA DE CLIENTES E RETORNA ESSA LISTA PARA O MÉTODO QUE À CHAMOU
-    public List<Cliente> criaLista(String sql) {
+    // CRIA UMA LISTA DE CLIENTES E RETORNA ESSA LISTA PARA O METODO QUE À CHAMOU
+    private List<Cliente> criaLista(String sql) throws SQLException {
 
         //cria uma lista de clientes
         List<Cliente> clientes = new ArrayList<>();
 
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
+
         try {
-            //Cria um statement para executar as instruções SQL
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            //Cria o objeto que recebe o resultado da  query executada
-            ResultSet result = stmt.executeQuery();
 
             //Percorre o resultado da query criando e adicionando os clientes 
             //encotrados na lista de clientes inicialmente declarada.
@@ -262,7 +290,8 @@ public class DaoCliente {
 
                 cliente.setId(result.getInt("id_clientes"));
                 cliente.setNome(result.getString("nome_clientes"));
-                cliente.setCpfCnpj(result.getString("cpf_cnpj_clientes"));
+                cliente.setCpf(result.getString("cpf_clientes"));
+                cliente.setDataNascimento(result.getString("data_nascimento_clientes"));
                 cliente.setSexo(result.getString("sexo_clientes"));
                 cliente.setTelefone(result.getString("telefone_clientes"));
                 cliente.setCelular(result.getString("celular_clientes"));
@@ -281,14 +310,27 @@ public class DaoCliente {
             }
 
             result.close();
+            //Fecha stmt
             stmt.close();
-            FecharConexao();
+            // Fecha a conexao
+            connection.close();
+            
+            return clientes;
 
         } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             System.out.println(e.getMessage());
         } finally {
-            FecharConexao();
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-        return clientes;
+        return null;
     }
 }

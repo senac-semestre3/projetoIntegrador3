@@ -17,6 +17,6 @@ public class TesteExcluir {
         
         int id = 3; // id de exclusão
         DaoUsuario dao = new DaoUsuario();
-        dao.excluirUsuario(id);
+        dao.excluir(id);
     }
 }

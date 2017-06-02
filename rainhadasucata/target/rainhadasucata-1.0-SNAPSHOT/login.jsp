@@ -33,7 +33,7 @@
                      <div class="row">
                          <div class="input-field">
                              <i class="small material-icons prefix" aria-hidden="true">perm_identity</i>
-                             <input id="email" type="email" class="validate" name="nome" value="${nome}">
+                             <input id="email" type="text" class="validate" name="nome" value="${nome}">
                              <label for="email">Usuário</label>
                          </div>
                      </div>

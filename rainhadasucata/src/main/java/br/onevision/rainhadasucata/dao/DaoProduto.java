@@ -5,7 +5,6 @@
  */
 package br.onevision.rainhadasucata.dao;
 
-import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
 import br.onevision.rainhadasucata.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,13 +18,6 @@ import java.util.List;
  * @author everton
  */
 public class DaoProduto {
-
-    private final Connection connection;
-
-    public DaoProduto() throws SQLException {
-
-        this.connection = DBConnector.getConexaoDB();
-    }
 
     // INSERIR PRODUTO
     public void inserir(Produto produto) throws RuntimeException, SQLException {
@@ -41,9 +33,10 @@ public class DaoProduto {
                 + "status_produtos )"
                 + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
 
             //Seta valores para inserção
             stmt.setString(1, produto.getNome());
@@ -55,24 +48,27 @@ public class DaoProduto {
             stmt.setInt(7, produto.getEstoque());
             stmt.setInt(8, produto.getEstoqueMinimo());
             stmt.setInt(9, produto.getStatus());
-            
+
             //Executa SQL Statement
             stmt.execute();
-            //Fecha stmt
-            stmt.close();
-
-            //Fecha conexão
-            FecharConexao();
 
         } catch (SQLException e) {
+
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             throw new RuntimeException(e);
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
     }
 
     //EDITAR PRODUTO
-    public void editarProduto(Produto produto) {
+    public void editar(Produto produto) throws SQLException {
 
         // cria a string de parametro do sql
         String sql = "UPDATE produtos SET "
@@ -87,9 +83,10 @@ public class DaoProduto {
                 + "status_produtos = ? "
                 + "WHERE id_produtos = ?";
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
 
             //Seta valores para inserção
             stmt.setString(1, produto.getNome());
@@ -106,37 +103,51 @@ public class DaoProduto {
             //Executa SQL Statement
             stmt.execute();
 
-            //Fecha conexão
-            FecharConexao();
-
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            FecharConexao();
-        }
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
 
+            System.out.println(e);
+        } finally {
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
+        }
     }
 
     //DELETAR PRODUTO
-    public void excluirProduto(int id) {
+    public void excluir(int id) throws SQLException {
 
         String sql = "UPDATE produtos SET deletado_produtos = true WHERE id_produtos = " + id;
 
-        try (
-                // prepared statement para inserção
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+
+        try {
 
             //Executa SQL Statement
-            stmt.executeUpdate();
+            stmt.execute();
 
-            //Fecha conexão
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
 
         } catch (SQLException e) {
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             System.out.println(e);
 
         } finally {
-            FecharConexao();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
     }
 
@@ -146,18 +157,20 @@ public class DaoProduto {
 
         String sql = "SELECT * FROM produtos WHERE id_produtos = " + id + " AND deletado_produtos = false";
 
-        try (
-                //Cria um statement para executar as instruções SQL
-                PreparedStatement stmt = connection.prepareStatement(sql)) {
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
 
-            //Cria o objeto que recebe o resultado da  query executada
-            ResultSet result = stmt.executeQuery();
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
 
+        try {
+            
+            Produto produto = new Produto();
             //Percorre o resultado da query criando e adicionando os clientes 
             //encotrados na lista de clientes inicialmente declarada.
             while (result.next()) {
-                Produto produto = new Produto();
-
+                
+                
                 produto.setId(result.getInt("id_produtos"));
                 produto.setNome(result.getString("nome_produtos"));
                 produto.setMarca(result.getString("marca_produtos"));
@@ -169,19 +182,29 @@ public class DaoProduto {
                 produto.setEstoqueMinimo(result.getInt("estoque_minimo_produtos"));
                 produto.setStatus(result.getInt("status_produtos"));
 
-                return produto;
-
             }
-
             result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
+            return produto;
 
         } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             throw new SQLException(e);
+
         } finally {
-            FecharConexao();
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-        FecharConexao();
-        return null;
     }
 
     //RETORNA UMA LISTA COM TODOS OS PRODUTOS
@@ -207,11 +230,11 @@ public class DaoProduto {
     }
 
     //RETORNA UMA LISTA DE PRODUTOS BUSCADOS PELA MARCA
-    public List<Produto> listaPorMarca(String marca)
+    public List<Produto> listaPorPrecoVenda(String preco)
             throws SQLException, Exception {
 
         // cria a query de busca
-        String sql = "SELECT * FROM produtos WHERE marca_produtos LIKE '%" + marca + "%' AND deletado_produtos = false";
+        String sql = "SELECT * FROM produtos WHERE preco_venda_produtos LIKE '%" + preco + "%' AND deletado_produtos = false";
 
         //chama o método de criar lista e à retorna
         return criaLista(sql);
@@ -240,74 +263,71 @@ public class DaoProduto {
     }
 
     // RETORNA UMA LISTA CUSTOMIZADA
-    public List<Produto> listaCustomizada(String nome, String marca, Integer quantidade, Boolean status)
+    public List<Produto> listaCustomizada(String nome, String preco, Integer quantidade, Boolean status)
             throws SQLException, Exception {
-        
+
         String sql;
-                
-        if (quantidade != null && status != null) {
+
+            if (quantidade != null && status != null) {
             System.out.println("Todos os critérios Atendido");
             sql = "SELECT * FROM `produtos` "
-                + "WHERE "
-                + "nome_produtos LIKE '%" + nome + "%' AND "
-                + "marca_produtos LIKE '%" + marca + "%' AND "
-                + "estoque_produtos = " + quantidade + " AND "
-                + "status_produtos = " + status
-                    
-                + " AND deletado_produtos = false ";
-        }else if(quantidade == null && status != null){
+                    + "WHERE "
+                    + "nome_produtos LIKE '%" + nome + "%' AND "
+                    + "preco_venda_produtos LIKE '%" + preco + "%' AND "
+                    + "estoque_produtos = " + quantidade + " AND "
+                    + "status_produtos = " + status
+                    + " AND deletado_produtos = false ";
+        } else if (quantidade == null && status != null) {
             System.out.println("Quantidade " + quantidade);
             System.out.println("");
             sql = "SELECT * FROM `produtos` "
-                + "WHERE "
-                + "nome_produtos LIKE '%" + nome + "%' AND "
-                + "marca_produtos LIKE '%" + marca + "%' AND "
-                + "status_produtos = " + status
-                    
-                + " AND deletado_produtos = false ";
-        }else if (status == null && quantidade != null) {
+                    + "WHERE "
+                    + "nome_produtos LIKE '%" + nome + "%' AND "
+                    + "preco_venda_produtos LIKE '%" + preco + "%' AND "
+                    + "status_produtos = " + status
+                    + " AND deletado_produtos = false ";
+        } else if (status == null && quantidade != null) {
             System.out.println("Status " + status);
             System.out.println("");
             sql = "SELECT * FROM `produtos` "
-                + "WHERE "
-                + "nome_produtos LIKE '%" + nome + "%' AND "
-                + "marca_produtos LIKE '%" + marca + "%' AND "
-                + "estoque_produtos = " + quantidade
-
-                + " AND deletado_produtos = false ";
-        }else{
+                    + "WHERE "
+                    + "nome_produtos LIKE '%" + nome + "%' AND "
+                    + "preco_venda_produtos LIKE '%" + preco + "%' AND "
+                    + "estoque_produtos = " + quantidade
+                    + " AND deletado_produtos = false ";
+        } else {
             System.out.println("Quantidade " + quantidade);
             System.out.println("Status " + status);
             System.out.println("");
             sql = "SELECT * FROM `produtos` "
-                + "WHERE "
-                + "nome_produtos LIKE '%" + nome + "%' AND "
-                + "marca_produtos LIKE '%" + marca + "%'"
-                    
-                + " AND deletado_produtos = false ";
+                    + "WHERE "
+                    + "nome_produtos LIKE '%" + nome + "%' AND "
+                    + "preco_venda_produtos LIKE '%" + preco + "%'"
+                    + " AND deletado_produtos = false ";
         }
-        
+
         //chama o método de criar lista e à retorna
         return criaLista(sql);
     }
 
     // CRIA UMA LISTA DE PRODUTOS E RETORNA ESSA LISTA PARA O MÉTODO QUE À CHAMOU
-    public List<Produto> criaLista(String sql) {
+    private List<Produto> criaLista(String sql) throws SQLException {
 
         //cria uma lista de clientes
         List<Produto> produtos = new ArrayList<>();
+        
+        Connection connection = DBConnector.getConexaoDB();
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        //Cria o objeto que recebe o resultado da  query executada
+        ResultSet result = stmt.executeQuery();
 
         try {
-            //Cria um statement para executar as instruções SQL
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            //Cria o objeto que recebe o resultado da  query executada
-            ResultSet result = stmt.executeQuery();
-
+            
+            
             //Percorre o resultado da query criando e adicionando os clientes 
             //encotrados na lista de clientes inicialmente declarada.
             while (result.next()) {
                 Produto produto = new Produto();
-
                 produto.setId(result.getInt("id_produtos"));
                 produto.setNome(result.getString("nome_produtos"));
                 produto.setMarca(result.getString("marca_produtos"));
@@ -324,14 +344,27 @@ public class DaoProduto {
             }
 
             result.close();
+            //Fecha stmt
             stmt.close();
-            FecharConexao();
+            // Fecha a conexao
+            connection.close();
+            
+            return produtos;
 
         } catch (Exception e) {
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
             System.out.println(e.getMessage());
         } finally {
-            FecharConexao();
+            result.close();
+            //Fecha stmt
+            stmt.close();
+            // Fecha a conexao
+            connection.close();
         }
-        return produtos;
+        return null;
     }
 }

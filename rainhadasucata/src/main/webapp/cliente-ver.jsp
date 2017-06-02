@@ -1,8 +1,3 @@
-<%-- 
-    Document   : cliente-ver
-    Created on : 23/04/2017, 12:24:36
-    Author     : everton
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -33,9 +28,11 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <button class="btn btn-editar-cliente waves-effect waves-light right" type="button">Editar
-                                <i class="fa fa-pencil"></i> 
-                            </button>
+                            <a href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-editar">
+                                <button class="btn btn-editar-cliente waves-effect waves-light right" type="button">Editar
+                                    <i class="fa fa-pencil"></i> 
+                                </button>
+                            </a>
                         </div>
 
 
@@ -53,79 +50,83 @@
                                         <li>
                                             <div class="collapsible-header"><i class="material-icons">person_pin</i><span>Dados Pessoais</span></div>
                                             <div class="collapsible-body">
-                                                    <table class="tabela-cliente-ver-dados-pessoais vertical striped">
-                                                        <tr>
+                                                <table class="tabela-cliente-ver-dados-pessoais vertical striped">
+                                                    <tr>
 
 
 
-                                                            <th>Id</th>
-                                                            <td>${cliente.id}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Nome</th>
-                                                            <td>${cliente.nome}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Cpf/Cnpj</th>
-                                                            <td>${cliente.cpfCnpj}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Sexo</th>
-                                                            <td>${cliente.sexo}</td>
-                                                        </tr>
+                                                        <th>Id</th>
+                                                        <td>${cliente.id}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nome</th>
+                                                        <td>${cliente.nome}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Cpf</th>
+                                                        <td>${cliente.cpf}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Data de nascimento</th>
+                                                        <td>${cliente.dataNascimento}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Sexo</th>
+                                                        <td>${cliente.sexo}</td>
+                                                    </tr>
 
 
-                                                    </table>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header"><i class="material-icons">email</i><span>Dados de Contato</span></div>
-                                                <div class="collapsible-body">
-                                                    <table class="tabela-cliente-ver-contato vertical striped">
-                                                        <tr>
-                                                            <th>Telefone</th>
-                                                            <td>${cliente.telefone}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Celular</th>
-                                                            <td>${cliente.celular}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>E-mail</th>
-                                                            <td>${cliente.email}</td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
-                                                <div class="collapsible-body">
-                                                    <table class="tabela-cliente-ver-endereco vertical striped">
-                                                        <tr>
-                                                            <th>Logradouro</th>
-                                                            <td>${cliente.logradouro}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Número</th>
-                                                            <td>${cliente.numero}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Bairro</th>
-                                                            <td>${cliente.bairro}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Cidade</th>
-                                                            <td>${cliente.cidade}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Estado</th>
-                                                            <td>${cliente.estado}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Complemento</th>
-                                                            <td>${cliente.complemento}</td>
-                                                        </tr>
-                                                    </table>
+                                                </table>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header"><i class="material-icons">email</i><span>Dados de Contato</span></div>
+                                            <div class="collapsible-body">
+                                                <table class="tabela-cliente-ver-contato vertical striped">
+                                                    <tr>
+                                                        <th>Telefone</th>
+                                                        <td>${cliente.telefone}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Celular</th>
+                                                        <td>${cliente.celular}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>E-mail</th>
+                                                        <td>${cliente.email}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
+                                            <div class="collapsible-body">
+                                                <table class="tabela-cliente-ver-endereco vertical striped">
+                                                    <tr>
+                                                        <th>Logradouro</th>
+                                                        <td>${cliente.logradouro}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Número</th>
+                                                        <td>${cliente.numero}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Bairro</th>
+                                                        <td>${cliente.bairro}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Cidade</th>
+                                                        <td>${cliente.cidade}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Estado</th>
+                                                        <td>${cliente.estado}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Complemento</th>
+                                                        <td>${cliente.complemento}</td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </li>
                                     </ul>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : usuario-ver
-    Created on : 24/04/2017, 22:59:04
-    Author     : everton
---%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -35,9 +29,11 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <button class="btn btn-editar-cliente waves-effect waves-light right" type="button" name="action">Editar
-                                <i class="fa fa-pencil"></i> 
-                            </button>
+                            <a href="UsuarioController?id=${usuario.id}&acao=UsuarioObter&pagina=usuario-editar">
+                                <button class="btn btn-editar-usuario waves-effect waves-light right" type="button" name="action">Editar
+                                    <i class="fa fa-pencil"></i> 
+                                </button>
+                            </a>
                         </div>
 
 
@@ -66,7 +62,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Cpf</th>
-                                                        <td>${usuario.cpfCnpj}</td>
+                                                        <td>${usuario.cpf}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Data de Nascimento</th>
@@ -85,7 +81,7 @@
                                                 <table class="tabela-cliente-ver-contato vertical striped">
                                                     <tr>
                                                         <th>Telefone</th>
-                                                        <td>(${usuario.telefone}</td>
+                                                        <td>${usuario.telefone}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Celular</th>
@@ -94,6 +90,37 @@
                                                     <tr>
                                                         <th>E-mail</th>
                                                         <td>${usuario.email}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header active"><i class="material-icons">location_on</i><span>Dados de Endereço</span></div>
+                                            <div class="collapsible-body">
+                                                <table class="tabela-cliente-ver-endereco vertical striped">
+                                                    <tr>
+                                                        <th>Logradouro</th>
+                                                        <td>${usuario.logradouro}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Número</th>
+                                                        <td>${usuario.numero}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Bairro</th>
+                                                        <td>${usuario.bairro}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Cidade</th>
+                                                        <td>${usuario.cidade}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Estado</th>
+                                                        <td>${usuario.estado}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Complemento</th>
+                                                        <td>${usuario.complemento}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -116,7 +143,14 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
-                                                        <td>${usuario.status}</td>
+                                                        <c:choose>
+                                                            <c:when test="${usuario.status==1}">
+                                                                <td>Ativo</td>
+                                                            </c:when>    
+                                                            <c:otherwise>
+                                                                <td>Inativo</td>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </tr>
                                                 </table>
                                             </div>

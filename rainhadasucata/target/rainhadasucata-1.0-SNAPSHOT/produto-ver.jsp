@@ -1,10 +1,7 @@
-<%-- 
-    Document   : produto-ver
-    Created on : 23/04/2017, 17:52:55
-    Author     : everton
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,9 +28,11 @@
                     <div class="main">
                         <!-- Programar aqui!! -->
                         <div class="row">
-                            <button class="btn btn-editar-produto waves-effect waves-light right" type="button" name="action">Editar
-                                <i class="fa fa-pencil"></i> 
-                            </button>
+                            <a href="ProdutoController?id=${produto.id}&acao=ProdutoObter&pagina=produto-editar">
+                                <button class="btn btn-editar-produto waves-effect waves-light right" type="button">Editar
+                                    <i class="fa fa-pencil"></i> 
+                                </button>
+                            </a>
                         </div>
 
 
@@ -68,10 +67,6 @@
                                                         <th>Descrição</th>
                                                         <td>${produto.descricao}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th>Situação</th>
-                                                        <td>${produto.status}</td>
-                                                    </tr>
                                                 </table>
                                             </div>
                                         </li>
@@ -81,15 +76,15 @@
                                                 <table class="tabela-cliente-ver-contato vertical striped">
                                                     <tr>
                                                         <th>Preço de compra</th>
-                                                        <td>${produto.precoCompra}</td>
+                                                        <td>R$ ${produto.precoCompra}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Margem de lucro</th>
-                                                        <td>${produto.margemVenda}</td>
+                                                        <td>${produto.margemVenda} %</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Valor de Venda</th>
-                                                        <td>${produto.precoVenda}</td>
+                                                        <td>R$ ${produto.precoVenda}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -108,7 +103,14 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Status</th>
-                                                        <td>${produto.status}</td>
+                                                        <c:choose>
+                                                            <c:when test="${produto.status==1}">
+                                                                <td>Ativo</td>
+                                                            </c:when>    
+                                                            <c:otherwise>
+                                                                <td>Inativo</td>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                     </tr>
                                                 </table>
                                             </div>
