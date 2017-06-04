@@ -5,6 +5,9 @@
  */
 package br.onevision.rainhadasucata.model;
 
+import java.io.IOException;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author everton
@@ -24,6 +27,15 @@ public class Produto {
     
     public Produto(){
         this.deletado = false;
+    }
+    
+    public JSONObject toJSON() throws IOException{
+        JSONObject json = new JSONObject();
+        json.put("id", this.id);
+        json.put("nome", this.nome);
+        json.put("precoVenda", this.precoVenda);
+        json.put("estoque", this.estoque);
+        return json;
     }
 
     public int getId() {

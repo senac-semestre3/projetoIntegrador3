@@ -17,6 +17,8 @@
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/dao/DaoLoja.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/AutorizacaoFilter.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/Logout.java
+/media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/controller/VendaController.java
+/media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/controller/vendaTeste.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/Logica.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/usuario/UsuarioAdicionar.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/controller/UsuarioController.java
@@ -43,6 +45,7 @@
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/loja/LojaDeletar.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/controller/LojaController.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/produto/ProdutoDeletar.java
+/media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/venda/VendaSetaCliente.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/model/Pessoa.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/logica/loja/LojaAdicionar.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/main/java/br/onevision/rainhadasucata/model/BuscaCep.java

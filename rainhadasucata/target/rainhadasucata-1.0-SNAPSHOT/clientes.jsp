@@ -17,6 +17,18 @@
 
         <!-- CSS da pagina -->
         <link href="dist/css/tela-chamada.css" rel="stylesheet" type="text/css"/>
+        
+        <style>
+            .btn-editar{
+                padding: 2px 5px;
+            }
+            .btn-ver{
+                padding: 2px 5px;
+            }
+            .btn-deletar{
+                padding: 2px 5px;
+            }
+        </style>
 
     </head>
     <body >
@@ -72,43 +84,47 @@
                                                 <th>Telefone</th>
                                                 <th>E-mail</th>
                                                 <th>Ação</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <c:forEach items="${clientes}" var="cliente">
                                                 <tr>
-                                                    <form method="post" name="form">
+                                            <form method="post" name="form">
 
-                                                        <td><c:out value="${cliente.id}" /></td>
-                                                        <td><c:out value="${cliente.nome}" /></td>
-                                                        <td><c:out value="${cliente.cpf}" /></td>
-                                                        <td><c:out value="${cliente.telefone}" /></td>
-                                                        <td><c:out value="${cliente.email}" /></td>
+                                                <td><c:out value="${cliente.id}" /></td>
+                                                <td><c:out value="${cliente.nome}" /></td>
+                                                <td><c:out value="${cliente.cpf}" /></td>
+                                                <td><c:out value="${cliente.telefone}" /></td>
+                                                <td><c:out value="${cliente.email}" /></td>
 
-                                                        <!-- Ver, Editar e Deletar cliente-->
-                                                        <td id="btnAcao">
-                                                            <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-ver"
-                                                                class="waves-effect waves-teal btn-ver tooltipped" data-position="left" 
-                                                                data-delay="50" data-tooltip="detalhes do cliente" type="submit">
-                                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                            </a>
+                                                <!-- Ver, Editar e Deletar cliente-->
+                                                <td id="btnAcao">
+                                                    <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=vendas" 
+                                                        class="waves-effect waves-light btn-editar tooltipped" data-position="top" 
+                                                        data-delay="50" data-tooltip="Vender" type="submit">
+                                                        <i class="fa fa-usd fa-2x" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-ver"
+                                                        class="waves-effect waves-teal btn-ver tooltipped" data-position="left" 
+                                                        data-delay="50" data-tooltip="detalhes do cliente" type="submit">
+                                                        <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                    </a>
 
-                                                            <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-editar" 
-                                                                class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" 
-                                                                data-delay="50" data-tooltip="editar cliente" type="submit">
-                                                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                                            </a>
-                                                            <a  href="ClienteController?id=${cliente.id}&acao=ClienteDeletar" 
-                                                                class="waves-effect waves-light btn-deletar tooltipped" data-position="top" 
-                                                                data-delay="50" data-tooltip="deletar cliente" type="submit">
-                                                                <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                            </a>
-                                                        </td>
+                                                    <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=cliente-editar" 
+                                                        class="waves-effect waves-light btn-editar tooltipped" data-position="bottom" 
+                                                        data-delay="50" data-tooltip="editar cliente" type="submit">
+                                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                                    </a>
+                                                    <a  href="ClienteController?id=${cliente.id}&acao=ClienteDeletar" 
+                                                        class="waves-effect waves-light btn-deletar tooltipped" data-position="top" 
+                                                        data-delay="50" data-tooltip="deletar cliente" type="submit">
+                                                        <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
 
-                                                    </form>
-                                                </tr>
-                                            </c:forEach> 
+                                            </form>
+                                            </tr>
+                                        </c:forEach> 
                                         </tbody>
                                     </table>
                                 </div>
@@ -119,7 +135,7 @@
             </div>
         </div>
 
-        
+
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
         <script src="dist/js/Cliente.js" type="text/javascript"></script>

@@ -7,7 +7,6 @@ package br.onevision.rainhadasucata.logica.cliente;
 
 import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.logica.Logica;
-import br.onevision.rainhadasucata.logica.Logica;
 import br.onevision.rainhadasucata.model.Cliente;
 import br.onevision.rainhadasucata.model.Conversao;
 import javax.servlet.http.HttpServletRequest;
@@ -47,8 +46,10 @@ public class ClienteObter implements Logica{
         
         if (pagina.equals("cliente-editar")) {
             return "cliente-editar.jsp";
-        }else{
+        }else if(pagina.equals("cliente-ver")){
             return "cliente-ver.jsp";
+        }else{
+            return "vendas.jsp";
         }
     }
     

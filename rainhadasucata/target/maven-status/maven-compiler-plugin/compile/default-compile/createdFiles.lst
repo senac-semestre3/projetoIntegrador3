@@ -1,4 +1,5 @@
 br/onevision/rainhadasucata/dao/DBConnector.class
+br/onevision/rainhadasucata/controller/VendaController.class
 br/onevision/rainhadasucata/logica/ConsultaCep.class
 br/onevision/rainhadasucata/logica/usuario/UsuarioListar.class
 br/onevision/rainhadasucata/logica/usuario/UsuarioObter.class
@@ -26,6 +27,7 @@ br/onevision/rainhadasucata/model/BuscaCep.class
 br/onevision/rainhadasucata/dao/DaoVenda.class
 br/onevision/rainhadasucata/controller/ProdutoController.class
 br/onevision/rainhadasucata/logica/produto/ProdutoListar.class
+br/onevision/rainhadasucata/controller/vendaTeste.class
 br/onevision/rainhadasucata/logica/AutorizacaoFilter.class
 br/onevision/rainhadasucata/model/Relatorio.class
 br/onevision/rainhadasucata/logica/loja/LojaListar.class
@@ -40,6 +42,7 @@ br/onevision/rainhadasucata/logica/loja/LojaAdicionar.class
 br/onevision/rainhadasucata/model/DataEHora.class
 br/onevision/rainhadasucata/model/Venda.class
 br/onevision/rainhadasucata/logica/Logica.class
+br/onevision/rainhadasucata/logica/venda/VendaSetaCliente.class
 br/onevision/rainhadasucata/logica/produto/ProdutoEditar.class
 br/onevision/rainhadasucata/controller/LojaController.class
 br/onevision/rainhadasucata/logica/loja/LojaDeletar.class

@@ -1,10 +1,8 @@
-<%--
-    Document   : vendas
-    Created on : 13/04/2017, 22:08:07
-    Author     : everton
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +17,36 @@
 
         <!-- CSS da pagina -->
         <link href="dist/css/vendas.css" rel="stylesheet" type="text/css"/>
+
+        <style>
+            #procuraProduto{
+                background: transparent;
+                border: none;
+            }
+            #procuraProduto:focus{
+                background: transparent;
+
+            }
+            #procuraProduto:hover{
+                color: #2ab7a9;
+            }
+            #txtNomeProduto{
+                color: #092340;
+            }
+            td input[type="number"]{
+                margin: 0;
+                width: 80px;
+                height: 1.5rem;
+                border: none;
+                text-align: center !important;
+            }
+            td input[type="number"]:focus{
+                box-shadow: none !important;
+            }
+            td input[type=number]::-webkit-inner-spin-button { 
+                -webkit-appearance: none;
+            }
+        </style>
 
     </head>
 
@@ -38,12 +66,13 @@
                                             <i class="material-icons prefix">account_circle</i>
                                             <input id="icon_prefix" type="text" class="validate" name="cliente">
                                             <label for="icon_prefix">Cliente</label>
-                                            <button class="btn-procurar waves-effect waves-light right" type="button" name="btn-procurar-cliente">
+                                            <button class="btn-procurar waves-effect waves-light right" type="submit">
+                                                <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
                                             </button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="col s5 box-btn-adicionar">
+                                <div class="col s5 box-btn-adicionar offset-s1">
                                     <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
                                         <i class="fa fa-plus" aria-hidden="true"></i> 
                                     </button>
@@ -75,7 +104,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>52</td>
-                                                <td>Everton Roberto de Oliveira</td>
+                                                <td>${cliente.nome}</td>
                                                 <td>Willian Marques</td>
                                                 <td></td>
                                                 <td>14/04/2017</td>
@@ -128,17 +157,23 @@
                                     <div class="row">
                                         <form class="col s12">
                                             <div class="row">
-                                                <div class="input-field col s5">
+                                                <div class="input-field col s3">
                                                     <i class="material-icons prefix fa fa-barcode"></i>
-                                                    <input id="icon_prefix" type="text" class="validate">
-                                                    <label for="icon_prefix">Produto</label>
+                                                    <input id="txtCodigoProduto" type="number" class="textCodigoProduto validate" min="0">
+                                                    <label for="txtCodigoProduto">codigo</label>
                                                 </div>
-                                                <div class="input-field col s2 offset-s1">
-                                                    <input id="icon_prefix" type="number" class="validate">
-                                                    <label for="icon_prefix">Quantidade</label>
+                                                <div class="input-field col s1">
+                                                    <button id="procuraProduto" type="button" name="action">
+                                                        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+                                                    </button>
                                                 </div>
-                                                <div class="input-field col s3 offset-s1">
-                                                    <button class="btn btn-adicionar-carrinho waves-effect waves-light" type="button" name="action">Adicionar
+                                                <div class="input-field col s4">
+                                                    <input disabled id="txtNomeProduto" type="text" class="validate">
+                                                    <label for="txtNomeProduto">Produto</label>
+                                                </div>
+
+                                                <div class="input-field col offset-s1">
+                                                    <button id="btnAdicionarProduto" class="btn btn-adicionar-carrinho waves-effect waves-light" type="button">Adicionar
                                                         <i class="fa fa-plus" aria-hidden="true"></i> 
                                                     </button>
                                                 </div>
@@ -147,6 +182,7 @@
                                         <table class="tabela-produtos horizontal striped">
                                             <thead>
                                                 <tr>
+                                                    <th>Id</th>
                                                     <th>Produto</th>
                                                     <th>Quantidade</th>
                                                     <th>Ação</th>
@@ -157,31 +193,9 @@
 
                                             <tbody>
                                                 <tr>
-                                                    <td>Óleo de Câmbio</td>
-                                                    <td> 2 </td>
-                                                    <td>
-                                                        <button class="btn btn-remover waves-effect waves-light">
-                                                            <!-- Codigo no css -->
-                                                        </button>
-                                                    </td>
-                                                    <td>19,50</td>
-                                                    <td>39,00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Óleo de Motor</td>
-                                                    <td> 2 </td>
-                                                    <td>
-                                                        <button class="btn btn-remover waves-effect waves-light">
-                                                            <!-- Codigo no css -->
-                                                        </button>
-                                                    </td>
-                                                    <td>15,20</td>
-                                                    <td>30,40</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3"></td>
+                                                    <td colspan="4"></td>
                                                     <td>Total: </td>
-                                                    <td>69,40</td>
+                                                    <td id="tdValorTotal">R$ 0,00</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -195,10 +209,10 @@
             </div>
         </div>
     </div>
-    
+
     <!-- javascript das libs -->
     <script src="dist/js/lib.min.js" type="text/javascript"></script>
-    
+
     <!-- javascript da pagina -->
     <script src="dist/js/vendas.js" type="text/javascript"></script>
 </body>

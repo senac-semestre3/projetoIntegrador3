@@ -21,6 +21,10 @@
         <servlet-name>ProdutoController</servlet-name>
         <servlet-class>br.onevision.rainhadasucata.controller.ProdutoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendaController</servlet-name>
+        <servlet-class>br.onevision.rainhadasucata.controller.VendaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -40,6 +44,10 @@
     <servlet-mapping>
         <servlet-name>ProdutoController</servlet-name>
         <url-pattern>/ProdutoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaController</servlet-name>
+        <url-pattern>/VendaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

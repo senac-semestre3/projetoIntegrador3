@@ -25,7 +25,7 @@ public class ProdutoListar implements Logica {
 
         System.out.println("Executando a logica ...");
 
-        //cria lista de Clientes
+        //cria lista de Produtos
         List<Produto> produtos = new ArrayList<>();
 
         // Chama o daoProduto
