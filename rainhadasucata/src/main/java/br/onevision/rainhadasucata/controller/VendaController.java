@@ -9,13 +9,10 @@ import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.simple.JSONArray;
 
 /**
  *
@@ -39,18 +36,15 @@ public class VendaController extends HttpServlet {
             destino = produto.toJSON().toJSONString();
 
         } catch (NumberFormatException | IOException e) {
-            List<Produto> produtos = new ArrayList<>();
+            Produto produto;
             DaoProduto dao = new DaoProduto();
 
-            produtos = dao.listaPorNome(busca);
-
-            JSONArray jProdutos = new JSONArray();
-            jProdutos.addAll(produtos);
-            
-            destino = jProdutos.toJSONString();       
+            produto = dao.obter(0);
+            destino = produto.toJSON().toJSONString();
         }
         
         response.setContentType("text/html;charset=UTF-8");
+        
         
         try (PrintWriter out = response.getWriter()) {
             out.println(destino);

@@ -49,7 +49,7 @@ public class Venda {
         double total = 0;
         
         for (int i = 0; i < itens.size(); i++) {
-            total += itens.get(i).calculaSubtotal();
+            total += itens.get(i).getSubtotal();
         }
         
         return total - desconto;

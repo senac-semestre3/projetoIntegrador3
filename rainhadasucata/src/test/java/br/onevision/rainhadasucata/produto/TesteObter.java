@@ -18,7 +18,7 @@ public class TesteObter {
         Produto produto;
         DaoProduto dao = new DaoProduto();
 
-        int id = 2;// id a ser buscado
+        int id = 1;// id a ser buscado
 
         produto = dao.obter(id);
 

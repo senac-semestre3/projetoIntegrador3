@@ -104,7 +104,7 @@ public class TesteVendaUnitario {
             System.out.println("Produto: " + itens.getProduto().getNome());
             System.out.println("Valor Uni: " + itens.getProduto().getPrecoVenda());
             System.out.println("Quantidade: " + itens.getQuantidade());
-            System.out.println("Subtotal: " + itens.calculaSubtotal());
+            System.out.println("Subtotal: " + itens.getSubtotal());
             System.out.println("");
         }
         System.out.println("");

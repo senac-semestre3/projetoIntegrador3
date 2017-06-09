@@ -18,19 +18,25 @@
         <!-- CSS da pagina -->
         <link href="dist/css/vendas.css" rel="stylesheet" type="text/css"/>
 
+        <!-- javascript das libs -->
+        <script src="dist/js/lib.min.js" type="text/javascript"></script>
+
+        <!-- javascript da pagina -->
+        <script src="dist/js/vendas.js" type="text/javascript"></script>
+
         <style>
-            #procuraProduto{
+            #btnProcuraProduto{
                 background: transparent;
                 border: none;
             }
-            #procuraProduto:focus{
+            #btnProcuraProduto:focus{
                 background: transparent;
 
             }
-            #procuraProduto:hover{
+            #btnProcuraProduto:hover{
                 color: #2ab7a9;
             }
-            #txtNomeProduto{
+            #inpNomeProduto{
                 color: #092340;
             }
             td input[type="number"]{
@@ -46,6 +52,33 @@
             td input[type=number]::-webkit-inner-spin-button { 
                 -webkit-appearance: none;
             }
+            .toast.error{
+                float: left;
+                background: #f2dede;
+                color: #843534;
+                font-weight: 400;
+                border: 1px solid #ebccd1;
+                font-size: 1.4rem;
+                top: 30px;
+            }
+            .toast.warning{
+                float: left;
+                background: #fcf8e3;
+                color: #8a6d3b;
+                font-weight: 400;
+                border: 1px solid #faebcc;
+                font-size: 1.4rem;
+                top: 30px;
+            }
+            .toast.success{
+                float: left;
+                background: #dff0d8;
+                color: #3c763d;
+                font-weight: 400;
+                border: 1px solid #d6e9c6;
+                font-size: 1.4rem;
+                top: 30px;
+            }
         </style>
 
     </head>
@@ -57,7 +90,6 @@
                 <div id="container-main">
                     <div class="main">
                         <!-- Programar aqui!! -->
-
                         <div class="row box-topo-tela-chamada">
                             <div class="col s12">
                                 <div class="col s5">
@@ -159,21 +191,21 @@
                                             <div class="row">
                                                 <div class="input-field col s3">
                                                     <i class="material-icons prefix fa fa-barcode"></i>
-                                                    <input id="txtCodigoProduto" type="number" class="textCodigoProduto validate" min="0">
-                                                    <label for="txtCodigoProduto">codigo</label>
+                                                    <input id="inpCodigoProduto" type="number" class="validate" min="0">
+                                                    <label for="inpCodigoProduto">codigo</label>
                                                 </div>
                                                 <div class="input-field col s1">
-                                                    <button id="procuraProduto" type="button" name="action">
+                                                    <button id="btnProcuraProduto" type="button" name="action">
                                                         <i class="fa fa-search fa-2x" aria-hidden="true"></i>
                                                     </button>
                                                 </div>
                                                 <div class="input-field col s4">
-                                                    <input disabled id="txtNomeProduto" type="text" class="validate">
-                                                    <label for="txtNomeProduto">Produto</label>
+                                                    <input disabled id="inpNomeProduto" type="text" class="validate">
+                                                    <label for="inpNomeProduto">Produto</label>
                                                 </div>
 
                                                 <div class="input-field col offset-s1">
-                                                    <button id="btnAdicionarProduto" class="btn btn-adicionar-carrinho waves-effect waves-light" type="button">Adicionar
+                                                    <button id="btnAdicionaProduto" class="btn waves-effect waves-light" type="button">Adicionar
                                                         <i class="fa fa-plus" aria-hidden="true"></i> 
                                                     </button>
                                                 </div>
@@ -208,12 +240,5 @@
                 </div><!-- Limite da programação -->
             </div>
         </div>
-    </div>
-
-    <!-- javascript das libs -->
-    <script src="dist/js/lib.min.js" type="text/javascript"></script>
-
-    <!-- javascript da pagina -->
-    <script src="dist/js/vendas.js" type="text/javascript"></script>
-</body>
+    </body>
 </html>

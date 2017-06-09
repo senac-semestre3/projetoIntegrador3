@@ -25,6 +25,10 @@
         <servlet-name>VendaController</servlet-name>
         <servlet-class>br.onevision.rainhadasucata.controller.VendaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarrinhoController</servlet-name>
+        <servlet-class>br.onevision.rainhadasucata.controller.CarrinhoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -48,6 +52,10 @@
     <servlet-mapping>
         <servlet-name>VendaController</servlet-name>
         <url-pattern>/VendaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoController</servlet-name>
+        <url-pattern>/CarrinhoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

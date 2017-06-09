@@ -46,8 +46,8 @@ public class DaoItemVenda {
                 stmt.setInt(2, idVenda);
                 stmt.setInt(3, item.get(i).getProduto().getId());
                 System.out.println("Id Produto: " + item.get(i).getProduto().getId());
-                stmt.setDouble(4, item.get(i).calculaSubtotal());
-                System.out.println("Subtotal: " + item.get(i).calculaSubtotal());
+                stmt.setDouble(4, item.get(i).getSubtotal());
+                System.out.println("Subtotal: " + item.get(i).getSubtotal());
 
                 //Executa SQL Statement
                 stmt.execute();
