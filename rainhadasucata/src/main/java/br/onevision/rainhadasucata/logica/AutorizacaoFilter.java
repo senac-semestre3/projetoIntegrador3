@@ -29,7 +29,8 @@ import javax.servlet.http.HttpSession;
 //            "ServletUsuarioVer", "SevletProdutoCadastrar", "ClienteAdicionar"})
 @WebFilter(filterName = "AutorizacaoFilter",
         servletNames
-        = {"ClienteAdicionar", "ClienteDeletar", "ClienteEditar", "ClienteVer", })
+        = {"CarrinhoController", "ClienteController", "LoginController", "LojaController", "ProdutoController", 
+            "UsuarioController", "UsuarioController",})
 
 public class AutorizacaoFilter implements Filter {
 

@@ -46,7 +46,7 @@
                 <!-- Container Perfil -->
                 <div class="container-perfil">
                     <img src="dist/imagens/avatar.png" alt="" class="circle img-avatar">
-                    <p><span>Nome do Perfil</span></p>
+                    <p><span>Olá  ${sessionScope.sessionusuario.nome}</span></p>
                 </div>
                 <div class="divider"></div>
 

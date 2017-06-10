@@ -45,9 +45,12 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
-                                        <button class="btn todas-vendas waves-effect waves-light" type="button" name="action">
-                                            <i class="fa fa-tags" aria-hidden="true"></i>  
+                                        <a href="/ServletRelatorio">
+                                            <button class="btn todas-vendas waves-effect waves-light" type="button" name="action">
+                                        
+                                        <i class="fa fa-tags" aria-hidden="true"></i>  
                                         </button>
+                                        </a>
                                     </div>
                                     <div class="row">
                                         <div class="input-field">
