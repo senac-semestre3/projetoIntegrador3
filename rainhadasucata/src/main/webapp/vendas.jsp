@@ -224,6 +224,22 @@
                                             </thead>
 
                                             <tbody>
+                                                <c:forEach items="${sessionScope.itensVenda}" var="item">
+                                                    <tr id="${item.produto.id}">
+                                                        <td><c:out value="${item.produto.id}" /></td>
+                                                        <td><c:out value="${item.produto.nome}" /></td>
+                                                        <td>
+                                                            <button onclick="quantidadeMenos(this)"><i class="fa fa-minus"></i></button>
+                                                            <input type="number" value="${item.quantidade}" />
+                                                            <button onclick="quantidadeMais(this)"><i class="fa fa-plus"></i></button>
+                                                        </td>
+                                                        <td>
+                                                            <button onclick="removeItem(this)"><i class="fa fa-close"></i></button>
+                                                        </td>
+                                                        <td><c:out value="${item.produto.precoVenda}" /></td>
+                                                        <td><c:out value="${item.subtotal}" /></td>
+                                                    </tr>
+                                                </c:forEach>
                                                 <tr>
                                                     <td colspan="4"></td>
                                                     <td>Total: </td>

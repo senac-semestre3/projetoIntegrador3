@@ -41,14 +41,14 @@ function adicionaLinha(evt) {
         var item = JSON.parse(obj);
 
         if (item.erro === "existe") {
-            dialog("Produto já está no carrinho", "warning");
+            dialog("Produto ja estao no carrinho", "warning");
 
         } else if (item.estoque > 0) {
             criaLinha(evt);
             limpaBuscaProduto();
             dialog("Produto adicionado!!", "success");
         } else {
-            dialog("Produto não contém estoque!!", "warning");
+            dialog("Produto nao contem estoque!!", "warning");
             limpaBuscaProduto();
         }
 
@@ -132,6 +132,9 @@ function quantidadeMenos(btn) {
 
     // pego o valor do campo - 1 pois so ira decrementar após fazer o request
     var input = btn.nextSibling;
+    if (input.value == undefined) {
+        input = btn.nextSibling.nextSibling;
+    }
     var qtd = input.value - 1;
 
     if (qtd >= 1) {
@@ -162,12 +165,13 @@ function quantidadeMenos(btn) {
 }
 // Aumenta quantidade de itens de um determinado produto no carrinho
 function quantidadeMais(btn) {
-    // pego o valor do campo - 1 pois so ira decrementar após fazer o request
+    // pego o valor do campo + 1 pois so ira decrementar apos fazer o request
     var input = btn.previousSibling;
-
+    if (input.value == undefined) {
+        input = btn.previousSibling.previousSibling;
+    }
     var qtd = parseInt(input.value) + 1;
-    console.log(qtd);
-
+    
     if (qtd >= 1) {
         // pego o id da linha
         var tr = btn.parentNode.parentNode;

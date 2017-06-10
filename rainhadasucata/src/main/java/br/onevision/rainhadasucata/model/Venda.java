@@ -19,6 +19,7 @@ public class Venda {
     private double desconto;
     private String dataHora;
     private List<ItemVenda> itens;
+    private double total;
     
 
     public int getIdVenda() {
@@ -87,4 +88,13 @@ public class Venda {
         this.desconto = desconto;
     }
 
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    
 }

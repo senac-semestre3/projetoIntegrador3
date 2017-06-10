@@ -8,6 +8,7 @@ package br.onevision.rainhadasucata.controller;
 import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
+import br.onevision.rainhadasucata.model.Venda;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 
 /**
@@ -24,45 +26,38 @@ import org.json.simple.JSONObject;
  */
 public class CarrinhoController extends HttpServlet {
 
-    // lista de itens de venda
     private List<ItemVenda> lista = new ArrayList<>();
-
-    // id mandado pela aplicação
-    private int idProduto;
-    private int quantidadeProduto;
-
-    // se todo processo ocorrer bem esse destino será um produto 
-    // para a aplicação
-    private String destino;
+    private Venda venda = new Venda();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        String destino = null;
+
         String acao = request.getParameter("acao");
-        System.out.println("Ação " + acao);
+
         try {
-            idProduto = Integer.parseInt(request.getParameter("id"));
-            System.out.println("Obteve o id da app  " + idProduto);
+            int id = Integer.parseInt(request.getParameter("id"));
+            System.out.println("Obteve o id da app  " + id);
             if (acao.equalsIgnoreCase("procurar")) {
                 System.out.println("Vai procurar o produto");
-                procurarProduto();
+                destino = procurarProduto(id);
 
             } else if (acao.equalsIgnoreCase("remover")) {
                 System.out.println("Vai remover o produto da lista");
-                removeItem();
+                destino = removeItem(id);
 
             } else {
-
                 try {
-                    quantidadeProduto = Integer.parseInt(request.getParameter("quantidade"));
+                    int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 
                     switch (acao) {
                         case "adicionar":
-                            if (!existeNaLista()) {
+                            if (!existeNaLista(id)) {
                                 System.out.println("Vai Adiciona produto");
-                                adicionarProduto();
+                                destino = adicionarProduto(id, quantidade);
                             } else {
                                 System.out.println("Ja existe na lista manda um erro");
                                 JSONObject json = new JSONObject();
@@ -72,11 +67,11 @@ public class CarrinhoController extends HttpServlet {
                             break;
                         case "aumentar":
                             System.out.println("vai aumentar");
-                            aumentaQuantidade();
+                            destino = aumentaQuantidade(id, quantidade);
                             break;
                         case "diminuir":
                             System.out.println("Vai diminuir");
-                            diminuiQuantidade();
+                            destino = diminuiQuantidade(id, quantidade);
                             break;
                         default:
                             break;
@@ -89,71 +84,82 @@ public class CarrinhoController extends HttpServlet {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (IOException | NumberFormatException e) {
 
             destino = "{\"id\" : -1}";// id invalido
         }
 
-        //mando para a aplicação
+        HttpSession sessao = request.getSession();
+        if (sessao.getAttribute("itensVenda") == null) {
+            sessao.setAttribute("itensVenda", lista);
+        }
+
+        //mando para a aplicao
         PrintWriter out = response.getWriter();
         out.println(destino);
     }
 
-    private void procurarProduto() throws IOException {
+// procura produto
+    private String procurarProduto(int id) throws IOException {
 
         try {
             Produto produto;
             DaoProduto dao = new DaoProduto();
-            produto = dao.obter(idProduto);
-            destino = produto.toJSON().toJSONString();
-            System.out.println("Obteve o produto");
+            produto = dao.obter(id);
+            return produto.toJSON().toJSONString();
         } catch (Exception ex) {
             // se não for possivel obter o produto retorno zero 
             // e trato no javascript
-            destino = "{\"id\" : 0}";
+            JSONObject json = new JSONObject();
+            return json.put("id", "0").toString();
         }
-
     }
 
-    private void aumentaQuantidade() {
+    // aumenta quantidade
+    private String aumentaQuantidade(int id, int quantidade) {
         JSONObject json = new JSONObject();
+
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getProduto().getId() == idProduto) {
-                if (quantidadeProduto <= lista.get(i).getProduto().getEstoque()) {
-                    lista.get(i).setQuantidade(quantidadeProduto);
+            if (lista.get(i).getProduto().getId() == id) {
+
+                if (quantidade <= lista.get(i).getProduto().getEstoque()) {
+                    lista.get(i).setQuantidade(quantidade);
                     lista.get(i).calculaSubtotal();
                     json.put("subtotal", lista.get(i).getSubtotal());
-                    destino = json.toJSONString();
+                    return json.toJSONString();
                 } else {
                     // se não for possivel aumentar quantidade no produto retorno erro 
                     // e trato no javascript
                     json.put("erro", "quantidadeExcede");
-                    destino = json.toJSONString();
+                    return json.toJSONString();
                 }
             }
         }
+        return null;
     }
 
-    private void diminuiQuantidade() {
+    // diminui quantidade
+    private String diminuiQuantidade(int id, int quantidade) {
         JSONObject json = new JSONObject();
         for (int i = 0; i < lista.size(); i++) {
 
-            if (lista.get(i).getProduto().getId() == idProduto) {
-                if (quantidadeProduto >= 1) {
-                    lista.get(i).setQuantidade(quantidadeProduto);
+            if (lista.get(i).getProduto().getId() == id) {
+                if (quantidade >= 1) {
+                    lista.get(i).setQuantidade(quantidade);
                     lista.get(i).calculaSubtotal();
                     System.out.println("Subtotal = " + lista.get(i).getSubtotal());
                     json.put("subtotal", lista.get(i).getSubtotal());
-                    destino = json.toJSONString();
+                    return json.toJSONString();
                 } else {
                     json.put("erro", "quantidadeInvalida");
-                    destino = json.toJSONString();
+                    return json.toJSONString();
                 }
             }
         }
+        return null;
     }
 
-    private void adicionarProduto() {
+    private String adicionarProduto(int id, int quantidade) {
         try {
 
             // se não der erro ao obter o produto
@@ -165,12 +171,14 @@ public class CarrinhoController extends HttpServlet {
             Produto produto;
             ItemVenda item = new ItemVenda();
             DaoProduto dao = new DaoProduto();
-            produto = dao.obter(idProduto);
+            produto = dao.obter(id);
             item.setProduto(produto);
-            item.setQuantidade(quantidadeProduto);
+            item.setQuantidade(quantidade);
             item.calculaSubtotal();
+            System.out.println("Tamanho antes " + lista.size());
             lista.add(item);
-            destino = item.toJSON().toJSONString();
+            System.out.println("Tamanho depois " + lista.size());
+            return item.toJSON().toJSONString();
 
         } catch (Exception ex) {
 
@@ -178,16 +186,16 @@ public class CarrinhoController extends HttpServlet {
             // e trato no javascript
             JSONObject json = new JSONObject();
             json.put("erro", "obter");
-            destino = json.toJSONString();
+            return json.toJSONString();
         }
     }
 
-    private boolean existeNaLista() {
-        System.out.println("Esta no método de verificação");
+    private boolean existeNaLista(int id) {
+        System.out.println("Esta no metodo de verificação");
         for (int i = 0; i < lista.size(); i++) {
-            System.out.println("id da app = " + idProduto);
+            System.out.println("id da app = " + id);
             System.out.println("id da lista = " + lista.get(i).getProduto().getId());
-            if (lista.get(i).getProduto().getId() == idProduto) {
+            if (lista.get(i).getProduto().getId() == id) {
                 System.out.println("id igual");
                 return true;
             }
@@ -195,22 +203,21 @@ public class CarrinhoController extends HttpServlet {
         return false;
     }
 
-    private void removeItem() {
+    private String removeItem(int id) {
         JSONObject json = new JSONObject();
-        System.out.println("Esta dentro do remover");
+
         for (int i = 0; i < lista.size(); i++) {
-            System.out.println("Id do app" + idProduto);
+            System.out.println("Id do app" + id);
             System.out.println("Id da lista" + lista.get(i).getProduto().getId());
-            if (lista.get(i).getProduto().getId() == idProduto) {
+            if (lista.get(i).getProduto().getId() == id) {
                 System.out.println("Id igual");
                 lista.remove(i);
-                 json.put("msg", "removido");
-                System.out.println("Removido");
-            } else {  
-                json.put("msg", "erro");
-                
+                json.put("msg", "removido");
+                return json.toJSONString();
+
             }
         }
-        destino = json.toJSONString();
+        return json.put("msg", "erro").toString();
     }
+
 }
