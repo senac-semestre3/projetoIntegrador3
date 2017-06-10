@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,9 +48,12 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
-                                        <button class="btn todas-vendas waves-effect waves-light" type="button" name="action">
-                                            <i class="fa fa-tags" aria-hidden="true"></i>  
-                                        </button>
+                                        <a href="/rainhadasucata/ServletRelatorio">
+                                            <button class="btn todas-vendas waves-effect waves-light" type="button" name="action">
+
+                                                <i class="fa fa-tags" aria-hidden="true"></i>  
+                                            </button>
+                                        </a>
                                     </div>
                                     <div class="row">
                                         <div class="input-field">
@@ -191,6 +197,7 @@
 
                                 <div class="corpo-card">
                                     <div class="row">
+
                                         <table class="tabela-valor-total horizontal striped">
                                             <thead>
                                                 <tr>
@@ -204,42 +211,24 @@
                                             </thead>
 
                                             <tbody>
-                                                <tr>
-                                                    <td>52</td>
-                                                    <td>Willian Marques Vieira</td>
-                                                    <td>R$ 100,00</td>
-                                                    <td>22/02/2017</td>
-                                                    <td>Débito</td>
-                                                    <td>
-                                                        <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda" >
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>57</td>
-                                                    <td>Everton Roberto de Oliveira</td>
-                                                    <td>R$ 300,00</td>
-                                                    <td>22/02/2017</td>
-                                                    <td>Cŕedito</td>
-                                                    <td>
-                                                        <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>61</td>
-                                                    <td>Fabio Junior</td>
-                                                    <td>R$ 150,00</td>
-                                                    <td>22/02/2017</td>
-                                                    <td>Dinheiro</td>
-                                                    <td>
-                                                        <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda">
-                                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                <c:forEach items="${relatorios}" var="relatorio">
+
+                                                    <tr>
+
+                                                        <td><c:out value="${relatorio.idVenda}"/></td>
+                                                        <td><c:out value="${relatorio.cliente.nome}"/></td>
+                                                        <td><c:out value="${relatorio.total}"/></td>
+                                                        <td><c:out value="${relatorio.dataHora}"/></td>
+                                                        <td><c:out value="${relatorio.metodoPagamento}"/></td>
+                                                        <td>
+                                                            <a href="/rainhadasucata/RelatorioDetalhado?id=${relatorio.idVenda}"> ssss</a>
+                                                            <button class="btn-ver waves-effect waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="detalhes da venda" data-target="modal-ver-venda" >
+                                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
+                                                            </button>
+
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>
@@ -250,61 +239,60 @@
                         <!-- Modal -->
                         <div id="modal-ver-venda" class="modal modal-fixed-footer">
                             <div class="modal-content">
-                                <h4>Willian Marques Vieira</h4>
-                                <div class="row">
-                                    <table class="tabela-detalhes-venda horizontal striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Id da venda</th>
-                                                <th>Vendedor</th>
-                                                <th>Método de Pagamento</th>
-                                                <th>Data</th>
-                                            </tr>
-                                        </thead>
+                                    <h4>Willian Marques Vieira</h4>
+                                    <div class="row">
+                                        <table class="tabela-detalhes-venda horizontal striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id da venda</th>
+                                                    <th>Vendedor</th>
+                                                    <th>Método de Pagamento</th>
+                                                    <th>Data</th>
+                                                </tr>
+                                            </thead>
 
-                                        <tbody>
-                                            <tr>
-                                                <td>52</td>
-                                                <td>Everton Roberto de Oliveira</td>
-                                                <td>Débito</td>
-                                                <td>14/04/2017</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2"></td>
-                                                <th>Total </th>
-                                                <td>69,40</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="row">
-                                    <table class="tabela-produtos horizontal striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Produto</th>
-                                                <th>Quantidade</th>
-                                                <th>Valor</th>
-                                                <th>Subtotal</th>
-                                            </tr>
-                                        </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>7</td> 
+                                                    <td>Everton Roberto de Oliveira</td>
+                                                    <td>Débito</td>
+                                                    <td>14/04/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2"></td>
+                                                    <th>Total </th>
+                                                    <td>69,40</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <table class="tabela-produtos horizontal striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Produto</th>
+                                                    <th>Quantidade</th>
+                                                    <th>Valor</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                            </thead>
 
-                                        <tbody>
-                                            <tr>
-                                                <td>Óleo de Câmbio</td>
-                                                <td> 2 </td>
-                                                <td>19,50</td>
-                                                <td>39,00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Óleo de Motor</td>
-                                                <td> 2 </td>
-                                                <td>15,20</td>
-                                                <td>30,40</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                                            <tbody>
+                                                <tr>
+                                                    <td>Óleo de Câmbio</td>
+                                                    <td> 2 </td>
+                                                    <td>19,50</td>
+                                                    <td>39,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Óleo de Motor</td>
+                                                    <td> 2 </td>
+                                                    <td>15,20</td>
+                                                    <td>30,40</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                             </div>
                             <div class="modal-footer">
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>

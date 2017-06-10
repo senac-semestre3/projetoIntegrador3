@@ -89,6 +89,16 @@ public class DaoRelatorio {
         return geraRelatorio(sql);
     }
 
+    
+    
+    public List<Relatorio> obterDetalhesRelatorio(String id) throws
+            SQLException, Exception {
+
+            String sql = "SELECT * FROM relatorio WHERE id_venda LIKE '%" + id + "%'";
+
+        //chama o metodo de criar lista
+        return geraRelatorio(sql);
+    }
     public List<Relatorio> listarTodos() throws
             SQLException, Exception {
 
@@ -125,6 +135,7 @@ public class DaoRelatorio {
                 List<ItemVenda> itens = new ArrayList<>();
 
                 relatorio.setIdVenda(result.getInt("id_venda"));
+                relatorio.setDataHora(result.getString("data_hora"));
                 cliente.setNome(result.getString("nome_cliente"));
                 usuario.setId(result.getInt("id_usuario"));
                 usuario.setNome(result.getString("nome_usuario"));

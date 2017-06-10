@@ -27,7 +27,7 @@ public class ClienteController extends HttpServlet {
 
         String parametro = request.getParameter("acao");
         String nomeDaClasse = "br.onevision.rainhadasucata.logica.cliente." + parametro;
-
+        
         try {
             Class classe = Class.forName(nomeDaClasse);
 

@@ -1,6 +1,6 @@
+br\onevision\rainhadasucata\controller\ServletLogin.class
 br\onevision\rainhadasucata\dao\DaoLoja.class
 br\onevision\rainhadasucata\logica\loja\LojaListar.class
-br\onevision\rainhadasucata\logica\ServletLogin.class
 br\onevision\rainhadasucata\logica\Logout.class
 br\onevision\rainhadasucata\logica\loja\LojaObter.class
 br\onevision\rainhadasucata\logica\produto\ProdutoAdicionar.class
@@ -13,6 +13,8 @@ br\onevision\rainhadasucata\dao\DaoRelatorio.class
 br\onevision\rainhadasucata\logica\loja\LojaEditar.class
 br\onevision\rainhadasucata\logica\usuario\UsuarioListar.class
 br\onevision\rainhadasucata\model\Produto.class
+br\onevision\rainhadasucata\controller\RelatorioDetalhado.class
+br\onevision\rainhadasucata\controller\ServletRelatorio.class
 br\onevision\rainhadasucata\model\Loja.class
 br\onevision\rainhadasucata\logica\Logica.class
 br\onevision\rainhadasucata\logica\usuario\UsuarioObter.class

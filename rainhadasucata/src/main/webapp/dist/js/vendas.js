@@ -4,19 +4,6 @@ var divProdutos;
 var btnProcurar;
 var btnAdicionaProduto;
 
-
-// Adiciona método de pagamento na tabela
-window.addEventListener("click", function () {
-    var table = document.querySelector('table.tabela-detalhes-venda');
-    td = table.querySelector("tbody tr td:nth-child(4)");
-    var metodoPagamento = document.querySelectorAll('input[name="metodo-pagamento"]');
-    for (var i = 0; i < metodoPagamento.length; i++) {
-        if (metodoPagamento[i].checked) {
-            td.innerHTML = metodoPagamento[i].value;
-        }
-    }
-});
-
 // Faz um request na servlet, obtem o produto e chama a função
 // que adiciona a linha na tabela
 function adicionaProduto() {

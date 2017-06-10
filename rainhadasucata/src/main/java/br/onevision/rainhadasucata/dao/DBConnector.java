@@ -25,7 +25,6 @@ public class DBConnector {
 
         try {
             //********Conexão local***********///
-           
 //            String serverName = "localhost"; // caminho do servidor do db
 //            String mydatabase = "rainhadasucata"; //nome do db
 //            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;// Montagem da URL
@@ -34,7 +33,9 @@ public class DBConnector {
             //jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull
             
            
+
             // Configurando a conexão com um banco de dados online
+
             String serverName = "cloud.kwcraft.com.br"; // caminho do servidor do db
             String mydatabase = "rainhadasucata"; //nome do db
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase + "?zeroDateTimeBehavior=convertToNull";// Montagem da URL

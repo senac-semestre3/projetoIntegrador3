@@ -79,6 +79,9 @@
                 font-size: 1.4rem;
                 top: 30px;
             }
+            table.tabela-detalhes-venda td:nth-of-type(3){
+                max-width: 100px;
+            }
         </style>
 
     </head>
@@ -90,28 +93,27 @@
                 <div id="container-main">
                     <div class="main">
                         <!-- Programar aqui!! -->
-                        <div class="row box-topo-tela-chamada">
-                            <div class="col s12">
-                                <div class="col s5">
-                                    <form>
-                                        <div class="input-field">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="cliente">
-                                            <label for="icon_prefix">Cliente</label>
-                                            <button class="btn-procurar waves-effect waves-light right" type="submit">
-                                                <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col s5 box-btn-adicionar offset-s1">
-                                    <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
-                                        <i class="fa fa-plus" aria-hidden="true"></i> 
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!--                        <div class="row box-topo-tela-chamada">
+                                                    <div class="col s12">
+                                                        <div class="col s5">
+                                                            <form>
+                                                                <div class="input-field">
+                                                                    <i class="material-icons prefix">account_circle</i>
+                                                                    <input id="icon_prefix" type="text" class="validate" name="cliente">
+                                                                    <label for="icon_prefix">Cliente</label>
+                                                                    <button class="btn-procurar waves-effect waves-light right" type="submit">
+                                                                        <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col s5 box-btn-adicionar offset-s1">
+                                                            <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
+                                                                <i class="fa fa-plus" aria-hidden="true"></i> 
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
                         <!-- Detalhes da compra -->
                         <div class="row">
                             <div class="card">
@@ -125,40 +127,49 @@
                                     <table class="tabela-detalhes-venda horizontal striped">
                                         <thead>
                                             <tr>
-                                                <th>Id da venda</th>
                                                 <th>Cliente</th>
                                                 <th>Vendedor</th>
-                                                <th>Método de Pagamento</th>
+                                                <th><i class="fa fa-credit-card fa-2x" aria-hidden="true"></i></th>
                                                 <th>Data</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <tr>
-                                                <td>52</td>
                                                 <td>${cliente.nome}</td>
-                                                <td>Willian Marques</td>
-                                                <td></td>
-                                                <td>14/04/2017</td>
+                                                <td>${sessionScope.sessionusuario.nome}</td>
+                                                <td>
+
+                                                    <input class="with-gap" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
+                                                    <label for="debito">Débito</label>
+
+                                                    <input class="with-gap" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
+                                                    <label for="credito">Crédito</label>
+
+                                                    <input class="with-gap" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro"/>
+                                                    <label for="dinheiro">Dinheiro</label>
+
+                                                </td>
+                                                <td>${venda.dataHora}</td>
                                             </tr>
                                         </tbody>
                                     </table>
-
-                                    <div class="meios-pagamento">
-                                        <div class="circulo">
-                                            <i class="fa fa-credit-card " aria-hidden="true"></i>
-                                        </div>
-                                        <div class="pagamento">
-                                            <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
-                                            <label for="debito">Débito</label>
-
-                                            <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
-                                            <label for="credito">Crédito</label>
-
-                                            <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro"/>
-                                            <label for="dinheiro">Dinheiro</label>
-                                        </div>
-                                    </div>
+                                    <!--
+                                                                        <div class="meios-pagamento">
+                                                                            <div class="circulo">
+                                                                                <i class="fa fa-credit-card " aria-hidden="true"></i>
+                                                                            </div>
+                                                                            <div class="pagamento">
+                                                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
+                                                                                <label for="debito">Débito</label>
+                                    
+                                                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
+                                                                                <label for="credito">Crédito</label>
+                                    
+                                                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro" checked/>
+                                                                                <label for="dinheiro">Dinheiro</label>
+                                                                            </div>
+                                                                        </div>-->
 
                                 </div><!--Fim .card-body -->
                             </div>

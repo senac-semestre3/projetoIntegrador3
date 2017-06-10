@@ -27,7 +27,6 @@ import org.json.simple.JSONObject;
 public class CarrinhoController extends HttpServlet {
 
     private List<ItemVenda> lista = new ArrayList<>();
-    private Venda venda = new Venda();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -1,6 +1,5 @@
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\cliente\ClienteListar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\LojaController.java
-I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\ServletLogin.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\dao\DaoProduto.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\produto\ProdutoObter.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\model\Loja.java
@@ -10,6 +9,7 @@ I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\l
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\loja\LojaEditar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\cliente\ClienteAdicionar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\cliente\ClienteObter.java
+I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\ServletRelatorio.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\dao\DaoVenda.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\cliente\ClienteDeletar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\LoginController.java
@@ -22,6 +22,7 @@ I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\m
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\usuario\UsuarioListar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\model\Pessoa.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\UsuarioController.java
+I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\RelatorioDetalhado.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\Logout.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\produto\ProdutoEditar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\produto\ProdutoListar.java
@@ -46,6 +47,7 @@ I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\m
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\usuario\UsuarioEditar.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\Logica.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\ProdutoController.java
+I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\controller\ServletLogin.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\dao\DaoPermissao.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\model\Usuario.java
 I:\projetoIntegrador3\rainhadasucata\src\main\java\br\onevision\rainhadasucata\logica\loja\LojaAdicionar.java
