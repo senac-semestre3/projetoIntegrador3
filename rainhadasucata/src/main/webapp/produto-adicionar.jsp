@@ -1,9 +1,3 @@
-<%-- 
-    Document   : produto-cadastro
-    Created on : 20/04/2017, 02:56:58
-    Author     : DANILO&PAULA
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

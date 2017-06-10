@@ -1,9 +1,3 @@
-<%-- 
-    Document   : usuario-cadastro
-    Created on : 24/04/2017, 19:44:57
-    Author     : everton
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

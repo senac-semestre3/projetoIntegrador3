@@ -23,67 +23,6 @@
 
         <!-- javascript da pagina -->
         <script src="dist/js/vendas.js" type="text/javascript"></script>
-
-        <style>
-            #btnProcuraProduto{
-                background: transparent;
-                border: none;
-            }
-            #btnProcuraProduto:focus{
-                background: transparent;
-
-            }
-            #btnProcuraProduto:hover{
-                color: #2ab7a9;
-            }
-            #inpNomeProduto{
-                color: #092340;
-            }
-            td input[type="number"]{
-                margin: 0;
-                width: 80px;
-                height: 1.5rem;
-                border: none;
-                text-align: center !important;
-            }
-            td input[type="number"]:focus{
-                box-shadow: none !important;
-            }
-            td input[type=number]::-webkit-inner-spin-button { 
-                -webkit-appearance: none;
-            }
-            .toast.error{
-                float: left;
-                background: #f2dede;
-                color: #843534;
-                font-weight: 400;
-                border: 1px solid #ebccd1;
-                font-size: 1.4rem;
-                top: 30px;
-            }
-            .toast.warning{
-                float: left;
-                background: #fcf8e3;
-                color: #8a6d3b;
-                font-weight: 400;
-                border: 1px solid #faebcc;
-                font-size: 1.4rem;
-                top: 30px;
-            }
-            .toast.success{
-                float: left;
-                background: #dff0d8;
-                color: #3c763d;
-                font-weight: 400;
-                border: 1px solid #d6e9c6;
-                font-size: 1.4rem;
-                top: 30px;
-            }
-            table.tabela-detalhes-venda td:nth-of-type(3){
-                max-width: 100px;
-            }
-        </style>
-
     </head>
 
     <body>

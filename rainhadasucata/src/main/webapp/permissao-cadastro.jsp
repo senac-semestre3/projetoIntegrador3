@@ -1,9 +1,3 @@
-<%-- 
-    Document   : permissao-cadastrar
-    Created on : 25/04/2017, 01:17:08
-    Author     : everton
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

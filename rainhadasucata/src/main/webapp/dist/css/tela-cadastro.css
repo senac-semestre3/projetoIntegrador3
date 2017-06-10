@@ -293,3 +293,6 @@ table {
     color: #092340; }
   .main table tr td {
     text-align: left; }
+  .main .input-normal {
+    margin: 0;
+    height: 2rem; }
