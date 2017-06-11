@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cliente
-    Created on : 13/04/2017, 20:13:47
-    Author     : everton
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

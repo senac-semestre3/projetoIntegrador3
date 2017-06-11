@@ -23,6 +23,7 @@
 
         <!-- javascript da pagina -->
         <script src="dist/js/vendas.js" type="text/javascript"></script>
+<<<<<<< HEAD
 
         <style>
             #btnProcuraProduto{
@@ -91,6 +92,8 @@
             }
         </style>
 
+=======
+>>>>>>> f544801ed6f55af5b10e4ff7788d38b2f27757e3
     </head>
 
     <body>

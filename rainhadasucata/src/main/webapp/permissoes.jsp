@@ -1,10 +1,3 @@
-<%-- 
-    Document   : permissao
-    Created on : 25/04/2017, 00:26:07
-    Author     : everton
---%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

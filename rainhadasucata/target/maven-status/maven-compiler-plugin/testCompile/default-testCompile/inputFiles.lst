@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/produto/TesteInserir.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/loja/TesteInserir.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/usuario/TesteListar.java
@@ -24,3 +25,31 @@
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/cliente/TesteListar.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/usuario/TesteExcluir.java
 /media/everton/EVERTON/projetoIntegrador3/rainhadasucata/src/test/java/br/onevision/rainhadasucata/produto/TesteExcluir.java
+=======
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\produto\TesteInserir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\cliente\TesteInserir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\venda\TesteVendaUnitario.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteListar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\loja\TesteExcluir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\conexao\TesteConexao.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\venda\TesteItemVendaUnitario.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\loja\TesteListar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\venda\TesteVendaCompleto.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\loja\TesteObter.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteInserir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\conexao\TesteListar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\buscacep\EncontraCep.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\produto\TesteObter.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\loja\TesteEditar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteExcluir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\produto\TesteExcluir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteObter.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\produto\TesteListar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\cliente\TesteEditar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\loja\TesteInserir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\cliente\TesteExcluir.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\usuario\TesteEditar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\produto\TesteEditar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\cliente\TesteListar.java
+C:\Users\Fabio\Desktop\PI 3\projetoIntegrador3\rainhadasucata\src\test\java\br\onevision\rainhadasucata\cliente\TesteObter.java
+>>>>>>> f544801ed6f55af5b10e4ff7788d38b2f27757e3
