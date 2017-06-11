@@ -33,7 +33,11 @@ public class ClienteObter implements Logica{
         DaoCliente dao = new DaoCliente();
         cliente = dao.obter(id);
         
-        cliente.setDataNascimento(converte.converteDataNormal(cliente.getDataNascimento()));
+        try {
+            cliente.setDataNascimento(converte.converteDataNormal(cliente.getDataNascimento()));
+        } catch (Exception e) {
+            cliente.setDataNascimento("");
+        }
         
         if (cliente.getSexo().equalsIgnoreCase("M")) {
             cliente.setSexo("Masculino");
@@ -49,6 +53,7 @@ public class ClienteObter implements Logica{
         }else if(pagina.equals("cliente-ver")){
             return "cliente-ver.jsp";
         }else{
+            
             return "vendas.jsp";
         }
     }

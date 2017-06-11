@@ -82,6 +82,13 @@
             table.tabela-detalhes-venda td:nth-of-type(3){
                 max-width: 100px;
             }
+            table.tabela-detalhes-venda td:last-of-type{
+                max-width: 50px;
+            }
+            .td-borda-vermelha{
+                border-left: 1px solid red !important;
+                border: solid red 1px;
+            }
         </style>
 
     </head>
@@ -92,29 +99,6 @@
             <div  class="col s10 offset-s2">
                 <div id="container-main">
                     <div class="main">
-                        <!-- Programar aqui!! -->
-                        <!--                        <div class="row box-topo-tela-chamada">
-                                                    <div class="col s12">
-                                                        <div class="col s5">
-                                                            <form>
-                                                                <div class="input-field">
-                                                                    <i class="material-icons prefix">account_circle</i>
-                                                                    <input id="icon_prefix" type="text" class="validate" name="cliente">
-                                                                    <label for="icon_prefix">Cliente</label>
-                                                                    <button class="btn-procurar waves-effect waves-light right" type="submit">
-                                                                        <i class="fa fa-search fa-2x" aria-hidden="true"></i> 
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="col s5 box-btn-adicionar offset-s1">
-                                                            <button class="btn btn-adicionar-cliente waves-effect waves-light" type="button" name="btn-adicionar">Adicionar
-                                                                <i class="fa fa-plus" aria-hidden="true"></i> 
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                        <!-- Detalhes da compra -->
                         <div class="row">
                             <div class="card">
 
@@ -136,52 +120,37 @@
 
                                         <tbody>
                                             <tr>
-                                                <td>${cliente.nome}</td>
-                                                <td>${sessionScope.sessionusuario.nome}</td>
-                                                <td>
+                                                <td>${sessionScope.venda.cliente.nome}</td>
+                                                <td>${sessionScope.venda.usuario.nome}</td>
+                                                <td id="tdMetodoPagamento">
 
                                                     <input class="with-gap" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
-                                                    <label for="debito">Débito</label>
+                                                    <label for="debito" onclick="alteraTd(this)">Débito</label>
 
                                                     <input class="with-gap" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
-                                                    <label for="credito">Crédito</label>
+                                                    <label for="credito" onclick="alteraTd(this)">Crédito</label>
 
                                                     <input class="with-gap" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro"/>
-                                                    <label for="dinheiro">Dinheiro</label>
+                                                    <label for="dinheiro" onclick="alteraTd(this)">Dinheiro</label>
 
                                                 </td>
-                                                <td>${venda.dataHora}</td>
+                                                <td>${sessionScope.venda.data}</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <!--
-                                                                        <div class="meios-pagamento">
-                                                                            <div class="circulo">
-                                                                                <i class="fa fa-credit-card " aria-hidden="true"></i>
-                                                                            </div>
-                                                                            <div class="pagamento">
-                                                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="debito" value="Debito"/>
-                                                                                <label for="debito">Débito</label>
-                                    
-                                                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="credito" value="Crédito"/>
-                                                                                <label for="credito">Crédito</label>
-                                    
-                                                                                <input class="with-gap metodo-pagamento" name="metodo-pagamento" type="radio" id="dinheiro" value="Dinheiro" checked/>
-                                                                                <label for="dinheiro">Dinheiro</label>
-                                                                            </div>
-                                                                        </div>-->
-
                                 </div><!--Fim .card-body -->
                             </div>
                         </div><!-- fim da linha-->
                         <div class="row">
                             <div class="right">
-                                <button class="btn btn-cancelar waves-effect waves-light" type="button" name="action">Cancelar
+                                <button class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">Cancelar
                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                 </button>
-                                <button class="btn btn-faturar waves-effect waves-light" type="button" name="action">Faturar
-                                    <i class="fa fa-usd" aria-hidden="true"></i>
-                                </button>
+                                <a id="btnFaturar">
+                                    <button class="btn btn-faturar waves-effect waves-light" type="button">Faturar
+                                        <i class="fa fa-usd" aria-hidden="true"></i>
+                                    </button>  
+                                </a>
                             </div>
                         </div>
 
@@ -247,19 +216,83 @@
                                                         <td>
                                                             <button onclick="removeItem(this)"><i class="fa fa-close"></i></button>
                                                         </td>
-                                                        <td><c:out value="${item.produto.precoVenda}" /></td>
-                                                        <td><c:out value="${item.subtotal}" /></td>
+                                                        <td><c:out value="R$ ${item.produto.precoVenda}" /></td>
+                                                        <td><c:out value="R$ ${item.subtotal}" /></td>
                                                     </tr>
                                                 </c:forEach>
                                                 <tr>
                                                     <td colspan="4"></td>
                                                     <td>Total: </td>
-                                                    <td id="tdValorTotal">R$ 0,00</td>
+                                                    <td id="tdValorTotal">R$ ${sessionScope.venda.total}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <div id="modalCancelar" class="modal">
+                            <div class="modal-content">
+                                <h4>Deseja realmente cancelar essa compra?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="ClienteController?&acao=ClienteListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <div id="modalFaturar" class="modal">
+                            <div class="modal-content">
+                                <h4>Informações da Compra</h4>
+                                <div class="row">
+                                    <table class="tabela-detalhes-venda horizontal striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Cliente</th>
+                                                <th>Método de Pagamento</th>
+                                                <th>Data</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr>
+                                                <td>${sessionScope.venda.cliente.nome}</td>
+                                                <td>Débito</td>
+                                                <td>${sessionScope.venda.data}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan=""></td>
+                                                <th>Total </th>
+                                                <td id="totalModal">R$ </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <table class="tabela-produtos horizontal striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Produto</th>
+                                                <th>Quantidade</th>
+                                                <th>Valor</th>
+                                                <th>Subtotal</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <a href="ClienteController?&acao=ClienteListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
                             </div>
                         </div>
 

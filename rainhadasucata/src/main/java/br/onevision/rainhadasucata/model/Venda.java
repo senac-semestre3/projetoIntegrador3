@@ -17,7 +17,7 @@ public class Venda {
     private Usuario usuario;
     private String metodoPagamento;
     private double desconto;
-    private String dataHora;
+    private String data;
     private List<ItemVenda> itens;
     private double total;
     
@@ -46,14 +46,13 @@ public class Venda {
         this.itens = itens;
     }
     
-    public double calculaTotal() {
-        double total = 0;
-        
+    public void calculaTotal() {
+        double aux = 0;
         for (int i = 0; i < itens.size(); i++) {
-            total += itens.get(i).getSubtotal();
+            aux += itens.get(i).getSubtotal();
         }
         
-        return total - desconto;
+        this.total = aux;
     }   
 
     public Cliente getCliente() {
@@ -72,12 +71,12 @@ public class Venda {
         this.usuario = usuario;
     }
 
-    public String getDataHora() {
-        return dataHora;
+    public String getData() {
+        return data;
     }
 
-    public void setDataHora(String dataHora) {
-        this.dataHora = dataHora;
+    public void setData(String data) {
+        this.data = data;
     }
 
     public double getDesconto() {

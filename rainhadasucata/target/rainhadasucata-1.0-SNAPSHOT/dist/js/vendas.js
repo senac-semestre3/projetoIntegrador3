@@ -3,6 +3,8 @@ var inpNomeProduto;
 var divProdutos;
 var btnProcurar;
 var btnAdicionaProduto;
+var ValorTotalDoCarrinho = 0;
+var metodoPagamento = "";
 
 // Faz um request na servlet, obtem o produto e chama a função
 // que adiciona a linha na tabela
@@ -57,20 +59,21 @@ function criaLinha(evt) {
 
     // buttons e input 
     var btnMenos = '<button onclick="quantidadeMenos(this)"><i class="fa fa-minus"></i></button>';
-    var input = '<input type="number" value="1" />';
+    var input = '<input type="number" value="1" onchange="alteraQuantidadeDigitando(this)"/>';
     var btnMais = '<button onclick="quantidadeMais(this)"><i class="fa fa-plus"></i></button>';
     var btnRemover = '<button onclick="removeItem(this)"><i class="fa fa-close"></i></button>';
 
     var tdQtd = '<td>' + btnMenos + input + btnMais + '</td>';
     var tdAcao = '<td>' + btnRemover + '</td>';
-    var tdValor = '<td>' + jsonProduto.precoVenda + '</td>';
-    var tdSubtotal = '<td>' + jsonProduto.subtotal + '</td>';
+    var tdValor = '<td> R$ ' + jsonProduto.precoVenda + '</td>';
+    var tdSubtotal = '<td> R$ ' + jsonProduto.subtotal + '</td>';
 
     // aqui adiciono todas as tds
     var tr = '<tr id="linha' + jsonProduto.id + '">' + tdId + tdProduto + tdQtd + tdAcao + tdValor + tdSubtotal + '</tr>';
 
     // insere a linha
     ultimaLinha.insertAdjacentHTML('beforebegin', tr);
+    calculaTotal();
 }
 
 // Essa função faz um request na servlet para trazer o produto pelo codigo
@@ -144,7 +147,8 @@ function quantidadeMenos(btn) {
             if (item.erro !== "quantidadeInvalida") {
                 input.value--;
                 var subtotal = tr.querySelector("td:last-of-type");
-                subtotal.textContent = item.subtotal;
+                subtotal.textContent = "R$ " + item.subtotal;
+                calculaTotal();
             }
         });
         xhr.send();
@@ -158,7 +162,7 @@ function quantidadeMais(btn) {
         input = btn.previousSibling.previousSibling;
     }
     var qtd = parseInt(input.value) + 1;
-    
+
     if (qtd >= 1) {
         // pego o id da linha
         var tr = btn.parentNode.parentNode;
@@ -181,9 +185,10 @@ function quantidadeMais(btn) {
                 if (item.erro !== "quantidadeExcede") {
                     input.value++;
                     var subtotal = tr.querySelector("td:last-of-type");
-                    subtotal.textContent = item.subtotal;
+                    subtotal.textContent = "R$ " + item.subtotal;
+                    calculaTotal();
                 } else {
-                    dialog("Excede a quantidade do estoque!", "warning");
+                    dialog("Esse produto contem " + item.estoque + " em estoque!", "warning");
                 }
 
             } catch (e) {
@@ -219,22 +224,21 @@ function removeItem(btn) {
     // passo para a função que remove os caracteres eme 
     // devolve somente o id do produto
     var id = apenasNumeros(idTr);
-    console.log("vai remover");
-    console.log("id pra remover = " + id);
 
     var xhr = new XMLHttpRequest();
     xhr.open("get", "CarrinhoController?acao=remover&id=" + id);
-    
+
     xhr.addEventListener("load", function (e) {
         console.log(e);
         var obj = e.target.responseText;
         try {
-            
+
             var item = JSON.parse(obj);
             console.log(item);
             if (item.erro !== "naoRemovido") {
                 var pai = tr.parentNode;
                 pai.removeChild(tr);
+                calculaTotal();
             }
 
         } catch (e) {
@@ -270,6 +274,24 @@ function dialog(msg, alerta) {
     }
 }
 
+function calculaTotal() {
+
+    td = document.querySelectorAll(".tabela-produtos tbody tr td:last-of-type");
+
+    var total = 0.0;
+
+    for (var i = 0; i < td.length - 1; i++) {
+        var aux = td[i].innerText;
+        var valor = parseFloat(aux.replace(/[^0-9\.]+/g, ''));
+        total += valor;
+    }
+    console.log(total);
+    var tdTotal = document.querySelector("#tdValorTotal");
+
+    tdTotal.innerText = "R$ " + total;
+    ValorTotalDoCarrinho = total;
+}
+
 // Carrega alguns buttons necessários para executar determinadas funções na página
 function iniciar() {
 
@@ -278,6 +300,92 @@ function iniciar() {
 
     document.querySelector("#btnProcuraProduto").addEventListener("click", obterProduto);
     document.querySelector("#btnAdicionaProduto").addEventListener("click", adicionaProduto);
+    document.querySelector("#btnFaturar").addEventListener("click", verificaMetodoPagamento);
+    $('#modalCancelar').modal();
+    //$('#modalFaturar').modal();
+}
+
+function alteraTd(lbl){
+    metodoPagamento = lbl.getAttribute("for");
+    var td = document.querySelector("#tdMetodoPagamento");
+    td.removeAttribute("class");
+    
+}
+function verificaMetodoPagamento() {
+
+    var input = document.querySelectorAll('input[name="metodo-pagamento"]');
+    var flag = false;
+
+    for (var i = 0; i < input.length; i++) {
+        if (input[i].checked) {
+            flag = true;
+        }
+    }
+
+    if (!flag) {
+        var td = document.querySelector("#tdMetodoPagamento");
+        td.setAttribute("class", "td-borda-vermelha");
+        window.location = "#container-main";
+        dialog("Selecione uma forma de pagamento!", "warning");
+    } else {
+        if (ValorTotalDoCarrinho > 0) {
+            var btn = document.querySelector("#btnFaturar");
+                    btn.setAttribute("href", "VendaController?acao=VendaFaturar&metodoPagamento="+metodoPagamento);
+        }else{
+            dialog("Nenhum item no carrinho!", "warning");
+        }
+    }
+
+}
+
+
+
+
+function alteraQuantidadeDigitando(input) {
+    var qtd = parseInt(input.value);
+
+    if (qtd < 1) {
+        qtd = 1;
+    }
+    // pego o id da linha
+    var tr = input.parentNode.parentNode;
+    var idTr = tr.getAttribute("id");
+
+    // passo para a função que remove os caracteres eme 
+    // devolve somente o id do produto
+    var id = apenasNumeros(idTr);
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "CarrinhoController?acao=aumentar&id=" + id + "&quantidade=" + qtd);
+    xhr.addEventListener("load", function (e) {
+
+        var obj = e.target.responseText;
+
+        try {
+
+            var item = JSON.parse(obj);
+
+            if (item.erro !== "quantidadeExcede") {
+                var subtotal = tr.querySelector("td:last-of-type");
+                subtotal.textContent = "R$ " + item.subtotal;
+                calculaTotal();
+            } else {
+                dialog("Esse produto contem " + item.estoque + " em estoque!", "warning");
+                input.value = item.estoque;
+                console.log(item.subtotal);
+                var subtotal = tr.querySelector("td:last-of-type");
+                subtotal.textContent = "R$ " + item.subtotal;
+            }
+
+        } catch (e) {
+            //
+        }
+    });
+    xhr.send();
+
+}
+
+function sairVenda(li) {
+    console.log(li);
 }
 
 // Quando é carregado a pagina chama a função iniciar

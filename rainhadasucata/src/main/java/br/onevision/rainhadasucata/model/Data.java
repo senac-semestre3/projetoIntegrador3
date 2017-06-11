@@ -13,13 +13,13 @@ import java.text.SimpleDateFormat;
  *
  * @author everton
  */
-public class DataEHora {
+public class Data {
     
     
     // pega a data e hora atual 
-    public String getDataEHoraAtual() {
+    public String getDataAtual() {
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
         java.util.Date dataAtual = new java.util.Date();
         return dateFormat.format(dataAtual);

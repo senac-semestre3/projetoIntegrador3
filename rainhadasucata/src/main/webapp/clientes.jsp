@@ -99,7 +99,7 @@
 
                                                 <!-- Ver, Editar e Deletar cliente-->
                                                 <td id="btnAcao">
-                                                    <a  href="ClienteController?id=${cliente.id}&acao=ClienteObter&pagina=vendas" 
+                                                    <a  href="VendaController?id=${cliente.id}&acao=VendaCliente" 
                                                         class="waves-effect waves-light btn-editar tooltipped" data-position="top" 
                                                         data-delay="50" data-tooltip="Vender" type="submit">
                                                         <i class="fa fa-usd fa-2x" aria-hidden="true"></i>
@@ -138,6 +138,5 @@
 
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
-        <script src="dist/js/Cliente.js" type="text/javascript"></script>
     </body>
 </html>

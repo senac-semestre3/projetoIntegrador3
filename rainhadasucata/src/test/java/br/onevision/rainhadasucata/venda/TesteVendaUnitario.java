@@ -6,10 +6,8 @@
 package br.onevision.rainhadasucata.venda;
 
 import br.onevision.rainhadasucata.dao.DaoCliente;
-import br.onevision.rainhadasucata.dao.DaoItemVenda;
 import br.onevision.rainhadasucata.dao.DaoProduto;
 import br.onevision.rainhadasucata.dao.DaoUsuario;
-import br.onevision.rainhadasucata.dao.DaoVenda;
 import br.onevision.rainhadasucata.model.Cliente;
 import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
@@ -109,7 +107,7 @@ public class TesteVendaUnitario {
         }
         System.out.println("");
         System.out.println("**************************");
-        System.out.println("TOTAL: " + venda.calculaTotal());
+        System.out.println("TOTAL: " + venda.getTotal());
         System.out.println("**************************");
         
         //vendaDao.inserir(venda);

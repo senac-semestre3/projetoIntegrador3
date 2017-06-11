@@ -6,7 +6,7 @@
 package br.onevision.rainhadasucata.dao;
 
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.DataEHora;
+import br.onevision.rainhadasucata.model.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,7 +46,7 @@ public class DaoCliente {
         PreparedStatement stmt = connection.prepareStatement(sql);
 
         try {
-            DataEHora data = new DataEHora();
+            Data data = new Data();
             //Seta valores para inserção
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
@@ -62,8 +62,8 @@ public class DaoCliente {
             stmt.setString(12, cliente.getCidade());
             stmt.setString(13, cliente.getEstado());
             stmt.setString(14, cliente.getComplemento());
-            stmt.setString(15, data.getDataEHoraAtual());
-            System.out.println("agora " + data.getDataEHoraAtual());
+            stmt.setString(15, data.getDataAtual());
+            System.out.println("agora " + data.getDataAtual());
 
             //Executa SQL Statement
             stmt.execute();

@@ -7,7 +7,7 @@ package br.onevision.rainhadasucata.dao;
 
 import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
 import br.onevision.rainhadasucata.model.Cliente;
-import br.onevision.rainhadasucata.model.DataEHora;
+import br.onevision.rainhadasucata.model.Data;
 import br.onevision.rainhadasucata.model.ItemVenda;
 import br.onevision.rainhadasucata.model.Produto;
 import br.onevision.rainhadasucata.model.Relatorio;
@@ -122,7 +122,7 @@ public class DaoRelatorio {
 
             //Percorre o resultado da query criando e adicionando os clientes 
             //encotrados na lista de clientes inicialmente declarada.
-            DataEHora data = new DataEHora();
+            Data data = new Data();
             
 
             while (result.next()) {
@@ -135,7 +135,7 @@ public class DaoRelatorio {
                 List<ItemVenda> itens = new ArrayList<>();
 
                 relatorio.setIdVenda(result.getInt("id_venda"));
-                relatorio.setDataHora(result.getString("data_hora"));
+                relatorio.setData(result.getString("data_hora"));
                 cliente.setNome(result.getString("nome_cliente"));
                 usuario.setId(result.getInt("id_usuario"));
                 usuario.setNome(result.getString("nome_usuario"));

@@ -260,7 +260,7 @@ public class DaoUsuario {
     public Usuario obterNomeSenha(String nome, String senha)
             throws SQLException, Exception {
 
-        String sql = "SELECT usuarios.nome_usuarios, usuarios.nome_login_usuarios, usuarios.senha_usuarios FROM `usuarios`"
+        String sql = "SELECT usuarios.nome_usuarios, usuarios.nome_login_usuarios, usuarios.senha_usuarios, usuarios.id_usuarios FROM `usuarios`"
                 + " WHERE usuarios.nome_login_usuarios = \"" + nome + "\" AND usuarios.senha_usuarios = " + senha + ";";
 
         Connection connection = DBConnector.getConexaoDB();
@@ -274,6 +274,7 @@ public class DaoUsuario {
             //encotrados na lista de usuarios inicialmente declarada.
             while (result.next()) {
                 Usuario usuario = new Usuario();
+                usuario.setId(result.getInt("id_usuarios"));
                 usuario.setNome(result.getString("nome_usuarios"));
                 usuario.setNomeUsuario(result.getString("nome_login_usuarios"));
                 usuario.setSenha(result.getString("senha_usuarios"));

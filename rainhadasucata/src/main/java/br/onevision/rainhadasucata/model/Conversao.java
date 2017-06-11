@@ -11,7 +11,7 @@ package br.onevision.rainhadasucata.model;
  */
 public class Conversao {
 
-    // Data que vem do front
+    // Data que vem da aplicação
     private String[] quebraDataFront(String data) {
 
         String dia;
@@ -32,7 +32,7 @@ public class Conversao {
         return novaData;
 
     }
-
+    // altera o mes para numeral, que vem da aplicação
     private String coverteMesNumero(String mes) {
 
         switch (mes) {
@@ -54,7 +54,7 @@ public class Conversao {
             case "Junho":
                 return "06";
 
-            case "Julio":
+            case "Julho":
                 return "07";
 
             case "Agosto":
@@ -78,7 +78,7 @@ public class Conversao {
         }
 
     }
-
+    // converte a data no formato a ser armazenado no banco 
     public String converteParaDb(String data) {
         System.out.println("data " + data);
         if (data.equals("") || data == null) {
@@ -108,6 +108,7 @@ public class Conversao {
 
     }
 
+    // converte a data que vem do banco em normal
     public String converteDataNormal(String data) {
         String[] vetor = new String[3];
 
@@ -118,6 +119,7 @@ public class Conversao {
         return vetor[0] + " " + coverteMesCaracter(vetor[1]) + ", " + vetor[2];
     }
 
+    // converte a data no formato a ser mandado para a aplicação
     private String coverteMesCaracter(String mes) {
 
         switch (mes) {
@@ -140,7 +142,7 @@ public class Conversao {
                 return "Junho";
 
             case "07":
-                return "Julio";
+                return "Julho";
 
             case "08":
                 return "Agosto";

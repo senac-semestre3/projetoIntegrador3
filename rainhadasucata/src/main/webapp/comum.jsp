@@ -51,21 +51,20 @@
                 <div class="divider"></div>
 
                 <!-- Menu -->
-                <ul class="collapsible">
-                    <li class="btn-menu"><a href="#" class="collapsible-header waves-effect waves-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
-                    <li class="btn-menu"><a href="ClienteController?&acao=ClienteListar&busca=" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
-                    <li class="btn-menu"><a href="ProdutoController?&acao=ProdutoListar" class="collapsible-header waves-effect waves-light"><i class="fa fa-barcode" aria-hidden="true"></i>Produtos</a></li>
-                    <li class="btn-menu"><a href="vendas.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-usd" aria-hidden="true"></i>Vendas</a></li>
-                    <li class="btn-menu"><a href="relatorios.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-line-chart" aria-hidden="true"></i>Relatórios</a></li>
+                <ul class="collapsible" id="menuPrincipal">
+                    <li class="btn-menu" id="munuDashboard"><a href="#" class="collapsible-header waves-effect waves-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                    <li class="btn-menu" id="menuCliente"><a href="ClienteController?&acao=ClienteListar&busca=" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
+                    <li class="btn-menu" id="menuProduto"><a href="ProdutoController?&acao=ProdutoListar" class="collapsible-header waves-effect waves-light"><i class="fa fa-barcode" aria-hidden="true"></i>Produtos</a></li>
+                    <li class="btn-menu" id="Relatorio"><a href="relatorios.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-line-chart" aria-hidden="true"></i>Relatórios</a></li>
                     <ul class="collapsible">
                         <li class="btn-menu"><a class="collapsible-header waves-effect waves-light"><i class="fa fa-cogs" aria-hidden="true"></i> Configurações</a>
                             <div class="collapsible-body" style="display: none;">
                                 <ul>
-                                    <li><a href="UsuarioController?&acao=UsuarioListar&busca=" class="collapsible-header waves-effect waves-light">Usuário</a>
+                                    <li id="menuUsuario"><a href="UsuarioController?&acao=UsuarioListar&busca=" class="collapsible-header waves-effect waves-light">Usuário</a>
                                     </li>
-                                    <li><a href="permissoes.jsp" class="collapsible-header waves-effect waves-light">Permissão</a>
+                                    <li id="munuPermissao"><a href="permissoes.jsp" class="collapsible-header waves-effect waves-light">Permissão</a>
                                     </li>
-                                    <li><a href="LojaController?&acao=LojaListar&busca=" class="collapsible-header waves-effect waves-light">Loja</a>
+                                    <li id="menuLoja"><a href="LojaController?&acao=LojaListar&busca=" class="collapsible-header waves-effect waves-light">Loja</a>
                                     </li>
                                 </ul>
                             </div>

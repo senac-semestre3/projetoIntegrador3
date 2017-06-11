@@ -52,7 +52,7 @@ public class DaoItemVenda {
                 //Executa SQL Statement
                 stmt.execute();
             }
-
+            System.out.println("Conseguiu inserir os itens na venda");
             //Fecha stmt
             stmt.close();
             //Fecha conexão

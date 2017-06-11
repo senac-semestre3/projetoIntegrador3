@@ -109,7 +109,7 @@ public class TesteVendaCompleto {
         }
         System.out.println("");
         System.out.println("**************************");
-        System.out.println("TOTAL: " + venda.calculaTotal());
+        System.out.println("TOTAL: " + venda.getTotal());
         System.out.println("**************************");
         
         DaoVenda vendaDao = new DaoVenda();

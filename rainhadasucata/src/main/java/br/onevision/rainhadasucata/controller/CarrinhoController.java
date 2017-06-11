@@ -26,16 +26,24 @@ import org.json.simple.JSONObject;
  */
 public class CarrinhoController extends HttpServlet {
 
-    private List<ItemVenda> lista = new ArrayList<>();
+    List<ItemVenda> lista = new ArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        HttpSession sessao = request.getSession();
+        if (sessao.getAttribute("itensVenda") == null) {
+            
+            lista.removeAll(lista);
+            sessao.setAttribute("itensVenda", lista);
+        }
+
         String destino = null;
 
         String acao = request.getParameter("acao");
+        System.out.println(lista.size());
 
         try {
             int id = Integer.parseInt(request.getParameter("id"));
@@ -87,11 +95,12 @@ public class CarrinhoController extends HttpServlet {
 
             destino = "{\"id\" : -1}";// id invalido
         }
-
-        HttpSession sessao = request.getSession();
-        if (sessao.getAttribute("itensVenda") == null) {
-            sessao.setAttribute("itensVenda", lista);
-        }
+        Venda venda;
+        venda = (Venda) sessao.getAttribute("venda");
+        lista = (List<ItemVenda>) sessao.getAttribute("itensVenda");
+        venda.setItens(lista);
+        venda.calculaTotal();
+        System.out.println("Total " + venda.getTotal());
 
         //mando para a aplicao
         PrintWriter out = response.getWriter();
@@ -124,12 +133,18 @@ public class CarrinhoController extends HttpServlet {
                 if (quantidade <= lista.get(i).getProduto().getEstoque()) {
                     lista.get(i).setQuantidade(quantidade);
                     lista.get(i).calculaSubtotal();
+
                     json.put("subtotal", lista.get(i).getSubtotal());
+
                     return json.toJSONString();
                 } else {
                     // se não for possivel aumentar quantidade no produto retorno erro 
                     // e trato no javascript
                     json.put("erro", "quantidadeExcede");
+                    json.put("estoque", lista.get(i).getProduto().getEstoque());
+                    lista.get(i).setQuantidade(lista.get(i).getProduto().getEstoque());
+                    lista.get(i).calculaSubtotal();
+                    json.put("subtotal", lista.get(i).getSubtotal());
                     return json.toJSONString();
                 }
             }
@@ -176,6 +191,7 @@ public class CarrinhoController extends HttpServlet {
             item.calculaSubtotal();
             System.out.println("Tamanho antes " + lista.size());
             lista.add(item);
+
             System.out.println("Tamanho depois " + lista.size());
             return item.toJSON().toJSONString();
 
@@ -218,5 +234,4 @@ public class CarrinhoController extends HttpServlet {
         }
         return json.put("msg", "erro").toString();
     }
-
 }

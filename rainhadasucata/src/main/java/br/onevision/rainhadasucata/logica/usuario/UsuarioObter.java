@@ -33,7 +33,11 @@ public class UsuarioObter implements Logica{
         DaoUsuario dao = new DaoUsuario();
         usuario = dao.obter(id);
         
-        usuario.setDataNascimento(converte.converteDataNormal(usuario.getDataNascimento()));
+        try {
+            usuario.setDataNascimento(converte.converteDataNormal(usuario.getDataNascimento()));
+        } catch (Exception e) {
+            usuario.setDataNascimento("");
+        }
         
         if (usuario.getSexo().equalsIgnoreCase("M")) {
             usuario.setSexo("Masculino");

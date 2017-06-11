@@ -6,7 +6,6 @@
 package br.onevision.rainhadasucata.dao;
 
 import static br.onevision.rainhadasucata.dao.DBConnector.FecharConexao;
-import br.onevision.rainhadasucata.model.DataEHora;
 import br.onevision.rainhadasucata.model.Venda;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,30 +29,32 @@ public class DaoVenda {
     public void inserir(Venda venda) throws RuntimeException {
 
         String sql = "INSERT INTO vendas ("
-                + "data_hora_vendas, "
                 + "metodo_pagamento, "
-                + "desconto_vendas, "
+                //+ "desconto_vendas, "
                 + "fk_id_cliente, "
                 + "fk_id_usuario, "
                 + "valor_total )"
-                + " VALUES (?, ?, ?, ?, ?, ?);";
+                + " VALUES (?, ?, ?, ?);";
 
         try ( // prepared statement para inserção
                 PreparedStatement stmt = connection.prepareStatement(sql)) {
-
-            // criei uma classe que trabalha com data e hora
-            DataEHora dataEHora = new DataEHora();
-
+            
+            System.out.println("Dentro do Dao de venda");
+            System.out.println("Pagamento = " + venda.getMetodoPagamento());
+            //System.out.println("desconto = " + venda.getDesconto());
+            System.out.println("cliente = " + venda.getCliente().getId());
+            System.out.println("usuario = " + venda.getUsuario().getId());
+            System.out.println("total = " + venda.getTotal());
+            
             //Seta valores para inserção
-            stmt.setString(1, dataEHora.getDataEHoraAtual());
-            stmt.setString(2, venda.getMetodoPagamento());
-            stmt.setDouble(3, venda.getDesconto());
-            stmt.setInt(4, venda.getCliente().getId());
-            stmt.setInt(5, venda.getUsuario().getId());
-            stmt.setDouble(6, venda.calculaTotal());
+            stmt.setString(1, venda.getMetodoPagamento());
+            //stmt.setDouble(2, venda.getDesconto());
+            stmt.setInt(2, venda.getCliente().getId());
+            stmt.setInt(3, venda.getUsuario().getId());
+            stmt.setDouble(4, venda.getTotal());
             
             
-
+            
             //Executa SQL Statement
             stmt.execute();
             

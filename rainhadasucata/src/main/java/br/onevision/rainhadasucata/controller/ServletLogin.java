@@ -43,7 +43,6 @@ public class ServletLogin extends HttpServlet {
             Usuario usuario = new Usuario();
             usuario = daoUsuario.obterNomeSenha(nome, senha);
             nome = usuario.getNome();
-            System.out.println(usuario.getNomeUsuario());
 
             if (usuario.getNome() != null && usuario.getSenha() != null) {
                 HttpSession sessao = request.getSession();

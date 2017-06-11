@@ -5,7 +5,7 @@
  */
 package br.onevision.rainhadasucata.dao;
 
-import br.onevision.rainhadasucata.model.DataEHora;
+import br.onevision.rainhadasucata.model.Data;
 import br.onevision.rainhadasucata.model.Loja;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,7 +44,7 @@ public class DaoLoja {
 
         try {
 
-            DataEHora data = new DataEHora();
+            Data data = new Data();
 
             //Seta valores para inserção
             stmt.setString(1, loja.getNome());
@@ -57,7 +57,7 @@ public class DaoLoja {
             stmt.setString(8, loja.getBairro());
             stmt.setString(9, loja.getCidade());
             stmt.setString(10, loja.getEstado());
-            stmt.setString(11, data.getDataEHoraAtual());
+            stmt.setString(11, data.getDataAtual());
             stmt.setBoolean(12, loja.getDeletado());
 
             //Executa SQL Statement
