@@ -13,17 +13,42 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
+        <link href="dist/css/comum.css" rel="stylesheet" type="text/css"/>
         <link href="dist/css/tela-cadastro.css" rel="stylesheet" type="text/css"/>
 
+
         <style>
+            .toast.error {
+                float: left;
+                background: #f2dede;
+                color: #843534;
+                font-weight: 400;
+                border: 1px solid #ebccd1;
+                font-size: 1.4rem;
+                top: 30px; }
+            .toast.warning {
+                float: left;
+                background: #fcf8e3;
+                color: #8a6d3b;
+                font-weight: 400;
+                border: 1px solid #faebcc;
+                font-size: 1.4rem;
+                top: 30px; }
+            .toast.success {
+                float: left;
+                background: #dff0d8;
+                color: #3c763d;
+                font-weight: 400;
+                border: 1px solid #d6e9c6;
+                font-size: 1.4rem;
+                top: 30px; }
+            </style>
 
-        </style>
+        </head>
 
-    </head>
-
-    <body>
-        <%@include file="comum.jsp" %>
-        <div class="row">
+        <body>
+            <%@include file="comum.jsp" %>
+            <div class="row">
             <div  class="col s10 offset-s2">
                 <div id="container-main">
 
@@ -152,7 +177,7 @@
                                                     <input id="cidade" type="text" class="validate obrigatorio" name="cidade" data-length="50" maxlength="50" value="${param.cidade}">
                                                     <label for="cidade">* Cidade</label>
                                                 </div>
-                                                <div class="input-field col s4 offset-s1">
+                                                <div class="input-field col s4 offset-s1 select-estado">
                                                     <select name="estado" id="estado">
                                                         <option value="">Selecione</option>
                                                         <option value="AC">AC</option>
@@ -230,12 +255,13 @@
 
         <!-- Javascript da lib -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
+           <script src="dist/js/EventosComum.js" type="text/javascript"></script>
         <script src="dist/js/mascaras.js" type="text/javascript"></script>
 
         <!-- Javascript da página -->
         <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
-        <script src="dist/js/ValidadorComum.js" type="text/javascript"></script>
         <script src="dist/js/BuscaCep.js" type="text/javascript"></script>
+     
     </body>
 </html>
