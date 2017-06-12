@@ -35,7 +35,7 @@
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-user-o left" aria-hidden="true"></i>
-                                    <header>Cadastro de usuário</header>
+                                    <header>Edição do usuário</header>
                                 </div>
 
                                 <div class="corpo-card">
@@ -65,8 +65,8 @@
                                                     <label for="cpf">* CPF</label>
                                                 </div>
                                                 <div class="box-data col s4 offset-s1">
-                                                    <label for="data-nascimento" class="active">* Data de Nascimento</label>
-                                                    <input value="${usuario.dataNascimento}" type="date" class="datepicker data-nascimento obrigatorio" name="data-nascimento">
+                                                    <label for="data-nascimento" class="active">Data de Nascimento</label>
+                                                    <input id="dataNascimento" value="${usuario.dataNascimento}" type="text" class="datepicker data-nascimento" name="data-nascimento">
                                                 </div>
                                             </div>
 
@@ -163,7 +163,7 @@
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
                                                     <select name="estado">
-                                                        <option value=""></option>
+                                                        <option value="">Selecione</option>
                                                         <option value="AC">AC</option>
                                                         <option value="AL">AL</option>
                                                         <option value="AM">AM</option>
@@ -223,27 +223,24 @@
                                                     <label for="senha">* Senha</label>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
+                                                    <select name="loja">
+                                                        <option value="1">Matriz</option>
+                                                        <option value="2">Rainha Rio</option>
+                                                        <option value="3">Rainha SP</option>
+                                                    </select>
+                                                    <label>* Loja</label>
+                                                </div>
+
+                                                <div class="input-field col s4 offset-s1">
                                                     <select name="permissao">
-                                                        <option value="" disabled selected> </option>
                                                         <option value="1">Matriz</option>
                                                         <option value="2">Produto</option>
                                                         <option value="3">Administrador</option>
                                                     </select>
                                                     <label>* Nivel de Permissão</label>
                                                 </div>
-
-                                                <div class="input-field col s4 offset-s1">
-                                                    <select name="loja">
-                                                        <option value=""></option>
-                                                        <option value="on">Ativo</option>
-                                                        <option value="off">Inativo</option>
-                                                    </select>
-                                                    <label>* Loja</label>
-                                                </div>
-
                                             </div>
                                             <div class="row">
                                                 <c:choose>
@@ -273,7 +270,7 @@
                                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                                 </button>
 
-                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="submit">Salvar
+                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="button">Salvar
                                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -294,8 +291,8 @@
                 <h4>Deseja realmente sair?</h4>
             </div>
             <div class="modal-footer">
-                <a href="usuarios.jsp" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">voltar à edição</a>
+                <a href="UsuarioController?&acao=UsuarioListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Cancelar</a>
             </div>
         </div>
 
@@ -306,7 +303,9 @@
         <!-- Javascript da página -->
         <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
-        <script src="dist/js/ValidadorComum.js" type="text/javascript"></script>
-        <script src="dist/js/BuscaCep.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
+        <script src="dist/js/Pessoa.js" type="text/javascript"></script>
+        <script src="dist/js/Contato.js" type="text/javascript"></script>
+        <script src="dist/js/Endereco.js" type="text/javascript"></script>
     </body>
 </html>

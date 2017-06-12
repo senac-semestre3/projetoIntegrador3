@@ -61,6 +61,7 @@ public class UsuarioEditar implements Logica {
             usuario.setIdPermissao(Integer.parseInt(idPermissao));
             usuario.setIdLoja(Integer.parseInt(idLoja));
         } catch (Exception e) {
+            request.setAttribute("usuario", usuario);
             return "usuario-editar.jsp";
         }
 

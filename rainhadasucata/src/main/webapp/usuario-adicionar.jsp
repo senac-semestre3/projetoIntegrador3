@@ -1,4 +1,7 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,7 +40,7 @@
 
                                 <div class="corpo-card">
                                     <form method="get" action="UsuarioController" id="form">
-                                        
+
                                         <input type="hidden" name="acao" value="UsuarioAdicionar"/>
                                         <!-- dados pessoais -->
                                         <div class="row bloco-dados">
@@ -49,31 +52,45 @@
                                             </div>
 
                                             <div class="row">
+                                                <input type="hidden" name="id" value="${usuario.id}" />
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input id="nome" type="text" class="validate obrigatorio" name="nome" data-length="80" maxlength="80">
+                                                    <input value="${usuario.nome}" id="nome" type="text" class="validate obrigatorio" name="nome" data-length="80" maxlength="80">
                                                     <label for="nome">* Nome</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="cpf" type="text" class="validate obrigatorio" name="cpf">
+                                                    <input value="${usuario.cpf}" id="cpf" type="text" class="validate obrigatorio" name="cpf">
                                                     <label for="cpf">* CPF</label>
                                                 </div>
                                                 <div class="box-data col s4 offset-s1">
-                                                    <label for="data-nascimento" class="active">* Data de Nascimento</label>
-                                                    <input type="date" class="datepicker data-nascimento obrigatorio" name="data-nascimento">
+                                                    <label for="data-nascimento" class="active">Data de Nascimento</label>
+                                                    <input id="dataNascimento" value="${usuario.dataNascimento}" type="text" class="datepicker data-nascimento" name="data-nascimento">
                                                 </div>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col offset-s1">
-                                                    <input class="with-gap" name="sexo" type="radio" id="masculino" value="M" checked="checked"/>
-                                                    <label for="masculino">Masculino</label>
+                                                <c:choose>
+                                                    <c:when test="${usuario.sexo=='Masculino'}">
+                                                        <div class="col offset-s1">
+                                                            <input class="with-gap" name="sexo" type="radio" id="masculino" value="M" checked="checked"/>
+                                                            <label for="masculino">Masculino</label>
 
-                                                    <input class="with-gap" name="sexo" type="radio" id="feminino" value="F"/>
-                                                    <label for="feminino">Feminino</label>
-                                                </div>
+                                                            <input class="with-gap" name="sexo" type="radio" id="feminino" value="F"/>
+                                                            <label for="feminino">Feminino</label> 
+                                                        </div>
+                                                    </c:when>    
+                                                    <c:otherwise>
+                                                        <div class="col offset-s1">
+                                                            <input class="with-gap" name="sexo" type="radio" id="masculino" value="M"/>
+                                                            <label for="masculino">Masculino</label>
+
+                                                            <input class="with-gap" name="sexo" type="radio" id="feminino" value="F" checked="checked" />
+                                                            <label for="feminino">Feminino</label>
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                         </div>
 
@@ -89,18 +106,18 @@
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="telefone" type="text" class="validate obrigatorio" name="telefone">
+                                                    <input value="${usuario.telefone}" id="telefone" type="text" class="validate obrigatorio" name="telefone">
                                                     <label for="telefone">* Telefone</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="celular" type="text" class="validate" name="celular">
+                                                    <input value="${usuario.celular}" id="celular" type="text" class="validate" name="celular">
                                                     <label for="celular">Celular</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input id="email" type="email" class="validate obrigatorio" name="email" data-length="80" maxlength="80">
+                                                    <input value="${usuario.email}" id="email" type="email" class="validate obrigatorio" name="email" data-length="80" maxlength="80">
                                                     <label for="email">* E-mail</label>
                                                 </div>
                                             </div>
@@ -117,36 +134,36 @@
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="cep" type="text" class="validate obrigatorio" name="cep">
+                                                    <input value="${usuario.cep}" id="cep" type="text" class="validate obrigatorio" name="cep">
                                                     <label for="cep">* CEP</label>
                                                 </div>                          
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input id="logradouro" type="text" class="validate obrigatorio" name="logradouro" data-length="70" maxlength="70">
+                                                    <input value="${usuario.logradouro}" id="logradouro" type="text" class="validate obrigatorio" name="logradouro" data-length="70" maxlength="70">
                                                     <label for="logradouro">* Logradouro</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="numero" type="text" class="validate" name="numero" data-length="20" maxlength="20">
+                                                    <input value="${usuario.numero}" id="numero" type="text" class="validate" name="numero" data-length="20" maxlength="20">
                                                     <label for="numero">Número</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="bairro" type="text" class="validate obrigatorio" name="bairro" data-length="50" maxlength="50">
+                                                    <input value="${usuario.bairro}" id="bairro" type="text" class="validate obrigatorio" name="bairro" data-length="50" maxlength="50">
                                                     <label for="bairro">* Bairro</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="cidade" type="text" class="validate obrigatorio" name="cidade" data-length="50" maxlength="50">
+                                                    <input value="${usuario.cidade}" id="cidade" type="text" class="validate obrigatorio" name="cidade" data-length="50" maxlength="50">
                                                     <label for="cidade">* Cidade</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
                                                     <select name="estado">
-                                                        <option value=""></option>
+                                                        <option value="">Selecione</option>
                                                         <option value="AC">AC</option>
                                                         <option value="AL">AL</option>
                                                         <option value="AM">AM</option>
@@ -180,7 +197,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <textarea id="complemento" type="text" class="materialize-textarea" name="complemento" data-length="200" maxlength="200"></textarea>
+                                                    <textarea id="complemento" class="materialize-textarea"
+                                                              name="complemento" data-length="200" maxlength="200">${usuario.complemento}</textarea>
                                                     <label for="complemento">Complemento</label>
                                                 </div>
                                             </div>                                           
@@ -197,42 +215,48 @@
 
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="usuario" type="text" class="validate obrigatorio" name="usuario-nome" maxlength="80" maxlength="50" value="${sessionScope.usuarioAdicionar.nomeUsuario}">
+                                                    <input value="${usuario.nomeUsuario}" id="usuario" type="text" class="validate obrigatorio" name="usuario-nome" maxlength="80">
                                                     <label for="usuario">* Usuário</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input id="senha" type="password" class="validate obrigatorio" name="usuario-senha" maxlength="20">
+                                                    <input value="${usuario.senha}" id="senha" type="password" class="validate obrigatorio" name="usuario-senha" maxlength="20">
                                                     <label for="senha">* Senha</label>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
+                                                    <select name="loja">
+                                                        <option value="1">Matriz</option>
+                                                        <option value="2">Rainha Rio</option>
+                                                        <option value="3">Rainha SP</option>
+                                                    </select>
+                                                    <label>* Loja</label>
+                                                </div>
+
+                                                <div class="input-field col s4 offset-s1">
                                                     <select name="permissao">
-                                                        <option value="" disabled selected> </option>
                                                         <option value="1">Matriz</option>
                                                         <option value="2">Produto</option>
                                                         <option value="3">Administrador</option>
                                                     </select>
                                                     <label>* Nivel de Permissão</label>
                                                 </div>
-
-                                                <div class="input-field col s4 offset-s1">
-                                                    <select name="loja">
-                                                        <option value="" disabled selected> </option>
-                                                        <option value="1">Matriz</option>
-                                                        <option value="2">Produto</option>
-                                                        <option value="3">Administrador</option>
-                                                    </select>
-                                                    <label>* Loja</label>
-                                                </div>
-
                                             </div>
                                             <div class="row">
-                                                <div class="col offset-s1">
-                                                    <input type="checkbox"  id="status" name="status"/>
-                                                    <label for="status">Usuário Ativo</label>
-                                                </div>
+                                                <c:choose>
+                                                    <c:when test="${usuario.status == 1}">
+                                                        <div class="col offset-s1">
+                                                            <input type="checkbox"  id="status" name="status" checked/>
+                                                            <label for="status">Usuário Ativo</label>
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="col offset-s1">
+                                                            <input type="checkbox"  id="status" name="status"/>
+                                                            <label for="status">Usuário Ativo</label>
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                         </div>
 
@@ -266,8 +290,8 @@
                 <h4>Deseja realmente sair?</h4>
             </div>
             <div class="modal-footer">
-                <a href="usuarios.jsp" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">voltar ao cadastro</a>
+                <a href="UsuarioController?&acao=UsuarioListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
             </div>
         </div>
 
@@ -278,7 +302,9 @@
         <!-- Javascript da página -->
         <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
-        <script src="dist/js/ValidadorComum.js" type="text/javascript"></script>
-        <script src="dist/js/BuscaCep.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
+        <script src="dist/js/Pessoa.js" type="text/javascript"></script>
+        <script src="dist/js/Contato.js" type="text/javascript"></script>
+        <script src="dist/js/Endereco.js" type="text/javascript"></script>
     </body>
 </html>

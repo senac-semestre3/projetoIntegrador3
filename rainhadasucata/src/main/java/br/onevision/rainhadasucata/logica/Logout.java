@@ -60,7 +60,7 @@ public class Logout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-    }
+}
 
     /**
      * Handles the HTTP <code>POST</code> method.

@@ -23,7 +23,6 @@
 
         <!-- javascript da pagina -->
         <script src="dist/js/vendas.js" type="text/javascript"></script>
-<<<<<<< HEAD
 
         <style>
             #btnProcuraProduto{
@@ -81,19 +80,21 @@
                 top: 30px;
             }
             table.tabela-detalhes-venda td:nth-of-type(3){
-                max-width: 100px;
+                max-width: 120px;
+                min-width: 120px;
             }
             table.tabela-detalhes-venda td:last-of-type{
                 max-width: 50px;
+            }
+            table.tabela-detalhes-venda td:first-of-type{
+                max-width: 90px;
             }
             .td-borda-vermelha{
                 border-left: 1px solid red !important;
                 border: solid red 1px;
             }
         </style>
-
-=======
->>>>>>> f544801ed6f55af5b10e4ff7788d38b2f27757e3
+        
     </head>
 
     <body>
@@ -241,8 +242,8 @@
                                 <h4>Deseja realmente cancelar essa compra?</h4>
                             </div>
                             <div class="modal-footer">
-                                <a href="ClienteController?&acao=ClienteListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                                <a href="VendaController?&acao=VendaCancelar" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Cancelar</a>
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">voltar</a>
                             </div>
                         </div>
 
@@ -268,7 +269,7 @@
                                                 <td>${sessionScope.venda.data}</td>
                                             </tr>
                                             <tr>
-                                                <td colspan=""></td>
+                                                <td></td>
                                                 <th>Total </th>
                                                 <td id="totalModal">R$ </td>
                                             </tr>

@@ -33,7 +33,7 @@
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-user-o left" aria-hidden="true"></i>
-                                    <header>Editar Cliente</header>
+                                    <header>Edição do Cliente</header>
                                 </div>
 
                                 <div class="corpo-card">
@@ -66,8 +66,7 @@
                                                 </div>
                                                 <div class="box-data col s4 offset-s1">
                                                     <label for="data-nascimento" class="active">Data de Nascimento</label>
-                                                    <input value="${cliente.dataNascimento}" type="date" class="datepicker data-nascimento"
-                                                           name="data-nascimento">
+                                                    <input value="${cliente.dataNascimento}" type="text" class="datepicker data-nascimento" name="data-nascimento">
                                                 </div>
                                             </div>
 
@@ -145,7 +144,7 @@
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
                                                     <input value="${cliente.logradouro}" id="logradouro" type="text" class="validate obrigatorio" 
-                                                           name="logradouro" data-length="70" maxlength="70" value="${param.logradouro}">
+                                                           name="logradouro" data-length="70" maxlength="70">
                                                     <label for="logradouro">* Logradouro</label>
                                                 </div>
                                             </div>
@@ -158,14 +157,14 @@
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
                                                     <input value="${cliente.bairro}" id="bairro" type="text" class="validate obrigatorio" 
-                                                           name="bairro" data-length="50" maxlength="50" value="${param.bairro}">
+                                                           name="bairro" data-length="50" maxlength="50">
                                                     <label for="bairro">* Bairro</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
                                                     <input value="${cliente.cidade}" id="cidade" type="text" class="validate obrigatorio" 
-                                                           name="cidade" data-length="50" maxlength="50" value="${param.cidade}">
+                                                           name="cidade" data-length="50" maxlength="50">
                                                     <label for="cidade">* Cidade</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
@@ -204,8 +203,8 @@
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <textarea value="${cliente.complemento}" id="complemento" type="text" class="materialize-textarea" 
-                                                              name="complemento" data-length="200" maxlength="200"></textarea>
+                                                    <textarea id="complemento"  class="materialize-textarea" 
+                                                              name="complemento" data-length="200" maxlength="200">${cliente.complemento}</textarea>
                                                     <label for="complemento">Complemento</label>
                                                 </div>
                                             </div>                                           
@@ -214,7 +213,7 @@
                                         <div class="row">
                                             <div id="finalizaCliente" class="btn-finalizar-cadastro right">
 
-                                                <button id="btnCancelar"class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
+                                                <button id="btnCancelar" class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
                                                     Cancelar
                                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                                 </button>
@@ -240,8 +239,8 @@
                 <h4>Deseja realmente sair?</h4>
             </div>
             <div class="modal-footer">
-                <a href="clientes.jsp" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Voltar à edição</a>
+                <a href="ClienteController?&acao=ClienteListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Cancelar</a>
             </div>
         </div>
 
@@ -252,7 +251,9 @@
         <!-- Javascript da página -->
         <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
-        <script src="dist/js/ValidadorComum.js" type="text/javascript"></script>
-        <script src="dist/js/BuscaCep.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
+        <script src="dist/js/Pessoa.js" type="text/javascript"></script>
+        <script src="dist/js/Contato.js" type="text/javascript"></script>
+        <script src="dist/js/Endereco.js" type="text/javascript"></script>
     </body>
 </html>

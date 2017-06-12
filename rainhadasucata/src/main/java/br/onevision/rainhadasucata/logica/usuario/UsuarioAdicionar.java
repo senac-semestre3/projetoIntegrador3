@@ -60,6 +60,7 @@ public class UsuarioAdicionar implements Logica {
             usuario.setIdPermissao(Integer.parseInt(permissao));
             usuario.setIdLoja(Integer.parseInt(loja));
         } catch (Exception e) {
+            request.setAttribute("usuario", usuario);
             System.out.println("nao foi possiver converter string em numero");
         }
 

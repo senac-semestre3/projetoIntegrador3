@@ -393,4 +393,5 @@ table {
     font-size: 1.4rem;
     top: 30px; }
   .main table.tabela-detalhes-venda td:nth-of-type(3) {
-    max-width: 100px; }
+    max-width: 120px;
+    min-width: 120px; }

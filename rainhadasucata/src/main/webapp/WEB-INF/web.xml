@@ -29,6 +29,10 @@
         <servlet-name>VendaController</servlet-name>
         <servlet-class>br.onevision.rainhadasucata.controller.VendaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarLojasJson</servlet-name>
+        <servlet-class>br.onevision.rainhadasucata.logica.ListarLojasJson</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -56,6 +60,10 @@
     <servlet-mapping>
         <servlet-name>VendaController</servlet-name>
         <url-pattern>/VendaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarLojasJson</servlet-name>
+        <url-pattern>/ListarLojasJson</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

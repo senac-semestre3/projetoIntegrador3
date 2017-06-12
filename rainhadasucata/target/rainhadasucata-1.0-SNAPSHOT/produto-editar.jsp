@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Produtos</title>
+        <title>Editar Produto</title>
 
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,13 +33,13 @@
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-barcode left" aria-hidden="true"></i>
-                                    <header>Cadastrar Produto</header>
+                                    <header>Edição do Produto</header>
                                 </div>
 
                                 <div class="corpo-card">
 
                                     <!-- INICIO DO FORM-->
-                                    <form action="ProdutoController" method="" id="form">
+                                    <form action="ProdutoController" method="post" id="form">
                                         
                                         <input type="hidden" name="id" value="${produto.id}" />
                                         <input type="hidden" name="acao" value="ProdutoEditar" />
@@ -58,7 +58,7 @@
 
                                             <div class="row">
                                                 <div class="input-field col s10 offset-s1">
-                                                    <textarea id="descricao" type="text" class="materialize-textarea" name="descricao">${produto.descricao}</textarea>
+                                                    <textarea id="descricao" class="materialize-textarea" name="descricao">${produto.descricao}</textarea>
                                                     <label for="descricao">Descrição</label>
                                                 </div>
                                             </div>
@@ -67,10 +67,6 @@
                                                 <div class="input-field col s3 offset-s1">
                                                     <input value="${produto.precoCompra}" id="valor-compra" type="text" class="validate" name="valor-compra">
                                                     <label for="valor-compra">Valor de compra</label>
-                                                </div>
-                                                <div class="input-field col s2 offset-s1">
-                                                    <input value="${produto.margemVenda}" id="margem" type="text" class="validate" name="margem-lucro">
-                                                    <label for="margem">Margem de lucro</label>
                                                 </div>
                                                 <div class="input-field col s3 offset-s1">
                                                     <input value="${produto.precoVenda}" id="valor-venda" type="text" class="validate" name="valor-venda" required="required">
@@ -107,14 +103,13 @@
 
                                         <!-- botões -->
                                         <div class="row">
-                                            <div id="finalizaProduto" class="btn-finalizar-cadastro right">
-
+                                            <div class="btn-finalizar-cadastro right">
                                                 <button id="btnCancelar" class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
                                                     Cancelar
                                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                                 </button>
 
-                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="submit">Salvar
+                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="button">Salvar
                                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -127,15 +122,15 @@
                 </div> 
             </div>
         </div>
-                                                    
+
         <!-- Modal Structure -->
         <div id="modalCancelar" class="modal">
             <div class="modal-content">
                 <h4>Deseja realmente sair?</h4>
             </div>
             <div class="modal-footer">
-                <a href="usuarios.jsp" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Voltar ao cadastro</a>
+                <a href="ProdutoController?&acao=ProdutoListar" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Cancelar</a>
             </div>
         </div>
 
@@ -143,6 +138,8 @@
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
         <script src="dist/js/mascaras.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
+        <script src="dist/js/Produto.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
     </body>
 </html>
 

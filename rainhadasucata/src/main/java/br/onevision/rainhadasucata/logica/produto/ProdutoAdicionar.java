@@ -27,7 +27,6 @@ public class ProdutoAdicionar implements Logica {
         String marca = request.getParameter("marca");
         String descricao = request.getParameter("descricao");
         String precoCompra = request.getParameter("valor-compra");
-        String margem = request.getParameter("margem-lucro");
         String precoVenda = request.getParameter("valor-venda");
         String estoque = request.getParameter("estoque");
         String estoqueMin = request.getParameter("estoque-minimo");
@@ -49,7 +48,6 @@ public class ProdutoAdicionar implements Logica {
 
         try {
             produto.setPrecoCompra(Double.parseDouble(precoCompra));
-            produto.setMargemVenda(Double.parseDouble(margem));
             produto.setPrecoVenda(Double.parseDouble(precoVenda));
             
             produto.setEstoque(Integer.parseInt(estoque));

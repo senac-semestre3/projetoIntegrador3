@@ -5,6 +5,9 @@
  */
 package br.onevision.rainhadasucata.model;
 
+import java.io.IOException;
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author everton
@@ -24,6 +27,12 @@ public class Loja {
     private String dataCadastro;
     private boolean deletado;
     
+    public JSONObject toJSON() throws IOException{
+        JSONObject json = new JSONObject();
+        json.put("id", this.id);
+        json.put("nome", this.nome);
+        return json;
+    }
     
     public Loja(){
         this.deletado = false;

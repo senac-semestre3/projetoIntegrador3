@@ -5,9 +5,7 @@
  */
 package br.onevision.rainhadasucata.loja;
 
-import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.dao.DaoLoja;
-import br.onevision.rainhadasucata.model.Cliente;
 import br.onevision.rainhadasucata.model.Loja;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +29,9 @@ public class TesteListar {
         String nome = "Rainha";
 
         //lojas = dao.listaPorCnpj(cnpj);// Chamada da dao listarPorcnpj
-        lojas = dao.listaPorNome(nome);// Chamada da dao listarPorNome
+        //lojas = dao.listaPorNome(nome);// Chamada da dao listarPorNome
         
-        //lojas = dao.listarTodos();// Chamada da dao listarTodos
+        lojas = dao.listarTodos();// Chamada da dao listarTodos
 
         for (Loja loja : lojas) {
             System.out.println("ID Loja: " + loja.getId());

@@ -79,10 +79,6 @@
                                                         <td>R$ ${produto.precoCompra}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Margem de lucro</th>
-                                                        <td>${produto.margemVenda} %</td>
-                                                    </tr>
-                                                    <tr>
                                                         <th>Valor de Venda</th>
                                                         <td>R$ ${produto.precoVenda}</td>
                                                     </tr>

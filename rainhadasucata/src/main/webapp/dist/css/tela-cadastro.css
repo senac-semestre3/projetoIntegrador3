@@ -31,7 +31,7 @@ and open the template in the editor.
     Author     : everton
 */
 #container-main {
-  padding: 30px 10px 0px 10px; }
+    padding: 30px 10px 0px 10px; }
 
 /*
 To change this license header, choose License Headers in Project Properties.
@@ -43,14 +43,14 @@ and open the template in the editor.
     Author     : everton
 */
 .card {
-  margin-bottom: 40px !important; }
-  .card .cabecalho {
+    margin-bottom: 40px !important; }
+.card .cabecalho {
     background: #092340;
     border-radius: 3px 3px 1px 1px;
     padding: 15px 10px;
     font-size: 20px;
     color: #fff; }
-  .card .corpo-card {
+.card .corpo-card {
     padding: 10px 15px; }
 
 /*
@@ -63,42 +63,42 @@ and open the template in the editor.
     Author     : everton
 */
 table:not(picker__table) td, table:not(picker__table) th {
-  padding-left: 10px; }
+    padding-left: 10px; }
 
 table:not(picker__table) tr {
-  font-size: 12px;
-  color: #1b3b60; }
-  table:not(picker__table) tr th {
+    font-size: 12px;
+    color: #1b3b60; }
+table:not(picker__table) tr th {
     text-transform: uppercase;
     font-weight: 600; }
-  table:not(picker__table) tr td {
+table:not(picker__table) tr td {
     font-weight: 300; }
 
 .horizontal thead tr:first-of-type {
-  padding-top: 20px;
-  padding-bottom: 20px; }
+    padding-top: 20px;
+    padding-bottom: 20px; }
 
 .horizontal thead tr:last-of-type {
-  border-bottom: none; }
-  .horizontal thead tr:last-of-type td:nth-of-type(2) {
+    border-bottom: none; }
+.horizontal thead tr:last-of-type td:nth-of-type(2) {
     border-left: none; }
 
 .horizontal tr {
-  border-bottom: solid 1px #ddd; }
-  .horizontal tr td, .horizontal tr th {
+    border-bottom: solid 1px #ddd; }
+.horizontal tr td, .horizontal tr th {
     text-align: center;
     border-left: solid 1px #ddd; }
-  .horizontal tr td:first-of-type, .horizontal tr th:first-of-type {
+.horizontal tr td:first-of-type, .horizontal tr th:first-of-type {
     border-left: none; }
 
 .vertical tr {
-  font-size: 14px; }
-  .vertical tr th {
+    font-size: 14px; }
+.vertical tr th {
     width: 25%;
     border-right: 1px solid #ddd;
     text-align: right;
     padding-right: 10px; }
-  .vertical tr td {
+.vertical tr td {
     text-align: left; }
 
 /*
@@ -124,50 +124,50 @@ btn-teste{
     usuario
 */
 .btn-ver {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #1b3b60;
-  border: solid 1px #1b3b60; }
-  .btn-ver:hover {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    color: #1b3b60;
+    border: solid 1px #1b3b60; }
+.btn-ver:hover {
     transition-duration: 0.3s;
     background: #1b3b60;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
-  .btn-ver:hover {
+.btn-ver:hover {
     background: #1b3b60;
     color: #fff; }
-  .btn-ver:hover {
+.btn-ver:hover {
     background: #fff;
     color: #26a69a; }
 
 .btn-editar {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #03a9f4;
-  border: solid 1px #03a9f4; }
-  .btn-editar:hover {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    color: #03a9f4;
+    border: solid 1px #03a9f4; }
+.btn-editar:hover {
     transition-duration: 0.3s;
     background: #03a9f4;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
-  .btn-editar:hover {
+.btn-editar:hover {
     background: #03a9f4;
     color: #fff; }
 
 .btn-deletar {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #f44336;
-  border: solid 1px #f44336; }
-  .btn-deletar:hover {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    color: #f44336;
+    border: solid 1px #f44336; }
+.btn-deletar:hover {
     transition-duration: 0.3s;
     background: #f44336;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
-  .btn-deletar:hover {
+.btn-deletar:hover {
     background: #f44336;
     color: #fff; }
 
@@ -216,12 +216,12 @@ nav,
 section,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -234,65 +234,92 @@ header,
 hgroup,
 nav,
 section {
-  display: block; }
+    display: block; }
 
 body {
-  line-height: 1; }
+    line-height: 1; }
 
 ol,
 ul {
-  list-style: none; }
+    list-style: none; }
 
 blockquote,
 q {
-  quotes: none; }
+    quotes: none; }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
-  content: none; }
+    content: '';
+    content: none; }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+    border-collapse: collapse;
+    border-spacing: 0; }
 
 .row .col {
-  padding: 0 0.25rem !important; }
+    padding: 0 0.25rem !important; }
 
 .main {
-  /*para tela de permissão*/ }
-  .main .cabecalho {
+    /*para tela de permissão*/ }
+.main .cabecalho {
     margin-bottom: 30px; }
-  .main label.descricao {
+.main label.descricao {
     font-size: 16px; }
-  .main .btn i {
+.main .btn i {
     margin-left: 10px; }
-  .main .btn-cancelar {
+.main .btn-cancelar {
     background: #ff9800;
     border-radius: 2px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
-    .main .btn-cancelar:hover {
-      transition-duration: 0.3s;
-      background: #ffa21a;
-      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
-  .main .topo-descricao label {
+.main .btn-cancelar:hover {
+    transition-duration: 0.3s;
+    background: #ffa21a;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2); }
+.main .topo-descricao label {
     font-size: 16px; }
-  .main .topo-descricao i {
+.main .topo-descricao i {
     margin-top: -8px;
     color: #092340; }
-  .main .row.bloco-dados {
+.main .row.bloco-dados {
     margin-bottom: 50px; }
-  .main .status {
+.main .status {
     margin-top: 40px; }
-  .main .topo-descricao label {
+.main .topo-descricao label {
     font-size: 16px; }
-  .main .topo-descricao i {
+.main .topo-descricao i {
     margin-top: -8px;
     color: #092340; }
-  .main table tr td {
+.main table tr td {
     text-align: left; }
-  .main .input-normal {
+.main .input-normal {
     margin: 0;
     height: 2rem; }
+.toast.error{
+    float: left;
+    background: #f2dede;
+    color: #843534;
+    font-weight: 400;
+    border: 1px solid #ebccd1;
+    font-size: 1.4rem;
+    top: 30px;
+}
+.toast.warning{
+    float: left;
+    background: #fcf8e3;
+    color: #8a6d3b;
+    font-weight: 400;
+    border: 1px solid #faebcc;
+    font-size: 1.4rem;
+    top: 30px;
+}
+.toast.success{
+    float: left;
+    background: #dff0d8;
+    color: #3c763d;
+    font-weight: 400;
+    border: 1px solid #d6e9c6;
+    font-size: 1.4rem;
+    top: 30px;
+}

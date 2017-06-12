@@ -27,11 +27,10 @@ public class DaoProduto {
                 + "descricao_produtos, "
                 + "preco_compra_produtos, "
                 + "preco_venda_produtos, "
-                + "margem_venda_produtos, "
                 + "estoque_produtos, "
                 + "estoque_minimo_produtos, "
                 + "status_produtos )"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         Connection connection = DBConnector.getConexaoDB();
         PreparedStatement stmt = connection.prepareStatement(sql);
@@ -44,10 +43,9 @@ public class DaoProduto {
             stmt.setString(3, produto.getDescricao());
             stmt.setDouble(4, produto.getPrecoCompra());
             stmt.setDouble(5, produto.getPrecoVenda());
-            stmt.setDouble(6, produto.getMargemVenda());
-            stmt.setInt(7, produto.getEstoque());
-            stmt.setInt(8, produto.getEstoqueMinimo());
-            stmt.setInt(9, produto.getStatus());
+            stmt.setInt(6, produto.getEstoque());
+            stmt.setInt(7, produto.getEstoqueMinimo());
+            stmt.setInt(8, produto.getStatus());
 
             //Executa SQL Statement
             stmt.execute();
@@ -77,7 +75,6 @@ public class DaoProduto {
                 + "descricao_produtos = ?, "
                 + "preco_compra_produtos = ?, "
                 + "preco_venda_produtos = ?, "
-                + "margem_venda_produtos = ?, "
                 + "estoque_produtos = ?, "
                 + "estoque_minimo_produtos = ?, "
                 + "status_produtos = ? "
@@ -94,11 +91,10 @@ public class DaoProduto {
             stmt.setString(3, produto.getDescricao());
             stmt.setDouble(4, produto.getPrecoCompra());
             stmt.setDouble(5, produto.getPrecoVenda());
-            stmt.setDouble(6, produto.getMargemVenda());
-            stmt.setInt(7, produto.getEstoque());
-            stmt.setInt(8, produto.getEstoqueMinimo());
-            stmt.setInt(9, produto.getStatus());
-            stmt.setInt(10, produto.getId());
+            stmt.setInt(6, produto.getEstoque());
+            stmt.setInt(7, produto.getEstoqueMinimo());
+            stmt.setInt(8, produto.getStatus());
+            stmt.setInt(9, produto.getId());
 
             //Executa SQL Statement
             stmt.execute();

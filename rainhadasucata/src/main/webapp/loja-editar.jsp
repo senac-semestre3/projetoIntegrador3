@@ -37,7 +37,7 @@
                             <div class="card">
                                 <div class="cabecalho cabecalho-informacoes">
                                     <i class="fa fa-home left" aria-hidden="true"></i>
-                                    <header>Nova Loja</header>
+                                    <header>Edição da Loja</header>
                                 </div>
 
                                 <div class="corpo-card">
@@ -115,7 +115,7 @@
 
                                             <div class="row">
                                                 <div class="input-field col s9 offset-s1">
-                                                    <input value="${loja.logradouro}" id="logradouro" type="text" class="validate obrigatorio" name="logradouro" data-length="70" maxlength="70" value="${param.logradouro}">
+                                                    <input value="${loja.logradouro}" id="logradouro" type="text" class="validate obrigatorio" name="logradouro" data-length="70" maxlength="70">
                                                     <label for="logradouro">* Logradouro</label>
                                                 </div>
                                             </div>
@@ -126,14 +126,14 @@
                                                     <label for="numero">Número</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input value="${loja.bairro}" id="bairro" type="text" class="validate obrigatorio" name="bairro" data-length="50" maxlength="50" value="${param.bairro}">
+                                                    <input value="${loja.bairro}" id="bairro" type="text" class="validate obrigatorio" name="bairro" data-length="50" maxlength="50">
                                                     <label for="bairro">* Bairro</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s4 offset-s1">
-                                                    <input value="${loja.cidade}" id="cidade" type="text" class="validate obrigatorio" name="cidade" data-length="50" maxlength="50" value="${param.cidade}">
-                                                    <label for="cidade">* Cidade</label>
+                                                    <input value="${loja.cidade}" id="cidade" type="text" class="validate obrigatorio" name="cidade" data-length="50" maxlength="50">
+                                                    <label for="cidade"> * Cidade</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
                                                     <select name="estado" id="estado">
@@ -174,11 +174,11 @@
                                         <div class="row">
                                             <div id="finalizaLoja" class="btn-finalizar-cadastro right">
 
-                                                <button id="btnCancelar"class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
+                                                <button id="btnCancelar" class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
                                                     Cancelar
                                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                                 </button>
-                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="submit">Salvar
+                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="button">Salvar
                                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -198,8 +198,8 @@
                 <h4>Deseja realmente sair?</h4>
             </div>
             <div class="modal-footer">
-                <a href="lojas.jsp" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Voltar à edição</a>
+                <a href="LojaController?&acao=LojaListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Cancelar</a> 
             </div>
         </div>
 
@@ -209,7 +209,10 @@
 
         <!-- Javascript da página -->
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
-        <script src="dist/js/ValidadorComum.js" type="text/javascript"></script>
-        <script src="dist/js/BuscaCep.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
+        <script src="dist/js/Loja.js" type="text/javascript"></script>
+        <script src="dist/js/Endereco.js" type="text/javascript"></script>
+        <script src="dist/js/Contato.js" type="text/javascript"></script>
+
     </body>
 </html>

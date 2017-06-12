@@ -39,34 +39,34 @@ public class AutorizacaoFilter implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         // 1) OBTEM AS INFORMACOES DO USUARIO DA SESSAO
-        // A) CAST DOS PARÂMETROS RECEBIDOS
+        // A) CAST DOS PARAMETROS RECEBIDOS
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
         String pagina = httpRequest.getRequestURI();
-        System.out.println("Imprimendo página "+ pagina);
+        System.out.println("Imprimindo pagina "+ pagina);
         
         
         
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        // B) TENTA RECUPERAR A SESSÃO DO USUÁRIO
+        // B) TENTA RECUPERAR A SESSï¿½O DO USUï¿½RIO
         HttpSession sessao = httpRequest.getSession();
         Usuario usuario = (Usuario) sessao.getAttribute("sessionusuario");
-        // 2) NA LÓGICA IMPLEMENTADA, SE EXISTIR OBJETO DO USUÁRIO SIGNIFICA
-        // QUE USUÁRIO ESTÁ LOGADO
-        // CASO CONTRÁRIO, REDIRECIONA PARA TELA DE LOGIN
+        // 2) NA LOGICA IMPLEMENTADA, SE EXISTIR OBJETO DO USUARIO SIGNIFICA
+        // QUE USUARIO ESTA LOGADO
+        // CASO CONTRARIO, REDIRECIONA PARA TELA DE LOGIN
         if (usuario == null) {
             httpResponse.sendRedirect("login.jsp");
             return;
         }
 
-        //Manda de volta para a servlet específica
+        //Manda de volta para a servlet especï¿½fica
         chain.doFilter(request, response);
 
 // 
 // try {
 // // 3) VERIFICAR SE USUARIO PODE ACESSAR PAGINA
 // if (verificarAcesso(usuario, httpRequest, httpResponse)) {
-// // CHAMADA QUE ENVIA A REQUISIÇÃO PARA O PRÓXIMO FILTRO OU SERVLET
+// // CHAMADA QUE ENVIA A REQUISIAO PARA O PROXIMO FILTRO OU SERVLET
 // chain.doFilter(request, response);
 // } else {
 // // SE NAO PODER ACESSAR, APRESENTA ERRO
@@ -78,7 +78,7 @@ public class AutorizacaoFilter implements Filter {
     }
 
     /**
-     * ROTINA PARA DESTRUIÇÃO DO FILTRO
+     * ROTINA PARA DESTRUIU DO FILTRO
      */
     @Override
     public void destroy() {
@@ -86,7 +86,7 @@ public class AutorizacaoFilter implements Filter {
     }
 
     /**
-     * ROTINA DE INICIALIZAÇÃO DO FILTRO
+     * ROTINA DE INICIALIZACAO DO FILTRO
      */
     @Override
     public void init(FilterConfig filterConfig) {
@@ -97,7 +97,7 @@ public class AutorizacaoFilter implements Filter {
             HttpServletResponse resp) {
         String pagina = req.getRequestURI();  // URL com final X - > listar-cliente 
 
-        // se no final da chamada da requisição conter o nome da servlet fazer a:
+        // se no final da chamada da requisito conter o nome da servlet fazer a:
         if (pagina.endsWith("listar-cliente ou qualquer outra") && usuario.getId() == 1) {
             return true;
         } else if (pagina.endsWith("IncluirPessoaServlet")

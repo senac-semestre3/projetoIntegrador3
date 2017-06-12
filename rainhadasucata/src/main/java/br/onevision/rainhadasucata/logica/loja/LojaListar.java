@@ -5,10 +5,8 @@
  */
 package br.onevision.rainhadasucata.logica.loja;
 
-import br.onevision.rainhadasucata.dao.DaoCliente;
 import br.onevision.rainhadasucata.dao.DaoLoja;
 import br.onevision.rainhadasucata.logica.Logica;
-import br.onevision.rainhadasucata.model.Cliente;
 import br.onevision.rainhadasucata.model.Loja;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +26,7 @@ public class LojaListar implements Logica {
 
         String busca = request.getParameter("busca");
 
-        //cria lista de Clientes
+        //cria lista de lojas
         List<Loja> lojas;
 
         // Chama o daoCliente

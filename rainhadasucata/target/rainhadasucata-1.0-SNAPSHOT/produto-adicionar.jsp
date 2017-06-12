@@ -36,12 +36,12 @@
                                 <div class="corpo-card">
 
                                     <!-- INICIO DO FORM-->
-                                    <form action="ProdutoController" method="post">
+                                    <form action="ProdutoController" method="get" id="form">
                                         <input type="hidden" name="acao" value="ProdutoAdicionar" />
                                         <div class="row bloco-dados">
                                             <div class="row">
                                                 <div class="input-field col s5 offset-s1">
-                                                    <input id="nome" type="text" class="validate" name="nome" required="required">
+                                                    <input id="nome" type="text" class="validate obrigatorio" name="nome" required="required">
                                                     <label for="nome">* Nome do produto</label>
                                                 </div>
                                                 <div class="input-field col s4 offset-s1">
@@ -59,21 +59,17 @@
 
                                             <div class="row">
                                                 <div class="input-field col s3 offset-s1">
-                                                    <input id="valor-compra" type="text" class="validate" name="valor-compra">
+                                                    <input id="valorCompra" type="text" class="validate" name="valor-compra">
                                                     <label for="valor-compra">Valor de compra</label>
                                                 </div>
-                                                <div class="input-field col s2 offset-s1">
-                                                    <input id="margem" type="text" class="validate" name="margem-lucro">
-                                                    <label for="margem">Margem de lucro</label>
-                                                </div>
                                                 <div class="input-field col s3 offset-s1">
-                                                    <input id="valor-venda" type="text" class="validate" name="valor-venda" required="required">
+                                                    <input id="valorVenda" type="text" class="validate obrigatorio" name="valor-venda" required="required">
                                                     <label for="valor-venda">* Valor de venda</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s3 offset-s1">
-                                                    <input id="estoque" type="number" class="validate" name="estoque" required="required">
+                                                    <input id="estoque" type="number" class="validate obrigatorio" name="estoque" required="required">
                                                     <label for="estoque">* Quantidade em estoque</label>
                                                 </div>
                                                 <div class="input-field col s3 offset-s1">
@@ -92,14 +88,12 @@
                                         <!-- botões -->
                                         <div class="row">
                                             <div class="btn-finalizar-cadastro right">
-                                                <a href="produtos.jsp">
-                                                    <button class="btn btn-cancelar waves-effect waves-light" type="button">
-                                                        Cancelar
-                                                        <i class="fa fa-ban" aria-hidden="true"></i>
-                                                    </button>
-                                                </a>
+                                                <button id="btnCancelar" class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
+                                                    Cancelar
+                                                    <i class="fa fa-ban" aria-hidden="true"></i>
+                                                </button>
 
-                                                <button class="btn btn-adicionar waves-effect waves-light" type="submit">Salvar
+                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="button">Salvar
                                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -113,13 +107,26 @@
             </div>
         </div>
 
+        <!-- Modal Structure -->
+        <div id="modalCancelar" class="modal">
+            <div class="modal-content">
+                <h4>Deseja realmente sair?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Voltar à edição</a>
+                <a href="ProdutoController?&acao=ProdutoListar" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
+            </div>
+        </div>
+
         <!-- javascript das libs -->
         <script src="dist/js/lib.min.js" type="text/javascript"></script>
-        <script src="dist/js/mascaras.js" type="text/javascript"></script>
+        <script src="dist/js/jquery.mask.min.js" type="text/javascript"></script>
 
         <!-- javascript da página -->
         <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
+        <script src="dist/js/Produto.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
     </body>
 </html>
 

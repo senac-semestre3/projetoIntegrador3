@@ -27,7 +27,7 @@
                 <nav class="topo">
                     <div class="nav-wrapper">
                         <div class="logo col s8">
-                            <a href="#!"></a>
+                            <a href="dashboard.jsp"></a>
                         </div>
                         <div class="right">
                             <a href="servletSair">
@@ -52,7 +52,7 @@
 
                 <!-- Menu -->
                 <ul class="collapsible" id="menuPrincipal">
-                    <li class="btn-menu" id="munuDashboard"><a href="#" class="collapsible-header waves-effect waves-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+                    <li class="btn-menu" id="munuDashboard"><a href="dashboard.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
                     <li class="btn-menu" id="menuCliente"><a href="ClienteController?&acao=ClienteListar&busca=" class="collapsible-header waves-effect waves-light"><i class="fa fa-user-o" aria-hidden="true"></i>Clientes</a></li>
                     <li class="btn-menu" id="menuProduto"><a href="ProdutoController?&acao=ProdutoListar" class="collapsible-header waves-effect waves-light"><i class="fa fa-barcode" aria-hidden="true"></i>Produtos</a></li>
                     <li class="btn-menu" id="Relatorio"><a href="relatorios.jsp" class="collapsible-header waves-effect waves-light"><i class="fa fa-line-chart" aria-hidden="true"></i>Relatórios</a></li>

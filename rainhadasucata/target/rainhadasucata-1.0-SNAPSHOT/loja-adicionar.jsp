@@ -13,6 +13,7 @@
         <link href="dist/css/plugins.css" rel="stylesheet" type="text/css"/>
 
         <!-- CSS da pagina -->
+        <link href="dist/css/comum.css" rel="stylesheet" type="text/css"/>
         <link href="dist/css/tela-cadastro.css" rel="stylesheet" type="text/css"/>
 
         <style>
@@ -134,7 +135,7 @@
                                                     <input id="cidade" type="text" class="validate obrigatorio" name="cidade" data-length="50" maxlength="50" value="${param.cidade}">
                                                     <label for="cidade">* Cidade</label>
                                                 </div>
-                                                <div class="input-field col s4 offset-s1">
+                                                <div class="input-field col s4 offset-s1 select-estado">
                                                     <select name="estado" id="estado">
                                                         <option value="">Selecione</option>
                                                         <option value="AC">AC</option>
@@ -169,15 +170,15 @@
                                                 </div>
                                             </div>                                          
                                         </div>
-                                        <!-- botoes -->
+                                                                                <!-- botoes -->
                                         <div class="row">
-                                            <div id="finalizaCliente" class="btn-finalizar-cadastro right">
+                                            <div id="finalizaLoja" class="btn-finalizar-cadastro right">
 
-                                                <button id="btnCancelar"class="btn btn-cancelar waves-effect waves-light" type="button" name="action" data-target="modalCancelar">
+                                                <button id="btnCancelar" class="btn btn-cancelar waves-effect waves-light" type="button" data-target="modalCancelar">
                                                     Cancelar
                                                     <i class="fa fa-ban" aria-hidden="true"></i>
                                                 </button>
-                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="submit" name="action">Salvar
+                                                <button id="btnSalvar" class="btn btn-adicionar waves-effect waves-light" type="button">Salvar
                                                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                                 </button>
                                             </div>
@@ -197,8 +198,8 @@
                 <h4>Deseja realmente sair?</h4>
             </div>
             <div class="modal-footer">
-                <a href="lojas.jsp" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Voltar ao cadastro</a>
+                <a href="LojaController?&acao=LojaListar&busca=" class="modal-action modal-close waves-effect waves-green btn-flat" id="sair">Sair</a> 
             </div>
         </div>
 
@@ -207,9 +208,11 @@
         <script src="dist/js/mascaras.js" type="text/javascript"></script>
 
         <!-- Javascript da página -->
-        <script src="dist/js/DataMaterialize.js" type="text/javascript"></script>
         <script src="dist/js/SetMascara.js" type="text/javascript"></script>
-        <script src="dist/js/ValidadorComum.js" type="text/javascript"></script>
-        <script src="dist/js/BuscaCep.js" type="text/javascript"></script>
+        <script src="dist/js/EventosComum.js" type="text/javascript"></script>
+        <script src="dist/js/Loja.js" type="text/javascript"></script>
+        <script src="dist/js/Endereco.js" type="text/javascript"></script>
+        <script src="dist/js/Contato.js" type="text/javascript"></script>
+        
     </body>
 </html>

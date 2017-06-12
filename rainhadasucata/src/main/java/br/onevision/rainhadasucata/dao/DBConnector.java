@@ -30,7 +30,7 @@ public class DBConnector {
 //            String url = "jdbc:mysql://" + serverName + "/" + mydatabase;// Montagem da URL
 //            String username = "root"; //nome de um usuário do db      
 //            String password = "P@ssw0rd"; //senha de acesso
-            //jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull
+//            jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull
             
            
 
